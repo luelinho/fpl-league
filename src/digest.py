@@ -123,12 +123,58 @@ def results_for_gw(conn, gw: int) -> list[dict]:
     return out
 
 
-def alerts(conn) -> list[dict]:
+ALERTS_SHOWN_LIMIT = 5
+
+
+def alerts(conn) -> dict:
+    """Capped so the Home page can't grow an unbounded list over a season —
+    most severe and most recent first. `total` lets the UI say "N more" for
+    anything past the cap rather than silently dropping it."""
+    total = conn.execute("SELECT COUNT(*) FROM data_issues WHERE resolved = 0").fetchone()[0]
     rows = conn.execute(
         "SELECT severity, category, description FROM data_issues WHERE resolved = 0 "
-        "ORDER BY severity = 'error' DESC, severity = 'warning' DESC"
+        "ORDER BY severity = 'error' DESC, severity = 'warning' DESC, detected_at DESC "
+        "LIMIT ?",
+        (ALERTS_SHOWN_LIMIT,),
     ).fetchall()
-    return [{"severity": sev, "category": cat, "description": desc} for sev, cat, desc in rows]
+    items = [{"severity": sev, "category": cat, "description": desc} for sev, cat, desc in rows]
+    return {"items": items, "total_unresolved": total}
+
+
+PRICE_MOVERS_SHOWN = 5
+
+
+def price_movers(conn) -> dict:
+    """Risers/fallers since the previous daily snapshot. raw_player_snapshots
+    has been captured since Phase 3, but comparing prices needs at least two
+    distinct snapshot dates — until a second day exists this is honestly
+    reported as unavailable, not backfilled with a guess or left silently
+    empty. Self-heals the day after this first runs on a new date.
+    """
+    dates = conn.execute(
+        "SELECT DISTINCT snapshot_date FROM raw_player_snapshots ORDER BY snapshot_date DESC LIMIT 2"
+    ).fetchall()
+    if len(dates) < 2:
+        return {"available": False, "latest_date": dates[0][0] if dates else None, "risers": [], "fallers": []}
+
+    latest, previous = dates[0][0], dates[1][0]
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, c.short_name, s1.price_tenths - s2.price_tenths AS delta, s1.price_tenths
+        FROM raw_player_snapshots s1
+        JOIN raw_player_snapshots s2 ON s2.player_id = s1.player_id AND s2.season_id = s1.season_id
+                                     AND s2.snapshot_date = ?
+        JOIN players pl ON pl.season_id = s1.season_id AND pl.player_id = s1.player_id
+        JOIN pl_clubs c ON c.season_id = pl.season_id AND c.club_id = pl.club_id
+        WHERE s1.snapshot_date = ? AND s1.price_tenths != s2.price_tenths
+        ORDER BY delta DESC
+        """,
+        (previous, latest),
+    ).fetchall()
+    movers = [{"name": n, "club": c, "delta_tenths": d, "price_tenths": p} for n, c, d, p in rows]
+    risers = [m for m in movers if m["delta_tenths"] > 0][:PRICE_MOVERS_SHOWN]
+    fallers = list(reversed([m for m in movers if m["delta_tenths"] < 0][-PRICE_MOVERS_SHOWN:]))
+    return {"available": True, "latest_date": latest, "previous_date": previous, "risers": risers, "fallers": fallers}
 
 
 def club_badges(conn) -> dict[str, str]:
@@ -403,6 +449,7 @@ def build_digest() -> dict:
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
         "club_badges": club_badges(conn),
+        "price_movers": price_movers(conn),
     }
     conn.close()
     return d

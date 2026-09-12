@@ -461,10 +461,12 @@ function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
 
-  if (d.alerts.length) {
+  if (d.alerts.items.length) {
     const box = el('div', 'card');
     box.appendChild(el('h2', null, 'Alerts'));
-    d.alerts.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
+    d.alerts.items.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
+    const hidden = d.alerts.total_unresolved - d.alerts.items.length;
+    if (hidden > 0) box.appendChild(el('p', 'muted', `+${hidden} more not shown.`));
     root.appendChild(box);
   }
 
@@ -523,6 +525,33 @@ function renderHome(root) {
   }
   grid2.appendChild(nextCard);
   root.appendChild(grid2);
+
+  const pm = d.price_movers;
+  const priceCard = el('div', 'card');
+  priceCard.style.marginTop = '16px';
+  priceCard.appendChild(el('h2', null, 'Price movers'));
+  if (!pm.available) {
+    priceCard.appendChild(el('p', 'muted',
+      'Price history needs at least two days of snapshots to show movement — ' +
+      `only ${pm.latest_date || 'today'} has been captured so far. Check back after tomorrow's sync.`));
+  } else {
+    const fmtPrice = t => `£${(t / 10).toFixed(1)}m`;
+    const moverRow = m => `
+      <div class="match-row">
+        <div class="match-side">${m.name}<div class="muted">${m.club}</div></div>
+        <div class="match-score ${m.delta_tenths > 0 ? 'win' : ''}" style="${m.delta_tenths < 0 ? 'color:var(--loss)' : ''}">
+          ${m.delta_tenths > 0 ? '+' : ''}${fmtPrice(m.delta_tenths)}
+        </div>
+        <div class="match-side right muted">${fmtPrice(m.price_tenths)}</div>
+      </div>`;
+    const grid3 = el('div', 'grid grid-2');
+    const risersCol = el('div', null, `<h3>Risers</h3>${pm.risers.length ? pm.risers.map(moverRow).join('') : '<p class="muted">No risers today.</p>'}`);
+    const fallersCol = el('div', null, `<h3>Fallers</h3>${pm.fallers.length ? pm.fallers.map(moverRow).join('') : '<p class="muted">No fallers today.</p>'}`);
+    grid3.appendChild(risersCol);
+    grid3.appendChild(fallersCol);
+    priceCard.appendChild(grid3);
+  }
+  root.appendChild(priceCard);
 }
 
 function formatDeadline(iso) {
@@ -787,9 +816,16 @@ function renderHistory(root) {
     recapCard.appendChild(el('h2', null, `GW${gw} highlights`));
     if (recap) {
       let html = '';
-      if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
-      if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
-      if (recap.upset) html += `<p><b>Biggest upset:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
+      if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} ran away with it — ${recap.winner.net_points} points, best in the league this week.</p>`;
+      if (recap.blowout) {
+        const aWon = recap.blowout.score_a > recap.blowout.score_b;
+        const beater = aWon ? recap.blowout.a : recap.blowout.b;
+        const beaten = aWon ? recap.blowout.b : recap.blowout.a;
+        html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b} — ${beater} put a ${recap.blowout.margin}-point beating on ${beaten}.</p>`;
+      }
+      if (recap.upset) html += `<p><b>Biggest upset${recap.upset.thin_sample ? ' <span class="muted">(thin sample)</span>' : ''}:</b> ${recap.upset.winner} played spoiler, beating ${recap.upset.loser} — who carried a ${recap.upset.gap}-point-higher season average into the match.</p>`;
+      if (recap.unluckiest) html += `<p><b>Unluckiest:</b> ${recap.unluckiest.name} put up ${recap.unluckiest.net_points} points and still walked away with a loss. Brutal.</p>`;
+      if (recap.luckiest) html += `<p><b>Luckiest:</b> ${recap.luckiest.name} escaped with the win on just ${recap.luckiest.net_points} points. Take it and run.</p>`;
       recapCard.innerHTML += html || '<p class="muted">No highlights computed.</p>';
     }
     grid.appendChild(recapCard);
