@@ -62,6 +62,13 @@ def render(digest: dict) -> str:
   <section id="page-history" class="page"></section>
 </main>
 
+<div id="matchup-modal" class="modal-overlay" style="display:none">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
 <footer class="footer">
   Generated {digest['generated_at']} · Fact = stored raw data. Computed = derived by a documented formula.
 </footer>
@@ -265,15 +272,64 @@ tr:last-child td { border-bottom: none; }
 .chip { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--card-2); border: 1px solid var(--border); color: var(--ink); }
 .divider { height: 1px; background: var(--border); margin: 18px 0 14px; }
 .footer { text-align: center; color: var(--ink-soft); font-size: 12px; padding: 20px; }
+.match-row.clickable { cursor: pointer; border-radius: 10px; transition: background 0.1s; }
+.match-row.clickable:hover { background: rgba(255,255,255,0.04); }
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(5,3,8,0.72); backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); z-index: 100; display: flex; align-items: flex-start;
+  justify-content: center; padding: 40px 16px; overflow-y: auto;
+}
+.modal-card {
+  position: relative; background: #16121e; border: 1px solid var(--border); border-radius: 20px;
+  max-width: 920px; width: 100%; padding: 26px 26px 30px; box-shadow: var(--shadow);
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--card-2); color: var(--ink); font-size: 14px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: var(--coral-soft); color: var(--coral); }
+.h2h-header { text-align: center; margin-bottom: 6px; }
+.h2h-header .gw-label { color: var(--ink-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; }
+.h2h-score {
+  display: flex; align-items: center; justify-content: center; gap: 24px; margin: 10px 0 4px;
+}
+.h2h-score .side-name { font-size: 17px; font-weight: 700; flex: 1; }
+.h2h-score .side-name.right { text-align: right; }
+.h2h-score .score-box { font-size: 30px; font-weight: 800; color: var(--ink); white-space: nowrap; }
+.h2h-score .score-box .win { color: var(--accent); }
+.h2h-record {
+  text-align: center; color: var(--ink-soft); font-size: 13px; margin-bottom: 18px;
+}
+.h2h-record b { color: var(--ink); }
+.h2h-pitches { display: flex; gap: 18px; flex-wrap: wrap; }
+.h2h-pitches > div { flex: 1; min-width: 300px; }
+.h2h-pitches h3 { text-align: center; }
 """
 
 
 JS = """
 function fmtPct(v) { return v === null || v === undefined ? '—' : v.toFixed(1) + '%'; }
+const MANAGER_ID_BY_NAME = {};
+DIGEST.managers.forEach(m => { MANAGER_ID_BY_NAME[m.display_name] = m.manager_id; });
 function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
 
 function resultBadge(w, d, l) {
   return `<span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span>`;
+}
+
+function matchRow(gw, m, showTeam) {
+  const hasScore = m.a.score !== undefined && m.a.score !== null;
+  const aWin = m.winner === 'a', bWin = m.winner === 'b';
+  const row = el('div', 'match-row clickable', `
+    <div class="match-side">${m.a.name}${showTeam ? `<div class="muted">${m.a.team}</div>` : ''}</div>
+    <div class="match-score">${hasScore
+      ? `<span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span>`
+      : 'vs'}</div>
+    <div class="match-side right">${m.b.name}${showTeam ? `<div class="muted">${m.b.team}</div>` : ''}</div>
+  `);
+  row.onclick = () => openMatchupModal(+gw, m.a.name, m.b.name);
+  return row;
 }
 
 function playerChip(p, isBench) {
@@ -313,6 +369,94 @@ function renderPitch(container, players) {
   }
 }
 
+function allTimeRecord(nameA, nameB) {
+  let wA = 0, wB = 0, draws = 0, pfA = 0, pfB = 0, played = 0;
+  Object.values(DIGEST.all_matchups_by_gw).forEach(matches => {
+    matches.forEach(m => {
+      const aIsA = m.a.name === nameA && m.b.name === nameB;
+      const aIsB = m.a.name === nameB && m.b.name === nameA;
+      if (!aIsA && !aIsB) return;
+      played++;
+      const scoreA = aIsA ? m.a.score : m.b.score;
+      const scoreB = aIsA ? m.b.score : m.a.score;
+      pfA += scoreA; pfB += scoreB;
+      if (m.winner === 'Draw' || m.winner === null) draws++;
+      else if ((aIsA && m.winner === 'a') || (aIsB && m.winner === 'b')) wA++;
+      else wB++;
+    });
+  });
+  return { played, wA, wB, draws, pfA, pfB };
+}
+
+function openMatchupModal(gw, nameA, nameB) {
+  const mgrA = MANAGER_ID_BY_NAME[nameA], mgrB = MANAGER_ID_BY_NAME[nameB];
+  const detailA = DIGEST.managers_detail[mgrA], detailB = DIGEST.managers_detail[mgrB];
+  const body = document.getElementById('modal-body');
+  body.innerHTML = '';
+  if (!detailA || !detailB) {
+    body.innerHTML = '<p class="muted">Manager data not available.</p>';
+  } else {
+    const gA = detailA.gw_history.find(g => g.gw === gw);
+    const gB = detailB.gw_history.find(g => g.gw === gw);
+    const rosterA = detailA.rosters_by_gw[gw] || [];
+    const rosterB = detailB.rosters_by_gw[gw] || [];
+    const hasScore = gA && gB;
+    const aWin = hasScore && gA.net_points > gB.net_points;
+    const bWin = hasScore && gB.net_points > gA.net_points;
+    const isLive = hasScore && (!gA.is_final || !gB.is_final);
+    const rec = allTimeRecord(nameA, nameB);
+
+    const header = el('div', 'h2h-header');
+    header.innerHTML = `<div class="gw-label">Gameweek ${gw}${isLive ? ' <span class="badge badge-l">LIVE</span>' : ''}</div>`;
+    body.appendChild(header);
+
+    const scoreRow = el('div', 'h2h-score');
+    scoreRow.innerHTML = `
+      <div class="side-name">${nameA}<div class="muted">${detailA.team_name}</div></div>
+      <div class="score-box">${hasScore
+        ? `<span class="${aWin ? 'win' : ''}">${gA.net_points}</span> - <span class="${bWin ? 'win' : ''}">${gB.net_points}</span>`
+        : 'vs'}</div>
+      <div class="side-name right">${nameB}<div class="muted">${detailB.team_name}</div></div>
+    `;
+    body.appendChild(scoreRow);
+
+    const recordEl = el('div', 'h2h-record');
+    recordEl.innerHTML = rec.played
+      ? `All-time: <b>${rec.wA}-${rec.draws}-${rec.wB}</b> (${nameA}-Draw-${nameB}) · ${rec.pfA}-${rec.pfB} pts across ${rec.played} meeting${rec.played === 1 ? '' : 's'}`
+      : `First time these two have met.`;
+    body.appendChild(recordEl);
+
+    if (hasScore) {
+      const chipsRow = el('div', 'stat-chips');
+      chipsRow.style.justifyContent = 'center';
+      const capA = rosterA.find(p => p.armband === 'C');
+      const capB = rosterB.find(p => p.armband === 'C');
+      chipsRow.innerHTML = `
+        <span class="chip">${nameA} bench: ${gA.bench_points}</span>
+        <span class="chip">${nameA} captain: ${capA ? `${capA.name} (${capA.raw_points}×${capA.multiplier})` : '—'}</span>
+        <span class="chip">${nameB} captain: ${capB ? `${capB.name} (${capB.raw_points}×${capB.multiplier})` : '—'}</span>
+        <span class="chip">${nameB} bench: ${gB.bench_points}</span>
+      `;
+      body.appendChild(chipsRow);
+    }
+
+    const pitches = el('div', 'h2h-pitches');
+    pitches.style.marginTop = '18px';
+    const colA = el('div', null, `<h3>${nameA}</h3>`);
+    const colB = el('div', null, `<h3>${nameB}</h3>`);
+    if (rosterA.length) renderPitch(colA, rosterA); else colA.appendChild(el('p', 'muted', 'Roster not available.'));
+    if (rosterB.length) renderPitch(colB, rosterB); else colB.appendChild(el('p', 'muted', 'Roster not available.'));
+    pitches.appendChild(colA);
+    pitches.appendChild(colB);
+    body.appendChild(pitches);
+  }
+  document.getElementById('matchup-modal').style.display = 'flex';
+}
+
+function closeMatchupModal() {
+  document.getElementById('matchup-modal').style.display = 'none';
+}
+
 function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
@@ -339,13 +483,7 @@ function renderHome(root) {
   const fixturesCard = el('div', 'card');
   const uf = d.upcoming_fixtures;
   fixturesCard.appendChild(el('h2', null, uf.gw ? `This week's fixtures — GW${uf.gw}` : 'No upcoming fixtures'));
-  uf.matches.forEach(m => {
-    fixturesCard.appendChild(el('div', 'match-row', `
-      <div class="match-side">${m.a.name}<div class="muted">${m.a.team}</div></div>
-      <div class="match-score">vs</div>
-      <div class="match-side right">${m.b.name}<div class="muted">${m.b.team}</div></div>
-    `));
-  });
+  uf.matches.forEach(m => fixturesCard.appendChild(matchRow(uf.gw, m, true)));
   grid.appendChild(fixturesCard);
   root.appendChild(grid);
 
@@ -353,14 +491,7 @@ function renderHome(root) {
   const resultsCard = el('div', 'card');
   const lr = d.last_results;
   resultsCard.appendChild(el('h2', null, lr ? `Last results — GW${lr.gw}` : 'No results yet'));
-  if (lr) lr.matches.forEach(m => {
-    const aWin = m.winner === 'a', bWin = m.winner === 'b';
-    resultsCard.appendChild(el('div', 'match-row', `
-      <div class="match-side">${m.a.name}</div>
-      <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
-      <div class="match-side right">${m.b.name}</div>
-    `));
-  });
+  if (lr) lr.matches.forEach(m => resultsCard.appendChild(matchRow(lr.gw, m, false)));
   grid2.appendChild(resultsCard);
 
   const nextCard = el('div', 'card');
@@ -561,14 +692,7 @@ function renderLeague(root) {
   const matchupsBody = el('div', 'card');
   function showGw(gw) {
     matchupsBody.innerHTML = '';
-    (d.all_matchups_by_gw[gw] || []).forEach(m => {
-      const aWin = m.winner === 'a', bWin = m.winner === 'b';
-      matchupsBody.appendChild(el('div', 'match-row', `
-        <div class="match-side">${m.a.name}</div>
-        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
-        <div class="match-side right">${m.b.name}</div>
-      `));
-    });
+    (d.all_matchups_by_gw[gw] || []).forEach(m => matchupsBody.appendChild(matchRow(gw, m, false)));
   }
   gwKeys.forEach((gw, i) => {
     const b = el('button', i === gwKeys.length - 1 ? 'active' : '', `GW${gw}`);
@@ -674,14 +798,7 @@ function renderHistory(root) {
     const matchupsCard = el('div', 'card');
     matchupsCard.style.marginTop = '16px';
     matchupsCard.appendChild(el('h2', null, `Matchups — GW${gw}`));
-    (d.all_matchups_by_gw[gw] || []).forEach(m => {
-      const aWin = m.winner === 'a', bWin = m.winner === 'b';
-      matchupsCard.appendChild(el('div', 'match-row', `
-        <div class="match-side">${m.a.name}</div>
-        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
-        <div class="match-side right">${m.b.name}</div>
-      `));
-    });
+    (d.all_matchups_by_gw[gw] || []).forEach(m => matchupsCard.appendChild(matchRow(gw, m, false)));
     body.appendChild(matchupsCard);
   }
 
@@ -711,6 +828,14 @@ renderHome(document.getElementById('page-home'));
 rendered.home = true;
 updateCountdowns();
 setInterval(updateCountdowns, 1000);
+
+document.getElementById('modal-close-btn').addEventListener('click', closeMatchupModal);
+document.getElementById('matchup-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'matchup-modal') closeMatchupModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMatchupModal();
+});
 """
 
 

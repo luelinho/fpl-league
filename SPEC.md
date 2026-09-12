@@ -683,6 +683,8 @@ Pages, as built: **Home** (standings, this week's fixtures, last results, alerts
 
 Gated metrics render with their confidence label or as locked, matching the query layer. Verified in-browser (not just by reading the generated HTML): every figure spot-checked against the same data verified in Phases 5-6, and one real bug was found and fixed during that check — the League tab's gameweek-filter buttons showed GW1 as visually "active" while actually displaying GW3's data on initial load, since the highlighted button and the initial `showGw()` call used different indices.
 
+**Update 2026-09-12 — head-to-head matchup modal.** Every matchup row anywhere in the dashboard (Home's fixtures and results, League's and History's matchup lists) is now clickable, opening a modal with both managers' names/teams, the score (or a "vs" placeholder pre-kickoff), an all-time head-to-head tally computed client-side from data already loaded (no new digest fields needed), captain/bench comparison chips, and both managers' actual rosters for that gameweek as side-by-side pitches reusing `renderPitch`. Rosters render correctly even for the still-live GW4 (captains, formations, live 0-point state, all consistent with the rest of the dashboard). Closes via the × button, clicking the backdrop, or Escape.
+
 ---
 
 ## 9. Security

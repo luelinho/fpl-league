@@ -95,6 +95,16 @@ GW4 deadline (passed 12:30 UTC) — captured locked-in squads for all 18
 managers within the hour, correctly at 0 points since no matches had
 kicked off yet.
 
+**Later 2026-09-12 updates:** the dashboard was restyled twice more to match
+owner-supplied reference images (dark glassmorphism — translucent blurred
+panels over a vivid purple/amber gradient, lime + lavender + coral accents).
+Rosters everywhere now render as an actual football pitch (`renderPitch()`)
+instead of a flat list — formation rows, center circle, penalty boxes,
+bench below. And every matchup row anywhere (Home, League, History) is
+clickable, opening a head-to-head modal: both teams' names, the score, an
+all-time record between them (computed client-side, no new digest data),
+captain/bench comparison, and both rosters side-by-side as pitches.
+
 ---
 
 ## Setup
