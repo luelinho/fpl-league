@@ -160,10 +160,10 @@ body {
 .stat { display: flex; flex-direction: column; gap: 3px; }
 .stat .value { font-size: 27px; font-weight: 700; color: var(--ink); }
 .stat .label { color: var(--ink-soft); font-size: 12.5px; }
-.tier-elite { color: var(--accent) !important; }
-.tier-great { color: #8fd645 !important; }
-.tier-ok { color: #ffb04a !important; }
-.tier-low { color: var(--coral) !important; }
+.stat-tier-elite { color: var(--accent) !important; }
+.stat-tier-great { color: #8fd645 !important; }
+.stat-tier-ok { color: #ffb04a !important; }
+.stat-tier-low { color: var(--coral) !important; }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--border); }
 th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; text-transform: uppercase;
@@ -821,22 +821,22 @@ function statTier(label, value) {
     const pct = parseFloat(value);
     if (isNaN(pct)) return null;
     const cuts = label === 'Captain efficiency' ? [80, 60, 40] : [97, 92, 85];
-    if (pct >= cuts[0]) return 'tier-elite';
-    if (pct >= cuts[1]) return 'tier-great';
-    if (pct >= cuts[2]) return 'tier-ok';
-    return 'tier-low';
+    if (pct >= cuts[0]) return 'stat-tier-elite';
+    if (pct >= cuts[1]) return 'stat-tier-great';
+    if (pct >= cuts[2]) return 'stat-tier-ok';
+    return 'stat-tier-low';
   }
   if (label === 'Bench points (season)') {
     const n = Number(value);
-    if (n < 20) return 'tier-elite';
-    if (n <= 32) return 'tier-ok';
-    return 'tier-low';
+    if (n < 20) return 'stat-tier-elite';
+    if (n <= 32) return 'stat-tier-ok';
+    return 'stat-tier-low';
   }
   if (label === 'Hit cost (season)') {
     const n = Number(value);
-    if (n === 0) return 'tier-elite';
-    if (n <= 8) return 'tier-ok';
-    return 'tier-low';
+    if (n === 0) return 'stat-tier-elite';
+    if (n <= 8) return 'stat-tier-ok';
+    return 'stat-tier-low';
   }
   return null;
 }
