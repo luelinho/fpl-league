@@ -130,7 +130,7 @@ body {
 }
 .brand-name { font-weight: 700; font-size: 17px; display: block; color: var(--ink); letter-spacing: -0.01em; }
 .brand-sub { color: var(--ink-soft); font-size: 12.5px; }
-.tabs { display: flex; gap: 4px; background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 5px; border-radius: 999px; border: 1px solid var(--border); }
+.tabs { display: flex; gap: 4px; background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 5px; border-radius: 999px; border: 1px solid var(--border); max-width: 100%; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .tab {
   border: none; background: transparent; padding: 9px 16px; border-radius: 999px;
   font-size: 13.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
@@ -147,7 +147,7 @@ body {
 @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
-  border: 1px solid var(--border); border-radius: 20px;
+  border: 1px solid var(--border); border-radius: 20px; overflow-x: auto;
   padding: 20px 22px; box-shadow: var(--shadow);
 }
 .card h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 700; }
@@ -304,7 +304,7 @@ tr:last-child td { border-bottom: none; }
 }
 .h2h-record b { color: var(--ink); }
 .h2h-pitches { display: flex; gap: 18px; flex-wrap: wrap; }
-.h2h-pitches > div { flex: 1; min-width: 300px; }
+.h2h-pitches > div { flex: 1; min-width: 260px; }
 .h2h-pitches h3 { text-align: center; }
 """
 
