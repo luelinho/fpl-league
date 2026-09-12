@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T20:59:18.662359+00:00",
+  "generated_at": "2026-09-12T21:16:35.073014+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -291,127 +291,298 @@
         "a": {
           "name": "Andrew Romani",
           "team": "Rock \u2018n\u2019 Iraola",
-          "score": 41
+          "season_record": {
+            "w": 3,
+            "d": 0,
+            "l": 0
+          },
+          "score": 41,
+          "projected_total": 62.6,
+          "yet_to_play": 4,
+          "played": 7,
+          "win_pct": 20.6
         },
         "b": {
           "name": "Jordan Fernholz",
           "team": "Blue Bloods",
-          "score": 23
+          "season_record": {
+            "w": 2,
+            "d": 1,
+            "l": 0
+          },
+          "score": 23,
+          "projected_total": 76.8,
+          "yet_to_play": 8,
+          "played": 3,
+          "win_pct": 79.4
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Chris Mazzatta",
           "team": "CMazz",
-          "score": 51
+          "season_record": {
+            "w": 3,
+            "d": 0,
+            "l": 0
+          },
+          "score": 51,
+          "projected_total": 81.8,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 72.8
         },
         "b": {
           "name": "Brady Baxter",
           "team": "Championship side",
-          "score": 28
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 28,
+          "projected_total": 70.5,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 27.2
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Craig Allen",
           "team": "Game of Throw-In",
-          "score": 41
+          "season_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "score": 41,
+          "projected_total": 87.9,
+          "yet_to_play": 6,
+          "played": 5,
+          "win_pct": 66.2
         },
         "b": {
           "name": "Chris Miller",
           "team": "millers minions",
-          "score": 23
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 23,
+          "projected_total": 74.0,
+          "yet_to_play": 7,
+          "played": 4,
+          "win_pct": 33.8
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Isaac Sotelo",
           "team": "#GOAT",
-          "score": 40
+          "season_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "score": 40,
+          "projected_total": 81.9,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 83.3
         },
         "b": {
           "name": "Joe Gannitello",
           "team": "Bruno's Bros",
-          "score": 37
+          "season_record": {
+            "w": 2,
+            "d": 0,
+            "l": 1
+          },
+          "score": 37,
+          "projected_total": 65.4,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 16.7
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Ryan Smith",
           "team": "Big Cannon Energy",
-          "score": 38
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 38,
+          "projected_total": 61.7,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 14.2
         },
         "b": {
           "name": "Luel Waktola",
           "team": "Midtable Crisis",
-          "score": 41
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 41,
+          "projected_total": 77.3,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 85.8
         },
         "live": true,
-        "winner": "b"
+        "winner": "b",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Yorick Stoepker",
           "team": "Hoevoeloe",
-          "score": 38
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 38,
+          "projected_total": 76.9,
+          "yet_to_play": 6,
+          "played": 5,
+          "win_pct": 98.8
         },
         "b": {
           "name": "Harry Daskalopoulos",
           "team": "OliveOilMoneh",
-          "score": 10
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 10,
+          "projected_total": 43.8,
+          "yet_to_play": 7,
+          "played": 4,
+          "win_pct": 1.2
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Brian Moran",
           "team": "Kick'in the balls",
-          "score": 35
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 35,
+          "projected_total": 74.5,
+          "yet_to_play": 5,
+          "played": 6,
+          "win_pct": 33.4
         },
         "b": {
           "name": "Reggie Mazz",
           "team": "Keiner Bobby Dazzler",
-          "score": 74
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 74,
+          "projected_total": 83.0,
+          "yet_to_play": 1,
+          "played": 10,
+          "win_pct": 66.6
         },
         "live": true,
-        "winner": "b"
+        "winner": "b",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Danilo Arroyo",
           "team": "Ophelia Balls",
-          "score": 20
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 20,
+          "projected_total": 62.5,
+          "yet_to_play": 8,
+          "played": 3,
+          "win_pct": 18.8
         },
         "b": {
           "name": "Erik Baxter",
           "team": "Erik's Team",
-          "score": 42
+          "season_record": {
+            "w": 2,
+            "d": 1,
+            "l": 0
+          },
+          "score": 42,
+          "projected_total": 76.7,
+          "yet_to_play": 6,
+          "played": 5,
+          "win_pct": 81.2
         },
         "live": true,
-        "winner": "b"
+        "winner": "b",
+        "has_unproven_players": false
       },
       {
         "a": {
           "name": "Iain Abshier",
           "team": "FOGGING ESTANDARDS",
-          "score": 57
+          "season_record": {
+            "w": 0,
+            "d": 0,
+            "l": 3
+          },
+          "score": 57,
+          "projected_total": 77.0,
+          "yet_to_play": 3,
+          "played": 8,
+          "win_pct": 98.8
         },
         "b": {
           "name": "Kirk Baxter",
           "team": "Toffee Machine",
-          "score": 37
+          "season_record": {
+            "w": 1,
+            "d": 0,
+            "l": 2
+          },
+          "score": 37,
+          "projected_total": 54.1,
+          "yet_to_play": 2,
+          "played": 9,
+          "win_pct": 1.2
         },
         "live": true,
-        "winner": "a"
+        "winner": "a",
+        "has_unproven_players": false
       }
     ]
   },
@@ -2803,7 +2974,16 @@
   "owner_next_opponent": {
     "name": "Ryan Smith",
     "team": "Big Cannon Energy",
-    "score": 38
+    "season_record": {
+      "w": 1,
+      "d": 0,
+      "l": 2
+    },
+    "score": 38,
+    "projected_total": 61.7,
+    "yet_to_play": 5,
+    "played": 6,
+    "win_pct": 14.2
   },
   "managers_detail": {
     "9": {

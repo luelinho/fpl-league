@@ -192,6 +192,30 @@ tr:last-child td { border-bottom: none; }
 .match-side.right { text-align: right; }
 .match-score { padding: 0 16px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
 .match-score .win { color: var(--win); }
+.proj-card {
+  padding: 14px 16px; border-radius: 14px; background: var(--card-2); border: 1px solid var(--border);
+  cursor: pointer; margin-bottom: 10px; transition: background 0.1s;
+}
+.proj-card:last-child { margin-bottom: 0; }
+.proj-card:hover { background: rgba(255,255,255,0.05); }
+.proj-score-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px; gap: 10px; }
+.proj-score-side { display: flex; flex-direction: column; min-width: 0; }
+.proj-score-side.right { align-items: flex-end; }
+.proj-live { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
+.proj-live.win { color: var(--accent); }
+.proj-total { font-size: 11px; color: var(--ink-soft); margin-top: 3px; }
+.proj-bar-track { height: 7px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; display: flex; margin-bottom: 4px; }
+.proj-bar-seg { height: 100%; }
+.proj-bar-seg.lead { background: var(--accent); }
+.proj-bar-seg.trail { background: rgba(255,255,255,0.16); }
+.proj-bar-labels { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink-soft); margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.proj-bottom-row { display: flex; justify-content: space-between; gap: 10px; }
+.proj-info { display: flex; flex-direction: column; min-width: 0; }
+.proj-info.right { align-items: flex-end; text-align: right; }
+.proj-team-name { font-weight: 700; font-size: 13px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.proj-manager-line { font-size: 11px; color: var(--ink-soft); margin-top: 1px; }
+.proj-play-status { font-size: 10.5px; color: var(--ink-soft); margin-top: 5px; }
+.proj-caveat { font-size: 10px; color: #ffb04a; margin-top: 10px; text-align: center; }
 .alert {
   padding: 12px 14px; border-radius: 12px; margin-bottom: 8px; font-size: 13px; color: var(--ink);
   border-left: 3px solid var(--locked); background: var(--card-2);
@@ -387,6 +411,45 @@ function matchRow(gw, m, showTeam) {
   `);
   row.onclick = () => openMatchupModal(+gw, m.a.name, m.b.name);
   return row;
+}
+
+function seasonRecordStr(r) { return r ? `${r.w}-${r.d}-${r.l}` : '—'; }
+
+function projectedMatchRow(gw, m) {
+  const aLeads = m.a.win_pct >= m.b.win_pct;
+  const card = el('div', 'proj-card');
+  card.innerHTML = `
+    <div class="proj-score-row">
+      <div class="proj-score-side">
+        <div class="proj-live${m.winner === 'a' ? ' win' : ''}">${m.a.score}</div>
+        <div class="proj-total">Proj ${m.a.projected_total}</div>
+      </div>
+      <div class="proj-score-side right">
+        <div class="proj-live${m.winner === 'b' ? ' win' : ''}">${m.b.score}</div>
+        <div class="proj-total">Proj ${m.b.projected_total}</div>
+      </div>
+    </div>
+    <div class="proj-bar-track">
+      <div class="proj-bar-seg ${aLeads ? 'lead' : 'trail'}" style="width:${m.a.win_pct}%"></div>
+      <div class="proj-bar-seg ${aLeads ? 'trail' : 'lead'}" style="width:${m.b.win_pct}%"></div>
+    </div>
+    <div class="proj-bar-labels"><span>${m.a.win_pct}% to win</span><span>${m.b.win_pct}% to win</span></div>
+    <div class="proj-bottom-row">
+      <div class="proj-info">
+        <div class="proj-team-name">${m.a.team}</div>
+        <div class="proj-manager-line">${m.a.name} · ${seasonRecordStr(m.a.season_record)}</div>
+        <div class="proj-play-status">Played ${m.a.played} · Yet to play ${m.a.yet_to_play}</div>
+      </div>
+      <div class="proj-info right">
+        <div class="proj-team-name">${m.b.team}</div>
+        <div class="proj-manager-line">${m.b.name} · ${seasonRecordStr(m.b.season_record)}</div>
+        <div class="proj-play-status">Played ${m.b.played} · Yet to play ${m.b.yet_to_play}</div>
+      </div>
+    </div>
+    ${m.has_unproven_players ? '<div class="proj-caveat">Projection includes a player with no scoring history yet this season</div>' : ''}
+  `;
+  card.onclick = () => openMatchupModal(+gw, m.a.name, m.b.name);
+  return card;
 }
 
 let playerTooltipEl = null;
@@ -634,7 +697,9 @@ function renderHome(root) {
   fixturesCard.appendChild(el('h2', null, uf.gw
     ? `This week's fixtures — GW${uf.gw}${fixturesLive ? ' <span class="badge badge-l">LIVE</span>' : ''}`
     : 'No upcoming fixtures'));
-  uf.matches.forEach(m => fixturesCard.appendChild(matchRow(uf.gw, m, true)));
+  uf.matches.forEach(m => fixturesCard.appendChild(
+    m.a.win_pct !== undefined ? projectedMatchRow(uf.gw, m) : matchRow(uf.gw, m, true)
+  ));
   grid.appendChild(fixturesCard);
   root.appendChild(grid);
 

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import base64
 import json
+import random
 import sys
 from datetime import datetime, timezone
 
@@ -87,7 +88,102 @@ def standings(conn, gw: int) -> list[dict]:
     ]
 
 
-def fixtures_for_gw(conn, gw: int) -> list[dict]:
+PROJECTION_SIM_RUNS = 2000
+
+
+def _starter_split(conn, manager_id: int, gw: int) -> tuple[int, list[tuple[int, int]], int]:
+    """(locked_points, [(player_id, multiplier) for pending starters], played_count)
+    for one manager's starting XI this gameweek. "Locked" = has minutes > 0
+    recorded already; "pending" = still at 0 minutes. As elsewhere, 0 minutes
+    can't be told apart from "played and was an unused sub" without real
+    fixture data, so this is an honest approximation, most accurate early-
+    to-mid gameweek."""
+    rows = conn.execute(
+        """
+        SELECT p.player_id, p.points_scored, p.multiplier, s.minutes
+        FROM raw_manager_gw_picks p
+        JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
+        WHERE p.manager_id = ? AND p.gw_id = ? AND p.is_starter = 1
+        """,
+        (manager_id, gw),
+    ).fetchall()
+    locked = 0
+    pending: list[tuple[int, int]] = []
+    played = 0
+    for player_id, pts, mult, mins in rows:
+        if mins and mins > 0:
+            locked += pts
+            played += 1
+        else:
+            pending.append((player_id, mult))
+    return locked, pending, played
+
+
+def _player_history(conn, player_id: int, before_gw: int) -> list[int]:
+    rows = conn.execute(
+        "SELECT total_points FROM raw_player_gw_stats WHERE season_id = 1 AND player_id = ? AND gw_id < ?",
+        (player_id, before_gw),
+    ).fetchall()
+    return [pts for (pts,) in rows]
+
+
+def fixture_projection(conn, manager_a: int, manager_b: int, gw: int) -> dict:
+    """Projected final score and win% for a live gameweek's matchup.
+    Method: each side's already-played starters are locked in as Fact; each
+    still-pending starter's contribution is bootstrap-sampled from their own
+    prior-gameweek scores (their current multiplier applied to the sample,
+    not double-applying a past one), PROJECTION_SIM_RUNS times. Win% is the
+    share of simulated runs where a side finishes ahead (a tie splits its
+    share evenly). This is a Projection per CLAUDE.md rule 3 — labeled as
+    such in the UI, never shown as a predicted fact — and thin this early in
+    the season: a pending player with zero prior-gameweek history (new
+    signing, or GW1) contributes 0 to the sample rather than a guess, which
+    the caller surfaces as `has_unproven_players`.
+    """
+    locked_a, pending_a, played_a = _starter_split(conn, manager_a, gw)
+    locked_b, pending_b, played_b = _starter_split(conn, manager_b, gw)
+    history_cache: dict[int, list[int]] = {}
+
+    def hist(pid: int) -> list[int]:
+        if pid not in history_cache:
+            history_cache[pid] = _player_history(conn, pid, gw)
+        return history_cache[pid]
+
+    unproven = any(not hist(pid) for pid, _ in pending_a + pending_b)
+
+    a_wins = ties = 0
+    total_a = total_b = 0
+    for _ in range(PROJECTION_SIM_RUNS):
+        sim_a = locked_a + sum((random.choice(hist(pid)) if hist(pid) else 0) * mult for pid, mult in pending_a)
+        sim_b = locked_b + sum((random.choice(hist(pid)) if hist(pid) else 0) * mult for pid, mult in pending_b)
+        total_a += sim_a
+        total_b += sim_b
+        if sim_a > sim_b:
+            a_wins += 1
+        elif sim_a == sim_b:
+            ties += 1
+    win_pct_a = round(100 * (a_wins + ties / 2) / PROJECTION_SIM_RUNS, 1)
+    return {
+        "a": {"projected_total": round(total_a / PROJECTION_SIM_RUNS, 1),
+              "yet_to_play": len(pending_a), "played": played_a},
+        "b": {"projected_total": round(total_b / PROJECTION_SIM_RUNS, 1),
+              "yet_to_play": len(pending_b), "played": played_b},
+        "win_pct_a": win_pct_a, "win_pct_b": round(100 - win_pct_a, 1),
+        "has_unproven_players": unproven,
+    }
+
+
+def _season_record(conn, manager_id: int, through_gw: int | None) -> dict | None:
+    if not through_gw:
+        return None
+    row = conn.execute(
+        "SELECT wins, draws, losses FROM standings_snapshots WHERE manager_id = ? AND gw_id = ?",
+        (manager_id, through_gw),
+    ).fetchone()
+    return {"w": row[0], "d": row[1], "l": row[2]} if row else None
+
+
+def fixtures_for_gw(conn, gw: int, latest_finalized_gw: int | None = None) -> list[dict]:
     """This gameweek's matchups. raw_h2h_matches itself never carries a score
     until the gameweek is finalized (CLAUDE.md rule 5 — no invented results),
     but once the deadline has passed, raw_manager_gw holds real provisional
@@ -99,7 +195,7 @@ def fixtures_for_gw(conn, gw: int) -> list[dict]:
         return []
     rows = conn.execute(
         """
-        SELECT ma.display_name, ta.team_name, mb.display_name, tb.team_name,
+        SELECT h.manager_a, ma.display_name, ta.team_name, h.manager_b, mb.display_name, tb.team_name,
                ga.net_points, ga.is_final, gb.net_points, gb.is_final
         FROM raw_h2h_matches h
         JOIN managers ma ON ma.manager_id = h.manager_a
@@ -113,12 +209,20 @@ def fixtures_for_gw(conn, gw: int) -> list[dict]:
         (gw,),
     ).fetchall()
     out = []
-    for an, at, bn, bt, sa, fa, sb, fb in rows:
-        m = {"a": {"name": an, "team": at}, "b": {"name": bn, "team": bt}}
+    for mgr_a, an, at, mgr_b, bn, bt, sa, fa, sb, fb in rows:
+        m = {
+            "a": {"name": an, "team": at, "season_record": _season_record(conn, mgr_a, latest_finalized_gw)},
+            "b": {"name": bn, "team": bt, "season_record": _season_record(conn, mgr_b, latest_finalized_gw)},
+        }
         if sa is not None and sb is not None and not fa and not fb:
             m["a"]["score"], m["b"]["score"], m["live"] = sa, sb, True
             if sa != sb:
                 m["winner"] = "a" if sa > sb else "b"
+            proj = fixture_projection(conn, mgr_a, mgr_b, gw)
+            m["a"].update(proj["a"])
+            m["b"].update(proj["b"])
+            m["a"]["win_pct"], m["b"]["win_pct"] = proj["win_pct_a"], proj["win_pct_b"]
+            m["has_unproven_players"] = proj["has_unproven_players"]
         out.append(m)
     return out
 
@@ -499,7 +603,7 @@ def build_digest() -> dict:
     latest = status["current_gw"]
 
     owner_blk = owner_block(conn, latest) if latest else None
-    upcoming_matches = fixtures_for_gw(conn, status["next_gw"])
+    upcoming_matches = fixtures_for_gw(conn, status["next_gw"], latest)
 
     d = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
