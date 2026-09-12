@@ -67,10 +67,11 @@ def load_reference_data(conn: sqlite3.Connection, client: FPLClient) -> dict:
     for club in b.get("teams", []):
         conn.execute(
             """
-            INSERT INTO pl_clubs (season_id, club_id, name, short_name) VALUES (1, ?, ?, ?)
-            ON CONFLICT (season_id, club_id) DO UPDATE SET name = excluded.name, short_name = excluded.short_name
+            INSERT INTO pl_clubs (season_id, club_id, name, short_name, badge_code) VALUES (1, ?, ?, ?, ?)
+            ON CONFLICT (season_id, club_id) DO UPDATE SET
+                name = excluded.name, short_name = excluded.short_name, badge_code = excluded.badge_code
             """,
-            (club["id"], club["name"], club["short_name"]),
+            (club["id"], club["name"], club["short_name"], club.get("code")),
         )
 
     for el in b.get("elements", []):

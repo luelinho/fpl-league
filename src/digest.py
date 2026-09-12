@@ -11,12 +11,18 @@ Usage:
 
 from __future__ import annotations
 
+import base64
 import json
 import sys
 from datetime import datetime, timezone
 
+import requests
+
 from . import config, ingest
 from .recap import biggest_upset, manager_name
+
+BADGE_CACHE_DIR = config.REPO_ROOT / "digest" / ".badge_cache"
+BADGE_URL = "https://resources.premierleague.com/premierleague/badges/50/t{code}.png"
 
 
 def league_info(conn) -> dict:
@@ -123,6 +129,31 @@ def alerts(conn) -> list[dict]:
         "ORDER BY severity = 'error' DESC, severity = 'warning' DESC"
     ).fetchall()
     return [{"severity": sev, "category": cat, "description": desc} for sev, cat, desc in rows]
+
+
+def club_badges(conn) -> dict[str, str]:
+    """{club_id: 'data:image/png;base64,...'} for every PL club — team badges
+    only, no player photos (owner's explicit call). Downloaded once and
+    cached to disk (BADGE_CACHE_DIR) so repeat digest builds don't re-fetch
+    20 images from Premier League's CDN every time; verified live 2026-09-12
+    (HTTP 200, ~6.6KB/badge) before this was built.
+    """
+    BADGE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    rows = conn.execute("SELECT club_id, badge_code FROM pl_clubs WHERE season_id = 1").fetchall()
+    badges: dict[str, str] = {}
+    for club_id, code in rows:
+        if code is None:
+            continue
+        cache_path = BADGE_CACHE_DIR / f"t{code}.png"
+        if not cache_path.exists():
+            try:
+                resp = requests.get(BADGE_URL.format(code=code), timeout=10)
+                resp.raise_for_status()
+                cache_path.write_bytes(resp.content)
+            except requests.RequestException:
+                continue
+        badges[str(club_id)] = "data:image/png;base64," + base64.b64encode(cache_path.read_bytes()).decode()
+    return badges
 
 
 def all_managers(conn) -> list[dict]:
@@ -263,7 +294,7 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
 
     all_picks = conn.execute(
         """
-        SELECT p.gw_id, pl.web_name, pl.position, p.slot, p.is_starter, p.is_captain, p.is_vice,
+        SELECT p.gw_id, pl.web_name, pl.position, pl.club_id, p.slot, p.is_starter, p.is_captain, p.is_vice,
                p.multiplier, s.total_points
         FROM raw_manager_gw_picks p
         JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
@@ -272,9 +303,9 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
         """, (mgr_id,),
     ).fetchall()
     rosters_by_gw: dict[int, list[dict]] = {}
-    for gw, name_, pos, slot, starter, cap, vice, mult, pts in all_picks:
+    for gw, name_, pos, club_id, slot, starter, cap, vice, mult, pts in all_picks:
         rosters_by_gw.setdefault(gw, []).append({
-            "name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
+            "name": name_, "position": pos, "club_id": club_id, "slot": slot, "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
         })
     # The most recent gameweek with ANY picks — final or provisional — not
@@ -371,6 +402,7 @@ def build_digest() -> dict:
         "managers_detail": all_managers_detail(conn, latest) if latest else {},
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
+        "club_badges": club_badges(conn),
     }
     conn.close()
     return d

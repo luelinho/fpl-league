@@ -105,6 +105,14 @@ clickable, opening a head-to-head modal: both teams' names, the score, an
 all-time record between them (computed client-side, no new digest data),
 captain/bench comparison, and both rosters side-by-side as pitches.
 
+Every pitch chip also shows the player's real club badge now (not a face
+photo — that was explicitly ruled out) instead of a plain position letter.
+`pl_clubs.badge_code` + a small download-once-and-cache step in `digest.py`
+(`digest/.badge_cache/`, gitignored) embed all 20 club crests as base64 —
+verified live against Premier League's badge CDN before building this,
+~6.6KB per badge. No player photos anywhere, and no other layout or content
+changed.
+
 ---
 
 ## Setup

@@ -61,6 +61,10 @@ CREATE TABLE IF NOT EXISTS pl_clubs (
   club_id    INTEGER NOT NULL,
   name       TEXT NOT NULL,
   short_name TEXT NOT NULL,
+  -- badge_code: FPL's own per-club code (distinct from club_id), used to build
+  -- the badge image URL: resources.premierleague.com/premierleague/badges/50/t{badge_code}.png
+  -- Added 2026-09-12; confirmed live (HTTP 200, ~6.6KB/badge) before use.
+  badge_code INTEGER,
   PRIMARY KEY (season_id, club_id)
 );
 

@@ -243,6 +243,7 @@ tr:last-child td { border-bottom: none; }
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 .player-chip.bench .player-jersey { background: var(--card-2); color: var(--ink-soft); border-color: var(--border); box-shadow: none; }
+.jersey-badge { width: 20px; height: 20px; object-fit: contain; }
 .player-armband {
   position: absolute; top: -5px; right: -6px; width: 15px; height: 15px; border-radius: 50%;
   background: var(--ink); color: var(--bg); font-size: 8.5px; font-weight: 800;
@@ -334,8 +335,10 @@ function matchRow(gw, m, showTeam) {
 
 function playerChip(p, isBench) {
   const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
+  const badge = DIGEST.club_badges[p.club_id];
+  const jerseyContent = badge ? `<img src="${badge}" alt="${p.position}" class="jersey-badge">` : p.position;
   chip.innerHTML = `
-    <div class="player-jersey">${p.position}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
+    <div class="player-jersey">${jerseyContent}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
     <div class="player-name">${p.name}</div>
     <div class="player-pts">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
   `;
