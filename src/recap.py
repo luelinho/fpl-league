@@ -86,9 +86,12 @@ def generate_gw_recap(conn, gw: int) -> str:
 
     winner = scores[0]
     last = scores[-1]
-    A(f"**Gameweek winner (Fact):** {winner[0]} ({winner[1]}) — {winner[2]} net points"
-      + (f" ({winner[3]} gross, -{winner[4]} hit)" if winner[4] else ""))
-    A(f"**Bottom of the week (Fact):** {last[0]} ({last[1]}) — {last[2]} net points")
+    A(f"**Gameweek winner (Fact):** {winner[0]} ({winner[1]}) ran away with GW{gw} — "
+      f"{winner[2]} points, best in the league this week"
+      + (f" ({winner[3]} gross, -{winner[4]} hit — took the hit and still topped the table)"
+         if winner[4] else "."))
+    A(f"**Bottom of the week (Fact):** {last[0]} ({last[1]}) had one to forget — "
+      f"{last[2]} points, last in the league this week.")
     A("")
 
     blowout = conn.execute(
@@ -103,15 +106,17 @@ def generate_gw_recap(conn, gw: int) -> str:
     ).fetchone()
     if blowout:
         a_name, sa, b_name, sb, margin = blowout
-        A(f"**Biggest blowout (Fact):** {a_name} {sa} - {sb} {b_name} (margin {margin})")
+        beater, beaten = (a_name, b_name) if sa > sb else (b_name, a_name)
+        A(f"**Biggest blowout (Fact):** {a_name} {sa} - {sb} {b_name} — "
+          f"{beater} put a {margin}-point beating on {beaten}.")
 
     upset = biggest_upset(conn, gw)
     if upset:
         gap, winner_id, loser_id, margin = upset
         note = " — thin sample, treat cautiously" if gw < 4 else ""
-        A(f"**Biggest upset (Computed{note}):** {manager_name(conn, winner_id)} beat "
-          f"{manager_name(conn, loser_id)}, who had the {round(gap, 1)}-point-higher "
-          f"season average coming in")
+        A(f"**Biggest upset (Computed{note}):** {manager_name(conn, winner_id)} played spoiler, "
+          f"beating {manager_name(conn, loser_id)} — who carried a {round(gap, 1)}-point-higher "
+          f"season average into the match.")
     else:
         A("**Biggest upset:** not computable — no prior-gameweek average exists yet (GW1)"
           if gw == 1 else "**Biggest upset:** not computable this week")
@@ -140,9 +145,11 @@ def generate_gw_recap(conn, gw: int) -> str:
         (gw,),
     ).fetchone()
     if unluckiest:
-        A(f"**Unluckiest of the week (Fact):** {unluckiest[0]} — {unluckiest[1]} net points, still lost")
+        A(f"**Unluckiest of the week (Fact):** {unluckiest[0]} put up {unluckiest[1]} points and "
+          f"still walked away with a loss. Brutal week to run into someone.")
     if luckiest:
-        A(f"**Luckiest of the week (Fact):** {luckiest[0]} — won with just {luckiest[1]} net points")
+        A(f"**Luckiest of the week (Fact):** {luckiest[0]} escaped with the win on just "
+          f"{luckiest[1]} points. Take it and run.")
     A("")
 
     A("**Risers/fallers:** not available. Standings-rank movement needs two consecutive "

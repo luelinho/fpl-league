@@ -2,13 +2,13 @@
 
 *Fact = stored raw data. Computed = derived by a documented formula. See CLAUDE.md.*
 
-**Gameweek winner (Fact):** Kirk Baxter (Toffee Machine) — 71 net points
-**Bottom of the week (Fact):** Harry Daskalopoulos (OliveOilMoneh) — 23 net points
+**Gameweek winner (Fact):** Kirk Baxter (Toffee Machine) ran away with GW1 — 71 points, best in the league this week.
+**Bottom of the week (Fact):** Harry Daskalopoulos (OliveOilMoneh) had one to forget — 23 points, last in the league this week.
 
-**Biggest blowout (Fact):** Harry Daskalopoulos 23 - 56 Craig Allen (margin 33)
+**Biggest blowout (Fact):** Harry Daskalopoulos 23 - 56 Craig Allen — Craig Allen put a 33-point beating on Harry Daskalopoulos.
 **Biggest upset:** not computable — no prior-gameweek average exists yet (GW1)
-**Unluckiest of the week (Fact):** Yorick Stoepker — 68 net points, still lost
-**Luckiest of the week (Fact):** Jordan Fernholz — won with just 42 net points
+**Unluckiest of the week (Fact):** Yorick Stoepker put up 68 points and still walked away with a loss. Brutal week to run into someone.
+**Luckiest of the week (Fact):** Jordan Fernholz escaped with the win on just 42 points. Take it and run.
 
 **Risers/fallers:** not available. Standings-rank movement needs two consecutive snapshots; only one exists so far (see data_issues: GW1-2 standings are a permanent gap).
 

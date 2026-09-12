@@ -2,13 +2,13 @@
 
 *Fact = stored raw data. Computed = derived by a documented formula. See CLAUDE.md.*
 
-**Gameweek winner (Fact):** Andrew Romani (Rock ‘n’ Iraola) — 70 net points
-**Bottom of the week (Fact):** Reggie Mazz (Keiner Bobby Dazzler) — 34 net points
+**Gameweek winner (Fact):** Andrew Romani (Rock ‘n’ Iraola) ran away with GW3 — 70 points, best in the league this week.
+**Bottom of the week (Fact):** Reggie Mazz (Keiner Bobby Dazzler) had one to forget — 34 points, last in the league this week.
 
-**Biggest blowout (Fact):** Joe Gannitello 46 - 70 Andrew Romani (margin 24)
-**Biggest upset (Computed — thin sample, treat cautiously):** Brady Baxter beat Craig Allen, who had the 25.5-point-higher season average coming in
-**Unluckiest of the week (Fact):** Iain Abshier — 51 net points, still lost
-**Luckiest of the week (Fact):** Chris Mazzatta — won with just 37 net points
+**Biggest blowout (Fact):** Joe Gannitello 46 - 70 Andrew Romani — Andrew Romani put a 24-point beating on Joe Gannitello.
+**Biggest upset (Computed — thin sample, treat cautiously):** Brady Baxter played spoiler, beating Craig Allen — who carried a 25.5-point-higher season average into the match.
+**Unluckiest of the week (Fact):** Iain Abshier put up 51 points and still walked away with a loss. Brutal week to run into someone.
+**Luckiest of the week (Fact):** Chris Mazzatta escaped with the win on just 37 points. Take it and run.
 
 **Risers/fallers:** not available. Standings-rank movement needs two consecutive snapshots; only one exists so far (see data_issues: GW1-2 standings are a permanent gap).
 
