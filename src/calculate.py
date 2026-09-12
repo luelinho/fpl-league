@@ -11,9 +11,9 @@ though the columns exist in derived_manager_season, would be starting a phase
 before its prerequisites (10-15 finalized gameweeks) exist. Those columns are
 left NULL here, not estimated.
 
-Two formulas SPEC.md does not define a threshold for — "close" and "blowout"
-match margins, for derived_manager_season.close_w/close_l/blowout_w/blowout_l
-— are also left NULL rather than guessed. See the README note this phase adds.
+close_w/close_l/blowout_w/blowout_l use thresholds SPEC.md never defined —
+the owner set them 2026-09-12: close = margin < 5, blowout = margin > 20.
+See CLOSE_MARGIN/BLOWOUT_MARGIN below.
 
 Transfer ROI needs a 5-gameweek horizon (config.TRANSFER_ROI_HORIZON_GWS) per
 the confidence gate table (ROI: H+1 minimum). With only 3 gameweeks elapsed,
@@ -33,6 +33,13 @@ from . import config, ingest
 
 
 CALC_VERSION = "v1"
+
+# Match-margin thresholds for close_w/close_l/blowout_w/blowout_l — not defined
+# in SPEC.md, so left undefined until the owner specified them (2026-09-12):
+# a "close" match has a margin under 5 points; a "blowout" has a margin over
+# 20 points. Draws are neither (schema has no close_d/blowout_d column).
+CLOSE_MARGIN = 5
+BLOWOUT_MARGIN = 20
 
 
 def best_xi_points(players: list[tuple[str, int]]) -> int:
@@ -193,15 +200,16 @@ def calculate_season(conn, through_gw: int) -> None:
 
         match_rows = conn.execute(
             """
-            SELECT winner, manager_a, manager_b, score_a, score_b, league_pts_a, league_pts_b
+            SELECT winner, manager_a, manager_b, score_a, score_b, league_pts_a, league_pts_b, margin
             FROM raw_h2h_matches
             WHERE (manager_a = ? OR manager_b = ?) AND gw_id <= ?
             """,
             (manager_id, manager_id, through_gw),
         ).fetchall()
         actual_w = actual_d = actual_l = actual_league_pts = 0
+        close_w = close_l = blowout_w = blowout_l = 0
         points_against = 0
-        for winner, a, b, score_a, score_b, pa, pb in match_rows:
+        for winner, a, b, score_a, score_b, pa, pb, margin in match_rows:
             mine_pts = pa if a == manager_id else pb
             actual_league_pts += mine_pts
             points_against += score_b if a == manager_id else score_a
@@ -209,8 +217,16 @@ def calculate_season(conn, through_gw: int) -> None:
                 actual_d += 1
             elif winner == manager_id:
                 actual_w += 1
+                if margin < CLOSE_MARGIN:
+                    close_w += 1
+                elif margin > BLOWOUT_MARGIN:
+                    blowout_w += 1
             else:
                 actual_l += 1
+                if margin < CLOSE_MARGIN:
+                    close_l += 1
+                elif margin > BLOWOUT_MARGIN:
+                    blowout_l += 1
         avg_pa = points_against / gws_played if gws_played else None
 
         conn.execute(
@@ -226,7 +242,7 @@ def calculate_season(conn, through_gw: int) -> None:
                  total_hit_cost, transfer_roi, is_provisional, calc_version, calculated_at)
             VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-                    NULL, NULL, NULL, NULL,
+                    ?, ?, ?, ?,
                     ?, ?, ?, ?, NULL, 1, ?, ?)
             ON CONFLICT (season_id, manager_id, through_gw) DO UPDATE SET
                 gws_played = excluded.gws_played, points_for = excluded.points_for,
@@ -234,6 +250,8 @@ def calculate_season(conn, through_gw: int) -> None:
                 median_score = excluded.median_score, stdev_score = excluded.stdev_score,
                 actual_w = excluded.actual_w, actual_d = excluded.actual_d, actual_l = excluded.actual_l,
                 actual_league_pts = excluded.actual_league_pts,
+                close_w = excluded.close_w, close_l = excluded.close_l,
+                blowout_w = excluded.blowout_w, blowout_l = excluded.blowout_l,
                 total_bench_points = excluded.total_bench_points,
                 season_captain_efficiency = excluded.season_captain_efficiency,
                 season_xi_efficiency = excluded.season_xi_efficiency,
@@ -242,6 +260,7 @@ def calculate_season(conn, through_gw: int) -> None:
             """,
             (manager_id, through_gw, gws_played, points_for, points_against, avg_pf, avg_pa,
              median_score, stdev_score, actual_w, actual_d, actual_l, actual_league_pts,
+             close_w, close_l, blowout_w, blowout_l,
              total_bench_points, season_captain_efficiency, season_xi_efficiency,
              total_hit_cost, CALC_VERSION, ingest.now()),
         )
@@ -272,8 +291,7 @@ def run() -> int:
         calculate_season(conn, gw)
         print(f"  through_gw={gw}: done")
 
-    print("\nNOTE: close_w/close_l/blowout_w/blowout_l left NULL — SPEC.md does not define")
-    print("a margin threshold for 'close' or 'blowout'. Needs a decision before these compute.")
+    print(f"\nclose/blowout thresholds: close < {CLOSE_MARGIN}pts, blowout > {BLOWOUT_MARGIN}pts")
     print("NOTE: Tier 3-5 columns (allplay season pct, expected_wins, luck_index, SOS, form,")
     print("transfer_roi) left NULL — gated to Phase 8 (GW10+) / insufficient horizon.")
 
