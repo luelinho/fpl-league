@@ -67,6 +67,18 @@ real browser against a local preview server, not just by reading the
 generated HTML — caught and fixed a real active-tab/content mismatch bug in
 the League page during that check.
 
+**Update 2026-09-12:** added a **Managers** tab — a dropdown over all 18
+managers, each getting the exact same ledger/gameweek-history/roster/
+transfers view the owner sees on My Team (same rendering function, just
+parameterized instead of hardcoded). `digest.py` gained `manager_detail()`
+(the old owner-only query, generalized) and a `managers_detail` map covering
+everyone; `owner_block()` is now a thin wrapper over it, so My Team's output
+is unchanged. This roughly quadrupled `dashboard.html`'s size (~220KB) since
+every manager's picks/transfers are now embedded — still trivial for a local
+file. Verified with `node --check` on the extracted `<script>` block before
+opening it in a browser this time, to catch any repeat of the earlier
+Python-string-escaping bug before it reached the page.
+
 ---
 
 ## Setup

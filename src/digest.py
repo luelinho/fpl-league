@@ -221,9 +221,12 @@ def gw_recap_summary(conn, gw: int) -> dict:
     }
 
 
-def owner_block(conn, latest_gw: int) -> dict:
-    owner = conn.execute("SELECT manager_id, entry_id, display_name FROM managers WHERE is_owner = 1").fetchone()
-    mgr_id, entry_id, name = owner
+def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
+    """Same shape as the old owner-only block, generalized to any manager_id.
+    Used both for the owner (My Team tab) and for every manager (Managers tab)."""
+    entry_id, name = conn.execute(
+        "SELECT entry_id, display_name FROM managers WHERE manager_id = ?", (mgr_id,)
+    ).fetchone()
     team = conn.execute("SELECT team_name FROM team_names WHERE manager_id = ?", (mgr_id,)).fetchone()[0]
     rank_row = conn.execute(
         "SELECT rank FROM standings_snapshots WHERE manager_id = ? AND gw_id = ?", (mgr_id, latest_gw)
@@ -314,6 +317,16 @@ def owner_block(conn, latest_gw: int) -> dict:
     }
 
 
+def owner_block(conn, latest_gw: int) -> dict:
+    mgr_id = conn.execute("SELECT manager_id FROM managers WHERE is_owner = 1").fetchone()[0]
+    return manager_detail(conn, mgr_id, latest_gw)
+
+
+def all_managers_detail(conn, latest_gw: int) -> dict:
+    ids = conn.execute("SELECT manager_id FROM managers").fetchall()
+    return {str(mgr_id): manager_detail(conn, mgr_id, latest_gw) for (mgr_id,) in ids}
+
+
 def owner_next_fixture(upcoming_matches: list[dict], owner_name: str) -> dict | None:
     for m in upcoming_matches:
         if m["a"]["name"] == owner_name:
@@ -346,6 +359,7 @@ def build_digest() -> dict:
         "recaps": [gw_recap_summary(conn, gw) for gw in status["data_checked_gws"]],
         "owner": owner_blk,
         "owner_next_opponent": owner_next_fixture(upcoming_matches, owner_blk["display_name"]) if owner_blk else None,
+        "managers_detail": all_managers_detail(conn, latest) if latest else {},
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
     }

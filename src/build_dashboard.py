@@ -46,6 +46,7 @@ def render(digest: dict) -> str:
       <button class="tab active" data-tab="home">Home</button>
       <button class="tab" data-tab="myteam">My Team</button>
       <button class="tab" data-tab="league">League</button>
+      <button class="tab" data-tab="managers">Managers</button>
       <button class="tab" data-tab="analytics">Analytics</button>
       <button class="tab" data-tab="history">History</button>
     </nav>
@@ -56,6 +57,7 @@ def render(digest: dict) -> str:
   <section id="page-home" class="page active"></section>
   <section id="page-myteam" class="page"></section>
   <section id="page-league" class="page"></section>
+  <section id="page-managers" class="page"></section>
   <section id="page-analytics" class="page"></section>
   <section id="page-history" class="page"></section>
 </main>
@@ -325,13 +327,7 @@ function updateCountdowns() {
   });
 }
 
-function renderMyTeam(root) {
-  const o = DIGEST.owner;
-  root.innerHTML = '';
-  if (!o) { root.appendChild(el('div', 'card', 'No owner data yet.')); return; }
-
-  root.appendChild(el('div', 'section-title', `${o.display_name} — ${o.team_name}`));
-
+function renderManagerCards(root, o) {
   const statsGrid = el('div', 'grid grid-4');
   const L = o.ledger;
   const stats = [
@@ -413,6 +409,48 @@ function renderMyTeam(root) {
   root.appendChild(rosterCard);
   root.appendChild(transfersCard);
   showGwDetail(o.latest_roster.gw);
+}
+
+function renderMyTeam(root) {
+  const o = DIGEST.owner;
+  root.innerHTML = '';
+  if (!o) { root.appendChild(el('div', 'card', 'No owner data yet.')); return; }
+  root.appendChild(el('div', 'section-title', `${o.display_name} — ${o.team_name}`));
+  renderManagerCards(root, o);
+}
+
+function renderManagers(root) {
+  root.innerHTML = '';
+  const all = Object.values(DIGEST.managers_detail).sort((a, b) => a.team_name.localeCompare(b.team_name));
+  if (!all.length) { root.appendChild(el('div', 'card', 'No manager data yet.')); return; }
+
+  const selectorCard = el('div', 'card');
+  const options = all.map(m => `<option value="${m.manager_id}">${m.team_name} — ${m.display_name}</option>`).join('');
+  selectorCard.innerHTML = `
+    <h3>Choose a manager</h3>
+    <select id="manager-select" style="width:100%; padding:10px 12px; border-radius:10px; background:var(--card-2); color:var(--ink); border:1px solid var(--border); font-size:14px;">
+      ${options}
+    </select>
+  `;
+  root.appendChild(selectorCard);
+
+  const titleEl = el('div', 'section-title');
+  const detailRoot = el('div');
+  root.appendChild(titleEl);
+  root.appendChild(detailRoot);
+
+  function show(managerId) {
+    const m = DIGEST.managers_detail[managerId];
+    if (!m) return;
+    titleEl.textContent = `${m.display_name} — ${m.team_name}`;
+    detailRoot.innerHTML = '';
+    renderManagerCards(detailRoot, m);
+  }
+
+  const select = selectorCard.querySelector('#manager-select');
+  select.value = DIGEST.owner.manager_id;
+  select.addEventListener('change', () => show(select.value));
+  show(select.value);
 }
 
 function renderLeague(root) {
@@ -567,7 +605,7 @@ function renderHistory(root) {
   if (gws.length) show(gws[gws.length - 1]);
 }
 
-const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, analytics: renderAnalytics, history: renderHistory };
+const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, managers: renderManagers, analytics: renderAnalytics, history: renderHistory };
 const rendered = {};
 
 document.getElementById('tabs').addEventListener('click', (e) => {
