@@ -169,6 +169,8 @@ th:hover { color: var(--ink); }
 .table-scroll { max-height: 380px; overflow-y: auto; }
 .table-scroll table { margin: 0; }
 .table-scroll thead th { position: sticky; top: 0; background: var(--card); z-index: 1; }
+.card.flex-fill { display: flex; flex-direction: column; }
+.table-scroll.fill { flex: 1; max-height: none; min-height: 0; }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
 tr.clickable-row { cursor: pointer; }
@@ -489,16 +491,16 @@ function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
 
-  const grid = el('div', 'grid grid-2 align-top');
+  const grid = el('div', 'grid grid-2');
 
-  const standingsCard = el('div', 'card');
+  const standingsCard = el('div', 'card flex-fill');
   standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
   let rows = d.standings.map(s => `
     <tr class="${s.is_owner ? 'owner-row' : ''}">
       <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
       <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
     </tr>`).join('');
-  standingsCard.appendChild(el('div', 'table-scroll', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
+  standingsCard.appendChild(el('div', 'table-scroll fill', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
   grid.appendChild(standingsCard);
 
   const fixturesCard = el('div', 'card');
