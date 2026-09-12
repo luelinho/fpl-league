@@ -485,15 +485,6 @@ function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
 
-  if (d.alerts.items.length) {
-    const box = el('div', 'card');
-    box.appendChild(el('h2', null, 'Alerts'));
-    d.alerts.items.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
-    const hidden = d.alerts.total_unresolved - d.alerts.items.length;
-    if (hidden > 0) box.appendChild(el('p', 'muted', `+${hidden} more not shown.`));
-    root.appendChild(box);
-  }
-
   const grid = el('div', 'grid grid-2');
 
   const standingsCard = el('div', 'card');
@@ -576,6 +567,16 @@ function renderHome(root) {
     priceCard.appendChild(grid3);
   }
   root.appendChild(priceCard);
+
+  if (d.alerts.items.length) {
+    const box = el('div', 'card');
+    box.style.marginTop = '16px';
+    box.appendChild(el('h2', null, 'Alerts'));
+    d.alerts.items.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
+    const hidden = d.alerts.total_unresolved - d.alerts.items.length;
+    if (hidden > 0) box.appendChild(el('p', 'muted', `+${hidden} more not shown.`));
+    root.appendChild(box);
+  }
 }
 
 function formatDeadline(iso) {
