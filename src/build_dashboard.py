@@ -255,30 +255,47 @@ tr:last-child td { border-bottom: none; }
 .pitch-box-top-small { top: 0; border-top: none; }
 .pitch-box-bottom-small { bottom: 0; border-bottom: none; }
 .pitch-row { display: flex; justify-content: space-evenly; align-items: flex-start; gap: 6px; position: relative; z-index: 1; flex-wrap: wrap; }
-.player-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 76px; text-align: center; }
+.player-chip { display: flex; flex-direction: column; align-items: center; width: 84px; text-align: center; cursor: pointer; }
+.player-pos-label {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-bottom: 3px;
+}
 .player-jersey {
-  width: 36px; height: 36px; position: relative;
+  width: 46px; height: 46px; position: relative;
   display: flex; align-items: center; justify-content: center;
 }
-.kit-img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); }
-.player-chip.bench .kit-img { filter: grayscale(0.9) opacity(0.55); }
+.kit-img { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5)); }
+.player-chip.bench .kit-img { filter: grayscale(0.6) opacity(0.85) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
 .player-armband {
-  position: absolute; top: -5px; right: -6px; width: 15px; height: 15px; border-radius: 50%;
-  background: var(--ink); color: var(--bg); font-size: 8.5px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.3);
+  position: absolute; top: -3px; left: -3px; width: 18px; height: 18px; border-radius: 50%;
+  font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(10,10,13,0.5); box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.player-armband.cap { background: var(--accent); color: var(--accent-ink); }
+.player-armband.vice { background: #b18aff; color: #1a0f2e; }
+.player-flag {
+  position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; border-radius: 50%;
+  background: #ffb04a; color: #3a2400; font-size: 9px; display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(10,10,13,0.5); cursor: help;
 }
 .player-name {
-  font-size: 10.5px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 74px;
+  margin-top: 6px; background: #f4f2ef; color: #171321; font-weight: 800; font-size: 10.5px;
+  padding: 2px 7px; border-radius: 6px 6px 0 0; width: 100%;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.player-chip.bench .player-name { color: var(--ink-soft); text-shadow: none; }
+.player-chip.bench .player-name { background: #dedad3; }
 .player-pts {
-  font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.35);
-  padding: 1px 6px; border-radius: 999px;
+  font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 0 0 6px 6px; width: 100%; color: #fff;
 }
-.player-pts.not-played { color: var(--ink-soft); background: rgba(0,0,0,0.16); font-weight: 600; }
-.player-chip.bench .player-pts { background: transparent; color: var(--ink-soft); }
-.player-chip { cursor: pointer; }
+.player-pts.tier-elite { background: var(--accent); color: var(--accent-ink); }
+.player-pts.tier-great { background: #8fd645; color: #0a0a0d; }
+.player-pts.tier-ok { background: #ffb04a; color: #2c1c00; }
+.player-pts.tier-low { background: rgba(255,255,255,0.18); color: #fff; }
+.player-pts.not-played { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); font-weight: 600; }
+.bench-shelf {
+  margin-top: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 16px 12px;
+}
 .player-tooltip {
   position: fixed; z-index: 300; pointer-events: none; max-width: 240px;
   background: #16121e; border: 1px solid var(--border); border-radius: 10px;
@@ -422,16 +439,34 @@ document.addEventListener('click', () => { if (playerTooltipPinnedChip) hidePlay
 window.addEventListener('scroll', hidePlayerTooltip, true);
 window.addEventListener('resize', hidePlayerTooltip);
 
+const FLAG_STATUS_TEXT = { d: 'Doubtful', i: 'Injured', s: 'Suspended', u: 'Unavailable' };
+
+function pointsTierClass(p, hasPlayed) {
+  if (!hasPlayed) return 'not-played';
+  const total = p.raw_points * (p.multiplier || 1);
+  if (total >= 12) return 'tier-elite';
+  if (total >= 7) return 'tier-great';
+  if (total >= 3) return 'tier-ok';
+  return 'tier-low';
+}
+
 function playerChip(p, isBench) {
   const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
   const kit = DIGEST.club_kits[p.club_id];
   const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
   const jerseyContent = kitSrc ? `<img src="${kitSrc}" alt="${p.position}" class="kit-img">` : p.position;
   const hasPlayed = (p.minutes || 0) > 0;
+  const armClass = p.armband === 'C' ? 'cap' : p.armband === 'VC' ? 'vice' : null;
+  const armHtml = armClass ? `<span class="player-armband ${armClass}">${p.armband === 'C' ? 'C' : 'V'}</span>` : '';
+  const flagged = p.status && p.status !== 'a';
+  const flagTitle = flagged ? `${FLAG_STATUS_TEXT[p.status] || 'Flagged'}${p.news ? ' — ' + p.news : ''}` : '';
+  const flagHtml = flagged ? `<span class="player-flag" title="${flagTitle}">&#9888;</span>` : '';
+  const posLabel = isBench ? `<div class="player-pos-label">${p.position}</div>` : '';
   chip.innerHTML = `
-    <div class="player-jersey">${jerseyContent}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
+    ${posLabel}
+    <div class="player-jersey">${jerseyContent}${armHtml}${flagHtml}</div>
     <div class="player-name">${p.name}</div>
-    <div class="player-pts${hasPlayed ? '' : ' not-played'}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
+    <div class="player-pts ${pointsTierClass(p, hasPlayed)}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
   `;
   chip.addEventListener('mouseenter', () => { if (!playerTooltipPinnedChip) showPlayerTooltip(chip, p); });
   chip.addEventListener('mouseleave', () => { if (!playerTooltipPinnedChip) hidePlayerTooltip(); });
@@ -472,7 +507,7 @@ function renderPitch(container, players) {
   if (bench.length) {
     const benchWrap = el('div', 'bench-strip');
     benchWrap.appendChild(el('h3', null, 'Bench'));
-    const benchRow = el('div', 'pitch-row');
+    const benchRow = el('div', 'pitch-row bench-shelf');
     bench.forEach(p => benchRow.appendChild(playerChip(p, true)));
     benchWrap.appendChild(benchRow);
     container.appendChild(benchWrap);

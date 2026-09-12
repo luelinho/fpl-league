@@ -381,7 +381,13 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
                 ORDER BY rs.snapshot_date DESC LIMIT 1) AS owned_pct,
                (SELECT rs.form FROM raw_player_snapshots rs
                 WHERE rs.season_id = p.season_id AND rs.player_id = p.player_id
-                ORDER BY rs.snapshot_date DESC LIMIT 1) AS form
+                ORDER BY rs.snapshot_date DESC LIMIT 1) AS form,
+               (SELECT rs.status FROM raw_player_snapshots rs
+                WHERE rs.season_id = p.season_id AND rs.player_id = p.player_id
+                ORDER BY rs.snapshot_date DESC LIMIT 1) AS status,
+               (SELECT rs.news FROM raw_player_snapshots rs
+                WHERE rs.season_id = p.season_id AND rs.player_id = p.player_id
+                ORDER BY rs.snapshot_date DESC LIMIT 1) AS news
         FROM raw_manager_gw_picks p
         JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
         JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
@@ -389,13 +395,17 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
         """, (mgr_id,),
     ).fetchall()
     rosters_by_gw: dict[int, list[dict]] = {}
-    for gw, player_id, name_, pos, club_id, slot, starter, cap, vice, mult, pts, mins, owned, frm in all_picks:
+    for gw, player_id, name_, pos, club_id, slot, starter, cap, vice, mult, pts, mins, owned, frm, status, news in all_picks:
         rosters_by_gw.setdefault(gw, []).append({
             "player_id": player_id, "name": name_, "position": pos, "club_id": club_id, "slot": slot,
             "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
             "minutes": mins, "owned_pct": owned, "form": frm,
             "gw": gw, "owner_manager_id": mgr_id,
+            # status is FPL's own current availability flag (a=available, d=doubtful,
+            # i=injured, s=suspended, u=unavailable/left club) — "current," same
+            # currency caveat as owned_pct/form above, not historical to this gameweek.
+            "status": status, "news": news,
         })
     # The most recent gameweek with ANY picks — final or provisional — not
     # necessarily latest_gw (the newest FINALIZED one). Once a gameweek's
