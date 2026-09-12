@@ -504,7 +504,10 @@ function renderHome(root) {
 
   const fixturesCard = el('div', 'card');
   const uf = d.upcoming_fixtures;
-  fixturesCard.appendChild(el('h2', null, uf.gw ? `This week's fixtures — GW${uf.gw}` : 'No upcoming fixtures'));
+  const fixturesLive = uf.matches.some(m => m.live);
+  fixturesCard.appendChild(el('h2', null, uf.gw
+    ? `This week's fixtures — GW${uf.gw}${fixturesLive ? ' <span class="badge badge-l">LIVE</span>' : ''}`
+    : 'No upcoming fixtures'));
   uf.matches.forEach(m => fixturesCard.appendChild(matchRow(uf.gw, m, true)));
   grid.appendChild(fixturesCard);
   root.appendChild(grid);
@@ -545,7 +548,7 @@ function renderHome(root) {
     <div class="divider"></div>
     <h3>Your squad — GW${o.latest_roster.gw}${squadIsForNextGw ? ' <span class="badge badge-l">LIVE</span>' : ''}</h3>
     <p class="muted" style="margin:0 0 10px">${squadIsForNextGw
-      ? 'Locked in — not yet scored. Points fill in as matches are played.'
+      ? 'Locked in — live. Points update as matches are played, and are final once FPL data-checks this gameweek.'
       : `Transfers made before the GW${nextGw} deadline won't show here yet.`}</p>`;
     nextCard.innerHTML += html;
     renderPitch(nextCard, o.latest_roster.players);
@@ -659,7 +662,7 @@ function renderManagerCards(root, o) {
     rosterCard.appendChild(el('h2', null,
       `Roster — GW${gw}${g ? ` (${g.net_points} pts${g.rank ? `, rank ${g.rank}` : ''})` : ''}${liveBadge}`));
     if (g && !g.is_final) {
-      rosterCard.appendChild(el('p', 'muted', 'Squad locked in — not yet scored. Points update once matches are played; rank/efficiency unlock once FPL finalizes this gameweek.'));
+      rosterCard.appendChild(el('p', 'muted', 'Live score — still changing as matches are played; rank/efficiency unlock once FPL finalizes this gameweek.'));
     }
     if (g) {
       rosterCard.appendChild(el('div', 'stat-chips', `

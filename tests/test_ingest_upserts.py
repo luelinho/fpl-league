@@ -126,14 +126,23 @@ def picks_response(points: int, transfers_cost: int = 0) -> dict:
 
 
 def test_manager_gw_provisional_row_can_be_updated(conn):
-    client = FakeClient({"entry/12345/event/1/picks/": picks_response(30)})
-    ingest.load_manager_gw(conn, client, 1, manager_id=1, entry_id=12345, player_points={}, is_final=False)
+    """A provisional row's gross_points is computed from the live per-player
+    points already joined into each pick (11 starters × multiplier 1, per
+    picks_response), not from entry_history.points — that FPL field has been
+    observed to lag behind event/{gw}/live/ during live play (2026-09-12,
+    real GW4), so it's deliberately ignored while is_final=False. eh.points
+    is set to a nonsense 999 here specifically to prove it's ignored.
+    """
+    live_points_1 = {i: 2 for i in range(1, 12)}
+    client = FakeClient({"entry/12345/event/1/picks/": picks_response(999)})
+    ingest.load_manager_gw(conn, client, 1, manager_id=1, entry_id=12345, player_points=live_points_1, is_final=False)
 
     row = conn.execute("SELECT gross_points, is_final FROM raw_manager_gw WHERE gw_id=1 AND manager_id=1").fetchone()
-    assert row == (30, 0)
+    assert row == (22, 0)
 
-    client2 = FakeClient({"entry/12345/event/1/picks/": picks_response(55)})
-    ingest.load_manager_gw(conn, client2, 1, manager_id=1, entry_id=12345, player_points={}, is_final=False)
+    live_points_2 = {i: 5 for i in range(1, 12)}
+    client2 = FakeClient({"entry/12345/event/1/picks/": picks_response(999)})
+    ingest.load_manager_gw(conn, client2, 1, manager_id=1, entry_id=12345, player_points=live_points_2, is_final=False)
 
     row = conn.execute("SELECT gross_points, is_final FROM raw_manager_gw WHERE gw_id=1 AND manager_id=1").fetchone()
     assert row == (55, 0)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:33:20.273151+00:00",
+  "generated_at": "2026-09-12T16:08:29.356311+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -290,92 +290,128 @@
       {
         "a": {
           "name": "Andrew Romani",
-          "team": "Rock \u2018n\u2019 Iraola"
+          "team": "Rock \u2018n\u2019 Iraola",
+          "score": 19
         },
         "b": {
           "name": "Jordan Fernholz",
-          "team": "Blue Bloods"
-        }
+          "team": "Blue Bloods",
+          "score": 0
+        },
+        "live": true,
+        "winner": "a"
       },
       {
         "a": {
           "name": "Chris Mazzatta",
-          "team": "CMazz"
+          "team": "CMazz",
+          "score": 36
         },
         "b": {
           "name": "Brady Baxter",
-          "team": "Championship side"
-        }
+          "team": "Championship side",
+          "score": 16
+        },
+        "live": true,
+        "winner": "a"
       },
       {
         "a": {
           "name": "Craig Allen",
-          "team": "Game of Throw-In"
+          "team": "Game of Throw-In",
+          "score": 15
         },
         "b": {
           "name": "Chris Miller",
-          "team": "millers minions"
-        }
+          "team": "millers minions",
+          "score": 17
+        },
+        "live": true,
+        "winner": "b"
       },
       {
         "a": {
           "name": "Isaac Sotelo",
-          "team": "#GOAT"
+          "team": "#GOAT",
+          "score": 34
         },
         "b": {
           "name": "Joe Gannitello",
-          "team": "Bruno's Bros"
-        }
+          "team": "Bruno's Bros",
+          "score": 27
+        },
+        "live": true,
+        "winner": "a"
       },
       {
         "a": {
           "name": "Ryan Smith",
-          "team": "Big Cannon Energy"
+          "team": "Big Cannon Energy",
+          "score": 25
         },
         "b": {
           "name": "Luel Waktola",
-          "team": "Midtable Crisis"
-        }
+          "team": "Midtable Crisis",
+          "score": 27
+        },
+        "live": true,
+        "winner": "b"
       },
       {
         "a": {
           "name": "Yorick Stoepker",
-          "team": "Hoevoeloe"
+          "team": "Hoevoeloe",
+          "score": 23
         },
         "b": {
           "name": "Harry Daskalopoulos",
-          "team": "OliveOilMoneh"
-        }
+          "team": "OliveOilMoneh",
+          "score": 4
+        },
+        "live": true,
+        "winner": "a"
       },
       {
         "a": {
           "name": "Brian Moran",
-          "team": "Kick'in the balls"
+          "team": "Kick'in the balls",
+          "score": 21
         },
         "b": {
           "name": "Reggie Mazz",
-          "team": "Keiner Bobby Dazzler"
-        }
+          "team": "Keiner Bobby Dazzler",
+          "score": 47
+        },
+        "live": true,
+        "winner": "b"
       },
       {
         "a": {
           "name": "Danilo Arroyo",
-          "team": "Ophelia Balls"
+          "team": "Ophelia Balls",
+          "score": 20
         },
         "b": {
           "name": "Erik Baxter",
-          "team": "Erik's Team"
-        }
+          "team": "Erik's Team",
+          "score": 35
+        },
+        "live": true,
+        "winner": "b"
       },
       {
         "a": {
           "name": "Iain Abshier",
-          "team": "FOGGING ESTANDARDS"
+          "team": "FOGGING ESTANDARDS",
+          "score": 34
         },
         "b": {
           "name": "Kirk Baxter",
-          "team": "Toffee Machine"
-        }
+          "team": "Toffee Machine",
+          "score": 23
+        },
+        "live": true,
+        "winner": "a"
       }
     ]
   },
@@ -1102,10 +1138,10 @@
       },
       {
         "gw": 4,
-        "net_points": 0,
-        "gross_points": 0,
+        "net_points": 27,
+        "gross_points": 27,
         "hit_cost": 0,
-        "bench_points": 0,
+        "bench_points": 1,
         "chip": null,
         "rank": null,
         "captain_efficiency_pct": null,
@@ -1134,7 +1170,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Konsa",
@@ -1174,7 +1210,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Szoboszlai",
@@ -1184,7 +1220,7 @@
           "is_starter": true,
           "armband": "VC",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 3
         },
         {
           "name": "Gibbs-White",
@@ -1194,7 +1230,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Cherki",
@@ -1244,7 +1280,7 @@
           "is_starter": false,
           "armband": "",
           "multiplier": 0,
-          "raw_points": 0
+          "raw_points": 1
         },
         {
           "name": "Wissa",
@@ -1745,7 +1781,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Konsa",
@@ -1785,7 +1821,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Szoboszlai",
@@ -1795,7 +1831,7 @@
           "is_starter": true,
           "armband": "VC",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 3
         },
         {
           "name": "Gibbs-White",
@@ -1805,7 +1841,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 0
+          "raw_points": 8
         },
         {
           "name": "Cherki",
@@ -1855,7 +1891,7 @@
           "is_starter": false,
           "armband": "",
           "multiplier": 0,
-          "raw_points": 0
+          "raw_points": 1
         },
         {
           "name": "Wissa",
@@ -1896,7 +1932,8 @@
   },
   "owner_next_opponent": {
     "name": "Ryan Smith",
-    "team": "Big Cannon Energy"
+    "team": "Big Cannon Energy",
+    "score": 25
   },
   "managers_detail": {
     "9": {
@@ -1964,10 +2001,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 23,
+          "gross_points": 23,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 2,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -2026,7 +2063,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -2036,7 +2073,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Mbeumo",
@@ -2086,7 +2123,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -2116,7 +2153,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Hume",
@@ -2637,7 +2674,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -2647,7 +2684,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Mbeumo",
@@ -2697,7 +2734,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -2727,7 +2764,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Hume",
@@ -2821,10 +2858,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 36,
+          "gross_points": 36,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 1,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -2903,7 +2940,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -2923,7 +2960,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Thiago",
@@ -2933,7 +2970,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -2943,7 +2980,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Dubravka",
@@ -2973,7 +3010,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Kusi-Asare",
@@ -3514,7 +3551,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -3534,7 +3571,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Thiago",
@@ -3544,7 +3581,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -3554,7 +3591,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Dubravka",
@@ -3584,7 +3621,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Kusi-Asare",
@@ -3678,8 +3715,8 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 23,
+          "gross_points": 23,
           "hit_cost": 0,
           "bench_points": 0,
           "chip": null,
@@ -3710,7 +3747,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Kayode",
@@ -3720,7 +3757,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Calafiori",
@@ -3740,7 +3777,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Dewsbury-Hall",
@@ -3770,7 +3807,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Haaland",
@@ -3790,7 +3827,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Thiago",
@@ -3800,7 +3837,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Steele",
@@ -4321,7 +4358,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Kayode",
@@ -4331,7 +4368,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Calafiori",
@@ -4351,7 +4388,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Dewsbury-Hall",
@@ -4381,7 +4418,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Haaland",
@@ -4401,7 +4438,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Thiago",
@@ -4411,7 +4448,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Steele",
@@ -4535,10 +4572,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 19,
+          "gross_points": 19,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 2,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -4617,7 +4654,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -4647,7 +4684,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Isak",
@@ -4657,7 +4694,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Dubravka",
@@ -4697,7 +4734,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           }
         ],
         "is_final": false
@@ -5228,7 +5265,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -5258,7 +5295,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Isak",
@@ -5268,7 +5305,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Dubravka",
@@ -5308,7 +5345,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           }
         ]
       },
@@ -5386,10 +5423,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 27,
+          "gross_points": 27,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 1,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -5418,7 +5455,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Konsa",
@@ -5458,7 +5495,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Szoboszlai",
@@ -5468,7 +5505,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -5478,7 +5515,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Cherki",
@@ -5528,7 +5565,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Wissa",
@@ -6029,7 +6066,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Konsa",
@@ -6069,7 +6106,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Szoboszlai",
@@ -6079,7 +6116,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -6089,7 +6126,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Cherki",
@@ -6139,7 +6176,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Wissa",
@@ -6243,10 +6280,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 17,
+          "gross_points": 17,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 3,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -6285,7 +6322,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Shaw",
@@ -6325,7 +6362,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gro\u00df",
@@ -6365,7 +6402,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -6385,7 +6422,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Diop",
@@ -6395,7 +6432,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Akpom",
@@ -6896,7 +6933,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Shaw",
@@ -6936,7 +6973,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gro\u00df",
@@ -6976,7 +7013,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -6996,7 +7033,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Diop",
@@ -7006,7 +7043,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Akpom",
@@ -7106,8 +7143,8 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 34,
+          "gross_points": 34,
           "hit_cost": 0,
           "bench_points": 0,
           "chip": null,
@@ -7158,7 +7195,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 14
           },
           {
             "name": "Palmer",
@@ -7168,7 +7205,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Mbeumo",
@@ -7198,7 +7235,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Cherki",
@@ -7228,7 +7265,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Steele",
@@ -7769,7 +7806,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 14
           },
           {
             "name": "Palmer",
@@ -7779,7 +7816,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Mbeumo",
@@ -7809,7 +7846,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Cherki",
@@ -7839,7 +7876,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Steele",
@@ -7969,10 +8006,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 35,
+          "gross_points": 35,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 2,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -8061,7 +8098,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Rogers",
@@ -8071,7 +8108,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Haaland",
@@ -8091,7 +8128,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Lammens",
@@ -8121,7 +8158,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Ajayi",
@@ -8131,7 +8168,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           }
         ],
         "is_final": false
@@ -8672,7 +8709,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Rogers",
@@ -8682,7 +8719,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Haaland",
@@ -8702,7 +8739,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Lammens",
@@ -8732,7 +8769,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Ajayi",
@@ -8742,7 +8779,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           }
         ]
       },
@@ -8813,8 +8850,8 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 16,
+          "gross_points": 16,
           "hit_cost": 0,
           "bench_points": 0,
           "chip": null,
@@ -8875,7 +8912,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "B.Fernandes",
@@ -8915,7 +8952,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 13
           },
           {
             "name": "Barry",
@@ -9486,7 +9523,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "B.Fernandes",
@@ -9526,7 +9563,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 13
           },
           {
             "name": "Barry",
@@ -9670,8 +9707,8 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 20,
+          "gross_points": 20,
           "hit_cost": 0,
           "bench_points": 0,
           "chip": null,
@@ -9732,7 +9769,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Cherki",
@@ -9752,7 +9789,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -9782,7 +9819,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Calvert-Lewin",
@@ -10343,7 +10380,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Cherki",
@@ -10363,7 +10400,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Semenyo",
@@ -10393,7 +10430,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Calvert-Lewin",
@@ -10521,10 +10558,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 47,
+          "gross_points": 47,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 1,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -10543,7 +10580,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Tarkowski",
@@ -10593,7 +10630,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Szoboszlai",
@@ -10603,7 +10640,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -10613,7 +10650,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Dewsbury-Hall",
@@ -10633,7 +10670,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Thiago",
@@ -10643,7 +10680,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Dubravka",
@@ -10673,7 +10710,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Maguire",
@@ -11154,7 +11191,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Tarkowski",
@@ -11204,7 +11241,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Szoboszlai",
@@ -11214,7 +11251,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Gibbs-White",
@@ -11224,7 +11261,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 8
           },
           {
             "name": "Dewsbury-Hall",
@@ -11244,7 +11281,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Thiago",
@@ -11254,7 +11291,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Dubravka",
@@ -11284,7 +11321,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Maguire",
@@ -12235,10 +12272,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 4,
+          "gross_points": 4,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 14,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -12257,7 +12294,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "van Ewijk",
@@ -12357,7 +12394,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Henderson",
@@ -12397,7 +12434,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 14
           }
         ],
         "is_final": false
@@ -12868,7 +12905,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "van Ewijk",
@@ -12968,7 +13005,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Henderson",
@@ -13008,7 +13045,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 14
           }
         ]
       },
@@ -13092,10 +13129,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 25,
+          "gross_points": 25,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 1,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -13164,7 +13201,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Palmer",
@@ -13174,7 +13211,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Semenyo",
@@ -13214,7 +13251,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -13244,7 +13281,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Shaw",
@@ -13775,7 +13812,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Palmer",
@@ -13785,7 +13822,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Semenyo",
@@ -13825,7 +13862,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -13855,7 +13892,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Shaw",
@@ -13936,10 +13973,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 21,
+          "gross_points": 21,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 3,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -13968,7 +14005,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Branthwaite",
@@ -14018,7 +14055,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Saka",
@@ -14048,7 +14085,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Evanilson",
@@ -14058,7 +14095,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Kinsky",
@@ -14078,7 +14115,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Mu\u00f1oz",
@@ -14088,7 +14125,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Gray",
@@ -14579,7 +14616,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Branthwaite",
@@ -14629,7 +14666,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Saka",
@@ -14659,7 +14696,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Evanilson",
@@ -14669,7 +14706,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Kinsky",
@@ -14689,7 +14726,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Mu\u00f1oz",
@@ -14699,7 +14736,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           },
           {
             "name": "Gray",
@@ -14780,10 +14817,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 27,
+          "gross_points": 27,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 2,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -14872,7 +14909,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Haaland",
@@ -14902,7 +14939,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -14922,7 +14959,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Mbeumo",
@@ -14942,7 +14979,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           }
         ],
         "is_final": false
@@ -15483,7 +15520,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Haaland",
@@ -15513,7 +15550,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -15533,7 +15570,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Mbeumo",
@@ -15553,7 +15590,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           }
         ]
       },
@@ -15631,10 +15668,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 34,
+          "gross_points": 34,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 1,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -15663,7 +15700,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Calafiori",
@@ -15713,7 +15750,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Palmer",
@@ -15723,7 +15760,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Gakpo",
@@ -15733,7 +15770,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Haaland",
@@ -15753,7 +15790,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -15773,7 +15810,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "De Cuyper",
@@ -16274,7 +16311,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Calafiori",
@@ -16324,7 +16361,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "Palmer",
@@ -16334,7 +16371,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 5
           },
           {
             "name": "Gakpo",
@@ -16344,7 +16381,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "Haaland",
@@ -16364,7 +16401,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -16384,7 +16421,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "De Cuyper",
@@ -16542,10 +16579,10 @@
         },
         {
           "gw": 4,
-          "net_points": 0,
-          "gross_points": 0,
+          "net_points": 15,
+          "gross_points": 15,
           "hit_cost": 0,
-          "bench_points": 0,
+          "bench_points": 3,
           "chip": null,
           "rank": null,
           "captain_efficiency_pct": null,
@@ -16624,7 +16661,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "B.Fernandes",
@@ -16664,7 +16701,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -16694,7 +16731,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "N.Williams",
@@ -16704,7 +16741,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           }
         ],
         "is_final": false
@@ -17235,7 +17272,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 3
           },
           {
             "name": "B.Fernandes",
@@ -17275,7 +17312,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 0
+            "raw_points": 12
           },
           {
             "name": "Kinsky",
@@ -17305,7 +17342,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 1
           },
           {
             "name": "N.Williams",
@@ -17315,7 +17352,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 0
+            "raw_points": 2
           }
         ]
       },

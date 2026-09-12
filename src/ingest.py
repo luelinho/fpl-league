@@ -200,6 +200,15 @@ def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
     hasn't data-checked yet: gross_points is FPL's own live, still-changing
     total, not an estimate we made up. Every write here is upsert-until-final,
     same pattern as load_player_gw_stats — once is_final=1, never touched again.
+
+    entry_history.points is FPL's own aggregate and is trusted once a
+    gameweek is final. Observed live (2026-09-12, GW4): it can sit at 0 while
+    event/{gw}/live/ — fetched moments earlier in the same run and already
+    joined into each pick's points_scored — shows real, non-zero scores. For
+    a provisional row only, gross/bench points are instead the exact sum of
+    those already-captured pick points (all 15 on a Bench Boost week, the
+    starting XI otherwise) rather than a stale FPL summary field — still a
+    fact reconstructed from stored data, not an estimate.
     """
     res = client.get(f"entry/{entry_id}/event/{gw}/picks/")
     if not res.ok:
@@ -214,12 +223,34 @@ def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
     active_chip = body.get("active_chip")
     autosubs = body.get("automatic_subs", [])
 
+    subbed_out = {a.get("element_out") for a in autosubs if a.get("element_out") is not None}
+    subbed_in = {a.get("element_in") for a in autosubs if a.get("element_in") is not None}
+
+    pick_points = []
+    for pick in picks:
+        pid = pick["element"]
+        slot = pick["position"]
+        is_starter = (slot <= 11 and pid not in subbed_out) or pid in subbed_in
+        raw_pts = player_points.get(pid, 0)
+        pick_points.append((raw_pts, pick["multiplier"], is_starter))
+    # multiplier already encodes captaincy and chip effects (0 for a normal
+    # bench slot, 1 for every pick on a Bench Boost week) — summing it across
+    # all 15 picks gives the correct total either way, no chip branch needed.
+    computed_gross = sum(raw_pts * mult for raw_pts, mult, _ in pick_points)
+    # bench_points is "points left unused" — the bench players' own raw
+    # scores, not their (zeroed) multiplied contribution.
+    bench_sum = sum(raw_pts for raw_pts, _, starter in pick_points if not starter)
+
     gross_points = eh.get("points")
     hit_cost = eh.get("event_transfers_cost", 0)
     if gross_points is None:
         log_issue(conn, "error", "missing_field",
                    f"entry_history.points missing for entry {entry_id} GW{gw}", gw, manager_id)
         return None
+    bench_points = eh.get("points_on_bench", 0)
+    if not is_final:
+        gross_points = computed_gross
+        bench_points = bench_sum
     net_points = gross_points - hit_cost
 
     conn.execute(
@@ -237,13 +268,10 @@ def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
             fetched_at = excluded.fetched_at
         WHERE raw_manager_gw.is_final = 0
         """,
-        (gw, manager_id, gross_points, hit_cost, net_points, eh.get("points_on_bench", 0),
+        (gw, manager_id, gross_points, hit_cost, net_points, bench_points,
          eh.get("event_transfers", 0), active_chip, eh.get("value"), eh.get("bank"),
          eh.get("overall_rank"), int(is_final), now()),
     )
-
-    subbed_out = {a.get("element_out") for a in autosubs if a.get("element_out") is not None}
-    subbed_in = {a.get("element_in") for a in autosubs if a.get("element_in") is not None}
 
     for pick in picks:
         pid = pick["element"]

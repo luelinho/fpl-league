@@ -88,21 +88,39 @@ def standings(conn, gw: int) -> list[dict]:
 
 
 def fixtures_for_gw(conn, gw: int) -> list[dict]:
+    """This gameweek's matchups. raw_h2h_matches itself never carries a score
+    until the gameweek is finalized (CLAUDE.md rule 5 — no invented results),
+    but once the deadline has passed, raw_manager_gw holds real provisional
+    (is_final=0) net_points captured by daily_sync. Surface those here as a
+    live score — still a stored fact, just not yet the final result — rather
+    than making the owner wait for the fixture to leave "vs" until GW-end.
+    """
     if gw is None:
         return []
     rows = conn.execute(
         """
-        SELECT ma.display_name, ta.team_name, mb.display_name, tb.team_name
+        SELECT ma.display_name, ta.team_name, mb.display_name, tb.team_name,
+               ga.net_points, ga.is_final, gb.net_points, gb.is_final
         FROM raw_h2h_matches h
         JOIN managers ma ON ma.manager_id = h.manager_a
         JOIN managers mb ON mb.manager_id = h.manager_b
         JOIN team_names ta ON ta.manager_id = h.manager_a
         JOIN team_names tb ON tb.manager_id = h.manager_b
+        LEFT JOIN raw_manager_gw ga ON ga.gw_id = h.gw_id AND ga.manager_id = h.manager_a
+        LEFT JOIN raw_manager_gw gb ON gb.gw_id = h.gw_id AND gb.manager_id = h.manager_b
         WHERE h.gw_id = ?
         """,
         (gw,),
     ).fetchall()
-    return [{"a": {"name": an, "team": at}, "b": {"name": bn, "team": bt}} for an, at, bn, bt in rows]
+    out = []
+    for an, at, bn, bt, sa, fa, sb, fb in rows:
+        m = {"a": {"name": an, "team": at}, "b": {"name": bn, "team": bt}}
+        if sa is not None and sb is not None and not fa and not fb:
+            m["a"]["score"], m["b"]["score"], m["live"] = sa, sb, True
+            if sa != sb:
+                m["winner"] = "a" if sa > sb else "b"
+        out.append(m)
+    return out
 
 
 def results_for_gw(conn, gw: int) -> list[dict]:
