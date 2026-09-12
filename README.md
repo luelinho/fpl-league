@@ -18,7 +18,8 @@ Full design: [`SPEC.md`](SPEC.md)
 | 3 — Historical backfill | **Complete** (2026-09-12) |
 | 4 — Automation | **Complete** (2026-09-12), not yet scheduled |
 | 5 — Tier 0–2 analytics | **Complete** (2026-09-12) |
-| 6+ | Not started |
+| 6 — Claude interface | **Complete** (2026-09-12) |
+| 7+ | Not started |
 
 GW1–3 fully backfilled: 656 players, 20 clubs, 1,890 player-gameweek stat rows,
 54 manager-gameweek summaries, 810 picks, 16 autosubs, 36 transfers, 27 H2H
@@ -42,7 +43,16 @@ projections) are deliberately left NULL — Phase 8's job. Close/blowout match
 counts are now computed with owner-set thresholds (close < 5pts, blowout >
 20pts). This repo
 is now under git (see below); GitHub Actions is configured but the repo isn't
-pushed anywhere yet. Next up is Phase 6: the Claude query interface.
+pushed anywhere yet.
+
+`queries/` (Phase 6) now holds 10 named, parameterized SQL files for the
+common questions — roster by gameweek, captains league-wide, H2H history and
+aggregate record between two managers, standings at a gameweek, season
+ledger, manager-skill summary, weekly extremes (winner/blowout/upset/luckiest/
+unluckiest), open data issues, and confidence-gate status. All vetted against
+live data with `src/vet_queries.py`. `src/recap.py` generates
+`reports/gw{N}.md` for every finalized gameweek. Next up is Phase 7: the
+HTML dashboard.
 
 ---
 
@@ -154,6 +164,22 @@ match-margin columns are left `NULL` on purpose — see the module docstring.
 
 ---
 
+## Running Phase 6 (queries and recaps)
+
+```bash
+source .venv/bin/activate
+python -m src.vet_queries   # re-run the query library against live data
+python -m src.recap         # regenerate reports/gw{N}.md
+```
+
+`queries/*.sql` are named, parameterized (`:entry_id`, `:gw`, etc.) SQL files
+meant to be the reviewed answer to a recurring question rather than an
+improvised one each time. `src/vet_queries.py` is a standalone harness (not
+part of the daily pipeline) that runs every query with real parameters so the
+library stays provably working as the schema evolves.
+
+---
+
 ## Git and CI
 
 This repo is a local git repository (`git init`, not yet pushed anywhere).
@@ -195,6 +221,9 @@ src/build_db.py     Phase 2 — schema + league reconstruction
 src/ingest.py       Shared loaders used by both backfill.py and daily_sync.py
 src/backfill.py     Phase 3 — unconditional historical backfill
 src/daily_sync.py   Phase 4 — the one daily job; skips already-complete GWs
+src/calculate.py    Phase 5 — Tier 0-2 analytics (ledger + manager skill)
+src/recap.py        Phase 6 — weekly recap generator
+src/vet_queries.py  Phase 6 — runs queries/*.sql against live data
 db/schema.sql       Schema, corrected against Phase 1 findings and executed
 db/league.sqlite    The database (committed to git per SPEC.md §6 — the commit
                     history is a second audit trail)
