@@ -47,6 +47,7 @@ def render(digest: dict) -> str:
       <button class="tab" data-tab="myteam">My Team</button>
       <button class="tab" data-tab="league">League</button>
       <button class="tab" data-tab="managers">Managers</button>
+      <button class="tab" data-tab="players">Players</button>
       <button class="tab" data-tab="analytics">Analytics</button>
       <button class="tab" data-tab="history">History</button>
     </nav>
@@ -58,6 +59,7 @@ def render(digest: dict) -> str:
   <section id="page-myteam" class="page"></section>
   <section id="page-league" class="page"></section>
   <section id="page-managers" class="page"></section>
+  <section id="page-players" class="page"></section>
   <section id="page-analytics" class="page"></section>
   <section id="page-history" class="page"></section>
 </main>
@@ -186,6 +188,14 @@ tr:last-child td { border-bottom: none; }
 .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 700; background: var(--purple-soft); color: var(--purple); }
 .section-title { font-size: 19px; font-weight: 700; margin: 30px 0 14px; color: var(--ink); }
 .section-title:first-child { margin-top: 0; }
+.plist { display: flex; flex-direction: column; gap: 10px; }
+.plist h3 { margin: 0 0 2px; }
+.plist-row { display: flex; align-items: center; gap: 10px; }
+.plist-kit { width: 26px; height: 26px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
+.plist-name { font-weight: 600; font-size: 13px; color: var(--ink); width: 130px; flex: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plist-bar-track { flex: 1; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.plist-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+.plist-count { font-size: 12px; font-weight: 700; color: var(--ink-soft); width: 56px; text-align: right; flex: none; }
 .match-row {
   display: flex; align-items: center; justify-content: space-between; padding: 11px 0;
   border-bottom: 1px solid var(--border);
@@ -1018,6 +1028,52 @@ function sortableTable(container, headers, rows, rowRenderer) {
   draw();
 }
 
+function playerListRows(container, list, maxScale) {
+  if (!list.length) { container.appendChild(el('p', 'muted', 'No data yet.')); return; }
+  const max = maxScale || Math.max(...list.map(p => p.count));
+  list.forEach(p => {
+    const kit = DIGEST.club_kits[p.club_id];
+    const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
+    const row = el('div', 'plist-row');
+    row.innerHTML = `
+      ${kitSrc ? `<img class="plist-kit" src="${kitSrc}" alt="${p.position}">` : ''}
+      <div class="plist-name">${p.name}</div>
+      <div class="plist-bar-track"><div class="plist-bar-fill" style="width:${(p.count / max * 100).toFixed(0)}%"></div></div>
+      <div class="plist-count">${p.count}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function renderPlayers(root) {
+  const d = DIGEST.players;
+  root.innerHTML = '';
+  if (!d || !d.gw) { root.appendChild(el('div', 'card', 'No player data yet.')); return; }
+
+  root.appendChild(el('div', 'section-title', `Most owned — GW${d.gw}`));
+  const ownedCard = el('div', 'card plist');
+  ownedCard.appendChild(el('p', 'muted', 'How many of the 18 managers have this player, this gameweek.'));
+  playerListRows(ownedCard, d.most_owned, 18);
+  root.appendChild(ownedCard);
+
+  root.appendChild(el('div', 'section-title', `Most captained — GW${d.gw}`));
+  const capCard = el('div', 'card plist');
+  playerListRows(capCard, d.most_captained, 18);
+  root.appendChild(capCard);
+
+  root.appendChild(el('div', 'section-title', 'Transfer activity this season'));
+  const grid = el('div', 'grid grid-2');
+  const inCard = el('div', 'card plist');
+  inCard.appendChild(el('h3', null, 'Most transferred in'));
+  playerListRows(inCard, d.transfers.in);
+  const outCard = el('div', 'card plist');
+  outCard.appendChild(el('h3', null, 'Most transferred out'));
+  playerListRows(outCard, d.transfers.out);
+  grid.appendChild(inCard);
+  grid.appendChild(outCard);
+  root.appendChild(grid);
+}
+
 function renderAnalytics(root) {
   const d = DIGEST;
   root.innerHTML = '';
@@ -1111,7 +1167,7 @@ function renderHistory(root) {
   if (gws.length) show(gws[gws.length - 1]);
 }
 
-const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, managers: renderManagers, analytics: renderAnalytics, history: renderHistory };
+const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, managers: renderManagers, players: renderPlayers, analytics: renderAnalytics, history: renderHistory };
 const rendered = {};
 
 document.getElementById('tabs').addEventListener('click', (e) => {

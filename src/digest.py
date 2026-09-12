@@ -597,6 +597,69 @@ def owner_next_fixture(upcoming_matches: list[dict], owner_name: str) -> dict | 
     return None
 
 
+PLAYERS_LIST_LIMIT = 10
+
+
+def players_owned(conn, gw: int) -> list[dict]:
+    """Most-owned players among the 18 managers for one gameweek — a count
+    of 1-18, not the FPL-wide selected_by% shown elsewhere. Ties broken by
+    name for a stable order, not an implied ranking within the tie."""
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, COUNT(*) AS n
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        WHERE p.gw_id = ?
+        GROUP BY p.player_id
+        ORDER BY n DESC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "count": c} for n, pos, cid, c in rows]
+
+
+def players_captained(conn, gw: int) -> list[dict]:
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, COUNT(*) AS n
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        WHERE p.gw_id = ? AND p.is_captain = 1
+        GROUP BY p.player_id
+        ORDER BY n DESC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "count": c} for n, pos, cid, c in rows]
+
+
+def players_transfers(conn) -> dict:
+    """Season-aggregate transfer counts — every gameweek with captured
+    transfers, not just the latest, since a single gameweek often has too
+    few transfers per player to rank meaningfully this early in a season."""
+    def _side(column: str) -> list[dict]:
+        rows = conn.execute(
+            f"""
+            SELECT pl.web_name, pl.position, pl.club_id, COUNT(*) AS n
+            FROM raw_transfers t
+            JOIN players pl ON pl.season_id = t.season_id AND pl.player_id = t.{column}
+            GROUP BY t.{column}
+            ORDER BY n DESC, pl.web_name
+            LIMIT ?
+            """,
+            (PLAYERS_LIST_LIMIT,),
+        ).fetchall()
+        return [{"name": n, "position": pos, "club_id": cid, "count": c} for n, pos, cid, c in rows]
+
+    return {"in": _side("player_in"), "out": _side("player_out")}
+
+
 def build_digest() -> dict:
     conn = ingest.connect()
     status = gw_status(conn)
@@ -625,6 +688,12 @@ def build_digest() -> dict:
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
         "club_kits": club_kits(conn),
         "price_movers": price_movers(conn),
+        "players": {
+            "gw": status["next_gw"] or latest,
+            "most_owned": players_owned(conn, status["next_gw"] or latest),
+            "most_captained": players_captained(conn, status["next_gw"] or latest),
+            "transfers": players_transfers(conn),
+        },
     }
     conn.close()
     return d
