@@ -482,10 +482,10 @@ function playerChip(p, isBench) {
   return chip;
 }
 
-function renderPitch(container, players, flip) {
+function renderPitch(container, players) {
   const starters = players.filter(p => p.is_starter);
   const bench = players.filter(p => !p.is_starter).sort((a, b) => a.slot - b.slot);
-  const rowOrder = flip ? ['GKP', 'DEF', 'MID', 'FWD'] : ['FWD', 'MID', 'DEF', 'GKP'];
+  const rowOrder = ['FWD', 'MID', 'DEF', 'GKP'];
 
   const pitch = el('div', 'pitch');
   pitch.appendChild(el('div', 'pitch-box-top'));
@@ -590,7 +590,7 @@ function openMatchupModal(gw, nameA, nameB) {
     const colA = el('div', null, `<h3>${nameA}</h3>`);
     const colB = el('div', null, `<h3>${nameB}</h3>`);
     if (rosterA.length) renderPitch(colA, rosterA); else colA.appendChild(el('p', 'muted', 'Roster not available.'));
-    if (rosterB.length) renderPitch(colB, rosterB, true); else colB.appendChild(el('p', 'muted', 'Roster not available.'));
+    if (rosterB.length) renderPitch(colB, rosterB); else colB.appendChild(el('p', 'muted', 'Roster not available.'));
     pitches.appendChild(colA);
     pitches.appendChild(colB);
     body.appendChild(pitches);
