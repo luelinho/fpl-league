@@ -276,6 +276,7 @@ tr:last-child td { border-bottom: none; }
   font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.35);
   padding: 1px 6px; border-radius: 999px;
 }
+.player-pts.not-played { color: var(--ink-soft); background: rgba(0,0,0,0.16); font-weight: 600; }
 .player-chip.bench .player-pts { background: transparent; color: var(--ink-soft); }
 .bench-strip { margin-top: 14px; }
 .bench-strip h3 { margin-bottom: 10px; }
@@ -357,10 +358,11 @@ function playerChip(p, isBench) {
   const kit = DIGEST.club_kits[p.club_id];
   const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
   const jerseyContent = kitSrc ? `<img src="${kitSrc}" alt="${p.position}" class="kit-img">` : p.position;
+  const hasPlayed = (p.minutes || 0) > 0;
   chip.innerHTML = `
     <div class="player-jersey">${jerseyContent}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
     <div class="player-name">${p.name}</div>
-    <div class="player-pts">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
+    <div class="player-pts${hasPlayed ? '' : ' not-played'}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
   `;
   return chip;
 }

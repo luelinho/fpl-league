@@ -371,7 +371,7 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
     all_picks = conn.execute(
         """
         SELECT p.gw_id, pl.web_name, pl.position, pl.club_id, p.slot, p.is_starter, p.is_captain, p.is_vice,
-               p.multiplier, s.total_points
+               p.multiplier, s.total_points, s.minutes
         FROM raw_manager_gw_picks p
         JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
         JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
@@ -379,10 +379,11 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
         """, (mgr_id,),
     ).fetchall()
     rosters_by_gw: dict[int, list[dict]] = {}
-    for gw, name_, pos, club_id, slot, starter, cap, vice, mult, pts in all_picks:
+    for gw, name_, pos, club_id, slot, starter, cap, vice, mult, pts, mins in all_picks:
         rosters_by_gw.setdefault(gw, []).append({
             "name": name_, "position": pos, "club_id": club_id, "slot": slot, "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
+            "minutes": mins,
         })
     # The most recent gameweek with ANY picks — final or provisional — not
     # necessarily latest_gw (the newest FINALIZED one). Once a gameweek's
