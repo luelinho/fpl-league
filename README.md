@@ -19,7 +19,8 @@ Full design: [`SPEC.md`](SPEC.md)
 | 4 — Automation | **Complete** (2026-09-12), not yet scheduled |
 | 5 — Tier 0–2 analytics | **Complete** (2026-09-12) |
 | 6 — Claude interface | **Complete** (2026-09-12) |
-| 7+ | Not started |
+| 7 — Dashboard | **Complete** (2026-09-12) |
+| 8+ | Not started |
 
 GW1–3 fully backfilled: 656 players, 20 clubs, 1,890 player-gameweek stat rows,
 54 manager-gameweek summaries, 810 picks, 16 autosubs, 36 transfers, 27 H2H
@@ -51,8 +52,16 @@ aggregate record between two managers, standings at a gameweek, season
 ledger, manager-skill summary, weekly extremes (winner/blowout/upset/luckiest/
 unluckiest), open data issues, and confidence-gate status. All vetted against
 live data with `src/vet_queries.py`. `src/recap.py` generates
-`reports/gw{N}.md` for every finalized gameweek. Next up is Phase 7: the
-HTML dashboard.
+`reports/gw{N}.md` for every finalized gameweek.
+
+`dashboard.html` (Phase 7) is a single self-contained file — open it directly,
+no server needed. Design choices (clean modern style, top tabs, locked-with-
+progress gated metrics) were the owner's explicit calls. Data is baked in at
+generation time rather than fetched, since a local `file://` page can't fetch
+a sibling JSON (see "Running Phase 7" below and SPEC.md §8). Verified in a
+real browser against a local preview server, not just by reading the
+generated HTML — caught and fixed a real active-tab/content mismatch bug in
+the League page during that check.
 
 ---
 
@@ -180,6 +189,22 @@ library stays provably working as the schema evolves.
 
 ---
 
+## Running Phase 7 (dashboard)
+
+```bash
+source .venv/bin/activate
+python -m src.digest            # writes digest/season.json
+python -m src.build_dashboard   # writes dashboard.html, data baked in
+```
+
+Open `dashboard.html` directly in a browser — double-click it, no server
+required. Re-run both commands after any data refresh (daily sync, a new
+backfill, recalculated analytics) to pick up the changes; the dashboard is a
+snapshot, not a live view. `digest/season.json` is also written standalone in
+case anything else wants the current-state export.
+
+---
+
 ## Git and CI
 
 This repo is a local git repository (`git init`, not yet pushed anywhere).
@@ -224,12 +249,15 @@ src/daily_sync.py   Phase 4 — the one daily job; skips already-complete GWs
 src/calculate.py    Phase 5 — Tier 0-2 analytics (ledger + manager skill)
 src/recap.py        Phase 6 — weekly recap generator
 src/vet_queries.py  Phase 6 — runs queries/*.sql against live data
+src/digest.py       Phase 7 — writes digest/season.json
+src/build_dashboard.py  Phase 7 — writes dashboard.html (data baked in)
 db/schema.sql       Schema, corrected against Phase 1 findings and executed
 db/league.sqlite    The database (committed to git per SPEC.md §6 — the commit
                     history is a second audit trail)
 queries/            Vetted SQL library (Phase 6)
 reports/            Generated gameweek recaps (Phase 6)
-digest/             Dashboard JSON export (Phase 7)
+digest/season.json  Dashboard JSON export (Phase 7)
+dashboard.html      The dashboard itself — open directly, no server (Phase 7)
 CLAUDE.md           Operating rules for Claude Code
 ```
 

@@ -308,20 +308,26 @@ def load_h2h_matches(conn: sqlite3.Connection, client: FPLClient,
     written = 0
     for m in all_matches:
         gw = m.get("event")
-        if gw not in data_checked_gws:
-            continue
         a_entry, b_entry = m.get("entry_1_entry"), m.get("entry_2_entry")
         if a_entry not in entry_to_manager or b_entry not in entry_to_manager:
             continue
         mgr_a, mgr_b = entry_to_manager[a_entry], entry_to_manager[b_entry]
-        score_a, score_b = m.get("entry_1_points"), m.get("entry_2_points")
 
-        if score_a > score_b:
-            pts_a, pts_b, winner = 3, 0, mgr_a
-        elif score_a < score_b:
-            pts_a, pts_b, winner = 0, 3, mgr_b
+        if gw in data_checked_gws:
+            # Finalized: real scores, computed result, immutable (is_final logic
+            # lives at the row level via ON CONFLICT DO NOTHING — never overwritten).
+            score_a, score_b = m.get("entry_1_points"), m.get("entry_2_points")
+            if score_a > score_b:
+                pts_a, pts_b, winner = 3, 0, mgr_a
+            elif score_a < score_b:
+                pts_a, pts_b, winner = 0, 3, mgr_b
+            else:
+                pts_a, pts_b, winner = 1, 1, None
+            is_draw, margin, status = int(score_a == score_b), abs(score_a - score_b), "final"
         else:
-            pts_a, pts_b, winner = 1, 1, None
+            # Not yet played: fixture only, no score/result to invent.
+            score_a = score_b = winner = pts_a = pts_b = is_draw = margin = None
+            status = "scheduled"
 
         conn.execute(
             """
@@ -329,17 +335,25 @@ def load_h2h_matches(conn: sqlite3.Connection, client: FPLClient,
                 (match_id, league_id, season_id, gw_id, manager_a, manager_b, score_a, score_b,
                  winner, is_draw, margin, league_pts_a, league_pts_b, is_knockout, knockout_name,
                  seed_value, tiebreak, is_bye, status, source, fetched_at)
-            VALUES (?, ?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'final', 'fpl_h2h_endpoint', ?)
-            ON CONFLICT (league_id, season_id, gw_id, manager_a, manager_b) DO NOTHING
+            VALUES (?, ?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'fpl_h2h_endpoint', ?)
+            ON CONFLICT (league_id, season_id, gw_id, manager_a, manager_b) DO UPDATE SET
+                score_a = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.score_a ELSE raw_h2h_matches.score_a END,
+                score_b = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.score_b ELSE raw_h2h_matches.score_b END,
+                winner = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.winner ELSE raw_h2h_matches.winner END,
+                is_draw = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.is_draw ELSE raw_h2h_matches.is_draw END,
+                margin = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.margin ELSE raw_h2h_matches.margin END,
+                league_pts_a = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.league_pts_a ELSE raw_h2h_matches.league_pts_a END,
+                league_pts_b = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.league_pts_b ELSE raw_h2h_matches.league_pts_b END,
+                status = CASE WHEN raw_h2h_matches.status != 'final' THEN excluded.status ELSE raw_h2h_matches.status END
             """,
             (m["id"], config.LEAGUE_ID, gw, mgr_a, mgr_b, score_a, score_b, winner,
-             int(score_a == score_b), abs(score_a - score_b), pts_a, pts_b,
+             is_draw, margin, pts_a, pts_b,
              int(bool(m.get("is_knockout"))), m.get("knockout_name"), m.get("seed_value"),
-             m.get("tiebreak"), int(bool(m.get("is_bye"))), now()),
+             m.get("tiebreak"), int(bool(m.get("is_bye"))), status, now()),
         )
         written += 1
     conn.commit()
-    print(f"  {written} H2H match rows considered across GWs {data_checked_gws} (upserts, may be no-ops)")
+    print(f"  {written} H2H match rows considered across all scheduled+finalized GWs (upserts, may be no-ops; final rows never regress)")
 
 
 def cross_check_h2h(conn: sqlite3.Connection, data_checked_gws: list[int]) -> None:
@@ -401,7 +415,7 @@ def load_current_standings_snapshot(conn: sqlite3.Connection, client: FPLClient,
         matches = conn.execute(
             """
             SELECT winner, manager_a, manager_b FROM raw_h2h_matches
-            WHERE (manager_a = ? OR manager_b = ?) ORDER BY gw_id
+            WHERE (manager_a = ? OR manager_b = ?) AND status = 'final' ORDER BY gw_id
             """,
             (mgr, mgr),
         ).fetchall()
@@ -427,7 +441,7 @@ def load_current_standings_snapshot(conn: sqlite3.Connection, client: FPLClient,
         points_against = conn.execute(
             """
             SELECT COALESCE(SUM(CASE WHEN manager_a = ? THEN score_b ELSE score_a END), 0)
-            FROM raw_h2h_matches WHERE manager_a = ? OR manager_b = ?
+            FROM raw_h2h_matches WHERE (manager_a = ? OR manager_b = ?) AND status = 'final'
             """,
             (mgr, mgr, mgr),
         ).fetchone()[0]

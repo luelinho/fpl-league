@@ -1,0 +1,333 @@
+"""Phase 7 — digest export for the dashboard (SPEC.md §8).
+
+Builds digest/season.json: a compact, current-state snapshot of everything
+the dashboard needs, so the dashboard itself never touches SQL. Every number
+here traces back to a raw or derived table — nothing is computed fresh here
+beyond simple aggregation (e.g. sorting a leaderboard).
+
+Usage:
+    python -m src.digest
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from datetime import datetime, timezone
+
+from . import config, ingest
+from .recap import biggest_upset, manager_name
+
+
+def league_info(conn) -> dict:
+    row = conn.execute(
+        "SELECT name, ko_rounds, start_event FROM leagues WHERE league_id = ?", (config.LEAGUE_ID,)
+    ).fetchone()
+    season = conn.execute("SELECT name FROM seasons WHERE season_id = 1").fetchone()
+    return {"name": row[0], "id": config.LEAGUE_ID, "ko_rounds": row[1], "start_event": row[2], "season": season[0]}
+
+
+def gw_status(conn) -> dict:
+    rows = conn.execute(
+        "SELECT gw_id, is_finished, is_data_checked FROM gameweeks WHERE season_id = 1 ORDER BY gw_id"
+    ).fetchall()
+    data_checked = [gw for gw, _f, dc in rows if dc]
+    current = max(data_checked) if data_checked else None
+    next_gw = (current + 1) if current and current < 38 else None
+    return {"data_checked_gws": data_checked, "current_gw": current, "next_gw": next_gw}
+
+
+def gates(gws_played: int) -> dict:
+    return {
+        "luck_and_power_rankings": {
+            "unlocked": gws_played >= config.GATE_LUCK_METRICS,
+            "have": gws_played, "need": config.GATE_LUCK_METRICS,
+        },
+        "projections": {
+            "unlocked": gws_played >= config.GATE_PROJECTIONS,
+            "have": gws_played, "need": config.GATE_PROJECTIONS,
+        },
+    }
+
+
+def standings(conn, gw: int) -> list[dict]:
+    rows = conn.execute(
+        """
+        SELECT s.rank, m.display_name, tn.team_name, s.wins, s.draws, s.losses,
+               s.league_points, s.points_for, s.points_against, s.streak, m.is_owner
+        FROM standings_snapshots s
+        JOIN managers m ON m.manager_id = s.manager_id
+        JOIN team_names tn ON tn.manager_id = m.manager_id
+        WHERE s.gw_id = ? ORDER BY s.rank
+        """,
+        (gw,),
+    ).fetchall()
+    return [
+        {"rank": r, "display_name": n, "team_name": t, "wins": w, "draws": d, "losses": l,
+         "league_points": lp, "points_for": pf, "points_against": pa, "streak": s, "is_owner": bool(o)}
+        for r, n, t, w, d, l, lp, pf, pa, s, o in rows
+    ]
+
+
+def fixtures_for_gw(conn, gw: int) -> list[dict]:
+    if gw is None:
+        return []
+    rows = conn.execute(
+        """
+        SELECT ma.display_name, ta.team_name, mb.display_name, tb.team_name
+        FROM raw_h2h_matches h
+        JOIN managers ma ON ma.manager_id = h.manager_a
+        JOIN managers mb ON mb.manager_id = h.manager_b
+        JOIN team_names ta ON ta.manager_id = h.manager_a
+        JOIN team_names tb ON tb.manager_id = h.manager_b
+        WHERE h.gw_id = ?
+        """,
+        (gw,),
+    ).fetchall()
+    return [{"a": {"name": an, "team": at}, "b": {"name": bn, "team": bt}} for an, at, bn, bt in rows]
+
+
+def results_for_gw(conn, gw: int) -> list[dict]:
+    rows = conn.execute(
+        """
+        SELECT ma.display_name, h.score_a, mb.display_name, h.score_b, h.margin, h.winner, h.manager_a
+        FROM raw_h2h_matches h
+        JOIN managers ma ON ma.manager_id = h.manager_a
+        JOIN managers mb ON mb.manager_id = h.manager_b
+        WHERE h.gw_id = ? AND h.status = 'final'
+        """,
+        (gw,),
+    ).fetchall()
+    out = []
+    for an, sa, bn, sb, margin, winner, mgr_a in rows:
+        result = "Draw" if winner is None else ("a" if winner == mgr_a else "b")
+        out.append({"a": {"name": an, "score": sa}, "b": {"name": bn, "score": sb},
+                    "margin": margin, "winner": result})
+    return out
+
+
+def alerts(conn) -> list[dict]:
+    rows = conn.execute(
+        "SELECT severity, category, description FROM data_issues WHERE resolved = 0 "
+        "ORDER BY severity = 'error' DESC, severity = 'warning' DESC"
+    ).fetchall()
+    return [{"severity": sev, "category": cat, "description": desc} for sev, cat, desc in rows]
+
+
+def all_managers(conn) -> list[dict]:
+    rows = conn.execute(
+        """
+        SELECT m.manager_id, m.entry_id, m.display_name, tn.team_name, m.is_owner
+        FROM managers m JOIN team_names tn ON tn.manager_id = m.manager_id
+        ORDER BY m.display_name
+        """
+    ).fetchall()
+    return [{"manager_id": mid, "entry_id": eid, "display_name": n, "team_name": t, "is_owner": bool(o)}
+             for mid, eid, n, t, o in rows]
+
+
+def leaderboard(conn, through_gw: int) -> list[dict]:
+    rows = conn.execute(
+        """
+        SELECT m.display_name, tn.team_name, ds.actual_w, ds.actual_d, ds.actual_l,
+               ds.actual_league_pts, ds.points_for, ds.points_against,
+               ds.season_captain_efficiency, ds.season_xi_efficiency, ds.total_bench_points,
+               ds.close_w, ds.close_l, ds.blowout_w, ds.blowout_l, m.is_owner
+        FROM derived_manager_season ds
+        JOIN managers m ON m.manager_id = ds.manager_id
+        JOIN team_names tn ON tn.manager_id = m.manager_id
+        WHERE ds.through_gw = ?
+        ORDER BY ds.actual_league_pts DESC, ds.points_for DESC
+        """,
+        (through_gw,),
+    ).fetchall()
+    out = []
+    for n, t, w, d, l, lp, pf, pa, cap_eff, xi_eff, bench, cw, cl, bw, bl, owner in rows:
+        out.append({
+            "display_name": n, "team_name": t, "w": w, "d": d, "l": l, "league_points": lp,
+            "points_for": pf, "points_against": pa,
+            "captain_efficiency_pct": round(cap_eff * 100, 1) if cap_eff is not None else None,
+            "xi_efficiency_pct": round(xi_eff * 100, 1) if xi_eff is not None else None,
+            "bench_points": bench, "close_w": cw, "close_l": cl, "blowout_w": bw, "blowout_l": bl,
+            "is_owner": bool(owner),
+        })
+    return out
+
+
+def gw_recap_summary(conn, gw: int) -> dict:
+    winner_row = conn.execute(
+        """
+        SELECT m.display_name, rmg.net_points FROM raw_manager_gw rmg
+        JOIN managers m ON m.manager_id = rmg.manager_id
+        WHERE rmg.gw_id = ? ORDER BY rmg.net_points DESC LIMIT 1
+        """, (gw,),
+    ).fetchone()
+    blowout = conn.execute(
+        """
+        SELECT ma.display_name, h.score_a, mb.display_name, h.score_b, h.margin
+        FROM raw_h2h_matches h
+        JOIN managers ma ON ma.manager_id = h.manager_a
+        JOIN managers mb ON mb.manager_id = h.manager_b
+        WHERE h.gw_id = ? AND h.status = 'final' ORDER BY h.margin DESC LIMIT 1
+        """, (gw,),
+    ).fetchone()
+    unluckiest = conn.execute(
+        """
+        SELECT m.display_name, rmg.net_points
+        FROM raw_h2h_matches h
+        JOIN managers m ON m.manager_id = CASE WHEN h.winner = h.manager_a THEN h.manager_b
+                                                WHEN h.winner = h.manager_b THEN h.manager_a END
+        JOIN raw_manager_gw rmg ON rmg.gw_id = h.gw_id AND rmg.manager_id = m.manager_id
+        WHERE h.gw_id = ? AND h.status = 'final' AND h.winner IS NOT NULL
+        ORDER BY rmg.net_points DESC LIMIT 1
+        """, (gw,),
+    ).fetchone()
+    luckiest = conn.execute(
+        """
+        SELECT m.display_name, rmg.net_points
+        FROM raw_h2h_matches h
+        JOIN managers m ON m.manager_id = h.winner
+        JOIN raw_manager_gw rmg ON rmg.gw_id = h.gw_id AND rmg.manager_id = m.manager_id
+        WHERE h.gw_id = ? AND h.status = 'final' AND h.winner IS NOT NULL
+        ORDER BY rmg.net_points ASC LIMIT 1
+        """, (gw,),
+    ).fetchone()
+    upset = biggest_upset(conn, gw)
+    upset_out = None
+    if upset:
+        gap, winner_id, loser_id, margin = upset
+        upset_out = {"winner": manager_name(conn, winner_id), "loser": manager_name(conn, loser_id),
+                     "gap": round(gap, 1), "thin_sample": gw < 4}
+
+    return {
+        "gw": gw,
+        "winner": {"name": winner_row[0], "net_points": winner_row[1]} if winner_row else None,
+        "blowout": {"a": blowout[0], "score_a": blowout[1], "b": blowout[2], "score_b": blowout[3],
+                    "margin": blowout[4]} if blowout else None,
+        "unluckiest": {"name": unluckiest[0], "net_points": unluckiest[1]} if unluckiest else None,
+        "luckiest": {"name": luckiest[0], "net_points": luckiest[1]} if luckiest else None,
+        "upset": upset_out,
+    }
+
+
+def owner_block(conn, latest_gw: int) -> dict:
+    owner = conn.execute("SELECT manager_id, entry_id, display_name FROM managers WHERE is_owner = 1").fetchone()
+    mgr_id, entry_id, name = owner
+    team = conn.execute("SELECT team_name FROM team_names WHERE manager_id = ?", (mgr_id,)).fetchone()[0]
+
+    ledger = conn.execute(
+        """
+        SELECT points_for, points_against, avg_pf, avg_pa, actual_w, actual_d, actual_l,
+               actual_league_pts, close_w, close_l, blowout_w, blowout_l, total_bench_points, total_hit_cost
+        FROM derived_manager_season WHERE manager_id = ? AND through_gw = ?
+        """, (mgr_id, latest_gw),
+    ).fetchone()
+
+    skill = conn.execute(
+        "SELECT season_captain_efficiency, season_xi_efficiency FROM derived_manager_season "
+        "WHERE manager_id = ? AND through_gw = ?", (mgr_id, latest_gw),
+    ).fetchone()
+
+    gw_history = conn.execute(
+        """
+        SELECT rmg.gw_id, rmg.net_points, rmg.gross_points, rmg.hit_cost, rmg.bench_points,
+               rmg.chip_played, dg.score_rank, dg.captain_efficiency, dg.xi_efficiency
+        FROM raw_manager_gw rmg
+        JOIN derived_manager_gw dg ON dg.manager_id = rmg.manager_id AND dg.gw_id = rmg.gw_id
+        WHERE rmg.manager_id = ? ORDER BY rmg.gw_id
+        """, (mgr_id,),
+    ).fetchall()
+
+    latest_roster = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, p.slot, p.is_starter, p.is_captain, p.is_vice,
+               p.multiplier, s.total_points
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
+        WHERE p.manager_id = ? AND p.gw_id = ? ORDER BY p.slot
+        """, (mgr_id, latest_gw),
+    ).fetchall()
+
+    transfers = conn.execute(
+        """
+        SELECT t.gw_id, pin.web_name, pout.web_name, t.transfer_time
+        FROM raw_transfers t
+        JOIN players pin ON pin.season_id = 1 AND pin.player_id = t.player_in
+        JOIN players pout ON pout.season_id = 1 AND pout.player_id = t.player_out
+        WHERE t.manager_id = ? ORDER BY t.transfer_time
+        """, (mgr_id,),
+    ).fetchall()
+
+    return {
+        "manager_id": mgr_id, "entry_id": entry_id, "display_name": name, "team_name": team,
+        "ledger": {
+            "points_for": ledger[0], "points_against": ledger[1],
+            "avg_pf": round(ledger[2], 1), "avg_pa": round(ledger[3], 1),
+            "w": ledger[4], "d": ledger[5], "l": ledger[6], "league_points": ledger[7],
+            "close_w": ledger[8], "close_l": ledger[9], "blowout_w": ledger[10], "blowout_l": ledger[11],
+            "total_bench_points": ledger[12], "total_hit_cost": ledger[13],
+        } if ledger else None,
+        "skill": {
+            "captain_efficiency_pct": round(skill[0] * 100, 1) if skill and skill[0] is not None else None,
+            "xi_efficiency_pct": round(skill[1] * 100, 1) if skill and skill[1] is not None else None,
+        } if skill else None,
+        "gw_history": [
+            {"gw": gw, "net_points": net, "gross_points": gross, "hit_cost": hits, "bench_points": bench,
+             "chip": chip, "rank": rank,
+             "captain_efficiency_pct": round(ce * 100, 1) if ce is not None else None,
+             "xi_efficiency_pct": round(xe * 100, 1) if xe is not None else None}
+            for gw, net, gross, hits, bench, chip, rank, ce, xe in gw_history
+        ],
+        "latest_roster": {
+            "gw": latest_gw,
+            "players": [
+                {"name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
+                 "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts}
+                for name_, pos, slot, starter, cap, vice, mult, pts in latest_roster
+            ],
+        },
+        "transfers": [
+            {"gw": gw, "player_in": pin, "player_out": pout, "time": t}
+            for gw, pin, pout, t in transfers
+        ],
+    }
+
+
+def build_digest() -> dict:
+    conn = ingest.connect()
+    status = gw_status(conn)
+    latest = status["current_gw"]
+
+    d = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "league": league_info(conn),
+        "gw_status": status,
+        "gates": gates(latest or 0),
+        "standings": standings(conn, latest) if latest else [],
+        "standings_gw": latest,
+        "upcoming_fixtures": {"gw": status["next_gw"], "matches": fixtures_for_gw(conn, status["next_gw"])},
+        "last_results": {"gw": latest, "matches": results_for_gw(conn, latest)} if latest else None,
+        "alerts": alerts(conn),
+        "managers": all_managers(conn),
+        "leaderboard": leaderboard(conn, latest) if latest else [],
+        "recaps": [gw_recap_summary(conn, gw) for gw in status["data_checked_gws"]],
+        "owner": owner_block(conn, latest) if latest else None,
+        "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
+    }
+    conn.close()
+    return d
+
+
+def run() -> int:
+    print("Phase 7 — digest export\n")
+    digest = build_digest()
+    config.DIGEST_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = config.DIGEST_DIR / "season.json"
+    out_path.write_text(json.dumps(digest, indent=2))
+    print(f"Wrote {out_path} ({out_path.stat().st_size:,} bytes)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(run())

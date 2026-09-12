@@ -20,5 +20,6 @@ SELECT
 FROM raw_h2h_matches h
 JOIN managers ma ON ma.manager_id = h.manager_a
 JOIN managers mb ON mb.manager_id = h.manager_b
-WHERE (ma.entry_id = :entry_a AND mb.entry_id = :entry_b)
-   OR (ma.entry_id = :entry_b AND mb.entry_id = :entry_a);
+WHERE h.status = 'final'
+  AND ((ma.entry_id = :entry_a AND mb.entry_id = :entry_b)
+   OR  (ma.entry_id = :entry_b AND mb.entry_id = :entry_a));

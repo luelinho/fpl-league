@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Almost all Americans — League Dashboard</title>
+<style>
+
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #1b1e2b;
+  --ink-soft: #5a5f75;
+  --border: #e6e8f0;
+  --accent: #5b5bd6;
+  --accent-soft: #eef0ff;
+  --win: #1a9f5c;
+  --win-soft: #e6f7ee;
+  --loss: #d94f4f;
+  --loss-soft: #fdecec;
+  --draw: #b8860b;
+  --draw-soft: #fbf3df;
+  --locked: #8a8fa3;
+  --shadow: 0 1px 2px rgba(20,20,40,0.04), 0 4px 16px rgba(20,20,40,0.06);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.45;
+}
+.topbar {
+  background: var(--card); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-inner {
+  max-width: 1080px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.brand-name { font-weight: 700; font-size: 17px; display: block; }
+.brand-sub { color: var(--ink-soft); font-size: 12.5px; }
+.tabs { display: flex; gap: 4px; background: var(--bg); padding: 4px; border-radius: 10px; }
+.tab {
+  border: none; background: transparent; padding: 8px 14px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+}
+.tab.active { background: var(--accent); color: white; }
+.tab:hover:not(.active) { color: var(--ink); }
+.container { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
+.page { display: none; }
+.page.active { display: block; }
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.card h2 { margin: 0 0 12px; font-size: 15px; }
+.card h3 { margin: 0 0 8px; font-size: 13px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat .value { font-size: 26px; font-weight: 700; }
+.stat .label { color: var(--ink-soft); font-size: 12.5px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+th { color: var(--ink-soft); font-weight: 600; font-size: 12px; text-transform: uppercase;
+     letter-spacing: 0.02em; cursor: pointer; user-select: none; }
+th:hover { color: var(--ink); }
+tr.owner-row { background: var(--accent-soft); }
+tr:last-child td { border-bottom: none; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700;
+}
+.badge-w { background: var(--win-soft); color: var(--win); }
+.badge-l { background: var(--loss-soft); color: var(--loss); }
+.badge-d { background: var(--draw-soft); color: var(--draw); }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent); }
+.section-title { font-size: 20px; font-weight: 700; margin: 28px 0 14px; }
+.section-title:first-child { margin-top: 0; }
+.match-row {
+  display: flex; align-items: center; justify-content: space-between; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.match-row:last-child { border-bottom: none; }
+.match-side { flex: 1; font-weight: 600; }
+.match-side.right { text-align: right; }
+.match-score { padding: 0 16px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.match-score .win { color: var(--win); }
+.alert {
+  padding: 10px 14px; border-radius: 10px; margin-bottom: 8px; font-size: 13px;
+  border-left: 4px solid var(--locked);
+}
+.alert-info { background: #f4f5fa; border-color: var(--locked); }
+.alert-warning { background: var(--draw-soft); border-color: var(--draw); }
+.alert-error { background: var(--loss-soft); border-color: var(--loss); }
+.locked-card {
+  background: repeating-linear-gradient(135deg, var(--card), var(--card) 10px, #fafafd 10px, #fafafd 20px);
+  border: 1px dashed var(--border); border-radius: 14px; padding: 24px; text-align: center; color: var(--locked);
+}
+.locked-card .lock-icon { font-size: 22px; }
+.progress-bar { height: 6px; background: var(--border); border-radius: 999px; margin: 10px auto; max-width: 240px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--locked); }
+.roster-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.roster-row:last-child { border-bottom: none; }
+.roster-row.bench { opacity: 0.55; }
+.armband { font-weight: 700; font-size: 11px; background: var(--accent); color: white; border-radius: 5px; padding: 1px 5px; }
+.tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabbtn-group button {
+  border: 1px solid var(--border); background: var(--card); padding: 6px 14px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink-soft);
+}
+.tabbtn-group button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.muted { color: var(--ink-soft); font-size: 12.5px; }
+.footer { text-align: center; color: var(--ink-soft); font-size: 12px; padding: 20px; }
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-name">Almost all Americans</span>
+      <span class="brand-sub">2026/27 · League 683383</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="myteam">My Team</button>
+      <button class="tab" data-tab="league">League</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="page-home" class="page active"></section>
+  <section id="page-myteam" class="page"></section>
+  <section id="page-league" class="page"></section>
+  <section id="page-analytics" class="page"></section>
+  <section id="page-history" class="page"></section>
+</main>
+
+<footer class="footer">
+  Generated 2026-09-12T01:20:43.649248+00:00 · Fact = stored raw data. Computed = derived by a documented formula.
+</footer>
+
+<script>
+const DIGEST = {"generated_at": "2026-09-12T01:20:43.649248+00:00", "league": {"name": "Almost all Americans", "id": 683383, "ko_rounds": 3, "start_event": 1, "season": "2026/27"}, "gw_status": {"data_checked_gws": [1, 2, 3], "current_gw": 3, "next_gw": 4}, "gates": {"luck_and_power_rankings": {"unlocked": false, "have": 3, "need": 10}, "projections": {"unlocked": false, "have": 3, "need": 15}}, "standings": [{"rank": 1, "display_name": "Andrew Romani", "team_name": "Rock \u2018n\u2019 Iraola", "wins": 3, "draws": 0, "losses": 0, "league_points": 9, "points_for": 200, "points_against": 155, "streak": "W3", "is_owner": false}, {"rank": 2, "display_name": "Chris Mazzatta", "team_name": "CMazz", "wins": 3, "draws": 0, "losses": 0, "league_points": 9, "points_for": 186, "points_against": 149, "streak": "W3", "is_owner": false}, {"rank": 3, "display_name": "Erik Baxter", "team_name": "Erik's Team", "wins": 2, "draws": 1, "losses": 0, "league_points": 7, "points_for": 207, "points_against": 186, "streak": "W1", "is_owner": false}, {"rank": 4, "display_name": "Jordan Fernholz", "team_name": "Blue Bloods", "wins": 2, "draws": 1, "losses": 0, "league_points": 7, "points_for": 188, "points_against": 168, "streak": "W1", "is_owner": false}, {"rank": 5, "display_name": "Craig Allen", "team_name": "Game of Throw-In", "wins": 2, "draws": 0, "losses": 1, "league_points": 6, "points_for": 218, "points_against": 145, "streak": "L1", "is_owner": false}, {"rank": 6, "display_name": "Joe Gannitello", "team_name": "Bruno's Bros", "wins": 2, "draws": 0, "losses": 1, "league_points": 6, "points_for": 208, "points_against": 212, "streak": "L1", "is_owner": false}, {"rank": 7, "display_name": "Isaac Sotelo", "team_name": "#GOAT", "wins": 2, "draws": 0, "losses": 1, "league_points": 6, "points_for": 166, "points_against": 158, "streak": "W2", "is_owner": false}, {"rank": 8, "display_name": "Ryan Smith", "team_name": "Big Cannon Energy", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 209, "points_against": 199, "streak": "L1", "is_owner": false}, {"rank": 9, "display_name": "Yorick Stoepker", "team_name": "Hoevoeloe", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 207, "points_against": 218, "streak": "W1", "is_owner": false}, {"rank": 10, "display_name": "Chris Miller", "team_name": "millers minions", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 206, "points_against": 202, "streak": "L1", "is_owner": false}, {"rank": 11, "display_name": "Brian Moran", "team_name": "Kick'in the balls", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 199, "points_against": 207, "streak": "L2", "is_owner": false}, {"rank": 12, "display_name": "Danilo Arroyo", "team_name": "Ophelia Balls", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 185, "points_against": 206, "streak": "L1", "is_owner": false}, {"rank": 13, "display_name": "Brady Baxter", "team_name": "Championship side", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 179, "points_against": 200, "streak": "W1", "is_owner": false}, {"rank": 14, "display_name": "Kirk Baxter", "team_name": "Toffee Machine", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 175, "points_against": 236, "streak": "L2", "is_owner": false}, {"rank": 14, "display_name": "Reggie Mazz", "team_name": "Keiner Bobby Dazzler", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 175, "points_against": 192, "streak": "L2", "is_owner": false}, {"rank": 16, "display_name": "Luel Waktola", "team_name": "Midtable Crisis", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 170, "points_against": 174, "streak": "W1", "is_owner": true}, {"rank": 17, "display_name": "Harry Daskalopoulos", "team_name": "OliveOilMoneh", "wins": 1, "draws": 0, "losses": 2, "league_points": 3, "points_for": 135, "points_against": 198, "streak": "W1", "is_owner": false}, {"rank": 18, "display_name": "Iain Abshier", "team_name": "FOGGING ESTANDARDS", "wins": 0, "draws": 0, "losses": 3, "league_points": 0, "points_for": 182, "points_against": 190, "streak": "L3", "is_owner": false}], "standings_gw": 3, "upcoming_fixtures": {"gw": 4, "matches": [{"a": {"name": "Andrew Romani", "team": "Rock \u2018n\u2019 Iraola"}, "b": {"name": "Jordan Fernholz", "team": "Blue Bloods"}}, {"a": {"name": "Chris Mazzatta", "team": "CMazz"}, "b": {"name": "Brady Baxter", "team": "Championship side"}}, {"a": {"name": "Craig Allen", "team": "Game of Throw-In"}, "b": {"name": "Chris Miller", "team": "millers minions"}}, {"a": {"name": "Isaac Sotelo", "team": "#GOAT"}, "b": {"name": "Joe Gannitello", "team": "Bruno's Bros"}}, {"a": {"name": "Ryan Smith", "team": "Big Cannon Energy"}, "b": {"name": "Luel Waktola", "team": "Midtable Crisis"}}, {"a": {"name": "Yorick Stoepker", "team": "Hoevoeloe"}, "b": {"name": "Harry Daskalopoulos", "team": "OliveOilMoneh"}}, {"a": {"name": "Brian Moran", "team": "Kick'in the balls"}, "b": {"name": "Reggie Mazz", "team": "Keiner Bobby Dazzler"}}, {"a": {"name": "Danilo Arroyo", "team": "Ophelia Balls"}, "b": {"name": "Erik Baxter", "team": "Erik's Team"}}, {"a": {"name": "Iain Abshier", "team": "FOGGING ESTANDARDS"}, "b": {"name": "Kirk Baxter", "team": "Toffee Machine"}}]}, "last_results": {"gw": 3, "matches": [{"a": {"name": "Joe Gannitello", "score": 46}, "b": {"name": "Andrew Romani", "score": 70}, "margin": 24, "winner": "b"}, {"a": {"name": "Kirk Baxter", "score": 36}, "b": {"name": "Isaac Sotelo", "score": 48}, "margin": 12, "winner": "b"}, {"a": {"name": "Harry Daskalopoulos", "score": 53}, "b": {"name": "Iain Abshier", "score": 51}, "margin": 2, "winner": "a"}, {"a": {"name": "Chris Miller", "score": 42}, "b": {"name": "Yorick Stoepker", "score": 53}, "margin": 11, "winner": "b"}, {"a": {"name": "Brady Baxter", "score": 54}, "b": {"name": "Craig Allen", "score": 42}, "margin": 12, "winner": "a"}, {"a": {"name": "Reggie Mazz", "score": 34}, "b": {"name": "Chris Mazzatta", "score": 37}, "margin": 3, "winner": "b"}, {"a": {"name": "Erik Baxter", "score": 57}, "b": {"name": "Brian Moran", "score": 38}, "margin": 19, "winner": "a"}, {"a": {"name": "Luel Waktola", "score": 67}, "b": {"name": "Danilo Arroyo", "score": 49}, "margin": 18, "winner": "a"}, {"a": {"name": "Jordan Fernholz", "score": 55}, "b": {"name": "Ryan Smith", "score": 45}, "margin": 10, "winner": "a"}]}, "alerts": [{"severity": "info", "category": "historical_gap", "description": "Standings snapshots for GW1-2 are permanently unavailable: the live H2H standings endpoint only exposes current state, with no historical parameter. Only GW3 (current) is captured. Going forward, Phase 4's daily job captures one snapshot per day, so this gap will not recur for future gameweeks."}], "managers": [{"manager_id": 1, "entry_id": 2235025, "display_name": "Andrew Romani", "team_name": "Rock \u2018n\u2019 Iraola", "is_owner": false}, {"manager_id": 13, "entry_id": 3412507, "display_name": "Brady Baxter", "team_name": "Championship side", "is_owner": false}, {"manager_id": 11, "entry_id": 5166159, "display_name": "Brian Moran", "team_name": "Kick'in the balls", "is_owner": false}, {"manager_id": 2, "entry_id": 1145577, "display_name": "Chris Mazzatta", "team_name": "CMazz", "is_owner": false}, {"manager_id": 10, "entry_id": 3311925, "display_name": "Chris Miller", "team_name": "millers minions", "is_owner": false}, {"manager_id": 5, "entry_id": 7377658, "display_name": "Craig Allen", "team_name": "Game of Throw-In", "is_owner": false}, {"manager_id": 12, "entry_id": 3423744, "display_name": "Danilo Arroyo", "team_name": "Ophelia Balls", "is_owner": false}, {"manager_id": 3, "entry_id": 3379697, "display_name": "Erik Baxter", "team_name": "Erik's Team", "is_owner": false}, {"manager_id": 17, "entry_id": 4734935, "display_name": "Harry Daskalopoulos", "team_name": "OliveOilMoneh", "is_owner": false}, {"manager_id": 18, "entry_id": 5429638, "display_name": "Iain Abshier", "team_name": "FOGGING ESTANDARDS", "is_owner": false}, {"manager_id": 7, "entry_id": 3314510, "display_name": "Isaac Sotelo", "team_name": "#GOAT", "is_owner": false}, {"manager_id": 6, "entry_id": 5395082, "display_name": "Joe Gannitello", "team_name": "Bruno's Bros", "is_owner": false}, {"manager_id": 4, "entry_id": 4036902, "display_name": "Jordan Fernholz", "team_name": "Blue Bloods", "is_owner": false}, {"manager_id": 14, "entry_id": 1833923, "display_name": "Kirk Baxter", "team_name": "Toffee Machine", "is_owner": false}, {"manager_id": 16, "entry_id": 3023365, "display_name": "Luel Waktola", "team_name": "Midtable Crisis", "is_owner": true}, {"manager_id": 15, "entry_id": 3615374, "display_name": "Reggie Mazz", "team_name": "Keiner Bobby Dazzler", "is_owner": false}, {"manager_id": 8, "entry_id": 5041369, "display_name": "Ryan Smith", "team_name": "Big Cannon Energy", "is_owner": false}, {"manager_id": 9, "entry_id": 694905, "display_name": "Yorick Stoepker", "team_name": "Hoevoeloe", "is_owner": false}], "leaderboard": [{"display_name": "Andrew Romani", "team_name": "Rock \u2018n\u2019 Iraola", "w": 3, "d": 0, "l": 0, "league_points": 9, "points_for": 200, "points_against": 155, "captain_efficiency_pct": 64.9, "xi_efficiency_pct": 92.6, "bench_points": 26, "close_w": 0, "close_l": 0, "blowout_w": 1, "blowout_l": 0, "is_owner": false}, {"display_name": "Chris Mazzatta", "team_name": "CMazz", "w": 3, "d": 0, "l": 0, "league_points": 9, "points_for": 186, "points_against": 149, "captain_efficiency_pct": 64.3, "xi_efficiency_pct": 89.8, "bench_points": 20, "close_w": 2, "close_l": 0, "blowout_w": 1, "blowout_l": 0, "is_owner": false}, {"display_name": "Erik Baxter", "team_name": "Erik's Team", "w": 2, "d": 1, "l": 0, "league_points": 7, "points_for": 207, "points_against": 186, "captain_efficiency_pct": 76.0, "xi_efficiency_pct": 95.1, "bench_points": 16, "close_w": 1, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Jordan Fernholz", "team_name": "Blue Bloods", "w": 2, "d": 1, "l": 0, "league_points": 7, "points_for": 188, "points_against": 168, "captain_efficiency_pct": 57.1, "xi_efficiency_pct": 86.8, "bench_points": 39, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Craig Allen", "team_name": "Game of Throw-In", "w": 2, "d": 0, "l": 1, "league_points": 6, "points_for": 218, "points_against": 145, "captain_efficiency_pct": 62.8, "xi_efficiency_pct": 91.8, "bench_points": 29, "close_w": 0, "close_l": 0, "blowout_w": 2, "blowout_l": 0, "is_owner": false}, {"display_name": "Joe Gannitello", "team_name": "Bruno's Bros", "w": 2, "d": 0, "l": 1, "league_points": 6, "points_for": 208, "points_against": 212, "captain_efficiency_pct": 46.5, "xi_efficiency_pct": 90.8, "bench_points": 35, "close_w": 1, "close_l": 0, "blowout_w": 0, "blowout_l": 1, "is_owner": false}, {"display_name": "Isaac Sotelo", "team_name": "#GOAT", "w": 2, "d": 0, "l": 1, "league_points": 6, "points_for": 166, "points_against": 158, "captain_efficiency_pct": 68.6, "xi_efficiency_pct": 100.0, "bench_points": 0, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Ryan Smith", "team_name": "Big Cannon Energy", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 209, "points_against": 199, "captain_efficiency_pct": 79.1, "xi_efficiency_pct": 86.2, "bench_points": 43, "close_w": 0, "close_l": 1, "blowout_w": 1, "blowout_l": 0, "is_owner": false}, {"display_name": "Yorick Stoepker", "team_name": "Hoevoeloe", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 207, "points_against": 218, "captain_efficiency_pct": 76.0, "xi_efficiency_pct": 83.2, "bench_points": 37, "close_w": 0, "close_l": 1, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Chris Miller", "team_name": "millers minions", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 206, "points_against": 202, "captain_efficiency_pct": 46.5, "xi_efficiency_pct": 89.6, "bench_points": 39, "close_w": 0, "close_l": 1, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Brian Moran", "team_name": "Kick'in the balls", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 199, "points_against": 207, "captain_efficiency_pct": 70.6, "xi_efficiency_pct": 93.1, "bench_points": 25, "close_w": 0, "close_l": 0, "blowout_w": 1, "blowout_l": 0, "is_owner": false}, {"display_name": "Danilo Arroyo", "team_name": "Ophelia Balls", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 185, "points_against": 206, "captain_efficiency_pct": 68.6, "xi_efficiency_pct": 92.5, "bench_points": 22, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "is_owner": false}, {"display_name": "Brady Baxter", "team_name": "Championship side", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 179, "points_against": 200, "captain_efficiency_pct": 58.5, "xi_efficiency_pct": 93.4, "bench_points": 13, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 1, "is_owner": false}, {"display_name": "Kirk Baxter", "team_name": "Toffee Machine", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 175, "points_against": 236, "captain_efficiency_pct": 68.6, "xi_efficiency_pct": 87.8, "bench_points": 27, "close_w": 1, "close_l": 0, "blowout_w": 0, "blowout_l": 1, "is_owner": false}, {"display_name": "Reggie Mazz", "team_name": "Keiner Bobby Dazzler", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 175, "points_against": 192, "captain_efficiency_pct": 21.4, "xi_efficiency_pct": 90.2, "bench_points": 35, "close_w": 0, "close_l": 1, "blowout_w": 0, "blowout_l": 1, "is_owner": false}, {"display_name": "Luel Waktola", "team_name": "Midtable Crisis", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 170, "points_against": 174, "captain_efficiency_pct": 65.5, "xi_efficiency_pct": 82.0, "bench_points": 39, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "is_owner": true}, {"display_name": "Harry Daskalopoulos", "team_name": "OliveOilMoneh", "w": 1, "d": 0, "l": 2, "league_points": 3, "points_for": 135, "points_against": 198, "captain_efficiency_pct": 82.8, "xi_efficiency_pct": 92.5, "bench_points": 15, "close_w": 1, "close_l": 0, "blowout_w": 0, "blowout_l": 2, "is_owner": false}, {"display_name": "Iain Abshier", "team_name": "FOGGING ESTANDARDS", "w": 0, "d": 0, "l": 3, "league_points": 0, "points_for": 182, "points_against": 190, "captain_efficiency_pct": 58.8, "xi_efficiency_pct": 92.0, "bench_points": 26, "close_w": 0, "close_l": 2, "blowout_w": 0, "blowout_l": 0, "is_owner": false}], "recaps": [{"gw": 1, "winner": {"name": "Kirk Baxter", "net_points": 71}, "blowout": {"a": "Harry Daskalopoulos", "score_a": 23, "b": "Craig Allen", "score_b": 56, "margin": 33}, "unluckiest": {"name": "Yorick Stoepker", "net_points": 68}, "luckiest": {"name": "Jordan Fernholz", "net_points": 42}, "upset": null}, {"gw": 2, "winner": {"name": "Craig Allen", "net_points": 120}, "blowout": {"a": "Craig Allen", "score_a": 120, "b": "Kirk Baxter", "score_b": 68, "margin": 52}, "unluckiest": {"name": "Brian Moran", "net_points": 91}, "luckiest": {"name": "Isaac Sotelo", "net_points": 80}, "upset": {"winner": "Isaac Sotelo", "loser": "Iain Abshier", "gap": 18.0, "thin_sample": true}}, {"gw": 3, "winner": {"name": "Andrew Romani", "net_points": 70}, "blowout": {"a": "Joe Gannitello", "score_a": 46, "b": "Andrew Romani", "score_b": 70, "margin": 24}, "unluckiest": {"name": "Iain Abshier", "net_points": 51}, "luckiest": {"name": "Chris Mazzatta", "net_points": 37}, "upset": {"winner": "Brady Baxter", "loser": "Craig Allen", "gap": 25.5, "thin_sample": true}}], "owner": {"manager_id": 16, "entry_id": 3023365, "display_name": "Luel Waktola", "team_name": "Midtable Crisis", "ledger": {"points_for": 170, "points_against": 174, "avg_pf": 56.7, "avg_pa": 58.0, "w": 1, "d": 0, "l": 2, "league_points": 3, "close_w": 0, "close_l": 0, "blowout_w": 0, "blowout_l": 0, "total_bench_points": 39, "total_hit_cost": 0}, "skill": {"captain_efficiency_pct": 65.5, "xi_efficiency_pct": 82.0}, "gw_history": [{"gw": 1, "net_points": 32, "gross_points": 32, "hit_cost": 0, "bench_points": 6, "chip": null, "rank": 17, "captain_efficiency_pct": 25.0, "xi_efficiency_pct": 88.2}, {"gw": 2, "net_points": 71, "gross_points": 71, "hit_cost": 0, "bench_points": 9, "chip": null, "rank": 16, "captain_efficiency_pct": 100.0, "xi_efficiency_pct": 89.2}, {"gw": 3, "net_points": 67, "gross_points": 67, "hit_cost": 0, "bench_points": 24, "chip": "3xc", "rank": 2, "captain_efficiency_pct": 60.0, "xi_efficiency_pct": 72.1}], "latest_roster": {"gw": 3, "players": [{"name": "Lammens", "position": "GKP", "slot": 1, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 2}, {"name": "Shaw", "position": "DEF", "slot": 2, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 4}, {"name": "Virgil", "position": "DEF", "slot": 3, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 6}, {"name": "Konsa", "position": "DEF", "slot": 4, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 4}, {"name": "Mbeumo", "position": "MID", "slot": 5, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 8}, {"name": "Rogers", "position": "MID", "slot": 6, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 6}, {"name": "Szoboszlai", "position": "MID", "slot": 7, "is_starter": true, "armband": "VC", "multiplier": 1, "raw_points": 3}, {"name": "Cherki", "position": "MID", "slot": 8, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 3}, {"name": "Gibbs-White", "position": "MID", "slot": 9, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 3}, {"name": "Haaland", "position": "FWD", "slot": 10, "is_starter": true, "armband": "C", "multiplier": 3, "raw_points": 9}, {"name": "Wissa", "position": "FWD", "slot": 11, "is_starter": true, "armband": "", "multiplier": 1, "raw_points": 1}, {"name": "Dubravka", "position": "GKP", "slot": 12, "is_starter": false, "armband": "", "multiplier": 0, "raw_points": 0}, {"name": "Calvert-Lewin", "position": "FWD", "slot": 13, "is_starter": false, "armband": "", "multiplier": 0, "raw_points": 1}, {"name": "Mitchell", "position": "DEF", "slot": 14, "is_starter": false, "armband": "", "multiplier": 0, "raw_points": 15}, {"name": "Van Hecke", "position": "DEF", "slot": 15, "is_starter": false, "armband": "", "multiplier": 0, "raw_points": 8}]}, "transfers": [{"gw": 3, "player_in": "Cherki", "player_out": "Semenyo", "time": "2026-09-04T11:46:21.823372Z"}, {"gw": 3, "player_in": "Wissa", "player_out": "McBurnie", "time": "2026-09-04T11:46:21.829498Z"}]}, "all_matchups_by_gw": {"1": [{"a": {"name": "Isaac Sotelo", "score": 38}, "b": {"name": "Andrew Romani", "score": 47}, "margin": 9, "winner": "b"}, {"a": {"name": "Joe Gannitello", "score": 57}, "b": {"name": "Iain Abshier", "score": 56}, "margin": 1, "winner": "a"}, {"a": {"name": "Kirk Baxter", "score": 71}, "b": {"name": "Yorick Stoepker", "score": 68}, "margin": 3, "winner": "a"}, {"a": {"name": "Harry Daskalopoulos", "score": 23}, "b": {"name": "Craig Allen", "score": 56}, "margin": 33, "winner": "b"}, {"a": {"name": "Chris Miller", "score": 56}, "b": {"name": "Chris Mazzatta", "score": 58}, "margin": 2, "winner": "b"}, {"a": {"name": "Brady Baxter", "score": 42}, "b": {"name": "Brian Moran", "score": 70}, "margin": 28, "winner": "b"}, {"a": {"name": "Reggie Mazz", "score": 56}, "b": {"name": "Danilo Arroyo", "score": 48}, "margin": 8, "winner": "a"}, {"a": {"name": "Erik Baxter", "score": 59}, "b": {"name": "Ryan Smith", "score": 57}, "margin": 2, "winner": "a"}, {"a": {"name": "Luel Waktola", "score": 32}, "b": {"name": "Jordan Fernholz", "score": 42}, "margin": 10, "winner": "b"}], "2": [{"a": {"name": "Andrew Romani", "score": 83}, "b": {"name": "Luel Waktola", "score": 71}, "margin": 12, "winner": "a"}, {"a": {"name": "Jordan Fernholz", "score": 91}, "b": {"name": "Erik Baxter", "score": 91}, "margin": 0, "winner": "Draw"}, {"a": {"name": "Ryan Smith", "score": 107}, "b": {"name": "Reggie Mazz", "score": 85}, "margin": 22, "winner": "a"}, {"a": {"name": "Danilo Arroyo", "score": 88}, "b": {"name": "Brady Baxter", "score": 83}, "margin": 5, "winner": "a"}, {"a": {"name": "Brian Moran", "score": 91}, "b": {"name": "Chris Miller", "score": 108}, "margin": 17, "winner": "b"}, {"a": {"name": "Chris Mazzatta", "score": 91}, "b": {"name": "Harry Daskalopoulos", "score": 59}, "margin": 32, "winner": "a"}, {"a": {"name": "Craig Allen", "score": 120}, "b": {"name": "Kirk Baxter", "score": 68}, "margin": 52, "winner": "a"}, {"a": {"name": "Yorick Stoepker", "score": 86}, "b": {"name": "Joe Gannitello", "score": 105}, "margin": 19, "winner": "b"}, {"a": {"name": "Iain Abshier", "score": 75}, "b": {"name": "Isaac Sotelo", "score": 80}, "margin": 5, "winner": "b"}], "3": [{"a": {"name": "Joe Gannitello", "score": 46}, "b": {"name": "Andrew Romani", "score": 70}, "margin": 24, "winner": "b"}, {"a": {"name": "Kirk Baxter", "score": 36}, "b": {"name": "Isaac Sotelo", "score": 48}, "margin": 12, "winner": "b"}, {"a": {"name": "Harry Daskalopoulos", "score": 53}, "b": {"name": "Iain Abshier", "score": 51}, "margin": 2, "winner": "a"}, {"a": {"name": "Chris Miller", "score": 42}, "b": {"name": "Yorick Stoepker", "score": 53}, "margin": 11, "winner": "b"}, {"a": {"name": "Brady Baxter", "score": 54}, "b": {"name": "Craig Allen", "score": 42}, "margin": 12, "winner": "a"}, {"a": {"name": "Reggie Mazz", "score": 34}, "b": {"name": "Chris Mazzatta", "score": 37}, "margin": 3, "winner": "b"}, {"a": {"name": "Erik Baxter", "score": 57}, "b": {"name": "Brian Moran", "score": 38}, "margin": 19, "winner": "a"}, {"a": {"name": "Luel Waktola", "score": 67}, "b": {"name": "Danilo Arroyo", "score": 49}, "margin": 18, "winner": "a"}, {"a": {"name": "Jordan Fernholz", "score": 55}, "b": {"name": "Ryan Smith", "score": 45}, "margin": 10, "winner": "a"}]}};
+
+function fmtPct(v) { return v === null || v === undefined ? '—' : v.toFixed(1) + '%'; }
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+
+function resultBadge(w, d, l) {
+  return `<span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span>`;
+}
+
+function renderHome(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+
+  if (d.alerts.length) {
+    const box = el('div', 'card');
+    box.appendChild(el('h2', null, 'Alerts'));
+    d.alerts.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
+    root.appendChild(box);
+  }
+
+  const grid = el('div', 'grid grid-2');
+
+  const standingsCard = el('div', 'card');
+  standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
+  let rows = d.standings.slice(0, 6).map(s => `
+    <tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
+      <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
+    </tr>`).join('');
+  standingsCard.appendChild(el('div', null, `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
+  grid.appendChild(standingsCard);
+
+  const fixturesCard = el('div', 'card');
+  const uf = d.upcoming_fixtures;
+  fixturesCard.appendChild(el('h2', null, uf.gw ? `This week's fixtures — GW${uf.gw}` : 'No upcoming fixtures'));
+  uf.matches.forEach(m => {
+    fixturesCard.appendChild(el('div', 'match-row', `
+      <div class="match-side">${m.a.name}<div class="muted">${m.a.team}</div></div>
+      <div class="match-score">vs</div>
+      <div class="match-side right">${m.b.name}<div class="muted">${m.b.team}</div></div>
+    `));
+  });
+  grid.appendChild(fixturesCard);
+  root.appendChild(grid);
+
+  const grid2 = el('div', 'grid grid-2');
+  const resultsCard = el('div', 'card');
+  const lr = d.last_results;
+  resultsCard.appendChild(el('h2', null, lr ? `Last results — GW${lr.gw}` : 'No results yet'));
+  if (lr) lr.matches.forEach(m => {
+    const aWin = m.winner === 'a', bWin = m.winner === 'b';
+    resultsCard.appendChild(el('div', 'match-row', `
+      <div class="match-side">${m.a.name}</div>
+      <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+      <div class="match-side right">${m.b.name}</div>
+    `));
+  });
+  grid2.appendChild(resultsCard);
+
+  const recapCard = el('div', 'card');
+  const recap = d.recaps[d.recaps.length - 1];
+  recapCard.appendChild(el('h2', null, recap ? `GW${recap.gw} highlights` : 'No recap yet'));
+  if (recap) {
+    let html = '';
+    if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
+    if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
+    if (recap.upset) html += `<p><b>Biggest upset${recap.upset.thin_sample ? ' <span class="muted">(thin sample)</span>' : ''}:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
+    if (recap.unluckiest) html += `<p><b>Unluckiest:</b> ${recap.unluckiest.name} (${recap.unluckiest.net_points} pts, still lost)</p>`;
+    if (recap.luckiest) html += `<p><b>Luckiest:</b> ${recap.luckiest.name} (won with ${recap.luckiest.net_points} pts)</p>`;
+    recapCard.innerHTML += html;
+  }
+  grid2.appendChild(recapCard);
+  root.appendChild(grid2);
+}
+
+function renderMyTeam(root) {
+  const o = DIGEST.owner;
+  root.innerHTML = '';
+  if (!o) { root.appendChild(el('div', 'card', 'No owner data yet.')); return; }
+
+  root.appendChild(el('div', 'section-title', `${o.display_name} — ${o.team_name}`));
+
+  const statsGrid = el('div', 'grid grid-4');
+  const L = o.ledger;
+  const stats = [
+    ['Record', `${L.w}-${L.d}-${L.l}`],
+    ['League points', L.league_points],
+    ['Points for / against', `${L.points_for} / ${L.points_against}`],
+    ['Avg PF / PA', `${L.avg_pf} / ${L.avg_pa}`],
+    ['Captain efficiency', fmtPct(o.skill.captain_efficiency_pct)],
+    ['XI efficiency', fmtPct(o.skill.xi_efficiency_pct)],
+    ['Bench points (season)', L.total_bench_points],
+    ['Hit cost (season)', L.total_hit_cost],
+  ];
+  stats.forEach(([label, value]) => {
+    statsGrid.appendChild(el('div', 'card stat', `<div class="value">${value}</div><div class="label">${label}</div>`));
+  });
+  root.appendChild(statsGrid);
+
+  const histCard = el('div', 'card');
+  histCard.style.marginTop = '16px';
+  histCard.appendChild(el('h2', null, 'Gameweek history'));
+  let rows = o.gw_history.map(g => `
+    <tr><td>GW${g.gw}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
+    <td>${g.rank}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
+    <td>${fmtPct(g.captain_efficiency_pct)}</td><td>${fmtPct(g.xi_efficiency_pct)}</td></tr>`).join('');
+  histCard.innerHTML += `<table><thead><tr><th>GW</th><th>Net</th><th>Rank</th><th>Bench</th><th>Chip</th><th>Cap Eff</th><th>XI Eff</th></tr></thead><tbody>${rows}</tbody></table>`;
+  root.appendChild(histCard);
+
+  const rosterCard = el('div', 'card');
+  rosterCard.style.marginTop = '16px';
+  rosterCard.appendChild(el('h2', null, `Latest roster — GW${o.latest_roster.gw}`));
+  o.latest_roster.players.forEach(p => {
+    rosterCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
+      <span class="pill">${p.position}</span>
+      ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
+      <span style="flex:1">${p.name}</span>
+      <span class="muted">${p.raw_points} pts × ${p.multiplier}</span>
+    `));
+  });
+  root.appendChild(rosterCard);
+
+  if (o.transfers.length) {
+    const tCard = el('div', 'card');
+    tCard.style.marginTop = '16px';
+    tCard.appendChild(el('h2', null, 'Transfers'));
+    let trows = o.transfers.map(t => `<tr><td>GW${t.gw}</td><td>${t.player_in} in</td><td>${t.player_out} out</td></tr>`).join('');
+    tCard.innerHTML += `<table><tbody>${trows}</tbody></table>`;
+    root.appendChild(tCard);
+  }
+}
+
+function renderLeague(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  root.appendChild(el('div', 'section-title', `Standings — after GW${d.standings_gw}`));
+  const table = el('div', 'card');
+  let rows = d.standings.map(s => `
+    <tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
+      <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td>
+      <td>${s.points_for}</td><td>${s.points_against}</td><td>${s.streak || '—'}</td>
+    </tr>`).join('');
+  table.innerHTML = `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>PF</th><th>PA</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`;
+  root.appendChild(table);
+
+  root.appendChild(el('div', 'section-title', 'All matchups'));
+  const gwKeys = Object.keys(d.all_matchups_by_gw).sort((a, b) => a - b);
+  const btnGroup = el('div', 'tabbtn-group');
+  const matchupsBody = el('div', 'card');
+  function showGw(gw) {
+    matchupsBody.innerHTML = '';
+    (d.all_matchups_by_gw[gw] || []).forEach(m => {
+      const aWin = m.winner === 'a', bWin = m.winner === 'b';
+      matchupsBody.appendChild(el('div', 'match-row', `
+        <div class="match-side">${m.a.name}</div>
+        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+        <div class="match-side right">${m.b.name}</div>
+      `));
+    });
+  }
+  gwKeys.forEach((gw, i) => {
+    const b = el('button', i === gwKeys.length - 1 ? 'active' : '', `GW${gw}`);
+    b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); showGw(gw); };
+    btnGroup.appendChild(b);
+  });
+  root.appendChild(btnGroup);
+  root.appendChild(matchupsBody);
+  if (gwKeys.length) showGw(gwKeys[gwKeys.length - 1]);
+}
+
+function sortableTable(container, headers, rows, rowRenderer) {
+  let sortCol = null, sortDir = 1;
+  function draw() {
+    let sorted = rows.slice();
+    if (sortCol !== null) sorted.sort((a, b) => (a[sortCol] > b[sortCol] ? 1 : a[sortCol] < b[sortCol] ? -1 : 0) * sortDir);
+    const thead = '<tr>' + headers.map((h, i) => `<th data-i="${i}">${h}</th>`).join('') + '</tr>';
+    const tbody = sorted.map(rowRenderer).join('');
+    container.innerHTML = `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+    container.querySelectorAll('th').forEach(th => {
+      th.onclick = () => {
+        const i = +th.dataset.i;
+        sortDir = (sortCol === i) ? -sortDir : -1;
+        sortCol = i;
+        draw();
+      };
+    });
+  }
+  draw();
+}
+
+function renderAnalytics(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  root.appendChild(el('div', 'section-title', 'Manager skill leaderboard'));
+  const card = el('div', 'card');
+  root.appendChild(card);
+  const rows = d.leaderboard.map(m => [m.display_name, m.team_name, `${m.w}-${m.d}-${m.l}`, m.league_points,
+    m.captain_efficiency_pct, m.xi_efficiency_pct, m.bench_points, m.is_owner]);
+  sortableTable(card,
+    ['Manager', 'Team', 'Record', 'Pts', 'Cap Eff %', 'XI Eff %', 'Bench'],
+    rows,
+    r => `<tr class="${r[7] ? 'owner-row' : ''}"><td>${r[0]}</td><td class="muted">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${fmtPct(r[4])}</td><td>${fmtPct(r[5])}</td><td>${r[6]}</td></tr>`
+  );
+
+  root.appendChild(el('div', 'section-title', 'Luck & power rankings'));
+  root.appendChild(lockedCard(d.gates.luck_and_power_rankings));
+
+  root.appendChild(el('div', 'section-title', 'Projections'));
+  root.appendChild(lockedCard(d.gates.projections));
+}
+
+function lockedCard(gate) {
+  if (gate.unlocked) return el('div', 'card', 'Unlocked.');
+  const pct = Math.round(100 * gate.have / gate.need);
+  return el('div', 'locked-card', `
+    <div class="lock-icon">🔒</div>
+    <p>Insufficient sample — ${gate.have} gameweek${gate.have === 1 ? '' : 's'}, need ${gate.need}</p>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <p class="muted">Unlocks in ${gate.need - gate.have} more gameweek${gate.need - gate.have === 1 ? '' : 's'}</p>
+  `);
+}
+
+function renderHistory(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  const gws = d.gw_status.data_checked_gws;
+  const btnGroup = el('div', 'tabbtn-group');
+  const body = el('div');
+  root.appendChild(btnGroup);
+  root.appendChild(body);
+
+  function show(gw) {
+    body.innerHTML = '';
+    const grid = el('div', 'grid grid-2');
+
+    const standingsCard = el('div', 'card');
+    standingsCard.appendChild(el('h2', null, `Standings after GW${gw}`));
+    if (gw === d.standings_gw) {
+      let rows = d.standings.map(s => `<tr><td>${s.rank}</td><td>${s.display_name}</td><td>${s.league_points}</td></tr>`).join('');
+      standingsCard.innerHTML += `<table><tbody>${rows}</tbody></table>`;
+    } else {
+      standingsCard.appendChild(el('p', 'muted', 'Not available — standings snapshots only exist from GW3 onward (the live endpoint has no history parameter; see Home → Alerts).'));
+    }
+    grid.appendChild(standingsCard);
+
+    const recapCard = el('div', 'card');
+    const recap = d.recaps.find(r => r.gw === gw);
+    recapCard.appendChild(el('h2', null, `GW${gw} highlights`));
+    if (recap) {
+      let html = '';
+      if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
+      if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
+      if (recap.upset) html += `<p><b>Biggest upset:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
+      recapCard.innerHTML += html || '<p class="muted">No highlights computed.</p>';
+    }
+    grid.appendChild(recapCard);
+    body.appendChild(grid);
+
+    const matchupsCard = el('div', 'card');
+    matchupsCard.style.marginTop = '16px';
+    matchupsCard.appendChild(el('h2', null, `Matchups — GW${gw}`));
+    (d.all_matchups_by_gw[gw] || []).forEach(m => {
+      const aWin = m.winner === 'a', bWin = m.winner === 'b';
+      matchupsCard.appendChild(el('div', 'match-row', `
+        <div class="match-side">${m.a.name}</div>
+        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+        <div class="match-side right">${m.b.name}</div>
+      `));
+    });
+    body.appendChild(matchupsCard);
+  }
+
+  gws.forEach((gw, i) => {
+    const b = el('button', i === gws.length - 1 ? 'active' : '', `GW${gw}`);
+    b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); show(gw); };
+    btnGroup.appendChild(b);
+  });
+  if (gws.length) show(gws[gws.length - 1]);
+}
+
+const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, analytics: renderAnalytics, history: renderHistory };
+const rendered = {};
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const name = btn.dataset.tab;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  if (!rendered[name]) { RENDERERS[name](document.getElementById('page-' + name)); rendered[name] = true; }
+});
+
+renderHome(document.getElementById('page-home'));
+rendered.home = true;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+"""Phase 7 — dashboard builder (SPEC.md §8).
+
+Renders dashboard.html: a single self-contained file with the digest JSON
+baked directly into a <script> tag rather than fetched at runtime. SPEC.md
+says the dashboard "reads digest/season.json" — a literal fetch() of a
+sibling file fails when the page is opened via file:// (no server, which is
+exactly how SPEC.md says this should be used), so the data is embedded
+instead. digest/season.json is still generated separately by src/digest.py,
+for any future consumer that isn't this specific rendering approach.
+
+Usage:
+    python -m src.build_dashboard
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+
+from . import config
+from .digest import build_digest
+
+OUT_PATH_NAME = "dashboard.html"
+
+
+def render(digest: dict) -> str:
+    data_json = json.dumps(digest)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{digest['league']['name']} — League Dashboard</title>
+<style>
+{CSS}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-name">{digest['league']['name']}</span>
+      <span class="brand-sub">{digest['league']['season']} · League {digest['league'].get('id', '')}</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="myteam">My Team</button>
+      <button class="tab" data-tab="league">League</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="page-home" class="page active"></section>
+  <section id="page-myteam" class="page"></section>
+  <section id="page-league" class="page"></section>
+  <section id="page-analytics" class="page"></section>
+  <section id="page-history" class="page"></section>
+</main>
+
+<footer class="footer">
+  Generated {digest['generated_at']} · Fact = stored raw data. Computed = derived by a documented formula.
+</footer>
+
+<script>
+const DIGEST = {data_json};
+{JS}
+</script>
+</body>
+</html>
+"""
+
+
+CSS = """
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #1b1e2b;
+  --ink-soft: #5a5f75;
+  --border: #e6e8f0;
+  --accent: #5b5bd6;
+  --accent-soft: #eef0ff;
+  --win: #1a9f5c;
+  --win-soft: #e6f7ee;
+  --loss: #d94f4f;
+  --loss-soft: #fdecec;
+  --draw: #b8860b;
+  --draw-soft: #fbf3df;
+  --locked: #8a8fa3;
+  --shadow: 0 1px 2px rgba(20,20,40,0.04), 0 4px 16px rgba(20,20,40,0.06);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px; line-height: 1.45;
+}
+.topbar {
+  background: var(--card); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-inner {
+  max-width: 1080px; margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.brand-name { font-weight: 700; font-size: 17px; display: block; }
+.brand-sub { color: var(--ink-soft); font-size: 12.5px; }
+.tabs { display: flex; gap: 4px; background: var(--bg); padding: 4px; border-radius: 10px; }
+.tab {
+  border: none; background: transparent; padding: 8px 14px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+}
+.tab.active { background: var(--accent); color: white; }
+.tab:hover:not(.active) { color: var(--ink); }
+.container { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
+.page { display: none; }
+.page.active { display: block; }
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.card h2 { margin: 0 0 12px; font-size: 15px; }
+.card h3 { margin: 0 0 8px; font-size: 13px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat .value { font-size: 26px; font-weight: 700; }
+.stat .label { color: var(--ink-soft); font-size: 12.5px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+th { color: var(--ink-soft); font-weight: 600; font-size: 12px; text-transform: uppercase;
+     letter-spacing: 0.02em; cursor: pointer; user-select: none; }
+th:hover { color: var(--ink); }
+tr.owner-row { background: var(--accent-soft); }
+tr:last-child td { border-bottom: none; }
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700;
+}
+.badge-w { background: var(--win-soft); color: var(--win); }
+.badge-l { background: var(--loss-soft); color: var(--loss); }
+.badge-d { background: var(--draw-soft); color: var(--draw); }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent); }
+.section-title { font-size: 20px; font-weight: 700; margin: 28px 0 14px; }
+.section-title:first-child { margin-top: 0; }
+.match-row {
+  display: flex; align-items: center; justify-content: space-between; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.match-row:last-child { border-bottom: none; }
+.match-side { flex: 1; font-weight: 600; }
+.match-side.right { text-align: right; }
+.match-score { padding: 0 16px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.match-score .win { color: var(--win); }
+.alert {
+  padding: 10px 14px; border-radius: 10px; margin-bottom: 8px; font-size: 13px;
+  border-left: 4px solid var(--locked);
+}
+.alert-info { background: #f4f5fa; border-color: var(--locked); }
+.alert-warning { background: var(--draw-soft); border-color: var(--draw); }
+.alert-error { background: var(--loss-soft); border-color: var(--loss); }
+.locked-card {
+  background: repeating-linear-gradient(135deg, var(--card), var(--card) 10px, #fafafd 10px, #fafafd 20px);
+  border: 1px dashed var(--border); border-radius: 14px; padding: 24px; text-align: center; color: var(--locked);
+}
+.locked-card .lock-icon { font-size: 22px; }
+.progress-bar { height: 6px; background: var(--border); border-radius: 999px; margin: 10px auto; max-width: 240px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--locked); }
+.roster-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.roster-row:last-child { border-bottom: none; }
+.roster-row.bench { opacity: 0.55; }
+.armband { font-weight: 700; font-size: 11px; background: var(--accent); color: white; border-radius: 5px; padding: 1px 5px; }
+.tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabbtn-group button {
+  border: 1px solid var(--border); background: var(--card); padding: 6px 14px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink-soft);
+}
+.tabbtn-group button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.muted { color: var(--ink-soft); font-size: 12.5px; }
+.footer { text-align: center; color: var(--ink-soft); font-size: 12px; padding: 20px; }
+"""
+
+
+JS = """
+function fmtPct(v) { return v === null || v === undefined ? '—' : v.toFixed(1) + '%'; }
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+
+function resultBadge(w, d, l) {
+  return `<span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span>`;
+}
+
+function renderHome(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+
+  if (d.alerts.length) {
+    const box = el('div', 'card');
+    box.appendChild(el('h2', null, 'Alerts'));
+    d.alerts.forEach(a => box.appendChild(el('div', `alert alert-${a.severity}`, a.description)));
+    root.appendChild(box);
+  }
+
+  const grid = el('div', 'grid grid-2');
+
+  const standingsCard = el('div', 'card');
+  standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
+  let rows = d.standings.slice(0, 6).map(s => `
+    <tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
+      <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
+    </tr>`).join('');
+  standingsCard.appendChild(el('div', null, `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
+  grid.appendChild(standingsCard);
+
+  const fixturesCard = el('div', 'card');
+  const uf = d.upcoming_fixtures;
+  fixturesCard.appendChild(el('h2', null, uf.gw ? `This week's fixtures — GW${uf.gw}` : 'No upcoming fixtures'));
+  uf.matches.forEach(m => {
+    fixturesCard.appendChild(el('div', 'match-row', `
+      <div class="match-side">${m.a.name}<div class="muted">${m.a.team}</div></div>
+      <div class="match-score">vs</div>
+      <div class="match-side right">${m.b.name}<div class="muted">${m.b.team}</div></div>
+    `));
+  });
+  grid.appendChild(fixturesCard);
+  root.appendChild(grid);
+
+  const grid2 = el('div', 'grid grid-2');
+  const resultsCard = el('div', 'card');
+  const lr = d.last_results;
+  resultsCard.appendChild(el('h2', null, lr ? `Last results — GW${lr.gw}` : 'No results yet'));
+  if (lr) lr.matches.forEach(m => {
+    const aWin = m.winner === 'a', bWin = m.winner === 'b';
+    resultsCard.appendChild(el('div', 'match-row', `
+      <div class="match-side">${m.a.name}</div>
+      <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+      <div class="match-side right">${m.b.name}</div>
+    `));
+  });
+  grid2.appendChild(resultsCard);
+
+  const recapCard = el('div', 'card');
+  const recap = d.recaps[d.recaps.length - 1];
+  recapCard.appendChild(el('h2', null, recap ? `GW${recap.gw} highlights` : 'No recap yet'));
+  if (recap) {
+    let html = '';
+    if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
+    if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
+    if (recap.upset) html += `<p><b>Biggest upset${recap.upset.thin_sample ? ' <span class="muted">(thin sample)</span>' : ''}:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
+    if (recap.unluckiest) html += `<p><b>Unluckiest:</b> ${recap.unluckiest.name} (${recap.unluckiest.net_points} pts, still lost)</p>`;
+    if (recap.luckiest) html += `<p><b>Luckiest:</b> ${recap.luckiest.name} (won with ${recap.luckiest.net_points} pts)</p>`;
+    recapCard.innerHTML += html;
+  }
+  grid2.appendChild(recapCard);
+  root.appendChild(grid2);
+}
+
+function renderMyTeam(root) {
+  const o = DIGEST.owner;
+  root.innerHTML = '';
+  if (!o) { root.appendChild(el('div', 'card', 'No owner data yet.')); return; }
+
+  root.appendChild(el('div', 'section-title', `${o.display_name} — ${o.team_name}`));
+
+  const statsGrid = el('div', 'grid grid-4');
+  const L = o.ledger;
+  const stats = [
+    ['Record', `${L.w}-${L.d}-${L.l}`],
+    ['League points', L.league_points],
+    ['Points for / against', `${L.points_for} / ${L.points_against}`],
+    ['Avg PF / PA', `${L.avg_pf} / ${L.avg_pa}`],
+    ['Captain efficiency', fmtPct(o.skill.captain_efficiency_pct)],
+    ['XI efficiency', fmtPct(o.skill.xi_efficiency_pct)],
+    ['Bench points (season)', L.total_bench_points],
+    ['Hit cost (season)', L.total_hit_cost],
+  ];
+  stats.forEach(([label, value]) => {
+    statsGrid.appendChild(el('div', 'card stat', `<div class="value">${value}</div><div class="label">${label}</div>`));
+  });
+  root.appendChild(statsGrid);
+
+  const histCard = el('div', 'card');
+  histCard.style.marginTop = '16px';
+  histCard.appendChild(el('h2', null, 'Gameweek history'));
+  let rows = o.gw_history.map(g => `
+    <tr><td>GW${g.gw}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
+    <td>${g.rank}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
+    <td>${fmtPct(g.captain_efficiency_pct)}</td><td>${fmtPct(g.xi_efficiency_pct)}</td></tr>`).join('');
+  histCard.innerHTML += `<table><thead><tr><th>GW</th><th>Net</th><th>Rank</th><th>Bench</th><th>Chip</th><th>Cap Eff</th><th>XI Eff</th></tr></thead><tbody>${rows}</tbody></table>`;
+  root.appendChild(histCard);
+
+  const rosterCard = el('div', 'card');
+  rosterCard.style.marginTop = '16px';
+  rosterCard.appendChild(el('h2', null, `Latest roster — GW${o.latest_roster.gw}`));
+  o.latest_roster.players.forEach(p => {
+    rosterCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
+      <span class="pill">${p.position}</span>
+      ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
+      <span style="flex:1">${p.name}</span>
+      <span class="muted">${p.raw_points} pts × ${p.multiplier}</span>
+    `));
+  });
+  root.appendChild(rosterCard);
+
+  if (o.transfers.length) {
+    const tCard = el('div', 'card');
+    tCard.style.marginTop = '16px';
+    tCard.appendChild(el('h2', null, 'Transfers'));
+    let trows = o.transfers.map(t => `<tr><td>GW${t.gw}</td><td>${t.player_in} in</td><td>${t.player_out} out</td></tr>`).join('');
+    tCard.innerHTML += `<table><tbody>${trows}</tbody></table>`;
+    root.appendChild(tCard);
+  }
+}
+
+function renderLeague(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  root.appendChild(el('div', 'section-title', `Standings — after GW${d.standings_gw}`));
+  const table = el('div', 'card');
+  let rows = d.standings.map(s => `
+    <tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
+      <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td>
+      <td>${s.points_for}</td><td>${s.points_against}</td><td>${s.streak || '—'}</td>
+    </tr>`).join('');
+  table.innerHTML = `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>PF</th><th>PA</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`;
+  root.appendChild(table);
+
+  root.appendChild(el('div', 'section-title', 'All matchups'));
+  const gwKeys = Object.keys(d.all_matchups_by_gw).sort((a, b) => a - b);
+  const btnGroup = el('div', 'tabbtn-group');
+  const matchupsBody = el('div', 'card');
+  function showGw(gw) {
+    matchupsBody.innerHTML = '';
+    (d.all_matchups_by_gw[gw] || []).forEach(m => {
+      const aWin = m.winner === 'a', bWin = m.winner === 'b';
+      matchupsBody.appendChild(el('div', 'match-row', `
+        <div class="match-side">${m.a.name}</div>
+        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+        <div class="match-side right">${m.b.name}</div>
+      `));
+    });
+  }
+  gwKeys.forEach((gw, i) => {
+    const b = el('button', i === gwKeys.length - 1 ? 'active' : '', `GW${gw}`);
+    b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); showGw(gw); };
+    btnGroup.appendChild(b);
+  });
+  root.appendChild(btnGroup);
+  root.appendChild(matchupsBody);
+  if (gwKeys.length) showGw(gwKeys[gwKeys.length - 1]);
+}
+
+function sortableTable(container, headers, rows, rowRenderer) {
+  let sortCol = null, sortDir = 1;
+  function draw() {
+    let sorted = rows.slice();
+    if (sortCol !== null) sorted.sort((a, b) => (a[sortCol] > b[sortCol] ? 1 : a[sortCol] < b[sortCol] ? -1 : 0) * sortDir);
+    const thead = '<tr>' + headers.map((h, i) => `<th data-i="${i}">${h}</th>`).join('') + '</tr>';
+    const tbody = sorted.map(rowRenderer).join('');
+    container.innerHTML = `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+    container.querySelectorAll('th').forEach(th => {
+      th.onclick = () => {
+        const i = +th.dataset.i;
+        sortDir = (sortCol === i) ? -sortDir : -1;
+        sortCol = i;
+        draw();
+      };
+    });
+  }
+  draw();
+}
+
+function renderAnalytics(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  root.appendChild(el('div', 'section-title', 'Manager skill leaderboard'));
+  const card = el('div', 'card');
+  root.appendChild(card);
+  const rows = d.leaderboard.map(m => [m.display_name, m.team_name, `${m.w}-${m.d}-${m.l}`, m.league_points,
+    m.captain_efficiency_pct, m.xi_efficiency_pct, m.bench_points, m.is_owner]);
+  sortableTable(card,
+    ['Manager', 'Team', 'Record', 'Pts', 'Cap Eff %', 'XI Eff %', 'Bench'],
+    rows,
+    r => `<tr class="${r[7] ? 'owner-row' : ''}"><td>${r[0]}</td><td class="muted">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${fmtPct(r[4])}</td><td>${fmtPct(r[5])}</td><td>${r[6]}</td></tr>`
+  );
+
+  root.appendChild(el('div', 'section-title', 'Luck & power rankings'));
+  root.appendChild(lockedCard(d.gates.luck_and_power_rankings));
+
+  root.appendChild(el('div', 'section-title', 'Projections'));
+  root.appendChild(lockedCard(d.gates.projections));
+}
+
+function lockedCard(gate) {
+  if (gate.unlocked) return el('div', 'card', 'Unlocked.');
+  const pct = Math.round(100 * gate.have / gate.need);
+  return el('div', 'locked-card', `
+    <div class="lock-icon">🔒</div>
+    <p>Insufficient sample — ${gate.have} gameweek${gate.have === 1 ? '' : 's'}, need ${gate.need}</p>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <p class="muted">Unlocks in ${gate.need - gate.have} more gameweek${gate.need - gate.have === 1 ? '' : 's'}</p>
+  `);
+}
+
+function renderHistory(root) {
+  const d = DIGEST;
+  root.innerHTML = '';
+  const gws = d.gw_status.data_checked_gws;
+  const btnGroup = el('div', 'tabbtn-group');
+  const body = el('div');
+  root.appendChild(btnGroup);
+  root.appendChild(body);
+
+  function show(gw) {
+    body.innerHTML = '';
+    const grid = el('div', 'grid grid-2');
+
+    const standingsCard = el('div', 'card');
+    standingsCard.appendChild(el('h2', null, `Standings after GW${gw}`));
+    if (gw === d.standings_gw) {
+      let rows = d.standings.map(s => `<tr><td>${s.rank}</td><td>${s.display_name}</td><td>${s.league_points}</td></tr>`).join('');
+      standingsCard.innerHTML += `<table><tbody>${rows}</tbody></table>`;
+    } else {
+      standingsCard.appendChild(el('p', 'muted', 'Not available — standings snapshots only exist from GW3 onward (the live endpoint has no history parameter; see Home → Alerts).'));
+    }
+    grid.appendChild(standingsCard);
+
+    const recapCard = el('div', 'card');
+    const recap = d.recaps.find(r => r.gw === gw);
+    recapCard.appendChild(el('h2', null, `GW${gw} highlights`));
+    if (recap) {
+      let html = '';
+      if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
+      if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
+      if (recap.upset) html += `<p><b>Biggest upset:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
+      recapCard.innerHTML += html || '<p class="muted">No highlights computed.</p>';
+    }
+    grid.appendChild(recapCard);
+    body.appendChild(grid);
+
+    const matchupsCard = el('div', 'card');
+    matchupsCard.style.marginTop = '16px';
+    matchupsCard.appendChild(el('h2', null, `Matchups — GW${gw}`));
+    (d.all_matchups_by_gw[gw] || []).forEach(m => {
+      const aWin = m.winner === 'a', bWin = m.winner === 'b';
+      matchupsCard.appendChild(el('div', 'match-row', `
+        <div class="match-side">${m.a.name}</div>
+        <div class="match-score"><span class="${aWin ? 'win' : ''}">${m.a.score}</span> - <span class="${bWin ? 'win' : ''}">${m.b.score}</span></div>
+        <div class="match-side right">${m.b.name}</div>
+      `));
+    });
+    body.appendChild(matchupsCard);
+  }
+
+  gws.forEach((gw, i) => {
+    const b = el('button', i === gws.length - 1 ? 'active' : '', `GW${gw}`);
+    b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); show(gw); };
+    btnGroup.appendChild(b);
+  });
+  if (gws.length) show(gws[gws.length - 1]);
+}
+
+const RENDERERS = { home: renderHome, myteam: renderMyTeam, league: renderLeague, analytics: renderAnalytics, history: renderHistory };
+const rendered = {};
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const name = btn.dataset.tab;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  if (!rendered[name]) { RENDERERS[name](document.getElementById('page-' + name)); rendered[name] = true; }
+});
+
+renderHome(document.getElementById('page-home'));
+rendered.home = true;
+"""
+
+
+def run() -> int:
+    print("Phase 7 — building dashboard.html\n")
+    digest = build_digest()
+    html = render(digest)
+    out_path = config.REPO_ROOT / OUT_PATH_NAME
+    out_path.write_text(html)
+    print(f"Wrote {out_path} ({out_path.stat().st_size:,} bytes)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(run())

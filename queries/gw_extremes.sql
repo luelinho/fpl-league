@@ -15,7 +15,7 @@ SELECT h.gw_id, ma.display_name AS side_a, h.score_a, mb.display_name AS side_b,
 FROM raw_h2h_matches h
 JOIN managers ma ON ma.manager_id = h.manager_a
 JOIN managers mb ON mb.manager_id = h.manager_b
-WHERE h.gw_id = :gw
+WHERE h.gw_id = :gw AND h.status = 'final'
 ORDER BY h.margin DESC
 LIMIT 1;
 
@@ -25,7 +25,7 @@ FROM raw_h2h_matches h
 JOIN managers m ON m.manager_id = CASE WHEN h.winner = h.manager_a THEN h.manager_b
                                         WHEN h.winner = h.manager_b THEN h.manager_a END
 JOIN raw_manager_gw rmg ON rmg.gw_id = h.gw_id AND rmg.manager_id = m.manager_id
-WHERE h.gw_id = :gw AND h.winner IS NOT NULL
+WHERE h.gw_id = :gw AND h.status = 'final' AND h.winner IS NOT NULL
 ORDER BY rmg.net_points DESC
 LIMIT 1;
 
@@ -34,6 +34,6 @@ SELECT m.display_name, rmg.net_points
 FROM raw_h2h_matches h
 JOIN managers m ON m.manager_id = h.winner
 JOIN raw_manager_gw rmg ON rmg.gw_id = h.gw_id AND rmg.manager_id = m.manager_id
-WHERE h.gw_id = :gw AND h.winner IS NOT NULL
+WHERE h.gw_id = :gw AND h.status = 'final' AND h.winner IS NOT NULL
 ORDER BY rmg.net_points ASC
 LIMIT 1;
