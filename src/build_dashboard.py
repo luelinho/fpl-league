@@ -202,6 +202,57 @@ tr:last-child td { border-bottom: none; }
 .roster-row:last-child { border-bottom: none; }
 .roster-row.bench { opacity: 0.5; }
 .armband { font-weight: 800; font-size: 11px; background: var(--accent); color: var(--accent-ink); border-radius: 5px; padding: 1px 5px; }
+.pitch {
+  position: relative; display: flex; flex-direction: column; justify-content: space-around;
+  gap: 14px; min-height: 380px; padding: 22px 8px; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 140px 90px at 50% 0%, rgba(255,255,255,0.06), transparent 70%),
+    radial-gradient(ellipse 140px 90px at 50% 100%, rgba(255,255,255,0.06), transparent 70%),
+    linear-gradient(180deg, #1d5334, #163d27 50%, #1d5334);
+  background-size: 100% 34px, 100% 100%, 100% 100%, 100% 100%;
+}
+.pitch::before {
+  content: ''; position: absolute; left: 6%; right: 6%; top: 50%; height: 1px;
+  background: rgba(255,255,255,0.28); transform: translateY(-50%);
+}
+.pitch::after {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 84px; height: 84px;
+  border: 1px solid rgba(255,255,255,0.28); border-radius: 50%; transform: translate(-50%,-50%);
+}
+.pitch-box-top, .pitch-box-bottom {
+  position: absolute; left: 28%; right: 28%; height: 15%;
+  border: 1px solid rgba(255,255,255,0.28); border-top: none;
+}
+.pitch-box-top { top: 0; border-top: none; border-bottom: none; border-radius: 0 0 4px 4px; }
+.pitch-box-bottom { bottom: 0; border-bottom: none; border-radius: 4px 4px 0 0; }
+.pitch-row { display: flex; justify-content: space-evenly; align-items: flex-start; gap: 6px; position: relative; z-index: 1; flex-wrap: wrap; }
+.player-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 76px; text-align: center; }
+.player-jersey {
+  width: 32px; height: 32px; border-radius: 50%; position: relative;
+  background: var(--accent); color: var(--accent-ink); border: 2px solid rgba(10,10,13,0.5);
+  display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 800;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.player-chip.bench .player-jersey { background: var(--card-2); color: var(--ink-soft); border-color: var(--border); box-shadow: none; }
+.player-armband {
+  position: absolute; top: -5px; right: -6px; width: 15px; height: 15px; border-radius: 50%;
+  background: var(--ink); color: var(--bg); font-size: 8.5px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.3);
+}
+.player-name {
+  font-size: 10.5px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 74px;
+}
+.player-chip.bench .player-name { color: var(--ink-soft); text-shadow: none; }
+.player-pts {
+  font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.35);
+  padding: 1px 6px; border-radius: 999px;
+}
+.player-chip.bench .player-pts { background: transparent; color: var(--ink-soft); }
+.bench-strip { margin-top: 14px; }
+.bench-strip h3 { margin-bottom: 10px; }
 .tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
 .tabbtn-group button {
   border: 1px solid var(--border); background: var(--card); padding: 7px 15px; border-radius: 999px;
@@ -223,6 +274,43 @@ function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.
 
 function resultBadge(w, d, l) {
   return `<span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span>`;
+}
+
+function playerChip(p, isBench) {
+  const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
+  chip.innerHTML = `
+    <div class="player-jersey">${p.position}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
+    <div class="player-name">${p.name}</div>
+    <div class="player-pts">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
+  `;
+  return chip;
+}
+
+function renderPitch(container, players) {
+  const starters = players.filter(p => p.is_starter);
+  const bench = players.filter(p => !p.is_starter).sort((a, b) => a.slot - b.slot);
+  const rowOrder = ['FWD', 'MID', 'DEF', 'GKP'];
+
+  const pitch = el('div', 'pitch');
+  pitch.appendChild(el('div', 'pitch-box-top'));
+  pitch.appendChild(el('div', 'pitch-box-bottom'));
+  rowOrder.forEach(pos => {
+    const inRow = starters.filter(p => p.position === pos);
+    if (!inRow.length) return;
+    const row = el('div', 'pitch-row');
+    inRow.forEach(p => row.appendChild(playerChip(p)));
+    pitch.appendChild(row);
+  });
+  container.appendChild(pitch);
+
+  if (bench.length) {
+    const benchWrap = el('div', 'bench-strip');
+    benchWrap.appendChild(el('h3', null, 'Bench'));
+    const benchRow = el('div', 'pitch-row');
+    bench.forEach(p => benchRow.appendChild(playerChip(p, true)));
+    benchWrap.appendChild(benchRow);
+    container.appendChild(benchWrap);
+  }
 }
 
 function renderHome(root) {
@@ -298,13 +386,7 @@ function renderHome(root) {
       ? 'Locked in — not yet scored. Points fill in as matches are played.'
       : `Transfers made before the GW${nextGw} deadline won't show here yet.`}</p>`;
     nextCard.innerHTML += html;
-    o.latest_roster.players.forEach(p => {
-      nextCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
-        <span class="pill">${p.position}</span>
-        ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
-        <span style="flex:1">${p.name}</span>
-      `));
-    });
+    renderPitch(nextCard, o.latest_roster.players);
   } else {
     nextCard.innerHTML += '<p class="muted">No upcoming gameweek.</p>';
   }
@@ -390,14 +472,7 @@ function renderManagerCards(root, o) {
       `));
       rosterCard.appendChild(el('div', 'divider'));
     }
-    roster.forEach(p => {
-      rosterCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
-        <span class="pill">${p.position}</span>
-        ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
-        <span style="flex:1">${p.name}</span>
-        <span class="muted">${p.raw_points} pts × ${p.multiplier}</span>
-      `));
-    });
+    renderPitch(rosterCard, roster);
 
     transfersCard.innerHTML = '';
     transfersCard.appendChild(el('h2', null, `Transfers — GW${gw}`));
