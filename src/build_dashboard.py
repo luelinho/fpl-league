@@ -623,6 +623,12 @@ function openMatchupModal(gw, nameA, nameB) {
     const rec = allTimeRecord(nameA, nameB);
     const capA = rosterA.find(p => p.armband === 'C');
     const capB = rosterB.find(p => p.armband === 'C');
+    const playStatus = (roster) => {
+      const starters = roster.filter(p => p.is_starter);
+      const played = starters.filter(p => p.minutes > 0).length;
+      return { played, pending: starters.length - played };
+    };
+    const psA = playStatus(rosterA), psB = playStatus(rosterB);
 
     const header = el('div', 'h2h-header');
     header.innerHTML = `<div class="gw-label">Gameweek ${gw}${isLive ? ' <span class="badge badge-l">LIVE</span>' : ''}</div>`;
@@ -631,10 +637,12 @@ function openMatchupModal(gw, nameA, nameB) {
     const sideExtrasA = `
       <div class="side-extra">Captain: ${capA ? `${capA.name} (${capA.raw_points}×${capA.multiplier})` : '—'}</div>
       <div class="side-extra">Bench: ${gA ? gA.bench_points : '—'}</div>
+      ${isLive ? `<div class="side-extra">Played ${psA.played} · Yet to play ${psA.pending}</div>` : ''}
     `;
     const sideExtrasB = `
       <div class="side-extra">Captain: ${capB ? `${capB.name} (${capB.raw_points}×${capB.multiplier})` : '—'}</div>
       <div class="side-extra">Bench: ${gB ? gB.bench_points : '—'}</div>
+      ${isLive ? `<div class="side-extra">Played ${psB.played} · Yet to play ${psB.pending}</div>` : ''}
     `;
     const scoreRow = el('div', 'h2h-score');
     scoreRow.innerHTML = `
