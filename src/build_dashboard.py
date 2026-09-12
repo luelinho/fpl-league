@@ -212,28 +212,44 @@ tr:last-child td { border-bottom: none; }
 .pitch {
   position: relative; display: flex; flex-direction: column; justify-content: space-around;
   gap: 14px; min-height: 380px; padding: 22px 8px; border-radius: 16px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.14);
   background:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    radial-gradient(ellipse 140px 90px at 50% 0%, rgba(255,255,255,0.06), transparent 70%),
-    radial-gradient(ellipse 140px 90px at 50% 100%, rgba(255,255,255,0.06), transparent 70%),
-    linear-gradient(180deg, #1d5334, #163d27 50%, #1d5334);
-  background-size: 100% 34px, 100% 100%, 100% 100%, 100% 100%;
+    radial-gradient(ellipse 100% 70% at 50% 50%, transparent 45%, rgba(0,0,0,0.32) 100%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.055) 0 34px, rgba(0,0,0,0.05) 34px 68px),
+    linear-gradient(180deg, #1f5c39 0%, #1a4f30 50%, #1f5c39 100%);
 }
 .pitch::before {
-  content: ''; position: absolute; left: 6%; right: 6%; top: 50%; height: 1px;
-  background: rgba(255,255,255,0.28); transform: translateY(-50%);
+  content: ''; position: absolute; left: 4%; right: 4%; top: 50%; height: 1px;
+  background: rgba(255,255,255,0.3); transform: translateY(-50%);
 }
 .pitch::after {
   content: ''; position: absolute; left: 50%; top: 50%; width: 84px; height: 84px;
-  border: 1px solid rgba(255,255,255,0.28); border-radius: 50%; transform: translate(-50%,-50%);
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; transform: translate(-50%,-50%);
 }
+.pitch-spot {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255,255,255,0.38); transform: translate(-50%,-50%);
+}
+.pitch-corner {
+  position: absolute; width: 20px; height: 20px; border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50%; pointer-events: none;
+}
+.pitch-corner.tl { top: -10px; left: -10px; }
+.pitch-corner.tr { top: -10px; right: -10px; }
+.pitch-corner.bl { bottom: -10px; left: -10px; }
+.pitch-corner.br { bottom: -10px; right: -10px; }
 .pitch-box-top, .pitch-box-bottom {
-  position: absolute; left: 28%; right: 28%; height: 15%;
-  border: 1px solid rgba(255,255,255,0.28); border-top: none;
+  position: absolute; left: 22%; right: 22%; height: 16%;
+  border: 1px solid rgba(255,255,255,0.3); border-top: none;
 }
 .pitch-box-top { top: 0; border-top: none; border-bottom: none; border-radius: 0 0 4px 4px; }
 .pitch-box-bottom { bottom: 0; border-bottom: none; border-radius: 4px 4px 0 0; }
+.pitch-box-top-small, .pitch-box-bottom-small {
+  position: absolute; left: 37%; right: 37%; height: 7%;
+  border: 1px solid rgba(255,255,255,0.24);
+}
+.pitch-box-top-small { top: 0; border-top: none; }
+.pitch-box-bottom-small { bottom: 0; border-bottom: none; }
 .pitch-row { display: flex; justify-content: space-evenly; align-items: flex-start; gap: 6px; position: relative; z-index: 1; flex-wrap: wrap; }
 .player-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 76px; text-align: center; }
 .player-jersey {
@@ -352,7 +368,16 @@ function renderPitch(container, players) {
 
   const pitch = el('div', 'pitch');
   pitch.appendChild(el('div', 'pitch-box-top'));
+  pitch.appendChild(el('div', 'pitch-box-top-small'));
   pitch.appendChild(el('div', 'pitch-box-bottom'));
+  pitch.appendChild(el('div', 'pitch-box-bottom-small'));
+  ['tl', 'tr', 'bl', 'br'].forEach(corner => pitch.appendChild(el('div', `pitch-corner ${corner}`)));
+  [['50%', '11%'], ['50%', '89%'], ['50%', '50%']].forEach(([left, top]) => {
+    const spot = el('div', 'pitch-spot');
+    spot.style.left = left;
+    spot.style.top = top;
+    pitch.appendChild(spot);
+  });
   rowOrder.forEach(pos => {
     const inRow = starters.filter(p => p.position === pos);
     if (!inRow.length) return;
