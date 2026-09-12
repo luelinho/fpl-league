@@ -69,6 +69,17 @@ discrepancy to smooth over.
 The entire point of this database is answering "what was true in GW3" correctly,
 years later.
 
+**Provisional gameweeks.** Once a gameweek's deadline passes but before FPL
+data-checks it, `daily_sync.py` captures its squads/captains/live points with
+`is_final = 0` — real data, just not settled yet (points can still change as
+matches are played). These rows are upserted on every run until FPL finalizes
+the gameweek, at which point `is_final` flips to 1 and the row stops changing
+forever, enforced by a `WHERE <table>.is_final = 0` guard on the upsert itself
+— not just application logic. A provisional gameweek's `rank`,
+`captain_efficiency`, and `xi_efficiency` are genuinely `NULL` (no
+`derived_manager_gw` row exists yet), not zero or estimated. The dashboard
+shows these gameweeks with a red **LIVE** badge.
+
 ## 6. Idempotency
 
 Every write is an upsert on a natural key. Running any job twice must produce
@@ -99,6 +110,15 @@ Never claim something works unless it has actually been run.
   This is a playoff league, not a pure title race — projections in Tier 5 are
   playoff odds. Regular season is GW1–35 (34-week double round-robin + 1 extra
   week); GW36–38 are the 3 knockout rounds, not yet seeded by FPL.
+- "Close" match margin is **under 5 points**; "blowout" is **over 20 points**
+  (owner's decision, 2026-09-12 — SPEC.md never defined these, so they were
+  not guessed). Used by `derived_manager_season.close_w/close_l/blowout_w/blowout_l`.
+- Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
+  = 'reconstructed'`), not just missing. The live standings endpoint only ever
+  exposes current state, and FPL's H2H tiebreak rule for ties was never
+  empirically verified — see SPEC.md §13 for how to eventually confirm it once
+  a future gameweek produces a real tie. W/D/L/points for those two gameweeks
+  ARE exact, reconstructed from immutable raw match data — only rank is gated.
 
 ## 10. Gross vs net
 
@@ -119,3 +139,26 @@ of the analytics layer.
 Direct and concrete. The owner is the only user and knows FPL well. Skip the
 preamble, lead with the answer, keep caveats short but never drop the ones that
 matter. Banter is welcome, but only over real numbers.
+
+## 13. The dashboard
+
+`dashboard.html` is a single self-contained file (data baked in, no server, no
+network access needed to open it) with six pages: Home, My Team, League,
+Managers (every manager gets My Team's exact view via a dropdown), Analytics,
+History. Rosters render as a pitch (formation rows, club badges, no player
+photos), and clicking any matchup anywhere opens a head-to-head modal.
+
+It is a snapshot, not a live view — regenerate it after any data change:
+
+```bash
+python -m src.daily_sync   # or backfill.py for a full historical rebuild
+python -m src.calculate
+python -m src.recap
+python -m src.digest
+python -m src.build_dashboard
+```
+
+The GitHub Actions workflow runs all five in order already. If you edit
+`src/build_dashboard.py`, always run `build_dashboard` again afterward and
+re-open the file — editing the generator does not change the already-written
+`dashboard.html` on disk.
