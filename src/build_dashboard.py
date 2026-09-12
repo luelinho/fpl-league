@@ -192,10 +192,15 @@ tr:last-child td { border-bottom: none; }
 .plist h3 { margin: 0 0 2px; }
 .plist-row { display: flex; align-items: center; gap: 10px; }
 .plist-kit { width: 26px; height: 26px; object-fit: contain; flex: none; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
-.plist-name { font-weight: 600; font-size: 13px; color: var(--ink); width: 130px; flex: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plist-name { display: flex; flex-direction: column; width: 130px; flex: none; min-width: 0; }
+.plist-name.wide { width: auto; flex: 1; }
+.plist-name .pname { font-weight: 600; font-size: 13px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plist-sub { font-size: 10.5px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .plist-bar-track { flex: 1; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
 .plist-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
+.plist-bar-fill.faller { background: var(--coral); }
 .plist-count { font-size: 12px; font-weight: 700; color: var(--ink-soft); width: 56px; text-align: right; flex: none; }
+.plist-count.wide { width: auto; white-space: nowrap; }
 .gw-nav { display: flex; align-items: center; gap: 10px; }
 .gw-nav-arrow {
   width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--card-2);
@@ -1039,18 +1044,55 @@ function sortableTable(container, headers, rows, rowRenderer) {
   draw();
 }
 
-function playerListRows(container, list, maxScale) {
-  if (!list.length) { container.appendChild(el('p', 'muted', 'No data yet.')); return; }
-  const max = maxScale || Math.max(...list.map(p => p.count));
+function plistKitImg(p) {
+  const kit = DIGEST.club_kits[p.club_id];
+  const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
+  return kitSrc ? `<img class="plist-kit" src="${kitSrc}" alt="${p.position}">` : '';
+}
+
+function playerListRows(container, list, opts) {
+  opts = opts || {};
+  if (!list.length) { container.appendChild(el('p', 'muted', opts.emptyText || 'No data yet.')); return; }
+  const max = opts.maxScale || Math.max(...list.map(p => p.count));
+  const unit = opts.unit ? ` ${opts.unit}` : '';
   list.forEach(p => {
-    const kit = DIGEST.club_kits[p.club_id];
-    const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
     const row = el('div', 'plist-row');
     row.innerHTML = `
-      ${kitSrc ? `<img class="plist-kit" src="${kitSrc}" alt="${p.position}">` : ''}
-      <div class="plist-name">${p.name}</div>
+      ${plistKitImg(p)}
+      <div class="plist-name"><span class="pname">${p.name}</span>${opts.subtitle ? `<span class="plist-sub">${opts.subtitle(p)}</span>` : ''}</div>
       <div class="plist-bar-track"><div class="plist-bar-fill" style="width:${(p.count / max * 100).toFixed(0)}%"></div></div>
-      <div class="plist-count">${p.count}</div>
+      <div class="plist-count">${p.count}${unit}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function moverListRows(container, list, direction) {
+  if (!list.length) { container.appendChild(el('p', 'muted', direction === 'up' ? 'No risers this gameweek.' : 'No fallers this gameweek.')); return; }
+  const max = Math.max(...list.map(p => Math.abs(p.delta)));
+  list.forEach(p => {
+    const pct = (Math.abs(p.delta) / max * 100).toFixed(0);
+    const deltaStr = (p.delta > 0 ? '+' : '') + p.delta;
+    const row = el('div', 'plist-row');
+    row.innerHTML = `
+      ${plistKitImg(p)}
+      <div class="plist-name"><span class="pname">${p.name}</span><span class="plist-sub">now owned by ${p.count}</span></div>
+      <div class="plist-bar-track"><div class="plist-bar-fill${direction === 'down' ? ' faller' : ''}" style="width:${pct}%"></div></div>
+      <div class="plist-count">${deltaStr}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function flaggedListRows(container, list) {
+  if (!list.length) { container.appendChild(el('p', 'muted', 'No flagged players currently owned in the league.')); return; }
+  list.forEach(p => {
+    const label = FLAG_STATUS_TEXT[p.status] || 'Flagged';
+    const row = el('div', 'plist-row');
+    row.innerHTML = `
+      ${plistKitImg(p)}
+      <div class="plist-name wide"><span class="pname">${p.name} <span class="muted">(${label})</span></span><span class="plist-sub">${p.news || ''}</span></div>
+      <div class="plist-count wide">Owned by ${p.owners}</div>
     `;
     container.appendChild(row);
   });
@@ -1088,32 +1130,79 @@ function renderPlayers(root) {
   nav.appendChild(nextBtn);
   root.appendChild(nav);
 
-  const gwData = d.by_gw[String(playersSelectedGw)] || { most_owned: [], most_captained: [] };
+  const gwData = d.by_gw[String(playersSelectedGw)] || {};
 
+  const grid1 = el('div', 'grid grid-2');
+  grid1.style.marginTop = '16px';
   const ownedCard = el('div', 'card plist');
-  ownedCard.style.marginTop = '16px';
   ownedCard.appendChild(el('h3', null, 'Most owned'));
-  ownedCard.appendChild(el('p', 'muted', 'How many of the 18 managers have this player, this gameweek.'));
-  playerListRows(ownedCard, gwData.most_owned, 18);
-  root.appendChild(ownedCard);
-
+  ownedCard.appendChild(el('p', 'muted', 'How many of the 18 managers have this player.'));
+  playerListRows(ownedCard, gwData.most_owned || [], { maxScale: 18 });
   const capCard = el('div', 'card plist');
-  capCard.style.marginTop = '16px';
   capCard.appendChild(el('h3', null, 'Most captained'));
-  playerListRows(capCard, gwData.most_captained, 18);
-  root.appendChild(capCard);
+  playerListRows(capCard, gwData.most_captained || [], { maxScale: 18 });
+  grid1.appendChild(ownedCard);
+  grid1.appendChild(capCard);
+  root.appendChild(grid1);
+
+  const grid2 = el('div', 'grid grid-2');
+  grid2.style.marginTop = '16px';
+  const scorersCard = el('div', 'card plist');
+  scorersCard.appendChild(el('h3', null, 'Top scorers'));
+  scorersCard.appendChild(el('p', 'muted', 'Among players owned in this league.'));
+  playerListRows(scorersCard, gwData.top_scorers || [], { unit: 'pts' });
+  const benchedCard = el('div', 'card plist');
+  benchedCard.appendChild(el('h3', null, 'Most benched'));
+  benchedCard.appendChild(el('p', 'muted', 'Rostered, but not started.'));
+  playerListRows(benchedCard, gwData.most_benched || [], { maxScale: 18 });
+  grid2.appendChild(scorersCard);
+  grid2.appendChild(benchedCard);
+  root.appendChild(grid2);
+
+  root.appendChild(el('div', 'section-title', 'Differential of the week'));
+  const diffCard = el('div', 'card plist');
+  diffCard.appendChild(el('p', 'muted', `Best-scoring players owned by ${d.differential_max_owners} or fewer of the 18 managers.`));
+  playerListRows(diffCard, gwData.differential || [], {
+    unit: 'pts',
+    subtitle: p => `${p.owners} owner${p.owners === 1 ? '' : 's'}`,
+    emptyText: 'No real differentials this gameweek.',
+  });
+  root.appendChild(diffCard);
+
+  root.appendChild(el('div', 'section-title', 'Biggest ownership movers'));
+  const movers = gwData.ownership_movers || { available: false };
+  if (!movers.available) {
+    root.appendChild(el('div', 'card muted', "Not available for the first gameweek in the data — there's no earlier week to compare against."));
+  } else {
+    const moversGrid = el('div', 'grid grid-2');
+    const risersCard = el('div', 'card plist');
+    risersCard.appendChild(el('h3', null, 'Gaining owners'));
+    moverListRows(risersCard, movers.risers, 'up');
+    const fallersCard = el('div', 'card plist');
+    fallersCard.appendChild(el('h3', null, 'Losing owners'));
+    moverListRows(fallersCard, movers.fallers, 'down');
+    moversGrid.appendChild(risersCard);
+    moversGrid.appendChild(fallersCard);
+    root.appendChild(moversGrid);
+  }
+
+  root.appendChild(el('div', 'section-title', 'Currently flagged'));
+  const flagCard = el('div', 'card plist');
+  flagCard.appendChild(el('p', 'muted', 'Owned in the league, currently doubtful/injured/unavailable per FPL — not tied to the gameweek selected above.'));
+  flaggedListRows(flagCard, d.flagged || []);
+  root.appendChild(flagCard);
 
   root.appendChild(el('div', 'section-title', 'Transfer activity this season'));
-  const grid = el('div', 'grid grid-2');
+  const grid3 = el('div', 'grid grid-2');
   const inCard = el('div', 'card plist');
   inCard.appendChild(el('h3', null, 'Most transferred in'));
   playerListRows(inCard, d.transfers.in);
   const outCard = el('div', 'card plist');
   outCard.appendChild(el('h3', null, 'Most transferred out'));
   playerListRows(outCard, d.transfers.out);
-  grid.appendChild(inCard);
-  grid.appendChild(outCard);
-  root.appendChild(grid);
+  grid3.appendChild(inCard);
+  grid3.appendChild(outCard);
+  root.appendChild(grid3);
 }
 
 function renderAnalytics(root) {

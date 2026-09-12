@@ -639,6 +639,150 @@ def players_captained(conn, gw: int) -> list[dict]:
     return [{"name": n, "position": pos, "club_id": cid, "count": c} for n, pos, cid, c in rows]
 
 
+def players_top_scorers(conn, gw: int) -> list[dict]:
+    """Highest-scoring players among those actually owned by one of the 18
+    managers this gameweek — league-scoped like the rest of this tab, not
+    every one of the ~654 FPL players."""
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, s.total_points AS pts
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
+        WHERE p.gw_id = ?
+        GROUP BY p.player_id
+        ORDER BY pts DESC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "count": pts} for n, pos, cid, pts in rows]
+
+
+DIFFERENTIAL_MAX_OWNERS = 2
+
+
+def players_differential(conn, gw: int) -> list[dict]:
+    """Best-scoring players owned by DIFFERENTIAL_MAX_OWNERS managers or
+    fewer this gameweek — a real differential in an 18-manager league, not
+    FPL-wide low ownership. Ranked by points, not by how few own them, so
+    this answers "which differential actually paid off," not just "who's
+    rare.\""""
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, COUNT(DISTINCT p.manager_id) AS owners, s.total_points AS pts
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
+        WHERE p.gw_id = ?
+        GROUP BY p.player_id
+        HAVING owners <= ?
+        ORDER BY pts DESC, owners ASC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, DIFFERENTIAL_MAX_OWNERS, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "count": pts, "owners": o} for n, pos, cid, o, pts in rows]
+
+
+def players_most_benched(conn, gw: int) -> list[dict]:
+    """Same shape as players_owned, but counting bench appearances —
+    who's rostered across the league but not trusted to start."""
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, COUNT(*) AS n
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        WHERE p.gw_id = ? AND p.is_starter = 0
+        GROUP BY p.player_id
+        ORDER BY n DESC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "count": c} for n, pos, cid, c in rows]
+
+
+def _full_ownership(conn, gw: int) -> dict[int, int]:
+    rows = conn.execute(
+        "SELECT player_id, COUNT(*) FROM raw_manager_gw_picks WHERE gw_id = ? GROUP BY player_id", (gw,)
+    ).fetchall()
+    return dict(rows)
+
+
+def players_ownership_movers(conn, gw: int, prev_gw: int | None) -> dict:
+    """Biggest week-over-week ownership swings within the league. Needs a
+    real previous gameweek to diff against — the first gameweek in the
+    dataset honestly has no "before," so it reports unavailable rather than
+    treating a first appearance as an infinite rise."""
+    if not gw or not prev_gw:
+        return {"available": False, "risers": [], "fallers": []}
+    cur = _full_ownership(conn, gw)
+    prev = _full_ownership(conn, prev_gw)
+    deltas = [(pid, cur.get(pid, 0) - prev.get(pid, 0), cur.get(pid, 0))
+              for pid in set(cur) | set(prev)]
+    deltas = [d for d in deltas if d[1] != 0]
+    if not deltas:
+        return {"available": True, "risers": [], "fallers": []}
+    ids = [pid for pid, _, _ in deltas]
+    placeholders = ",".join("?" * len(ids))
+    meta = {
+        row[0]: (row[1], row[2], row[3])
+        for row in conn.execute(
+            f"SELECT player_id, web_name, position, club_id FROM players "
+            f"WHERE season_id = 1 AND player_id IN ({placeholders})",
+            ids,
+        ).fetchall()
+    }
+
+    def fmt(items):
+        out = []
+        for pid, delta, cnt in items:
+            name, pos, cid = meta.get(pid, ("Unknown", None, None))
+            out.append({"name": name, "position": pos, "club_id": cid, "delta": delta, "count": cnt})
+        return out
+
+    risers = sorted((d for d in deltas if d[1] > 0), key=lambda d: -d[1])[:PLAYERS_LIST_LIMIT]
+    fallers = sorted((d for d in deltas if d[1] < 0), key=lambda d: d[1])[:PLAYERS_LIST_LIMIT]
+    return {"available": True, "risers": fmt(risers), "fallers": fmt(fallers)}
+
+
+def players_flagged(conn, gw: int) -> list[dict]:
+    """Players owned by at least one manager this gameweek whose current
+    FPL status isn't 'a' (available) — a watch list, not gameweek-scoped
+    history, since status/news are only ever "current" snapshots (see
+    manager_detail's own note on this same limitation)."""
+    if not gw:
+        return []
+    rows = conn.execute(
+        """
+        SELECT pl.web_name, pl.position, pl.club_id, COUNT(DISTINCT p.manager_id) AS owners,
+               (SELECT rs.status FROM raw_player_snapshots rs
+                WHERE rs.season_id = 1 AND rs.player_id = pl.player_id
+                ORDER BY rs.snapshot_date DESC LIMIT 1) AS status,
+               (SELECT rs.news FROM raw_player_snapshots rs
+                WHERE rs.season_id = 1 AND rs.player_id = pl.player_id
+                ORDER BY rs.snapshot_date DESC LIMIT 1) AS news
+        FROM raw_manager_gw_picks p
+        JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
+        WHERE p.gw_id = ?
+        GROUP BY p.player_id
+        HAVING status IS NOT NULL AND status != 'a'
+        ORDER BY owners DESC, pl.web_name
+        LIMIT ?
+        """,
+        (gw, PLAYERS_LIST_LIMIT),
+    ).fetchall()
+    return [{"name": n, "position": pos, "club_id": cid, "owners": o, "status": s, "news": news}
+            for n, pos, cid, o, s, news in rows]
+
+
 def players_transfers(conn) -> dict:
     """Season-aggregate transfer counts — every gameweek with captured
     transfers, not just the latest, since a single gameweek often has too
@@ -694,9 +838,20 @@ def build_digest() -> dict:
             "gws": players_gws,
             "current_gw": status["next_gw"] or latest,
             "by_gw": {
-                str(gw): {"most_owned": players_owned(conn, gw), "most_captained": players_captained(conn, gw)}
-                for gw in players_gws
+                str(gw): {
+                    "most_owned": players_owned(conn, gw),
+                    "most_captained": players_captained(conn, gw),
+                    "top_scorers": players_top_scorers(conn, gw),
+                    "differential": players_differential(conn, gw),
+                    "most_benched": players_most_benched(conn, gw),
+                    "ownership_movers": players_ownership_movers(
+                        conn, gw, players_gws[i - 1] if i > 0 else None
+                    ),
+                }
+                for i, gw in enumerate(players_gws)
             },
+            "flagged": players_flagged(conn, status["next_gw"] or latest),
+            "differential_max_owners": DIFFERENTIAL_MAX_OWNERS,
             "transfers": players_transfers(conn),
         },
     }
