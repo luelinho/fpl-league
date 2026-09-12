@@ -278,6 +278,16 @@ tr:last-child td { border-bottom: none; }
 }
 .player-pts.not-played { color: var(--ink-soft); background: rgba(0,0,0,0.16); font-weight: 600; }
 .player-chip.bench .player-pts { background: transparent; color: var(--ink-soft); }
+.player-chip { cursor: pointer; }
+.player-tooltip {
+  position: fixed; z-index: 300; pointer-events: none; max-width: 220px;
+  background: #16121e; border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 12px; box-shadow: var(--shadow); opacity: 0; transform: translateY(4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.player-tooltip.visible { opacity: 1; transform: translateY(0); }
+.player-tooltip .pt-name { font-size: 12.5px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.player-tooltip .pt-meta { font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; white-space: nowrap; }
 .bench-strip { margin-top: 14px; }
 .bench-strip h3 { margin-bottom: 10px; }
 .tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -353,6 +363,45 @@ function matchRow(gw, m, showTeam) {
   return row;
 }
 
+let playerTooltipEl = null;
+let playerTooltipPinnedChip = null;
+
+function ensurePlayerTooltip() {
+  if (!playerTooltipEl) {
+    playerTooltipEl = el('div', 'player-tooltip');
+    document.body.appendChild(playerTooltipEl);
+  }
+  return playerTooltipEl;
+}
+
+function showPlayerTooltip(chip, p) {
+  const t = ensurePlayerTooltip();
+  const owned = p.owned_pct !== null && p.owned_pct !== undefined ? `${p.owned_pct.toFixed(1)}% owned` : 'ownership unavailable';
+  const form = p.form !== null && p.form !== undefined ? `Form ${p.form.toFixed(1)}` : null;
+  t.innerHTML = `
+    <div class="pt-name">${p.name}</div>
+    <div class="pt-meta">${p.position} · ${owned}${form ? ' · ' + form : ''} <span style="opacity:.6">(current)</span></div>
+  `;
+  t.classList.add('visible');
+  const rect = chip.getBoundingClientRect();
+  const tw = t.offsetWidth, th = t.offsetHeight;
+  let left = rect.left + rect.width / 2 - tw / 2;
+  left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+  let top = rect.top - th - 8;
+  if (top < 8) top = rect.bottom + 8;
+  t.style.left = left + 'px';
+  t.style.top = top + 'px';
+}
+
+function hidePlayerTooltip() {
+  if (playerTooltipEl) playerTooltipEl.classList.remove('visible');
+  playerTooltipPinnedChip = null;
+}
+
+document.addEventListener('click', () => { if (playerTooltipPinnedChip) hidePlayerTooltip(); });
+window.addEventListener('scroll', hidePlayerTooltip, true);
+window.addEventListener('resize', hidePlayerTooltip);
+
 function playerChip(p, isBench) {
   const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
   const kit = DIGEST.club_kits[p.club_id];
@@ -364,6 +413,13 @@ function playerChip(p, isBench) {
     <div class="player-name">${p.name}</div>
     <div class="player-pts${hasPlayed ? '' : ' not-played'}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
   `;
+  chip.addEventListener('mouseenter', () => { if (!playerTooltipPinnedChip) showPlayerTooltip(chip, p); });
+  chip.addEventListener('mouseleave', () => { if (!playerTooltipPinnedChip) hidePlayerTooltip(); });
+  chip.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (playerTooltipPinnedChip === chip) { hidePlayerTooltip(); }
+    else { playerTooltipPinnedChip = chip; showPlayerTooltip(chip, p); }
+  });
   return chip;
 }
 
