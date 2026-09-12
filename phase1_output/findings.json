@@ -1,0 +1,623 @@
+{
+  "run_at": "2026-09-12T00:18:36.038709+00:00",
+  "league_id": 683383,
+  "endpoints": {
+    "bootstrap-static": {
+      "path": "bootstrap-static/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 3150,
+      "attempts": 1,
+      "summary": "HTTP 200 in 3150ms",
+      "shape": "object with keys: `chips`, `events`, `game_settings`, `game_config`, `phases`, `teams`, `total_players`, `element_stats`, `element_types`, `elements`",
+      "notes": [],
+      "top_level_keys": [
+        "chips",
+        "events",
+        "game_settings",
+        "game_config",
+        "phases",
+        "teams",
+        "total_players",
+        "element_stats",
+        "element_types",
+        "elements"
+      ],
+      "player_count": 656,
+      "club_count": 20,
+      "event_count": 38,
+      "element_field_check": {
+        "id": "present in all 200",
+        "first_name": "present in all 200",
+        "second_name": "present in all 200",
+        "web_name": "present in all 200",
+        "element_type": "present in all 200",
+        "team": "present in all 200",
+        "now_cost": "present in all 200",
+        "status": "present in all 200",
+        "news": "present in all 200",
+        "chance_of_playing_next_round": "present, 77/200 non-null",
+        "selected_by_percent": "present in all 200",
+        "form": "present in all 200",
+        "total_points": "present in all 200",
+        "expected_goals": "present in all 200",
+        "expected_assists": "present in all 200",
+        "defensive_contribution": "present in all 200"
+      }
+    },
+    "fixtures": {
+      "path": "fixtures/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 3041,
+      "attempts": 1,
+      "summary": "HTTP 200 in 3041ms",
+      "shape": "list of 380 objects; first item keys: `code`, `event`, `finished`, `finished_provisional`, `id`, `kickoff_time`, `minutes`, `provisional_start_time`, `started`, `team_a`, `team_a_score`, `team_h`, `team_h_score`, `stats`, `team_h_difficulty`, `team_a_difficulty`, `pulse_id`",
+      "notes": []
+    },
+    "h2h-standings": {
+      "path": "leagues-h2h/683383/standings/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 778,
+      "attempts": 1,
+      "summary": "HTTP 200 in 778ms",
+      "shape": "object with keys: `new_entries`, `last_updated_data`, `league`, `standings`",
+      "notes": [],
+      "league_object_keys": [
+        "id",
+        "name",
+        "created",
+        "closed",
+        "max_entries",
+        "league_type",
+        "scoring",
+        "admin_entry",
+        "start_event",
+        "code_privacy",
+        "has_cup",
+        "cup_league",
+        "ko_rounds"
+      ],
+      "league_object": {
+        "id": 683383,
+        "name": "Almost all Americans",
+        "created": "2026-08-08T01:24:49.531640Z",
+        "closed": true,
+        "max_entries": null,
+        "league_type": "x",
+        "scoring": "h",
+        "admin_entry": 3311925,
+        "start_event": 1,
+        "code_privacy": "p",
+        "has_cup": false,
+        "cup_league": null,
+        "ko_rounds": 3
+      },
+      "standings_count": 18,
+      "standings_keys": [
+        "id",
+        "division",
+        "entry",
+        "player_name",
+        "rank",
+        "last_rank",
+        "rank_sort",
+        "total",
+        "entry_name",
+        "matches_played",
+        "matches_won",
+        "matches_drawn",
+        "matches_lost",
+        "points_for"
+      ],
+      "has_next_page": false
+    },
+    "h2h-matches": {
+      "path": "leagues-h2h-matches/league/683383/?page=1",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 702,
+      "attempts": 1,
+      "summary": "HTTP 200 in 702ms",
+      "shape": "object with keys: `has_next`, `page`, `results`",
+      "notes": [],
+      "top_level_keys": [
+        "has_next",
+        "page",
+        "results"
+      ],
+      "page_size": 50,
+      "has_next": true,
+      "match_keys": [
+        "id",
+        "entry_1_entry",
+        "entry_1_name",
+        "entry_1_player_name",
+        "entry_1_points",
+        "entry_1_win",
+        "entry_1_draw",
+        "entry_1_loss",
+        "entry_1_total",
+        "entry_2_entry",
+        "entry_2_name",
+        "entry_2_player_name",
+        "entry_2_points",
+        "entry_2_win",
+        "entry_2_draw",
+        "entry_2_loss",
+        "entry_2_total",
+        "is_knockout",
+        "league",
+        "winner",
+        "seed_value",
+        "event",
+        "tiebreak",
+        "is_bye",
+        "knockout_name"
+      ],
+      "pages_pulled": 7,
+      "total_matches_seen": 315
+    },
+    "event-live": {
+      "path": "event/3/live/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 699,
+      "attempts": 1,
+      "summary": "HTTP 200 in 699ms",
+      "shape": "object with keys: `elements`",
+      "notes": [],
+      "gameweek_probed": 3,
+      "element_count": 654,
+      "element_keys": [
+        "id",
+        "stats",
+        "explain",
+        "modified"
+      ],
+      "stats_keys": [
+        "minutes",
+        "goals_scored",
+        "assists",
+        "clean_sheets",
+        "goals_conceded",
+        "own_goals",
+        "penalties_saved",
+        "penalties_missed",
+        "yellow_cards",
+        "red_cards",
+        "saves",
+        "bonus",
+        "bps",
+        "influence",
+        "creativity",
+        "threat",
+        "ict_index",
+        "clearances_blocks_interceptions",
+        "recoveries",
+        "tackles",
+        "defensive_contribution",
+        "starts",
+        "expected_goals",
+        "expected_assists",
+        "expected_goal_involvements",
+        "expected_goals_conceded",
+        "total_points",
+        "in_dreamteam",
+        "played"
+      ],
+      "stats_field_check": {
+        "minutes": "present in all 200",
+        "goals_scored": "present in all 200",
+        "assists": "present in all 200",
+        "clean_sheets": "present in all 200",
+        "goals_conceded": "present in all 200",
+        "own_goals": "present in all 200",
+        "penalties_saved": "present in all 200",
+        "penalties_missed": "present in all 200",
+        "saves": "present in all 200",
+        "yellow_cards": "present in all 200",
+        "red_cards": "present in all 200",
+        "bonus": "present in all 200",
+        "bps": "present in all 200",
+        "total_points": "present in all 200",
+        "expected_goals": "present in all 200",
+        "expected_assists": "present in all 200",
+        "defensive_contribution": "present in all 200"
+      }
+    },
+    "entry": {
+      "path": "entry/3023365/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 828,
+      "attempts": 1,
+      "summary": "HTTP 200 in 828ms",
+      "shape": "object with keys: `id`, `joined_time`, `started_event`, `favourite_team`, `player_first_name`, `player_last_name`, `player_region_id`, `player_region_name`, `player_region_iso_code_short`, `player_region_iso_code_long`, `years_active`, `summary_overall_points`, `summary_overall_rank`, `summary_event_points`, `summary_event_rank`, `current_event`, `leagues`, `name`, `name_change_blocked`, `entered_events`, `kit`, `last_deadline_bank`, `last_deadline_value`, `last_deadline_total_transfers`, `club_badge_src`",
+      "notes": []
+    },
+    "entry-history": {
+      "path": "entry/3023365/history/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 1025,
+      "attempts": 1,
+      "summary": "HTTP 200 in 1025ms",
+      "shape": "object with keys: `current`, `past`, `chips`",
+      "notes": [],
+      "top_level_keys": [
+        "current",
+        "past",
+        "chips"
+      ],
+      "gameweeks_in_history": 3,
+      "current_keys": [
+        "event",
+        "points",
+        "total_points",
+        "rank",
+        "rank_sort",
+        "overall_rank",
+        "percentile_rank",
+        "overall_rank_percentage",
+        "bank",
+        "value",
+        "event_transfers",
+        "event_transfers_cost",
+        "points_on_bench"
+      ],
+      "chips_played": [
+        {
+          "name": "3xc",
+          "time": "2026-09-02T03:15:55.622247Z",
+          "event": 3
+        }
+      ],
+      "history_field_check": {
+        "event": "present in all 3",
+        "points": "present in all 3",
+        "total_points": "present in all 3",
+        "event_transfers": "present in all 3",
+        "event_transfers_cost": "present in all 3",
+        "points_on_bench": "present in all 3",
+        "value": "present in all 3",
+        "bank": "present in all 3",
+        "overall_rank": "present in all 3",
+        "rank": "present in all 3"
+      }
+    },
+    "entry-picks": {
+      "path": "entry/3023365/event/3/picks/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 787,
+      "attempts": 1,
+      "summary": "HTTP 200 in 787ms",
+      "shape": "object with keys: `active_chip`, `automatic_subs`, `entry_history`, `picks`",
+      "notes": [],
+      "gameweek_probed": 3,
+      "top_level_keys": [
+        "active_chip",
+        "automatic_subs",
+        "entry_history",
+        "picks"
+      ],
+      "pick_count": 15,
+      "pick_keys": [
+        "element",
+        "position",
+        "multiplier",
+        "is_captain",
+        "is_vice_captain",
+        "element_type"
+      ],
+      "entry_history_keys": [
+        "event",
+        "points",
+        "total_points",
+        "rank",
+        "rank_sort",
+        "overall_rank",
+        "percentile_rank",
+        "overall_rank_percentage",
+        "bank",
+        "value",
+        "event_transfers",
+        "event_transfers_cost",
+        "points_on_bench"
+      ],
+      "automatic_subs": [],
+      "active_chip": "3xc"
+    },
+    "entry-transfers": {
+      "path": "entry/3023365/transfers/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 915,
+      "attempts": 1,
+      "summary": "HTTP 200 in 915ms",
+      "shape": "list of 2 objects; first item keys: `element_in`, `element_in_cost`, `element_out`, `element_out_cost`, `entry`, `event`, `time`",
+      "notes": [],
+      "transfer_count": 2,
+      "transfer_keys": [
+        "element_in",
+        "element_in_cost",
+        "element_out",
+        "element_out_cost",
+        "entry",
+        "event",
+        "time"
+      ]
+    },
+    "entry-picks-upcoming": {
+      "path": "entry/2235025/event/4/picks/",
+      "ok": false,
+      "status": 404,
+      "elapsed_ms": 802,
+      "attempts": 1,
+      "summary": "HTTP 404 \u2014 not found",
+      "shape": null,
+      "notes": [],
+      "error": "not found",
+      "picks_visible": false
+    },
+    "element-summary": {
+      "path": "element-summary/1/",
+      "ok": true,
+      "status": 200,
+      "elapsed_ms": 666,
+      "attempts": 1,
+      "summary": "HTTP 200 in 666ms",
+      "shape": "object with keys: `fixtures`, `history`, `history_past`",
+      "notes": [],
+      "player_id_probed": 1
+    }
+  },
+  "unknowns": {
+    "finalization_flag": {
+      "event_keys": [
+        "id",
+        "name",
+        "deadline_time",
+        "release_time",
+        "average_entry_score",
+        "finished",
+        "data_checked",
+        "highest_scoring_entry",
+        "deadline_time_epoch",
+        "deadline_time_game_offset",
+        "highest_score",
+        "is_previous",
+        "is_current",
+        "is_next",
+        "cup_leagues_created",
+        "h2h_ko_matches_created",
+        "can_enter",
+        "can_manage",
+        "released",
+        "ranked_count",
+        "overrides",
+        "chip_plays",
+        "most_selected",
+        "most_transferred_in",
+        "top_element",
+        "top_element_info",
+        "transfers_made",
+        "most_captained",
+        "most_vice_captained"
+      ],
+      "total_events": 38,
+      "finished_ids": [
+        1,
+        2,
+        3
+      ],
+      "data_checked_ids": [
+        1,
+        2,
+        3
+      ],
+      "current_event": 3,
+      "next_event": 4,
+      "flags_disagree_on": [],
+      "has_data_checked_field": true
+    },
+    "knockout_config": {
+      "field": "ko_rounds",
+      "value": 3
+    },
+    "membership": {
+      "matched": [
+        {
+          "team": "CMazz",
+          "entry_id": 1145577
+        },
+        {
+          "team": "Erik's Team",
+          "entry_id": 3379697
+        },
+        {
+          "team": "Blue Bloods",
+          "entry_id": 4036902
+        },
+        {
+          "team": "Game of Throw-In",
+          "entry_id": 7377658
+        },
+        {
+          "team": "Bruno's Bros",
+          "entry_id": 5395082
+        },
+        {
+          "team": "#GOAT",
+          "entry_id": 3314510
+        },
+        {
+          "team": "Big Cannon Energy",
+          "entry_id": 5041369
+        },
+        {
+          "team": "Hoevoeloe",
+          "entry_id": 694905
+        },
+        {
+          "team": "millers minions",
+          "entry_id": 3311925
+        },
+        {
+          "team": "Kick'in the balls",
+          "entry_id": 5166159
+        },
+        {
+          "team": "Ophelia Balls",
+          "entry_id": 3423744
+        },
+        {
+          "team": "Championship side",
+          "entry_id": 3412507
+        },
+        {
+          "team": "Toffee Machine",
+          "entry_id": 1833923
+        },
+        {
+          "team": "Keiner Bobby Dazzler",
+          "entry_id": 3615374
+        },
+        {
+          "team": "Midtable Crisis",
+          "entry_id": 3023365
+        },
+        {
+          "team": "OliveOilMoneh",
+          "entry_id": 4734935
+        },
+        {
+          "team": "FOGGING ESTANDARDS",
+          "entry_id": 5429638
+        }
+      ],
+      "manager_name_mismatches": [],
+      "expected_but_missing": [
+        {
+          "team": "Rock 'n Iraola",
+          "expected_manager": "Andrew Romani"
+        }
+      ],
+      "present_but_unexpected": [
+        {
+          "team": "Rock \u2018n\u2019 Iraola",
+          "entry_id": 2235025,
+          "player_name": "Andrew Romani"
+        }
+      ]
+    },
+    "pagination": {
+      "page_size": 50,
+      "pages_pulled": 7,
+      "total_matches": 315,
+      "mechanism": "?page=N with has_next boolean"
+    },
+    "fixture_structure": {
+      "gameweeks_covered": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "gameweek_span": "1-35",
+      "matches_per_gameweek": {
+        "1": 9,
+        "2": 9,
+        "3": 9,
+        "4": 9,
+        "5": 9,
+        "6": 9,
+        "7": 9,
+        "8": 9,
+        "9": 9,
+        "10": 9,
+        "11": 9,
+        "12": 9,
+        "13": 9,
+        "14": 9,
+        "15": 9,
+        "16": 9,
+        "17": 9,
+        "18": 9,
+        "19": 9,
+        "20": 9,
+        "21": 9,
+        "22": 9,
+        "23": 9,
+        "24": 9,
+        "25": 9,
+        "26": 9,
+        "27": 9,
+        "28": 9,
+        "29": 9,
+        "30": 9,
+        "31": 9,
+        "32": 9,
+        "33": 9,
+        "34": 9,
+        "35": 9
+      },
+      "distinct_pairings": 153,
+      "times_each_pairing_occurs": {
+        "2": 144,
+        "3": 9
+      },
+      "fixtures_per_manager": {
+        "35": 18
+      },
+      "knockout_flagged_gameweeks": [],
+      "interpretation": "With 18 managers each has 17 opponents; a clean double round-robin is 34 gameweeks, so how the remaining gameweeks are filled is visible in `times_each_pairing_occurs`."
+    },
+    "pre_deadline_visibility": {
+      "probed_entry": 2235025,
+      "probed_team": "Rock \u2018n\u2019 Iraola",
+      "upcoming_gameweek": 4,
+      "status": 404,
+      "picks_visible_before_deadline": false,
+      "interpretation": "Not visible, as expected. Post-deadline capture only, which is what the design already assumes."
+    }
+  },
+  "warnings": [
+    "Membership differs from config: 1 expected team(s) not found, 1 unrecognised team(s) present. Team names may simply have been changed \u2014 review before Phase 2."
+  ],
+  "errors": [],
+  "total_requests": 17
+}
