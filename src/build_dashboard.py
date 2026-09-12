@@ -141,6 +141,7 @@ body {
 .page { display: none; }
 .page.active { display: block; }
 .grid { display: grid; gap: 16px; }
+.grid.align-top { align-items: start; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -488,7 +489,7 @@ function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
 
-  const grid = el('div', 'grid grid-2');
+  const grid = el('div', 'grid grid-2 align-top');
 
   const standingsCard = el('div', 'card');
   standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
