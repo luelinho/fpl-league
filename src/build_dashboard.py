@@ -414,10 +414,14 @@ function showPlayerTooltip(chip, p) {
         ? `Also owned by: ${others.join(', ')}`
         : `Also owned by ${others.length} others in the league`;
   }
+  const formLine = p.recent_form && p.recent_form.length
+    ? `Last ${p.recent_form.length} GW${p.recent_form.length > 1 ? 's' : ''} into this one: ${p.recent_form.join(', ')}`
+    : (p.gw === 1 ? '' : 'No gameweeks played before this one');
   t.innerHTML = `
     <div class="pt-name">${p.name}</div>
     <div class="pt-meta">${p.position} · ${owned}${form ? ' · ' + form : ''} <span style="opacity:.6">(current)</span></div>
     ${leagueLine ? `<div class="pt-meta">${leagueLine}</div>` : ''}
+    ${formLine ? `<div class="pt-meta">${formLine}</div>` : ''}
   `;
   t.classList.add('visible');
   const rect = chip.getBoundingClientRect();

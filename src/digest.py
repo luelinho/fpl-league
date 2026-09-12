@@ -328,6 +328,23 @@ def gw_recap_summary(conn, gw: int) -> dict:
     }
 
 
+def _recent_form(conn, player_id: int, before_gw: int, n: int = 3) -> list[int]:
+    """This player's last n gameweeks' own points, strictly before before_gw —
+    the trend they were carrying INTO that gameweek, not including its own
+    result. Oldest first. Scoped to gw_id < before_gw (not "most recent
+    overall") so a GW1 roster never leaks GW3's already-known results into
+    what looks like historical context; a GW1 view simply gets an empty list,
+    honestly, rather than a number that didn't exist yet at the time.
+    """
+    rows = conn.execute(
+        "SELECT total_points FROM raw_player_gw_stats "
+        "WHERE season_id = 1 AND player_id = ? AND gw_id < ? "
+        "ORDER BY gw_id DESC LIMIT ?",
+        (player_id, before_gw, n),
+    ).fetchall()
+    return [pts for (pts,) in reversed(rows)]
+
+
 def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
     """Same shape as the old owner-only block, generalized to any manager_id.
     Used both for the owner (My Team tab) and for every manager (Managers tab)."""
@@ -401,6 +418,7 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
             "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
             "minutes": mins, "owned_pct": owned, "form": frm,
+            "recent_form": _recent_form(conn, player_id, gw),
             "gw": gw, "owner_manager_id": mgr_id,
             # status is FPL's own current availability flag (a=available, d=doubtful,
             # i=injured, s=suspended, u=unavailable/left club) — "current," same
