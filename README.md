@@ -85,12 +85,14 @@ of hardcoded — `digest.py`'s `manager_detail()` generalizes the old owner-only
 query into a `managers_detail` map, with `owner_block()` now a thin wrapper
 over it), Analytics, and History. Rosters everywhere render as an actual
 football pitch (`renderPitch()`) — formation rows, center circle, penalty
-boxes, bench below, with the player's real club badge on each chip instead of
-a plain position letter or a face photo (`pl_clubs.badge_code` plus a
-download-once-and-cache step in `digest.py`, `digest/.badge_cache/`,
-gitignored, embedding all 20 club crests as base64 — verified live against
-Premier League's badge CDN first, ~6.6KB per badge; no player photos
-anywhere). Every matchup row anywhere (Home, League, History) is clickable,
+boxes, bench below, with the player's real club kit jersey on each chip
+instead of a plain position letter, a badge icon, or a face photo
+(`pl_clubs.badge_code` doubles as the shirt code; `digest.py` downloads both
+the outfield and goalkeeper kit variant per club, caches them to
+`digest/.kit_cache/`, gitignored, and embeds both as base64 — verified live
+against FPL's own shirt CDN first, both variants, all 20 clubs; `playerChip()`
+picks the GK kit for goalkeepers and the outfield kit otherwise; no player
+photos anywhere). Every matchup row anywhere (Home, League, History) is clickable,
 opening a head-to-head modal: both teams' names, the score, an all-time
 record between them (computed client-side, no new digest data), captain/bench
 comparison chips justified to each side under the manager name, and both

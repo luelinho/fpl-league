@@ -145,7 +145,7 @@ matter. Banter is welcome, but only over real numbers.
 `dashboard.html` is a single self-contained file (data baked in, no server, no
 network access needed to open it) with six pages: Home, My Team, League,
 Managers (every manager gets My Team's exact view via a dropdown), Analytics,
-History. Rosters render as a pitch (formation rows, club badges, no player
+History. Rosters render as a pitch (formation rows, club kit jerseys, no player
 photos), and clicking any matchup anywhere opens a head-to-head modal.
 
 It is a snapshot, not a live view — regenerate it after any data change:

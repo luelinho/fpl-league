@@ -7,5 +7,5 @@ phase1_output/payloads/
 db/*.sqlite-journal
 db/*.sqlite-wal
 db/*.sqlite-shm
-digest/.badge_cache/
+digest/.kit_cache/
 .pytest_cache/

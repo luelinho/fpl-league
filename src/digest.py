@@ -21,8 +21,9 @@ import requests
 from . import config, ingest
 from .recap import biggest_upset, manager_name
 
-BADGE_CACHE_DIR = config.REPO_ROOT / "digest" / ".badge_cache"
-BADGE_URL = "https://resources.premierleague.com/premierleague/badges/50/t{code}.png"
+KIT_CACHE_DIR = config.REPO_ROOT / "digest" / ".kit_cache"
+KIT_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{code}-66.png"
+KIT_GK_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{code}_1-66.png"
 
 
 def league_info(conn) -> dict:
@@ -177,29 +178,40 @@ def price_movers(conn) -> dict:
     return {"available": True, "latest_date": latest, "previous_date": previous, "risers": risers, "fallers": fallers}
 
 
-def club_badges(conn) -> dict[str, str]:
-    """{club_id: 'data:image/png;base64,...'} for every PL club — team badges
-    only, no player photos (owner's explicit call). Downloaded once and
-    cached to disk (BADGE_CACHE_DIR) so repeat digest builds don't re-fetch
-    20 images from Premier League's CDN every time; verified live 2026-09-12
-    (HTTP 200, ~6.6KB/badge) before this was built.
+def _fetch_and_cache(url: str, cache_path) -> str | None:
+    if not cache_path.exists():
+        try:
+            resp = requests.get(url, timeout=10)
+            resp.raise_for_status()
+            cache_path.write_bytes(resp.content)
+        except requests.RequestException:
+            return None
+    return "data:image/png;base64," + base64.b64encode(cache_path.read_bytes()).decode()
+
+
+def club_kits(conn) -> dict[str, dict[str, str]]:
+    """{club_id: {'out': data-uri, 'gk': data-uri}} for every PL club — real
+    club kit jerseys (outfield + goalkeeper variant), no player photos
+    (owner's explicit call). Downloaded once and cached to disk
+    (KIT_CACHE_DIR) so repeat digest builds don't re-fetch 40 images from
+    FPL's own CDN every time; verified live 2026-09-12 (HTTP 200, both
+    variants, all 20 clubs) before this was built. Replaces the earlier
+    badge-in-circle chip (owner's call, 2026-09-12) with actual shirt art —
+    the GK kit visibly differs from the outfield kit, which a badge never
+    could show.
     """
-    BADGE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    KIT_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     rows = conn.execute("SELECT club_id, badge_code FROM pl_clubs WHERE season_id = 1").fetchall()
-    badges: dict[str, str] = {}
+    kits: dict[str, dict[str, str]] = {}
     for club_id, code in rows:
         if code is None:
             continue
-        cache_path = BADGE_CACHE_DIR / f"t{code}.png"
-        if not cache_path.exists():
-            try:
-                resp = requests.get(BADGE_URL.format(code=code), timeout=10)
-                resp.raise_for_status()
-                cache_path.write_bytes(resp.content)
-            except requests.RequestException:
-                continue
-        badges[str(club_id)] = "data:image/png;base64," + base64.b64encode(cache_path.read_bytes()).decode()
-    return badges
+        out = _fetch_and_cache(KIT_URL.format(code=code), KIT_CACHE_DIR / f"shirt_{code}.png")
+        gk = _fetch_and_cache(KIT_GK_URL.format(code=code), KIT_CACHE_DIR / f"shirt_{code}_gk.png")
+        if out is None:
+            continue
+        kits[str(club_id)] = {"out": out, "gk": gk or out}
+    return kits
 
 
 def all_managers(conn) -> list[dict]:
@@ -448,7 +460,7 @@ def build_digest() -> dict:
         "managers_detail": all_managers_detail(conn, latest) if latest else {},
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
-        "club_badges": club_badges(conn),
+        "club_kits": club_kits(conn),
         "price_movers": price_movers(conn),
     }
     conn.close()

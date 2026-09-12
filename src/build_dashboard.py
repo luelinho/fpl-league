@@ -237,13 +237,11 @@ tr:last-child td { border-bottom: none; }
 .pitch-row { display: flex; justify-content: space-evenly; align-items: flex-start; gap: 6px; position: relative; z-index: 1; flex-wrap: wrap; }
 .player-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 76px; text-align: center; }
 .player-jersey {
-  width: 32px; height: 32px; border-radius: 50%; position: relative;
-  background: var(--accent); color: var(--accent-ink); border: 2px solid rgba(10,10,13,0.5);
-  display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 800;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  width: 36px; height: 36px; position: relative;
+  display: flex; align-items: center; justify-content: center;
 }
-.player-chip.bench .player-jersey { background: var(--card-2); color: var(--ink-soft); border-color: var(--border); box-shadow: none; }
-.jersey-badge { width: 20px; height: 20px; object-fit: contain; }
+.kit-img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); }
+.player-chip.bench .kit-img { filter: grayscale(0.9) opacity(0.55); }
 .player-armband {
   position: absolute; top: -5px; right: -6px; width: 15px; height: 15px; border-radius: 50%;
   background: var(--ink); color: var(--bg); font-size: 8.5px; font-weight: 800;
@@ -336,8 +334,9 @@ function matchRow(gw, m, showTeam) {
 
 function playerChip(p, isBench) {
   const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
-  const badge = DIGEST.club_badges[p.club_id];
-  const jerseyContent = badge ? `<img src="${badge}" alt="${p.position}" class="jersey-badge">` : p.position;
+  const kit = DIGEST.club_kits[p.club_id];
+  const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
+  const jerseyContent = kitSrc ? `<img src="${kitSrc}" alt="${p.position}" class="kit-img">` : p.position;
   chip.innerHTML = `
     <div class="player-jersey">${jerseyContent}${p.armband ? `<span class="player-armband">${p.armband}</span>` : ''}</div>
     <div class="player-name">${p.name}</div>
