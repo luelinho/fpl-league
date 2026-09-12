@@ -196,6 +196,17 @@ tr:last-child td { border-bottom: none; }
 .plist-bar-track { flex: 1; height: 8px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
 .plist-bar-fill { height: 100%; background: var(--accent); border-radius: 999px; }
 .plist-count { font-size: 12px; font-weight: 700; color: var(--ink-soft); width: 56px; text-align: right; flex: none; }
+.gw-nav { display: flex; align-items: center; gap: 10px; }
+.gw-nav-arrow {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--card-2);
+  color: var(--ink); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.gw-nav-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+.gw-nav-arrow:hover:not(:disabled) { background: rgba(255,255,255,0.08); }
+.gw-nav-select {
+  background: var(--card-2); border: 1px solid var(--border); color: var(--ink); border-radius: 999px;
+  padding: 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+}
 .match-row {
   display: flex; align-items: center; justify-content: space-between; padding: 11px 0;
   border-bottom: 1px solid var(--border);
@@ -1045,20 +1056,51 @@ function playerListRows(container, list, maxScale) {
   });
 }
 
+let playersSelectedGw = null;
+
 function renderPlayers(root) {
   const d = DIGEST.players;
   root.innerHTML = '';
-  if (!d || !d.gw) { root.appendChild(el('div', 'card', 'No player data yet.')); return; }
+  if (!d || !d.gws || !d.gws.length) { root.appendChild(el('div', 'card', 'No player data yet.')); return; }
+  if (playersSelectedGw === null || !d.gws.includes(playersSelectedGw)) playersSelectedGw = d.current_gw;
+  const idx = d.gws.indexOf(playersSelectedGw);
 
-  root.appendChild(el('div', 'section-title', `Most owned — GW${d.gw}`));
+  root.appendChild(el('div', 'section-title', 'Most owned & most captained'));
+  const nav = el('div', 'gw-nav');
+  const prevBtn = el('button', 'gw-nav-arrow', '&larr;');
+  prevBtn.disabled = idx <= 0;
+  prevBtn.onclick = () => { playersSelectedGw = d.gws[idx - 1]; renderPlayers(root); };
+  const select = document.createElement('select');
+  select.className = 'gw-nav-select';
+  d.gws.forEach(gw => {
+    const opt = document.createElement('option');
+    opt.value = gw;
+    opt.textContent = `GW${gw}${gw === d.current_gw ? ' (current)' : ''}`;
+    if (gw === playersSelectedGw) opt.selected = true;
+    select.appendChild(opt);
+  });
+  select.onchange = () => { playersSelectedGw = Number(select.value); renderPlayers(root); };
+  const nextBtn = el('button', 'gw-nav-arrow', '&rarr;');
+  nextBtn.disabled = idx >= d.gws.length - 1;
+  nextBtn.onclick = () => { playersSelectedGw = d.gws[idx + 1]; renderPlayers(root); };
+  nav.appendChild(prevBtn);
+  nav.appendChild(select);
+  nav.appendChild(nextBtn);
+  root.appendChild(nav);
+
+  const gwData = d.by_gw[String(playersSelectedGw)] || { most_owned: [], most_captained: [] };
+
   const ownedCard = el('div', 'card plist');
+  ownedCard.style.marginTop = '16px';
+  ownedCard.appendChild(el('h3', null, 'Most owned'));
   ownedCard.appendChild(el('p', 'muted', 'How many of the 18 managers have this player, this gameweek.'));
-  playerListRows(ownedCard, d.most_owned, 18);
+  playerListRows(ownedCard, gwData.most_owned, 18);
   root.appendChild(ownedCard);
 
-  root.appendChild(el('div', 'section-title', `Most captained — GW${d.gw}`));
   const capCard = el('div', 'card plist');
-  playerListRows(capCard, d.most_captained, 18);
+  capCard.style.marginTop = '16px';
+  capCard.appendChild(el('h3', null, 'Most captained'));
+  playerListRows(capCard, gwData.most_captained, 18);
   root.appendChild(capCard);
 
   root.appendChild(el('div', 'section-title', 'Transfer activity this season'));

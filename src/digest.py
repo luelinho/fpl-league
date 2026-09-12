@@ -668,6 +668,8 @@ def build_digest() -> dict:
     owner_blk = owner_block(conn, latest) if latest else None
     upcoming_matches = fixtures_for_gw(conn, status["next_gw"], latest)
 
+    players_gws = sorted(set(status["data_checked_gws"]) | ({status["next_gw"]} if status["next_gw"] else set()))
+
     d = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "league": league_info(conn),
@@ -689,9 +691,12 @@ def build_digest() -> dict:
         "club_kits": club_kits(conn),
         "price_movers": price_movers(conn),
         "players": {
-            "gw": status["next_gw"] or latest,
-            "most_owned": players_owned(conn, status["next_gw"] or latest),
-            "most_captained": players_captained(conn, status["next_gw"] or latest),
+            "gws": players_gws,
+            "current_gw": status["next_gw"] or latest,
+            "by_gw": {
+                str(gw): {"most_owned": players_owned(conn, gw), "most_captained": players_captained(conn, gw)}
+                for gw in players_gws
+            },
             "transfers": players_transfers(conn),
         },
     }
