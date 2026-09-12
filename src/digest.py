@@ -63,18 +63,20 @@ def standings(conn, gw: int) -> list[dict]:
     rows = conn.execute(
         """
         SELECT s.rank, m.display_name, tn.team_name, s.wins, s.draws, s.losses,
-               s.league_points, s.points_for, s.points_against, s.streak, m.is_owner
+               s.league_points, s.points_for, s.points_against, s.streak, m.is_owner, s.source
         FROM standings_snapshots s
         JOIN managers m ON m.manager_id = s.manager_id
         JOIN team_names tn ON tn.manager_id = m.manager_id
-        WHERE s.gw_id = ? ORDER BY s.rank
+        WHERE s.gw_id = ?
+        ORDER BY (s.rank IS NULL), s.rank, s.league_points DESC, s.points_for DESC
         """,
         (gw,),
     ).fetchall()
     return [
         {"rank": r, "display_name": n, "team_name": t, "wins": w, "draws": d, "losses": l,
-         "league_points": lp, "points_for": pf, "points_against": pa, "streak": s, "is_owner": bool(o)}
-        for r, n, t, w, d, l, lp, pf, pa, s, o in rows
+         "league_points": lp, "points_for": pf, "points_against": pa, "streak": s,
+         "is_owner": bool(o), "reconstructed": src == "reconstructed"}
+        for r, n, t, w, d, l, lp, pf, pa, s, o, src in rows
     ]
 
 
@@ -340,6 +342,7 @@ def build_digest() -> dict:
         "owner": owner_blk,
         "owner_next_opponent": owner_next_fixture(upcoming_matches, owner_blk["display_name"]) if owner_blk else None,
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
+        "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
     }
     conn.close()
     return d

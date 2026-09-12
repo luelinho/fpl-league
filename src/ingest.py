@@ -402,11 +402,6 @@ def load_current_standings_snapshot(conn: sqlite3.Connection, client: FPLClient,
     archive(conn, f"leagues-h2h/{config.LEAGUE_ID}/standings/", None, latest_gw, body)
     standings = (body.get("standings") or {}).get("results", [])
 
-    already = conn.execute(
-        "SELECT COUNT(*) FROM standings_snapshots WHERE league_id = ? AND season_id = 1 AND gw_id = ?",
-        (config.LEAGUE_ID, latest_gw),
-    ).fetchone()[0]
-
     for s in standings:
         entry_id = s["entry"]
         mgr = entry_to_manager.get(entry_id)
@@ -450,21 +445,115 @@ def load_current_standings_snapshot(conn: sqlite3.Connection, client: FPLClient,
             """
             INSERT INTO standings_snapshots
                 (league_id, season_id, gw_id, manager_id, rank, prev_rank, rank_change,
-                 wins, draws, losses, league_points, points_for, points_against, streak, created_at)
-            VALUES (?, 1, ?, ?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?, ?, ?)
+                 wins, draws, losses, league_points, points_for, points_against, streak,
+                 source, created_at)
+            VALUES (?, 1, ?, ?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?, ?, 'fpl_h2h_endpoint', ?)
             ON CONFLICT (league_id, season_id, gw_id, manager_id) DO NOTHING
             """,
             (config.LEAGUE_ID, latest_gw, mgr, s["rank"], s["matches_won"], s["matches_drawn"],
              s["matches_lost"], s["total"], s["points_for"], points_against, streak, now()),
         )
     conn.commit()
-
-    if already == 0:
-        log_issue(conn, "info", "historical_gap",
-                  f"Standings snapshots for GW1-{latest_gw - 1} are permanently unavailable: the live "
-                  f"H2H standings endpoint only exposes current state, with no historical parameter. "
-                  f"Only GW{latest_gw} (current, first captured) is available for this run.")
     print(f"  {len(standings)} standings rows considered for GW{latest_gw} (upserts, may be no-ops)")
+
+
+def reconstruct_gap_standings(conn: sqlite3.Connection, data_checked_gws: list[int],
+                               latest_gw: int) -> list[int]:
+    """For any data-checked gameweek other than the latest with no snapshot at
+    all, reconstruct wins/draws/losses/league_points/points_for/points_against
+    and streak from raw_h2h_matches — exact, since every match result for a
+    data-checked gameweek is immutable and already stored.
+
+    rank/prev_rank/rank_change are left NULL. FPL's H2H tiebreak rule for
+    ties has never been empirically verified (see SPEC.md §13) — computing a
+    rank here would mean asserting a tiebreak method we haven't confirmed.
+    source='reconstructed' distinguishes these from genuinely FPL-reported
+    rows (source='fpl_h2h_endpoint'), so they're never confused with each
+    other downstream.
+    """
+    managers = conn.execute("SELECT manager_id FROM managers").fetchall()
+    filled = []
+    for gw in data_checked_gws:
+        if gw == latest_gw:
+            continue
+        existing = conn.execute(
+            "SELECT COUNT(*) FROM standings_snapshots WHERE gw_id = ?", (gw,)
+        ).fetchone()[0]
+        if existing:
+            continue
+
+        for (mgr,) in managers:
+            matches = conn.execute(
+                """
+                SELECT winner, manager_a, manager_b, score_a, score_b, league_pts_a, league_pts_b
+                FROM raw_h2h_matches
+                WHERE (manager_a = ? OR manager_b = ?) AND status = 'final' AND gw_id <= ?
+                ORDER BY gw_id
+                """,
+                (mgr, mgr, gw),
+            ).fetchall()
+            wins = draws = losses = league_points = points_for = points_against = 0
+            results = []
+            for winner, a, b, score_a, score_b, pa, pb in matches:
+                league_points += pa if a == mgr else pb
+                points_for += score_a if a == mgr else score_b
+                points_against += score_b if a == mgr else score_a
+                if winner is None:
+                    draws += 1
+                    results.append("D")
+                elif winner == mgr:
+                    wins += 1
+                    results.append("W")
+                else:
+                    losses += 1
+                    results.append("L")
+            streak = None
+            if results:
+                last = results[-1]
+                n = 0
+                for r in reversed(results):
+                    if r == last:
+                        n += 1
+                    else:
+                        break
+                streak = f"{last}{n}"
+
+            conn.execute(
+                """
+                INSERT INTO standings_snapshots
+                    (league_id, season_id, gw_id, manager_id, rank, prev_rank, rank_change,
+                     wins, draws, losses, league_points, points_for, points_against, streak,
+                     source, created_at)
+                VALUES (?, 1, ?, ?, NULL, NULL, NULL, ?, ?, ?, ?, ?, ?, ?, 'reconstructed', ?)
+                ON CONFLICT (league_id, season_id, gw_id, manager_id) DO NOTHING
+                """,
+                (config.LEAGUE_ID, gw, mgr, wins, draws, losses, league_points,
+                 points_for, points_against, streak, now()),
+            )
+        filled.append(gw)
+    conn.commit()
+
+    if filled:
+        conn.execute(
+            "UPDATE data_issues SET resolved = 1 WHERE category = 'historical_gap' "
+            "AND resolved = 0 AND description LIKE '%permanently unavailable%'"
+        )
+        already_logged = conn.execute(
+            "SELECT COUNT(*) FROM data_issues WHERE category = 'historical_gap' "
+            "AND description LIKE 'W/D/L, league points%'"
+        ).fetchone()[0]
+        if not already_logged:
+            log_issue(conn, "info", "historical_gap",
+                      f"W/D/L, league points, points for/against, and streak for GW{filled} were "
+                      f"reconstructed from raw match data (exact — every result is immutable and "
+                      f"already stored). Rank is NOT available for these gameweeks: FPL's H2H "
+                      f"tiebreak rule for ties has never been empirically verified, so computing a "
+                      f"rank would mean asserting an unconfirmed method. Revisit once a future "
+                      f"gameweek's real tie lets the tiebreak formula be validated against confirmed "
+                      f"data (see SPEC.md §13).")
+        conn.commit()
+        print(f"  Reconstructed W/D/L/points/streak for GW {filled} (rank intentionally left NULL)")
+    return filled
 
 
 # --- validators ------------------------------------------------------------

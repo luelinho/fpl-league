@@ -260,7 +260,10 @@ CREATE TABLE IF NOT EXISTS standings_snapshots (
   season_id      INTEGER NOT NULL,
   gw_id          INTEGER NOT NULL,
   manager_id     INTEGER NOT NULL REFERENCES managers(manager_id),
-  rank           INTEGER NOT NULL,
+  -- rank is nullable: for a 'reconstructed' row (see source below) we do not
+  -- know FPL's H2H tiebreak rule, so rank is genuinely unknown rather than
+  -- invented. prev_rank/rank_change follow the same logic (added 2026-09-12).
+  rank           INTEGER,
   prev_rank      INTEGER,
   rank_change    INTEGER,
   wins           INTEGER NOT NULL,
@@ -270,6 +273,12 @@ CREATE TABLE IF NOT EXISTS standings_snapshots (
   points_for     INTEGER NOT NULL,
   points_against INTEGER NOT NULL,
   streak         TEXT,
+  -- 'fpl_h2h_endpoint' = fetched live, rank is FPL's own reported value.
+  -- 'reconstructed' = computed by us from raw_h2h_matches/raw_manager_gw
+  -- because the live standings endpoint only ever exposes current state and
+  -- this gameweek had already passed by the time this system existed.
+  -- W/D/L/points fields are exact either way; only rank differs in provenance.
+  source         TEXT NOT NULL DEFAULT 'fpl_h2h_endpoint' CHECK (source IN ('fpl_h2h_endpoint','reconstructed')),
   created_at     TIMESTAMP NOT NULL,
   PRIMARY KEY (league_id, season_id, gw_id, manager_id)
 );

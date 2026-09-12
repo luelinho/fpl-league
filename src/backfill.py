@@ -51,6 +51,7 @@ def run() -> int:
     ingest.load_h2h_matches(conn, client, entry_to_manager, data_checked_gws)
     ingest.cross_check_h2h(conn, data_checked_gws)
     ingest.load_current_standings_snapshot(conn, client, entry_to_manager, max(data_checked_gws))
+    ingest.reconstruct_gap_standings(conn, data_checked_gws, max(data_checked_gws))
 
     problems = ingest.run_validators(conn, data_checked_gws)
     ingest.log_run(conn, "phase3_backfill", "success" if not problems else "partial", client.request_count)

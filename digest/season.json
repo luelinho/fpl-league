@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T03:43:03.345831+00:00",
+  "generated_at": "2026-09-12T13:15:41.755633+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -41,7 +41,8 @@
       "points_for": 200,
       "points_against": 155,
       "streak": "W3",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 2,
@@ -54,7 +55,8 @@
       "points_for": 186,
       "points_against": 149,
       "streak": "W3",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 3,
@@ -67,7 +69,8 @@
       "points_for": 207,
       "points_against": 186,
       "streak": "W1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 4,
@@ -80,7 +83,8 @@
       "points_for": 188,
       "points_against": 168,
       "streak": "W1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 5,
@@ -93,7 +97,8 @@
       "points_for": 218,
       "points_against": 145,
       "streak": "L1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 6,
@@ -106,7 +111,8 @@
       "points_for": 208,
       "points_against": 212,
       "streak": "L1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 7,
@@ -119,7 +125,8 @@
       "points_for": 166,
       "points_against": 158,
       "streak": "W2",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 8,
@@ -132,7 +139,8 @@
       "points_for": 209,
       "points_against": 199,
       "streak": "L1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 9,
@@ -145,7 +153,8 @@
       "points_for": 207,
       "points_against": 218,
       "streak": "W1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 10,
@@ -158,7 +167,8 @@
       "points_for": 206,
       "points_against": 202,
       "streak": "L1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 11,
@@ -171,7 +181,8 @@
       "points_for": 199,
       "points_against": 207,
       "streak": "L2",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 12,
@@ -184,7 +195,8 @@
       "points_for": 185,
       "points_against": 206,
       "streak": "L1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 13,
@@ -197,7 +209,8 @@
       "points_for": 179,
       "points_against": 200,
       "streak": "W1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 14,
@@ -210,7 +223,8 @@
       "points_for": 175,
       "points_against": 236,
       "streak": "L2",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 14,
@@ -223,7 +237,8 @@
       "points_for": 175,
       "points_against": 192,
       "streak": "L2",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 16,
@@ -236,7 +251,8 @@
       "points_for": 170,
       "points_against": 174,
       "streak": "W1",
-      "is_owner": true
+      "is_owner": true,
+      "reconstructed": false
     },
     {
       "rank": 17,
@@ -249,7 +265,8 @@
       "points_for": 135,
       "points_against": 198,
       "streak": "W1",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     },
     {
       "rank": 18,
@@ -262,7 +279,8 @@
       "points_for": 182,
       "points_against": 190,
       "streak": "L3",
-      "is_owner": false
+      "is_owner": false,
+      "reconstructed": false
     }
   ],
   "standings_gw": 3,
@@ -478,7 +496,7 @@
     {
       "severity": "info",
       "category": "historical_gap",
-      "description": "Standings snapshots for GW1-2 are permanently unavailable: the live H2H standings endpoint only exposes current state, with no historical parameter. Only GW3 (current) is captured. Going forward, Phase 4's daily job captures one snapshot per day, so this gap will not recur for future gameweeks."
+      "description": "W/D/L, league points, points for/against, and streak for GW[1, 2] were reconstructed from raw match data (exact \u2014 every result is immutable and already stored). Rank is NOT available for these gameweeks: FPL's H2H tiebreak rule for ties has never been empirically verified, so computing a rank would mean asserting an unconfirmed method. Revisit once a future gameweek's real tie lets the tiebreak formula be validated against confirmed data (see SPEC.md \u00a713)."
     }
   ],
   "managers": [
@@ -1565,6 +1583,770 @@
         },
         "margin": 10,
         "winner": "a"
+      }
+    ]
+  },
+  "all_standings_by_gw": {
+    "1": [
+      {
+        "rank": null,
+        "display_name": "Kirk Baxter",
+        "team_name": "Toffee Machine",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 71,
+        "points_against": 68,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Brian Moran",
+        "team_name": "Kick'in the balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 70,
+        "points_against": 42,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Erik Baxter",
+        "team_name": "Erik's Team",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 59,
+        "points_against": 57,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Chris Mazzatta",
+        "team_name": "CMazz",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 58,
+        "points_against": 56,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Joe Gannitello",
+        "team_name": "Bruno's Bros",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 57,
+        "points_against": 56,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Reggie Mazz",
+        "team_name": "Keiner Bobby Dazzler",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 56,
+        "points_against": 48,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Craig Allen",
+        "team_name": "Game of Throw-In",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 56,
+        "points_against": 23,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Andrew Romani",
+        "team_name": "Rock \u2018n\u2019 Iraola",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 47,
+        "points_against": 38,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Jordan Fernholz",
+        "team_name": "Blue Bloods",
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 3,
+        "points_for": 42,
+        "points_against": 32,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Yorick Stoepker",
+        "team_name": "Hoevoeloe",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 68,
+        "points_against": 71,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Ryan Smith",
+        "team_name": "Big Cannon Energy",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 57,
+        "points_against": 59,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Chris Miller",
+        "team_name": "millers minions",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 56,
+        "points_against": 58,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Iain Abshier",
+        "team_name": "FOGGING ESTANDARDS",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 56,
+        "points_against": 57,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Danilo Arroyo",
+        "team_name": "Ophelia Balls",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 48,
+        "points_against": 56,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Brady Baxter",
+        "team_name": "Championship side",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 42,
+        "points_against": 70,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Isaac Sotelo",
+        "team_name": "#GOAT",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 38,
+        "points_against": 47,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Luel Waktola",
+        "team_name": "Midtable Crisis",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 32,
+        "points_against": 42,
+        "streak": "L1",
+        "is_owner": true,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Harry Daskalopoulos",
+        "team_name": "OliveOilMoneh",
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 0,
+        "points_for": 23,
+        "points_against": 56,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      }
+    ],
+    "2": [
+      {
+        "rank": null,
+        "display_name": "Craig Allen",
+        "team_name": "Game of Throw-In",
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 6,
+        "points_for": 176,
+        "points_against": 91,
+        "streak": "W2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Joe Gannitello",
+        "team_name": "Bruno's Bros",
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 6,
+        "points_for": 162,
+        "points_against": 142,
+        "streak": "W2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Chris Mazzatta",
+        "team_name": "CMazz",
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 6,
+        "points_for": 149,
+        "points_against": 115,
+        "streak": "W2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Andrew Romani",
+        "team_name": "Rock \u2018n\u2019 Iraola",
+        "wins": 2,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 6,
+        "points_for": 130,
+        "points_against": 109,
+        "streak": "W2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Erik Baxter",
+        "team_name": "Erik's Team",
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "league_points": 4,
+        "points_for": 150,
+        "points_against": 148,
+        "streak": "D1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Jordan Fernholz",
+        "team_name": "Blue Bloods",
+        "wins": 1,
+        "draws": 1,
+        "losses": 0,
+        "league_points": 4,
+        "points_for": 133,
+        "points_against": 123,
+        "streak": "D1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Chris Miller",
+        "team_name": "millers minions",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 164,
+        "points_against": 149,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Ryan Smith",
+        "team_name": "Big Cannon Energy",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 164,
+        "points_against": 144,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Brian Moran",
+        "team_name": "Kick'in the balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 161,
+        "points_against": 150,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Reggie Mazz",
+        "team_name": "Keiner Bobby Dazzler",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 141,
+        "points_against": 155,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Kirk Baxter",
+        "team_name": "Toffee Machine",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 139,
+        "points_against": 188,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Danilo Arroyo",
+        "team_name": "Ophelia Balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 136,
+        "points_against": 139,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Isaac Sotelo",
+        "team_name": "#GOAT",
+        "wins": 1,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 3,
+        "points_for": 118,
+        "points_against": 122,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Yorick Stoepker",
+        "team_name": "Hoevoeloe",
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 0,
+        "points_for": 154,
+        "points_against": 176,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Iain Abshier",
+        "team_name": "FOGGING ESTANDARDS",
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 0,
+        "points_for": 131,
+        "points_against": 137,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Brady Baxter",
+        "team_name": "Championship side",
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 0,
+        "points_for": 125,
+        "points_against": 158,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Luel Waktola",
+        "team_name": "Midtable Crisis",
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 0,
+        "points_for": 103,
+        "points_against": 125,
+        "streak": "L2",
+        "is_owner": true,
+        "reconstructed": true
+      },
+      {
+        "rank": null,
+        "display_name": "Harry Daskalopoulos",
+        "team_name": "OliveOilMoneh",
+        "wins": 0,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 0,
+        "points_for": 82,
+        "points_against": 147,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": true
+      }
+    ],
+    "3": [
+      {
+        "rank": 1,
+        "display_name": "Andrew Romani",
+        "team_name": "Rock \u2018n\u2019 Iraola",
+        "wins": 3,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 9,
+        "points_for": 200,
+        "points_against": 155,
+        "streak": "W3",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 2,
+        "display_name": "Chris Mazzatta",
+        "team_name": "CMazz",
+        "wins": 3,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 9,
+        "points_for": 186,
+        "points_against": 149,
+        "streak": "W3",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 3,
+        "display_name": "Erik Baxter",
+        "team_name": "Erik's Team",
+        "wins": 2,
+        "draws": 1,
+        "losses": 0,
+        "league_points": 7,
+        "points_for": 207,
+        "points_against": 186,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 4,
+        "display_name": "Jordan Fernholz",
+        "team_name": "Blue Bloods",
+        "wins": 2,
+        "draws": 1,
+        "losses": 0,
+        "league_points": 7,
+        "points_for": 188,
+        "points_against": 168,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 5,
+        "display_name": "Craig Allen",
+        "team_name": "Game of Throw-In",
+        "wins": 2,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 6,
+        "points_for": 218,
+        "points_against": 145,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 6,
+        "display_name": "Joe Gannitello",
+        "team_name": "Bruno's Bros",
+        "wins": 2,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 6,
+        "points_for": 208,
+        "points_against": 212,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 7,
+        "display_name": "Isaac Sotelo",
+        "team_name": "#GOAT",
+        "wins": 2,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 6,
+        "points_for": 166,
+        "points_against": 158,
+        "streak": "W2",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 8,
+        "display_name": "Ryan Smith",
+        "team_name": "Big Cannon Energy",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 209,
+        "points_against": 199,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 9,
+        "display_name": "Yorick Stoepker",
+        "team_name": "Hoevoeloe",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 207,
+        "points_against": 218,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 10,
+        "display_name": "Chris Miller",
+        "team_name": "millers minions",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 206,
+        "points_against": 202,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 11,
+        "display_name": "Brian Moran",
+        "team_name": "Kick'in the balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 199,
+        "points_against": 207,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 12,
+        "display_name": "Danilo Arroyo",
+        "team_name": "Ophelia Balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 185,
+        "points_against": 206,
+        "streak": "L1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 13,
+        "display_name": "Brady Baxter",
+        "team_name": "Championship side",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 179,
+        "points_against": 200,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 14,
+        "display_name": "Kirk Baxter",
+        "team_name": "Toffee Machine",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 175,
+        "points_against": 236,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 14,
+        "display_name": "Reggie Mazz",
+        "team_name": "Keiner Bobby Dazzler",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 175,
+        "points_against": 192,
+        "streak": "L2",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 16,
+        "display_name": "Luel Waktola",
+        "team_name": "Midtable Crisis",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 170,
+        "points_against": 174,
+        "streak": "W1",
+        "is_owner": true,
+        "reconstructed": false
+      },
+      {
+        "rank": 17,
+        "display_name": "Harry Daskalopoulos",
+        "team_name": "OliveOilMoneh",
+        "wins": 1,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 3,
+        "points_for": 135,
+        "points_against": 198,
+        "streak": "W1",
+        "is_owner": false,
+        "reconstructed": false
+      },
+      {
+        "rank": 18,
+        "display_name": "Iain Abshier",
+        "team_name": "FOGGING ESTANDARDS",
+        "wins": 0,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 0,
+        "points_for": 182,
+        "points_against": 190,
+        "streak": "L3",
+        "is_owner": false,
+        "reconstructed": false
       }
     ]
   }

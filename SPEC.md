@@ -677,7 +677,7 @@ A single self-contained HTML file. **Built 2026-09-12** as `dashboard.html`, gen
 
 Design decisions the owner made 2026-09-12: clean modern styling (not bare-bones utilitarian), top-tab navigation between the 5 pages, and gated metrics (luck/power rankings before GW10, projections before GW15) shown as a locked card with a progress bar and "unlocks in N more gameweeks" rather than fully hidden.
 
-Pages, as built: **Home** (standings, this week's fixtures, last results, alerts, latest recap highlights) · **My Team** (owner's ledger stats, gameweek-by-gameweek history, latest roster with captain/vice badges, transfers) · **League** (full standings table, all matchups browsable by gameweek) · **Analytics** (sortable manager-skill leaderboard; luck/power-rankings and projections shown locked-with-progress) · **History** (gameweek selector showing that week's standings — or an honest "not available" for GW1-2 — plus its recap highlights and matchups).
+Pages, as built: **Home** (standings, this week's fixtures, last results, alerts, latest recap highlights) · **My Team** (owner's ledger stats, gameweek-by-gameweek history, latest roster with captain/vice badges, transfers) · **League** (full standings table, all matchups browsable by gameweek) · **Analytics** (sortable manager-skill leaderboard; luck/power-rankings and projections shown locked-with-progress) · **History** (gameweek selector showing that week's standings — W/D/L/points reconstructed for GW1-2, rank honestly shown as unknown for those two — plus its recap highlights and matchups).
 
 Gated metrics render with their confidence label or as locked, matching the query layer. Verified in-browser (not just by reading the generated HTML): every figure spot-checked against the same data verified in Phases 5-6, and one real bug was found and fixed during that check — the League tab's gameweek-filter buttons showed GW1 as visually "active" while actually displaying GW3's data on initial load, since the highlighted button and the initial `showGw()` call used different indices.
 
@@ -727,7 +727,9 @@ Each phase has an exit criterion. **No phase begins until the previous one is ve
 *Exit: 18 managers stored, IDs confirmed, league config recorded.*
 
 **Phase 3 — Historical backfill.** Ingest GW1 through current: player stats, picks, transfers, matches, standings snapshots. Run every validator.
-*Exit: every gameweek present, all validators pass, roster/standings spot-checks match the FPL site.* **✅ Complete 2026-09-12.** GW1–3 backfilled (84 requests). All validators passed; `net_points` cross-checked against every reported H2H score with zero mismatches; owner's GW1–3 figures spot-checked exactly against Phase 1's archived payloads. One permanent, logged gap: GW1–2 standings snapshots are unrecoverable from the live endpoint (no history parameter exists) — self-heals from Phase 4 onward. See `src/backfill.py`.
+*Exit: every gameweek present, all validators pass, roster/standings spot-checks match the FPL site.* **✅ Complete 2026-09-12.** GW1–3 backfilled (84 requests). All validators passed; `net_points` cross-checked against every reported H2H score with zero mismatches; owner's GW1–3 figures spot-checked exactly against Phase 1's archived payloads. See `src/backfill.py`.
+
+**Update 2026-09-12:** GW1-2 standings were originally a full gap (the live endpoint only exposes current state). `ingest.reconstruct_gap_standings` now fills in W/D/L, league points, points for/against, and streak for those gameweeks — exact, since every match result is immutable and already stored. `rank` is deliberately left NULL for these rows: FPL's H2H tiebreak rule for ties was never empirically verified (see §13), so asserting a rank would mean guessing at an unconfirmed method. `standings_snapshots` gained a `source` column (`fpl_h2h_endpoint` vs `reconstructed`) to keep the two kinds of row from ever being confused. See `src/migrate_standings_schema.py` for the one-off schema migration this required.
 
 **Phase 4 — Automation.** Daily job, idempotent, scheduled. Run it repeatedly and confirm the database is unchanged.
 *Exit: three consecutive clean automated runs.* **✅ Complete 2026-09-12.** `src/daily_sync.py` ran 3 consecutive times (9 requests each — it skips per-manager fetches for gameweeks already fully stored, unlike Phase 3's unconditional backfill). Every data table was byte-identical across all 3 runs; only the two designed-to-be-append-only logs (`raw_payloads`, `ingest_runs`) grew, exactly as intended. Not yet scheduled anywhere (no GitHub Actions / cron wired up), and not yet git-committed — see Open Items.
@@ -764,7 +766,7 @@ That alone satisfies the irreplaceable requirement: **history not captured now i
 - FPL keeps its public API open and roughly stable this season.
 - Other managers' picks are readable only after each deadline.
 - The 18 names supplied are current, pending live confirmation.
-- Standard FPL H2H tiebreaks apply: overall rank, then fewer transfers.
+- Standard FPL H2H tiebreaks apply: overall rank, then fewer transfers. **Unverified** — this is exactly the assumption blocking GW1-2's `rank` reconstruction (§11 Phase 3 update, 2026-09-12). To confirm it: wait for a future gameweek where two managers are actually tied on league points, compare FPL's real reported order for that tie against this rule's prediction. GW3 already has one tie (rank 14, Kirk Baxter and Reggie Mazz) but a single data point isn't enough to rule out coincidence.
 
 **Accepted risks:** the FPL API is undocumented and can change or close without notice — mitigated by payload archiving. Free-tier Actions scheduling drifts — irrelevant daily. Single SQLite file — mitigated by Git.
 

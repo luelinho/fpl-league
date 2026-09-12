@@ -27,9 +27,13 @@ GW1–3 fully backfilled: 656 players, 20 clubs, 1,890 player-gameweek stat rows
 matches, one current standings snapshot. All validators pass. Cross-checked
 `net_points` against every reported H2H match score (27 matches × 2 managers) —
 zero mismatches. Spot-checked against the Phase 1 archived payloads exactly.
-One known, permanent gap logged to `data_issues`: GW1–2 standings snapshots are
-unrecoverable (the live standings endpoint has no history parameter) — this
-self-heals once Phase 4's daily job starts snapshotting going forward.
+**Update 2026-09-12:** GW1–2 standings started as a full gap (the live endpoint
+only exposes current state) but `ingest.reconstruct_gap_standings` now fills
+in W/D/L, league points, and points for/against exactly from stored match
+data. Only `rank` stays genuinely unknown for those two gameweeks — FPL's H2H
+tiebreak rule for ties was never verified, so a rank number there would be
+guessed rather than computed. `standings_snapshots.source` distinguishes
+`fpl_h2h_endpoint` rows from `reconstructed` ones. See SPEC.md §11 and §13.
 
 `src/daily_sync.py` (Phase 4) proved idempotent over 3 consecutive runs — every
 data table byte-identical, only the append-only `raw_payloads`/`ingest_runs`

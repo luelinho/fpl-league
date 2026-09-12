@@ -475,12 +475,15 @@ function renderHistory(root) {
 
     const standingsCard = el('div', 'card');
     standingsCard.appendChild(el('h2', null, `Standings after GW${gw}`));
-    if (gw === d.standings_gw) {
-      let rows = d.standings.map(s => `<tr><td>${s.rank}</td><td>${s.display_name}</td><td>${s.league_points}</td></tr>`).join('');
-      standingsCard.innerHTML += `<table><tbody>${rows}</tbody></table>`;
-    } else {
-      standingsCard.appendChild(el('p', 'muted', 'Not available — standings snapshots only exist from GW3 onward (the live endpoint has no history parameter; see Home → Alerts).'));
+    const gwStandings = d.all_standings_by_gw[gw] || [];
+    const reconstructed = gwStandings.length && gwStandings[0].reconstructed;
+    if (reconstructed) {
+      standingsCard.appendChild(el('p', 'muted', 'Rank unavailable for this gameweek — reconstructed from raw match data, sorted by league points. See Home → Alerts.'));
     }
+    let rows = gwStandings.map(s => `<tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.rank ?? '—'}</td><td>${s.display_name}</td><td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td>
+    </tr>`).join('');
+    standingsCard.innerHTML += `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table>`;
     grid.appendChild(standingsCard);
 
     const recapCard = el('div', 'card hero');
