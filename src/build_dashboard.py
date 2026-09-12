@@ -299,6 +299,7 @@ tr:last-child td { border-bottom: none; }
 .h2h-score .side-name.right { text-align: right; }
 .h2h-score .score-box { font-size: 30px; font-weight: 800; color: var(--ink); white-space: nowrap; }
 .h2h-score .score-box .win { color: var(--accent); }
+.h2h-score .side-extra { font-size: 12px; font-weight: 500; color: var(--ink-soft); margin-top: 4px; }
 .h2h-record {
   text-align: center; color: var(--ink-soft); font-size: 13px; margin-bottom: 18px;
 }
@@ -408,18 +409,28 @@ function openMatchupModal(gw, nameA, nameB) {
     const bWin = hasScore && gB.net_points > gA.net_points;
     const isLive = hasScore && (!gA.is_final || !gB.is_final);
     const rec = allTimeRecord(nameA, nameB);
+    const capA = rosterA.find(p => p.armband === 'C');
+    const capB = rosterB.find(p => p.armband === 'C');
 
     const header = el('div', 'h2h-header');
     header.innerHTML = `<div class="gw-label">Gameweek ${gw}${isLive ? ' <span class="badge badge-l">LIVE</span>' : ''}</div>`;
     body.appendChild(header);
 
+    const sideExtrasA = `
+      <div class="side-extra">Captain: ${capA ? `${capA.name} (${capA.raw_points}×${capA.multiplier})` : '—'}</div>
+      <div class="side-extra">Bench: ${gA ? gA.bench_points : '—'}</div>
+    `;
+    const sideExtrasB = `
+      <div class="side-extra">Captain: ${capB ? `${capB.name} (${capB.raw_points}×${capB.multiplier})` : '—'}</div>
+      <div class="side-extra">Bench: ${gB ? gB.bench_points : '—'}</div>
+    `;
     const scoreRow = el('div', 'h2h-score');
     scoreRow.innerHTML = `
-      <div class="side-name">${nameA}<div class="muted">${detailA.team_name}</div></div>
+      <div class="side-name">${nameA}<div class="muted">${detailA.team_name}</div>${sideExtrasA}</div>
       <div class="score-box">${hasScore
         ? `<span class="${aWin ? 'win' : ''}">${gA.net_points}</span> - <span class="${bWin ? 'win' : ''}">${gB.net_points}</span>`
         : 'vs'}</div>
-      <div class="side-name right">${nameB}<div class="muted">${detailB.team_name}</div></div>
+      <div class="side-name right">${nameB}<div class="muted">${detailB.team_name}</div>${sideExtrasB}</div>
     `;
     body.appendChild(scoreRow);
 
@@ -428,20 +439,6 @@ function openMatchupModal(gw, nameA, nameB) {
       ? `All-time: <b>${rec.wA}-${rec.draws}-${rec.wB}</b> (${nameA}-Draw-${nameB}) · ${rec.pfA}-${rec.pfB} pts across ${rec.played} meeting${rec.played === 1 ? '' : 's'}`
       : `First time these two have met.`;
     body.appendChild(recordEl);
-
-    if (hasScore) {
-      const chipsRow = el('div', 'stat-chips');
-      chipsRow.style.justifyContent = 'center';
-      const capA = rosterA.find(p => p.armband === 'C');
-      const capB = rosterB.find(p => p.armband === 'C');
-      chipsRow.innerHTML = `
-        <span class="chip">${nameA} bench: ${gA.bench_points}</span>
-        <span class="chip">${nameA} captain: ${capA ? `${capA.name} (${capA.raw_points}×${capA.multiplier})` : '—'}</span>
-        <span class="chip">${nameB} captain: ${capB ? `${capB.name} (${capB.raw_points}×${capB.multiplier})` : '—'}</span>
-        <span class="chip">${nameB} bench: ${gB.bench_points}</span>
-      `;
-      body.appendChild(chipsRow);
-    }
 
     const pitches = el('div', 'h2h-pitches');
     pitches.style.marginTop = '18px';
