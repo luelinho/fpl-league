@@ -165,6 +165,9 @@ th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--bo
 th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; text-transform: uppercase;
      letter-spacing: 0.04em; cursor: pointer; user-select: none; }
 th:hover { color: var(--ink); }
+.table-scroll { max-height: 380px; overflow-y: auto; }
+.table-scroll table { margin: 0; }
+.table-scroll thead th { position: sticky; top: 0; background: var(--card); z-index: 1; }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
 tr.clickable-row { cursor: pointer; }
@@ -489,12 +492,12 @@ function renderHome(root) {
 
   const standingsCard = el('div', 'card');
   standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
-  let rows = d.standings.slice(0, 6).map(s => `
+  let rows = d.standings.map(s => `
     <tr class="${s.is_owner ? 'owner-row' : ''}">
       <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
       <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
     </tr>`).join('');
-  standingsCard.appendChild(el('div', null, `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
+  standingsCard.appendChild(el('div', 'table-scroll', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`));
   grid.appendChild(standingsCard);
 
   const fixturesCard = el('div', 'card');
