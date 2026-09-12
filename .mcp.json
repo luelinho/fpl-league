@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fpl-league": {
+      "command": "/Users/luel/Claude/FPL/files/fpl-league/.venv/bin/python",
+      "args": ["/Users/luel/Claude/FPL/files/fpl-league/src/mcp_server.py"]
+    }
+  }
+}

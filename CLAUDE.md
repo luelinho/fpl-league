@@ -162,3 +162,20 @@ The GitHub Actions workflow runs all five in order already. If you edit
 `src/build_dashboard.py`, always run `build_dashboard` again afterward and
 re-open the file — editing the generator does not change the already-written
 `dashboard.html` on disk.
+
+## 14. The MCP server
+
+`src/mcp_server.py` is SPEC.md §7's "optional later" MCP server, built now
+that the data has proven correct across several gameweeks. It's read-only —
+the DB connection is opened with SQLite's own `mode=ro`, so a write attempt
+fails at the SQLite layer regardless of what the code does — and local-only,
+launched by an MCP client (Claude Desktop, Claude Code) as a subprocess over
+stdio via `.mcp.json`. No hosting, no network exposure, no new attack
+surface; the opposite choice (a remote server reachable from a phone) was
+considered and deliberately declined; see git history for that discussion.
+
+Its tools mirror the vetted `queries/*.sql` library one-for-one, plus one
+guarded `run_readonly_query` escape hatch (single SELECT only, enforced both
+by a regex check and the read-only connection itself) for questions the
+named tools don't cover. Same rule as everywhere else: never invent a number
+past what a tool actually returns.
