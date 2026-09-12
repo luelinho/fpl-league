@@ -77,40 +77,43 @@ const DIGEST = {data_json};
 
 CSS = """
 :root {
-  --bg: #0a0a0d;
-  --card: #17181d;
-  --card-2: #1d1f26;
-  --ink: #f2f3f6;
-  --ink-soft: #91929e;
-  --border: rgba(255,255,255,0.08);
+  --bg: #0a070f;
+  --card: rgba(26,22,34,0.6);
+  --card-2: rgba(32,27,42,0.65);
+  --ink: #f5f4f8;
+  --ink-soft: #9997a8;
+  --border: rgba(255,255,255,0.09);
   --accent: #d6fb3d;
   --accent-ink: #0a0a0d;
-  --accent-soft: rgba(214,251,61,0.13);
-  --purple: #9b7bff;
-  --purple-soft: rgba(155,123,255,0.15);
-  --coral: #ff6b6b;
-  --coral-soft: rgba(255,107,107,0.15);
+  --accent-soft: rgba(214,251,61,0.14);
+  --purple: #c3b3f7;
+  --purple-soft: rgba(195,179,247,0.16);
+  --coral: #ff7a70;
+  --coral-soft: rgba(255,122,112,0.15);
   --win: var(--accent);
   --win-soft: var(--accent-soft);
   --loss: var(--coral);
   --loss-soft: var(--coral-soft);
   --draw: var(--purple);
   --draw-soft: var(--purple-soft);
-  --locked: #6c6e7a;
-  --shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 28px rgba(0,0,0,0.35);
+  --locked: #726f80;
+  --shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02);
+  --blur: blur(24px);
 }
 * { box-sizing: border-box; }
 body {
-  margin: 0; color: var(--ink);
+  margin: 0; color: var(--ink); min-height: 100vh;
   background:
-    radial-gradient(circle at 12% -10%, rgba(155,123,255,0.10), transparent 38%),
-    radial-gradient(circle at 90% 10%, rgba(214,251,61,0.06), transparent 32%),
+    radial-gradient(ellipse 900px 650px at 6% -8%, rgba(130,70,210,0.38), transparent 55%),
+    radial-gradient(ellipse 1000px 750px at 100% 105%, rgba(230,120,40,0.30), transparent 55%),
+    radial-gradient(ellipse 700px 600px at 60% 30%, rgba(90,50,150,0.12), transparent 60%),
     var(--bg);
+  background-attachment: fixed;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px; line-height: 1.45;
 }
 .topbar {
-  background: rgba(10,10,13,0.85); backdrop-filter: blur(10px);
+  background: rgba(10,7,15,0.55); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 10;
 }
@@ -120,7 +123,7 @@ body {
 }
 .brand-name { font-weight: 700; font-size: 17px; display: block; color: var(--ink); letter-spacing: -0.01em; }
 .brand-sub { color: var(--ink-soft); font-size: 12.5px; }
-.tabs { display: flex; gap: 4px; background: var(--card); padding: 5px; border-radius: 999px; border: 1px solid var(--border); }
+.tabs { display: flex; gap: 4px; background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 5px; border-radius: 999px; border: 1px solid var(--border); }
 .tab {
   border: none; background: transparent; padding: 9px 16px; border-radius: 999px;
   font-size: 13.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
@@ -136,7 +139,8 @@ body {
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 .card {
-  background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+  background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--border); border-radius: 20px;
   padding: 20px 22px; box-shadow: var(--shadow);
 }
 .card h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 700; }
@@ -188,6 +192,7 @@ tr:last-child td { border-bottom: none; }
   background:
     repeating-linear-gradient(135deg, transparent, transparent 12px, rgba(255,255,255,0.025) 12px, rgba(255,255,255,0.025) 24px),
     var(--card);
+  backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border: 1px dashed var(--border); border-radius: 20px; padding: 26px; text-align: center; color: var(--ink-soft);
 }
 .locked-card .lock-icon { font-size: 22px; filter: grayscale(1) brightness(1.6); }
