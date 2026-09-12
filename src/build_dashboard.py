@@ -153,14 +153,17 @@ body {
 }
 .card h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 700; }
 .card h3 { margin: 0 0 8px; font-size: 13px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em; }
-.card.hero { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-.card.hero h2 { color: var(--accent-ink); }
-.card.hero b { color: var(--accent-ink); }
-.card.hero p { color: rgba(10,10,13,0.75); }
-.card.hero .muted { color: rgba(10,10,13,0.55); }
+.recap-card { border-left: 3px solid var(--accent); }
+.recap-card h2 { color: var(--accent); }
+.recap-card p { margin: 0 0 10px; line-height: 1.5; }
+.recap-card p:last-child { margin-bottom: 0; }
 .stat { display: flex; flex-direction: column; gap: 3px; }
 .stat .value { font-size: 27px; font-weight: 700; color: var(--ink); }
 .stat .label { color: var(--ink-soft); font-size: 12.5px; }
+.tier-elite { color: var(--accent) !important; }
+.tier-great { color: #8fd645 !important; }
+.tier-ok { color: #ffb04a !important; }
+.tier-low { color: var(--coral) !important; }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--border); }
 th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; text-transform: uppercase;
@@ -813,6 +816,31 @@ function updateCountdowns() {
   });
 }
 
+function statTier(label, value) {
+  if (label === 'Captain efficiency' || label === 'XI efficiency') {
+    const pct = parseFloat(value);
+    if (isNaN(pct)) return null;
+    const cuts = label === 'Captain efficiency' ? [80, 60, 40] : [97, 92, 85];
+    if (pct >= cuts[0]) return 'tier-elite';
+    if (pct >= cuts[1]) return 'tier-great';
+    if (pct >= cuts[2]) return 'tier-ok';
+    return 'tier-low';
+  }
+  if (label === 'Bench points (season)') {
+    const n = Number(value);
+    if (n < 20) return 'tier-elite';
+    if (n <= 32) return 'tier-ok';
+    return 'tier-low';
+  }
+  if (label === 'Hit cost (season)') {
+    const n = Number(value);
+    if (n === 0) return 'tier-elite';
+    if (n <= 8) return 'tier-ok';
+    return 'tier-low';
+  }
+  return null;
+}
+
 function renderManagerCards(root, o) {
   const statsGrid = el('div', 'grid grid-4');
   const L = o.ledger;
@@ -827,7 +855,8 @@ function renderManagerCards(root, o) {
     ['Hit cost (season)', L.total_hit_cost],
   ];
   stats.forEach(([label, value]) => {
-    statsGrid.appendChild(el('div', 'card stat', `<div class="value">${value}</div><div class="label">${label}</div>`));
+    const tier = statTier(label, value);
+    statsGrid.appendChild(el('div', 'card stat', `<div class="value${tier ? ' ' + tier : ''}">${value}</div><div class="label">${label}</div>`));
   });
   root.appendChild(statsGrid);
 
@@ -1000,7 +1029,7 @@ function renderAnalytics(root) {
   sortableTable(card,
     ['Manager', 'Team', 'Record', 'Pts', 'Cap Eff %', 'XI Eff %', 'Bench'],
     rows,
-    r => `<tr class="${r[7] ? 'owner-row' : ''}"><td>${r[0]}</td><td class="muted">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${fmtPct(r[4])}</td><td>${fmtPct(r[5])}</td><td>${r[6]}</td></tr>`
+    r => `<tr class="${r[7] ? 'owner-row' : ''}"><td>${r[0]}</td><td class="muted">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td class="${statTier('Captain efficiency', r[4]) || ''}">${fmtPct(r[4])}</td><td class="${statTier('XI efficiency', r[5]) || ''}">${fmtPct(r[5])}</td><td class="${statTier('Bench points (season)', r[6]) || ''}">${r[6]}</td></tr>`
   );
 
   root.appendChild(el('div', 'section-title', 'Luck & power rankings'));
@@ -1047,7 +1076,7 @@ function renderHistory(root) {
     standingsCard.innerHTML += `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table>`;
     grid.appendChild(standingsCard);
 
-    const recapCard = el('div', 'card hero');
+    const recapCard = el('div', 'card recap-card');
     const recap = d.recaps.find(r => r.gw === gw);
     recapCard.appendChild(el('h2', null, `GW${gw} highlights`));
     if (recap) {
