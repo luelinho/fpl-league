@@ -16,7 +16,7 @@ Full design: [`SPEC.md`](SPEC.md)
 | 1 — Verify the FPL API | **Complete** (2026-09-12) |
 | 2 — Schema & league reconstruction | **Complete** (2026-09-12) |
 | 3 — Historical backfill | **Complete** (2026-09-12) |
-| 4 — Automation | **Complete** (2026-09-12), not yet scheduled |
+| 4 — Automation | **Complete** (2026-09-12), workflow committed, not yet pushed |
 | 5 — Tier 0–2 analytics | **Complete** (2026-09-12) |
 | 6 — Claude interface | **Complete** (2026-09-12) |
 | 7 — Dashboard | **Complete** (2026-09-12) |
@@ -24,20 +24,36 @@ Full design: [`SPEC.md`](SPEC.md)
 
 GW1–3 fully backfilled: 656 players, 20 clubs, 1,890 player-gameweek stat rows,
 54 manager-gameweek summaries, 810 picks, 16 autosubs, 36 transfers, 27 H2H
-matches, one current standings snapshot. All validators pass. Cross-checked
-`net_points` against every reported H2H match score (27 matches × 2 managers) —
-zero mismatches. Spot-checked against the Phase 1 archived payloads exactly.
-**Update 2026-09-12:** GW1–2 standings started as a full gap (the live endpoint
-only exposes current state) but `ingest.reconstruct_gap_standings` now fills
-in W/D/L, league points, and points for/against exactly from stored match
-data. Only `rank` stays genuinely unknown for those two gameweeks — FPL's H2H
-tiebreak rule for ties was never verified, so a rank number there would be
-guessed rather than computed. `standings_snapshots.source` distinguishes
-`fpl_h2h_endpoint` rows from `reconstructed` ones. See SPEC.md §11 and §13.
+matches. All validators pass. Cross-checked `net_points` against every
+reported H2H match score (27 matches × 2 managers) — zero mismatches.
+Spot-checked against the Phase 1 archived payloads exactly. GW1–2 standings
+started as a full gap (the live endpoint only exposes current state), but
+`ingest.reconstruct_gap_standings` fills in W/D/L, league points, and points
+for/against exactly from stored match data. Only `rank` stays genuinely
+unknown for those two gameweeks — FPL's H2H tiebreak rule for ties was never
+verified, so a rank number there would be guessed rather than computed.
+`standings_snapshots.source` distinguishes `fpl_h2h_endpoint` rows from
+`reconstructed` ones. See SPEC.md §11 and §13.
 
 `src/daily_sync.py` (Phase 4) proved idempotent over 3 consecutive runs — every
 data table byte-identical, only the append-only `raw_payloads`/`ingest_runs`
-logs grew. It is not yet wired to a scheduler (no GitHub Actions / cron), and
+logs grew. Once a gameweek's deadline passes but before FPL data-checks it,
+`daily_sync.py` also captures its squads/captains/live points immediately,
+closing what would otherwise be a real gap between "deadline passed" and
+"scored" (often several days): `raw_manager_gw`/`raw_manager_gw_picks`/
+`raw_player_gw_stats` are upserted with `is_final=0` for that gameweek and
+overwritten on every run until FPL data-checks it, guarded by a
+`WHERE ... is_final = 0` clause on the upsert itself so a genuinely final row
+can never be overwritten even if called incorrectly. My Team and Managers show
+such a gameweek with a red **LIVE** badge and nulled-out rank/efficiency
+(honestly unknown, not zero or guessed); History and League don't show it at
+all, since it isn't finalized standings/results. Verified against the real
+GW4 deadline (passed 12:30 UTC) — captured locked-in squads for all 18
+managers within the hour, correctly at 0 points since no matches had kicked
+off yet. A GitHub Actions workflow (`.github/workflows/daily.yml`) chains the
+full pipeline and is committed, but the repo isn't pushed to GitHub yet so it
+isn't running on a schedule — see "Git and CI" below.
+
 `src/calculate.py` (Phase 5) computes `derived_manager_gw` and
 `derived_manager_season` for every finalized gameweek — captain efficiency,
 XI efficiency, bench points, score rank/percentile. Two managers hand-verified
@@ -45,73 +61,48 @@ by independent reconstruction from raw tables, plus a live check against the
 FPL site itself (owner's GW3 captain points and bench points read directly off
 the site's pitch view, matching exactly). Tier 3–5 (luck, power rankings,
 projections) are deliberately left NULL — Phase 8's job. Close/blowout match
-counts are now computed with owner-set thresholds (close < 5pts, blowout >
-20pts). This repo
-is now under git (see below); GitHub Actions is configured but the repo isn't
-pushed anywhere yet.
+counts are computed with owner-set thresholds (close < 5pts, blowout > 20pts).
 
-`queries/` (Phase 6) now holds 10 named, parameterized SQL files for the
+`queries/` (Phase 6) holds 10 named, parameterized SQL files for the
 common questions — roster by gameweek, captains league-wide, H2H history and
 aggregate record between two managers, standings at a gameweek, season
 ledger, manager-skill summary, weekly extremes (winner/blowout/upset/luckiest/
 unluckiest), open data issues, and confidence-gate status. All vetted against
 live data with `src/vet_queries.py`. `src/recap.py` generates
-`reports/gw{N}.md` for every finalized gameweek.
+`reports/gw{N}.md` for every finalized gameweek, in the project's banter tone
+(CLAUDE.md §12) — punchy phrasing over the same stored numbers, nothing
+invented.
 
 `dashboard.html` (Phase 7) is a single self-contained file — open it directly,
-no server needed. Design choices (clean modern style, top tabs, locked-with-
-progress gated metrics) were the owner's explicit calls. Data is baked in at
-generation time rather than fetched, since a local `file://` page can't fetch
-a sibling JSON (see "Running Phase 7" below and SPEC.md §8). Verified in a
-real browser against a local preview server, not just by reading the
-generated HTML — caught and fixed a real active-tab/content mismatch bug in
-the League page during that check.
-
-**Update 2026-09-12:** added a **Managers** tab — a dropdown over all 18
-managers, each getting the exact same ledger/gameweek-history/roster/
-transfers view the owner sees on My Team (same rendering function, just
-parameterized instead of hardcoded). `digest.py` gained `manager_detail()`
-(the old owner-only query, generalized) and a `managers_detail` map covering
-everyone; `owner_block()` is now a thin wrapper over it, so My Team's output
-is unchanged. This roughly quadrupled `dashboard.html`'s size (~220KB) since
-every manager's picks/transfers are now embedded — still trivial for a local
-file. Verified with `node --check` on the extracted `<script>` block before
-opening it in a browser this time, to catch any repeat of the earlier
+no server needed, dark-glassmorphism styling (translucent blurred panels over
+a purple/amber gradient) per owner-supplied reference images. Data is baked in
+at generation time rather than fetched, since a local `file://` page can't
+fetch a sibling JSON (see "Running Phase 7" below and SPEC.md §8). It has six
+pages: Home, My Team, League, **Managers** (a dropdown over all 18 managers,
+each getting the exact same ledger/gameweek-history/roster/transfers view the
+owner sees on My Team, via the same rendering function parameterized instead
+of hardcoded — `digest.py`'s `manager_detail()` generalizes the old owner-only
+query into a `managers_detail` map, with `owner_block()` now a thin wrapper
+over it), Analytics, and History. Rosters everywhere render as an actual
+football pitch (`renderPitch()`) — formation rows, center circle, penalty
+boxes, bench below, with the player's real club badge on each chip instead of
+a plain position letter or a face photo (`pl_clubs.badge_code` plus a
+download-once-and-cache step in `digest.py`, `digest/.badge_cache/`,
+gitignored, embedding all 20 club crests as base64 — verified live against
+Premier League's badge CDN first, ~6.6KB per badge; no player photos
+anywhere). Every matchup row anywhere (Home, League, History) is clickable,
+opening a head-to-head modal: both teams' names, the score, an all-time
+record between them (computed client-side, no new digest data), captain/bench
+comparison chips justified to each side under the manager name, and both
+rosters side-by-side as pitches. Home also has a price-movers risers/fallers
+card (honestly gated as unavailable until a second `raw_player_snapshots`
+date exists) and an alerts card capped to the 5 most severe/recent
+`data_issues`, with a "+N more" note. Verified in a real browser against a
+local preview server, not just by reading the generated HTML — caught and
+fixed a real active-tab/content mismatch bug in the League page during that
+check, and always `node --check`ed the extracted `<script>` block before
+opening it in a browser, to catch any repeat of an earlier
 Python-string-escaping bug before it reached the page.
-
-**Update 2026-09-12:** once a gameweek's deadline passes, `daily_sync.py`
-now captures its squads/captains/live points immediately — previously the
-pipeline only ever touched a gameweek after FPL fully finalized it, which
-left a real gap between "deadline passed" and "scored" (often several days).
-`raw_manager_gw`/`raw_manager_gw_picks`/`raw_player_gw_stats` are upserted
-with `is_final=0` for this gameweek and overwritten on every run until FPL
-data-checks it — a `WHERE ... is_final = 0` guard on the upsert makes it
-impossible for a genuinely final row to ever be overwritten, so this can't
-regress a finalized week even if called incorrectly. My Team and Managers
-show this gameweek with a red **LIVE** badge and nulled-out rank/efficiency
-(honestly unknown, not zero or guessed); History and League don't show it at
-all, since it isn't finalized standings/results. Verified against the real
-GW4 deadline (passed 12:30 UTC) — captured locked-in squads for all 18
-managers within the hour, correctly at 0 points since no matches had
-kicked off yet.
-
-**Later 2026-09-12 updates:** the dashboard was restyled twice more to match
-owner-supplied reference images (dark glassmorphism — translucent blurred
-panels over a vivid purple/amber gradient, lime + lavender + coral accents).
-Rosters everywhere now render as an actual football pitch (`renderPitch()`)
-instead of a flat list — formation rows, center circle, penalty boxes,
-bench below. And every matchup row anywhere (Home, League, History) is
-clickable, opening a head-to-head modal: both teams' names, the score, an
-all-time record between them (computed client-side, no new digest data),
-captain/bench comparison, and both rosters side-by-side as pitches.
-
-Every pitch chip also shows the player's real club badge now (not a face
-photo — that was explicitly ruled out) instead of a plain position letter.
-`pl_clubs.badge_code` + a small download-once-and-cache step in `digest.py`
-(`digest/.badge_cache/`, gitignored) embed all 20 club crests as base64 —
-verified live against Premier League's badge CDN before building this,
-~6.6KB per badge. No player photos anywhere, and no other layout or content
-changed.
 
 ---
 
