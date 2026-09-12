@@ -200,6 +200,10 @@ tr:last-child td { border-bottom: none; }
 }
 .tabbtn-group button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .muted { color: var(--ink-soft); font-size: 12.5px; }
+.countdown { font-size: 30px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; margin: 4px 0 8px; font-variant-numeric: tabular-nums; }
+.stat-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
+.chip { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--card-2); border: 1px solid var(--border); color: var(--ink); }
+.divider { height: 1px; background: var(--border); margin: 18px 0 14px; }
 .footer { text-align: center; color: var(--ink-soft); font-size: 12px; padding: 20px; }
 """
 
@@ -262,20 +266,50 @@ function renderHome(root) {
   });
   grid2.appendChild(resultsCard);
 
-  const recapCard = el('div', 'card hero');
-  const recap = d.recaps[d.recaps.length - 1];
-  recapCard.appendChild(el('h2', null, recap ? `GW${recap.gw} highlights` : 'No recap yet'));
-  if (recap) {
-    let html = '';
-    if (recap.winner) html += `<p><b>Winner:</b> ${recap.winner.name} (${recap.winner.net_points} pts)</p>`;
-    if (recap.blowout) html += `<p><b>Biggest blowout:</b> ${recap.blowout.a} ${recap.blowout.score_a} - ${recap.blowout.score_b} ${recap.blowout.b}</p>`;
-    if (recap.upset) html += `<p><b>Biggest upset${recap.upset.thin_sample ? ' <span class="muted">(thin sample)</span>' : ''}:</b> ${recap.upset.winner} over ${recap.upset.loser}</p>`;
-    if (recap.unluckiest) html += `<p><b>Unluckiest:</b> ${recap.unluckiest.name} (${recap.unluckiest.net_points} pts, still lost)</p>`;
-    if (recap.luckiest) html += `<p><b>Luckiest:</b> ${recap.luckiest.name} (won with ${recap.luckiest.net_points} pts)</p>`;
-    recapCard.innerHTML += html;
+  const nextCard = el('div', 'card');
+  const o = d.owner;
+  const nextGw = d.gw_status.next_gw;
+  nextCard.appendChild(el('h2', null, nextGw ? `Next up — GW${nextGw}` : 'Season complete'));
+  if (nextGw && o) {
+    const opp = d.owner_next_opponent;
+    const lastGw = o.gw_history[o.gw_history.length - 1];
+    let html = `<div class="countdown" data-deadline="${d.gw_status.next_gw_deadline}">—</div>`;
+    if (opp) html += `<p class="muted">vs <b style="color:var(--ink)">${opp.name}</b> (${opp.team})</p>`;
+    html += `<div class="stat-chips">
+      <span class="chip">Rank #${o.rank ?? '—'}</span>
+      <span class="chip">${o.ledger.w}-${o.ledger.d}-${o.ledger.l}</span>
+      <span class="chip">${o.ledger.league_points} league pts</span>
+      ${lastGw ? `<span class="chip">Last week: ${lastGw.net_points} pts (rank ${lastGw.rank})</span>` : ''}
+    </div>
+    <div class="divider"></div>
+    <h3>Your squad — as of GW${o.latest_roster.gw}</h3>
+    <p class="muted" style="margin:0 0 10px">Transfers made before the GW${nextGw} deadline won't show here yet.</p>`;
+    nextCard.innerHTML += html;
+    o.latest_roster.players.forEach(p => {
+      nextCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
+        <span class="pill">${p.position}</span>
+        ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
+        <span style="flex:1">${p.name}</span>
+      `));
+    });
+  } else {
+    nextCard.innerHTML += '<p class="muted">No upcoming gameweek.</p>';
   }
-  grid2.appendChild(recapCard);
+  grid2.appendChild(nextCard);
   root.appendChild(grid2);
+}
+
+function updateCountdowns() {
+  document.querySelectorAll('[data-deadline]').forEach(node => {
+    const deadline = new Date(node.dataset.deadline).getTime();
+    const diff = deadline - Date.now();
+    if (!node.dataset.deadline || isNaN(deadline)) { node.textContent = '—'; return; }
+    if (diff <= 0) { node.textContent = 'Deadline passed'; return; }
+    const s = Math.floor(diff / 1000);
+    const days = Math.floor(s / 86400), hrs = Math.floor((s % 86400) / 3600),
+          mins = Math.floor((s % 3600) / 60), secs = s % 60;
+    node.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
+  });
 }
 
 function renderMyTeam(root) {
@@ -500,6 +534,8 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 
 renderHome(document.getElementById('page-home'));
 rendered.home = true;
+updateCountdowns();
+setInterval(updateCountdowns, 1000);
 """
 
 

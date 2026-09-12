@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T01:17:55.241954+00:00",
+  "generated_at": "2026-09-12T03:43:03.345831+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -14,7 +14,8 @@
       3
     ],
     "current_gw": 3,
-    "next_gw": 4
+    "next_gw": 4,
+    "next_gw_deadline": "2026-09-12T12:30:00Z"
   },
   "gates": {
     "luck_and_power_rankings": {
@@ -1020,6 +1021,7 @@
     "entry_id": 3023365,
     "display_name": "Luel Waktola",
     "team_name": "Midtable Crisis",
+    "rank": 16,
     "ledger": {
       "points_for": 170,
       "points_against": 174,
@@ -1229,6 +1231,10 @@
         "time": "2026-09-04T11:46:21.829498Z"
       }
     ]
+  },
+  "owner_next_opponent": {
+    "name": "Ryan Smith",
+    "team": "Big Cannon Energy"
   },
   "all_matchups_by_gw": {
     "1": [

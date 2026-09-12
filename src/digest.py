@@ -34,7 +34,16 @@ def gw_status(conn) -> dict:
     data_checked = [gw for gw, _f, dc in rows if dc]
     current = max(data_checked) if data_checked else None
     next_gw = (current + 1) if current and current < 38 else None
-    return {"data_checked_gws": data_checked, "current_gw": current, "next_gw": next_gw}
+    next_deadline = None
+    if next_gw:
+        row = conn.execute(
+            "SELECT deadline_utc FROM gameweeks WHERE season_id = 1 AND gw_id = ?", (next_gw,)
+        ).fetchone()
+        next_deadline = row[0] if row else None
+    return {
+        "data_checked_gws": data_checked, "current_gw": current, "next_gw": next_gw,
+        "next_gw_deadline": next_deadline,
+    }
 
 
 def gates(gws_played: int) -> dict:
@@ -214,6 +223,10 @@ def owner_block(conn, latest_gw: int) -> dict:
     owner = conn.execute("SELECT manager_id, entry_id, display_name FROM managers WHERE is_owner = 1").fetchone()
     mgr_id, entry_id, name = owner
     team = conn.execute("SELECT team_name FROM team_names WHERE manager_id = ?", (mgr_id,)).fetchone()[0]
+    rank_row = conn.execute(
+        "SELECT rank FROM standings_snapshots WHERE manager_id = ? AND gw_id = ?", (mgr_id, latest_gw)
+    ).fetchone()
+    rank = rank_row[0] if rank_row else None
 
     ledger = conn.execute(
         """
@@ -260,7 +273,7 @@ def owner_block(conn, latest_gw: int) -> dict:
     ).fetchall()
 
     return {
-        "manager_id": mgr_id, "entry_id": entry_id, "display_name": name, "team_name": team,
+        "manager_id": mgr_id, "entry_id": entry_id, "display_name": name, "team_name": team, "rank": rank,
         "ledger": {
             "points_for": ledger[0], "points_against": ledger[1],
             "avg_pf": round(ledger[2], 1), "avg_pa": round(ledger[3], 1),
@@ -294,10 +307,22 @@ def owner_block(conn, latest_gw: int) -> dict:
     }
 
 
+def owner_next_fixture(upcoming_matches: list[dict], owner_name: str) -> dict | None:
+    for m in upcoming_matches:
+        if m["a"]["name"] == owner_name:
+            return m["b"]
+        if m["b"]["name"] == owner_name:
+            return m["a"]
+    return None
+
+
 def build_digest() -> dict:
     conn = ingest.connect()
     status = gw_status(conn)
     latest = status["current_gw"]
+
+    owner_blk = owner_block(conn, latest) if latest else None
+    upcoming_matches = fixtures_for_gw(conn, status["next_gw"])
 
     d = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -306,13 +331,14 @@ def build_digest() -> dict:
         "gates": gates(latest or 0),
         "standings": standings(conn, latest) if latest else [],
         "standings_gw": latest,
-        "upcoming_fixtures": {"gw": status["next_gw"], "matches": fixtures_for_gw(conn, status["next_gw"])},
+        "upcoming_fixtures": {"gw": status["next_gw"], "matches": upcoming_matches},
         "last_results": {"gw": latest, "matches": results_for_gw(conn, latest)} if latest else None,
         "alerts": alerts(conn),
         "managers": all_managers(conn),
         "leaderboard": leaderboard(conn, latest) if latest else [],
         "recaps": [gw_recap_summary(conn, gw) for gw in status["data_checked_gws"]],
-        "owner": owner_block(conn, latest) if latest else None,
+        "owner": owner_blk,
+        "owner_next_opponent": owner_next_fixture(upcoming_matches, owner_blk["display_name"]) if owner_blk else None,
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
     }
     conn.close()
