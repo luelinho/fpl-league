@@ -38,8 +38,9 @@ XI efficiency, bench points, score rank/percentile. Two managers hand-verified
 by independent reconstruction from raw tables, plus a live check against the
 FPL site itself (owner's GW3 captain points and bench points read directly off
 the site's pitch view, matching exactly). Tier 3–5 (luck, power rankings,
-projections) and the close/blowout match-margin thresholds are deliberately
-left NULL — Phase 8's job, and an undefined threshold respectively. This repo
+projections) are deliberately left NULL — Phase 8's job. Close/blowout match
+counts are now computed with owner-set thresholds (close < 5pts, blowout >
+20pts). This repo
 is now under git (see below); GitHub Actions is configured but the repo isn't
 pushed anywhere yet. Next up is Phase 6: the Claude query interface.
 
