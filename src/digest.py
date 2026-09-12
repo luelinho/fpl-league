@@ -374,7 +374,7 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
     # GW1 roster's ownership figure is never mistaken for what it was in GW1.
     all_picks = conn.execute(
         """
-        SELECT p.gw_id, pl.web_name, pl.position, pl.club_id, p.slot, p.is_starter, p.is_captain, p.is_vice,
+        SELECT p.gw_id, p.player_id, pl.web_name, pl.position, pl.club_id, p.slot, p.is_starter, p.is_captain, p.is_vice,
                p.multiplier, s.total_points, s.minutes,
                (SELECT rs.selected_by FROM raw_player_snapshots rs
                 WHERE rs.season_id = p.season_id AND rs.player_id = p.player_id
@@ -389,11 +389,13 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
         """, (mgr_id,),
     ).fetchall()
     rosters_by_gw: dict[int, list[dict]] = {}
-    for gw, name_, pos, club_id, slot, starter, cap, vice, mult, pts, mins, owned, frm in all_picks:
+    for gw, player_id, name_, pos, club_id, slot, starter, cap, vice, mult, pts, mins, owned, frm in all_picks:
         rosters_by_gw.setdefault(gw, []).append({
-            "name": name_, "position": pos, "club_id": club_id, "slot": slot, "is_starter": bool(starter),
+            "player_id": player_id, "name": name_, "position": pos, "club_id": club_id, "slot": slot,
+            "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
             "minutes": mins, "owned_pct": owned, "form": frm,
+            "gw": gw, "owner_manager_id": mgr_id,
         })
     # The most recent gameweek with ANY picks — final or provisional — not
     # necessarily latest_gw (the newest FINALIZED one). Once a gameweek's

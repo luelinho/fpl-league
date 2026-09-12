@@ -280,14 +280,14 @@ tr:last-child td { border-bottom: none; }
 .player-chip.bench .player-pts { background: transparent; color: var(--ink-soft); }
 .player-chip { cursor: pointer; }
 .player-tooltip {
-  position: fixed; z-index: 300; pointer-events: none; max-width: 220px;
+  position: fixed; z-index: 300; pointer-events: none; max-width: 240px;
   background: #16121e; border: 1px solid var(--border); border-radius: 10px;
   padding: 8px 12px; box-shadow: var(--shadow); opacity: 0; transform: translateY(4px);
   transition: opacity 0.12s ease, transform 0.12s ease;
 }
 .player-tooltip.visible { opacity: 1; transform: translateY(0); }
 .player-tooltip .pt-name { font-size: 12.5px; font-weight: 700; color: var(--ink); white-space: nowrap; }
-.player-tooltip .pt-meta { font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; white-space: nowrap; }
+.player-tooltip .pt-meta { font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; line-height: 1.4; }
 .bench-strip { margin-top: 14px; }
 .bench-strip h3 { margin-bottom: 10px; }
 .tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -374,13 +374,33 @@ function ensurePlayerTooltip() {
   return playerTooltipEl;
 }
 
+function leagueOwnersOf(gw, playerId, excludeManagerId) {
+  const owners = [];
+  Object.values(DIGEST.managers_detail).forEach(m => {
+    if (m.manager_id === excludeManagerId) return;
+    const roster = m.rosters_by_gw && m.rosters_by_gw[gw];
+    if (roster && roster.some(pl => pl.player_id === playerId)) owners.push(m.display_name);
+  });
+  return owners;
+}
+
 function showPlayerTooltip(chip, p) {
   const t = ensurePlayerTooltip();
   const owned = p.owned_pct !== null && p.owned_pct !== undefined ? `${p.owned_pct.toFixed(1)}% owned` : 'ownership unavailable';
   const form = p.form !== null && p.form !== undefined ? `Form ${p.form.toFixed(1)}` : null;
+  let leagueLine = '';
+  if (p.gw !== undefined && p.player_id !== undefined) {
+    const others = leagueOwnersOf(p.gw, p.player_id, p.owner_manager_id);
+    leagueLine = others.length === 0
+      ? 'Not owned by anyone else in the league'
+      : others.length <= 5
+        ? `Also owned by: ${others.join(', ')}`
+        : `Also owned by ${others.length} others in the league`;
+  }
   t.innerHTML = `
     <div class="pt-name">${p.name}</div>
     <div class="pt-meta">${p.position} · ${owned}${form ? ' · ' + form : ''} <span style="opacity:.6">(current)</span></div>
+    ${leagueLine ? `<div class="pt-meta">${leagueLine}</div>` : ''}
   `;
   t.classList.add('visible');
   const rect = chip.getBoundingClientRect();
