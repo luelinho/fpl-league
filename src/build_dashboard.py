@@ -273,8 +273,9 @@ function renderHome(root) {
   if (nextGw && o) {
     const opp = d.owner_next_opponent;
     const lastGw = o.gw_history[o.gw_history.length - 1];
-    let html = `<div class="countdown" data-deadline="${d.gw_status.next_gw_deadline}">—</div>`;
-    if (opp) html += `<p class="muted">vs <b style="color:var(--ink)">${opp.name}</b> (${opp.team})</p>`;
+    let html = `<div class="countdown" data-deadline="${d.gw_status.next_gw_deadline}">—</div>
+      <p class="muted" style="margin:0 0 10px">Deadline: ${formatDeadline(d.gw_status.next_gw_deadline)}</p>`;
+    if (opp) html += `<p class="muted"><b style="color:var(--ink)">${o.team_name}</b> vs <b style="color:var(--ink)">${opp.name}</b> (${opp.team})</p>`;
     html += `<div class="stat-chips">
       <span class="chip">Rank #${o.rank ?? '—'}</span>
       <span class="chip">${o.ledger.w}-${o.ledger.d}-${o.ledger.l}</span>
@@ -299,12 +300,22 @@ function renderHome(root) {
   root.appendChild(grid2);
 }
 
+function formatDeadline(iso) {
+  if (!iso) return '—';
+  const dt = new Date(iso);
+  if (isNaN(dt.getTime())) return '—';
+  return dt.toLocaleString('en-US', {
+    month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
+    timeZone: 'UTC', timeZoneName: 'short',
+  });
+}
+
 function updateCountdowns() {
   document.querySelectorAll('[data-deadline]').forEach(node => {
     const deadline = new Date(node.dataset.deadline).getTime();
     const diff = deadline - Date.now();
     if (!node.dataset.deadline || isNaN(deadline)) { node.textContent = '—'; return; }
-    if (diff <= 0) { node.textContent = 'Deadline passed'; return; }
+    if (diff <= 0) { node.textContent = 'Deadline passed — squad locked in'; return; }
     const s = Math.floor(diff / 1000);
     const days = Math.floor(s / 86400), hrs = Math.floor((s % 86400) / 3600),
           mins = Math.floor((s % 3600) / 60), secs = s % 60;
