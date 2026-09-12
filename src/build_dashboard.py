@@ -276,7 +276,8 @@ function renderHome(root) {
   nextCard.appendChild(el('h2', null, nextGw ? `Next up — GW${nextGw}` : 'Season complete'));
   if (nextGw && o) {
     const opp = d.owner_next_opponent;
-    const lastGw = o.gw_history[o.gw_history.length - 1];
+    const lastFinalGw = [...o.gw_history].reverse().find(g => g.is_final);
+    const squadIsForNextGw = o.latest_roster.gw === nextGw;
     let html = `<div class="countdown" data-deadline="${d.gw_status.next_gw_deadline}">—</div>
       <p class="muted" style="margin:0 0 10px">Deadline: ${formatDeadline(d.gw_status.next_gw_deadline)}</p>`;
     if (opp) html += `<p class="muted"><b style="color:var(--ink)">${o.team_name}</b> vs <b style="color:var(--ink)">${opp.name}</b> (${opp.team})</p>`;
@@ -284,11 +285,13 @@ function renderHome(root) {
       <span class="chip">Rank #${o.rank ?? '—'}</span>
       <span class="chip">${o.ledger.w}-${o.ledger.d}-${o.ledger.l}</span>
       <span class="chip">${o.ledger.league_points} league pts</span>
-      ${lastGw ? `<span class="chip">Last week: ${lastGw.net_points} pts (rank ${lastGw.rank})</span>` : ''}
+      ${lastFinalGw ? `<span class="chip">Last week: ${lastFinalGw.net_points} pts (rank ${lastFinalGw.rank})</span>` : ''}
     </div>
     <div class="divider"></div>
-    <h3>Your squad — as of GW${o.latest_roster.gw}</h3>
-    <p class="muted" style="margin:0 0 10px">Transfers made before the GW${nextGw} deadline won't show here yet.</p>`;
+    <h3>Your squad — GW${o.latest_roster.gw}${squadIsForNextGw ? ' <span class="badge badge-l">LIVE</span>' : ''}</h3>
+    <p class="muted" style="margin:0 0 10px">${squadIsForNextGw
+      ? 'Locked in — not yet scored. Points fill in as matches are played.'
+      : `Transfers made before the GW${nextGw} deadline won't show here yet.`}</p>`;
     nextCard.innerHTML += html;
     o.latest_roster.players.forEach(p => {
       nextCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
@@ -350,8 +353,8 @@ function renderManagerCards(root, o) {
   histCard.appendChild(el('h2', null, 'Gameweek history'));
   histCard.appendChild(el('p', 'muted', 'Click a row to see the roster and transfers for that gameweek below.'));
   let rows = o.gw_history.map(g => `
-    <tr class="clickable-row" data-gw="${g.gw}"><td>GW${g.gw}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
-    <td>${g.rank}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
+    <tr class="clickable-row" data-gw="${g.gw}"><td>GW${g.gw}${g.is_final ? '' : ' <span class="badge badge-l">LIVE</span>'}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
+    <td>${g.rank ?? '—'}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
     <td>${fmtPct(g.captain_efficiency_pct)}</td><td>${fmtPct(g.xi_efficiency_pct)}</td></tr>`).join('');
   histCard.innerHTML += `<table><thead><tr><th>GW</th><th>Net</th><th>Rank</th><th>Bench</th><th>Chip</th><th>Cap Eff</th><th>XI Eff</th></tr></thead><tbody>${rows}</tbody></table>`;
   root.appendChild(histCard);
@@ -366,7 +369,12 @@ function renderManagerCards(root, o) {
     const roster = o.rosters_by_gw[gw] || [];
 
     rosterCard.innerHTML = '';
-    rosterCard.appendChild(el('h2', null, `Roster — GW${gw}${g ? ` (${g.net_points} pts, rank ${g.rank})` : ''}`));
+    const liveBadge = g && !g.is_final ? ' <span class="badge badge-l">LIVE</span>' : '';
+    rosterCard.appendChild(el('h2', null,
+      `Roster — GW${gw}${g ? ` (${g.net_points} pts${g.rank ? `, rank ${g.rank}` : ''})` : ''}${liveBadge}`));
+    if (g && !g.is_final) {
+      rosterCard.appendChild(el('p', 'muted', 'Squad locked in — not yet scored. Points update once matches are played; rank/efficiency unlock once FPL finalizes this gameweek.'));
+    }
     if (g) {
       rosterCard.appendChild(el('div', 'stat-chips', `
         <span class="chip">Gross ${g.gross_points}${g.hit_cost ? ` (-${g.hit_cost})` : ''}</span>

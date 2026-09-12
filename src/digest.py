@@ -246,12 +246,17 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
         "WHERE manager_id = ? AND through_gw = ?", (mgr_id, latest_gw),
     ).fetchone()
 
+    # LEFT JOIN, not JOIN: a provisional (is_final=0) gameweek has a
+    # raw_manager_gw row but no derived_manager_gw row yet (Phase 5's
+    # calculate.py only processes data-checked gameweeks) — score_rank/
+    # captain_efficiency/xi_efficiency are genuinely unknown for it, not
+    # values we failed to compute, so they come back NULL rather than absent.
     gw_history = conn.execute(
         """
         SELECT rmg.gw_id, rmg.net_points, rmg.gross_points, rmg.hit_cost, rmg.bench_points,
-               rmg.chip_played, dg.score_rank, dg.captain_efficiency, dg.xi_efficiency
+               rmg.chip_played, dg.score_rank, dg.captain_efficiency, dg.xi_efficiency, rmg.is_final
         FROM raw_manager_gw rmg
-        JOIN derived_manager_gw dg ON dg.manager_id = rmg.manager_id AND dg.gw_id = rmg.gw_id
+        LEFT JOIN derived_manager_gw dg ON dg.manager_id = rmg.manager_id AND dg.gw_id = rmg.gw_id
         WHERE rmg.manager_id = ? ORDER BY rmg.gw_id
         """, (mgr_id,),
     ).fetchall()
@@ -272,11 +277,11 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
             "name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
             "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
         })
-    latest_roster = [
-        {"name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
-         "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts}
-        for gw, name_, pos, slot, starter, cap, vice, mult, pts in all_picks if gw == latest_gw
-    ]
+    # The most recent gameweek with ANY picks — final or provisional — not
+    # necessarily latest_gw (the newest FINALIZED one). Once a gameweek's
+    # deadline passes we have real picks for it well before it's data-checked.
+    newest_gw_with_picks = max(rosters_by_gw.keys()) if rosters_by_gw else latest_gw
+    latest_roster = rosters_by_gw.get(newest_gw_with_picks, [])
 
     transfers = conn.execute(
         """
@@ -305,10 +310,14 @@ def manager_detail(conn, mgr_id: int, latest_gw: int) -> dict:
             {"gw": gw, "net_points": net, "gross_points": gross, "hit_cost": hits, "bench_points": bench,
              "chip": chip, "rank": rank,
              "captain_efficiency_pct": round(ce * 100, 1) if ce is not None else None,
-             "xi_efficiency_pct": round(xe * 100, 1) if xe is not None else None}
-            for gw, net, gross, hits, bench, chip, rank, ce, xe in gw_history
+             "xi_efficiency_pct": round(xe * 100, 1) if xe is not None else None,
+             "is_final": bool(is_final)}
+            for gw, net, gross, hits, bench, chip, rank, ce, xe, is_final in gw_history
         ],
-        "latest_roster": {"gw": latest_gw, "players": latest_roster},
+        "latest_roster": {
+            "gw": newest_gw_with_picks, "players": latest_roster,
+            "is_final": newest_gw_with_picks <= latest_gw,
+        },
         "rosters_by_gw": {str(gw): players for gw, players in rosters_by_gw.items()},
         "transfers": [
             {"gw": gw, "player_in": pin, "player_out": pout, "time": t}

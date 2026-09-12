@@ -143,8 +143,16 @@ COL_RENAME = {"goals_scored": "goals", "penalties_saved": "pens_saved",
               "penalties_missed": "pens_missed"}
 
 
-def load_player_gw_stats(conn: sqlite3.Connection, client: FPLClient, gw: int) -> dict[int, int]:
-    """Returns {player_id: total_points} for this gameweek, for use in pick scoring."""
+def load_player_gw_stats(conn: sqlite3.Connection, client: FPLClient, gw: int,
+                          is_final: bool = True) -> dict[int, int]:
+    """Returns {player_id: total_points} for this gameweek, for use in pick scoring.
+
+    is_final=False writes a provisional row (live, incomplete score) that gets
+    overwritten on every later call — for a gameweek whose deadline has passed
+    but that FPL hasn't data-checked yet. Once a row is written is_final=1, it
+    is never touched again (CLAUDE.md rule 5) — the WHERE clause on the
+    upsert enforces this at the database level, not just in application logic.
+    """
     res = client.get(f"event/{gw}/live/")
     if not res.ok:
         raise RuntimeError(f"event/{gw}/live/ failed: {res.summary()}")
@@ -155,6 +163,7 @@ def load_player_gw_stats(conn: sqlite3.Connection, client: FPLClient, gw: int) -
     db_cols = [COL_RENAME.get(c, c) for c in STAT_COLS]
     col_list = ", ".join(db_cols)
     placeholders = ", ".join("?" for _ in db_cols)
+    update_clause = ", ".join(f"{c} = excluded.{c}" for c in db_cols)
 
     for el in body.get("elements", []):
         pid = el["id"]
@@ -165,13 +174,17 @@ def load_player_gw_stats(conn: sqlite3.Connection, client: FPLClient, gw: int) -
             f"""
             INSERT INTO raw_player_gw_stats
                 (season_id, gw_id, player_id, {col_list}, total_points, is_final, source, fetched_at)
-            VALUES (1, ?, ?, {placeholders}, ?, 1, 'event_live', ?)
-            ON CONFLICT (season_id, gw_id, player_id) DO NOTHING
+            VALUES (1, ?, ?, {placeholders}, ?, ?, 'event_live', ?)
+            ON CONFLICT (season_id, gw_id, player_id) DO UPDATE SET
+                {update_clause}, total_points = excluded.total_points, is_final = excluded.is_final,
+                fetched_at = excluded.fetched_at
+            WHERE raw_player_gw_stats.is_final = 0
             """,
-            (gw, pid, *values, stats.get("total_points", 0), now()),
+            (gw, pid, *values, stats.get("total_points", 0), int(is_final), now()),
         )
     conn.commit()
-    print(f"  GW{gw}: {len(body.get('elements', []))} player-stat rows")
+    label = "final" if is_final else "provisional"
+    print(f"  GW{gw}: {len(body.get('elements', []))} player-stat rows ({label})")
     return points_by_player
 
 
@@ -179,8 +192,14 @@ def load_player_gw_stats(conn: sqlite3.Connection, client: FPLClient, gw: int) -
 
 def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
                      manager_id: int, entry_id: int,
-                     player_points: dict[int, int]) -> Optional[int]:
-    """Returns net_points stored, or None on failure. Also inserts picks/autosubs."""
+                     player_points: dict[int, int], is_final: bool = True) -> Optional[int]:
+    """Returns net_points stored, or None on failure. Also inserts picks/autosubs.
+
+    is_final=False is for a gameweek whose deadline has passed but that FPL
+    hasn't data-checked yet: gross_points is FPL's own live, still-changing
+    total, not an estimate we made up. Every write here is upsert-until-final,
+    same pattern as load_player_gw_stats — once is_final=1, never touched again.
+    """
     res = client.get(f"entry/{entry_id}/event/{gw}/picks/")
     if not res.ok:
         log_issue(conn, "error", "picks_fetch",
@@ -207,12 +226,19 @@ def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
         INSERT INTO raw_manager_gw
             (season_id, gw_id, manager_id, gross_points, hit_cost, net_points, bench_points,
              transfers_made, chip_played, squad_value, bank, overall_rank, is_final, source, fetched_at)
-        VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 'fpl_picks_endpoint', ?)
-        ON CONFLICT (season_id, gw_id, manager_id) DO NOTHING
+        VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'fpl_picks_endpoint', ?)
+        ON CONFLICT (season_id, gw_id, manager_id) DO UPDATE SET
+            gross_points = excluded.gross_points, hit_cost = excluded.hit_cost,
+            net_points = excluded.net_points, bench_points = excluded.bench_points,
+            transfers_made = excluded.transfers_made, chip_played = excluded.chip_played,
+            squad_value = excluded.squad_value, bank = excluded.bank,
+            overall_rank = excluded.overall_rank, is_final = excluded.is_final,
+            fetched_at = excluded.fetched_at
+        WHERE raw_manager_gw.is_final = 0
         """,
         (gw, manager_id, gross_points, hit_cost, net_points, eh.get("points_on_bench", 0),
          eh.get("event_transfers", 0), active_chip, eh.get("value"), eh.get("bank"),
-         eh.get("overall_rank"), now()),
+         eh.get("overall_rank"), int(is_final), now()),
     )
 
     subbed_out = {a.get("element_out") for a in autosubs if a.get("element_out") is not None}
@@ -229,11 +255,16 @@ def load_manager_gw(conn: sqlite3.Connection, client: FPLClient, gw: int,
             INSERT INTO raw_manager_gw_picks
                 (season_id, gw_id, manager_id, player_id, slot, is_starter, is_captain, is_vice,
                  multiplier, points_scored, is_final, fetched_at)
-            VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?)
-            ON CONFLICT (season_id, gw_id, manager_id, player_id) DO NOTHING
+            VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT (season_id, gw_id, manager_id, player_id) DO UPDATE SET
+                slot = excluded.slot, is_starter = excluded.is_starter,
+                is_captain = excluded.is_captain, is_vice = excluded.is_vice,
+                multiplier = excluded.multiplier, points_scored = excluded.points_scored,
+                is_final = excluded.is_final, fetched_at = excluded.fetched_at
+            WHERE raw_manager_gw_picks.is_final = 0
             """,
             (gw, manager_id, pid, slot, int(is_starter), int(pick["is_captain"]),
-             int(pick["is_vice_captain"]), multiplier, pts, now()),
+             int(pick["is_vice_captain"]), multiplier, pts, int(is_final), now()),
         )
 
     for a in autosubs:

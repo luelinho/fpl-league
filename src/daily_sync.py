@@ -14,11 +14,16 @@ Steps (SPEC.md §6), and their status here:
   4. Fetch H2H matches + standings; cross-check against our own scores — done
   5. Write standings snapshot — done (current gameweek only; see ingest.py)
   6. Run validators — done
-  7. Recompute derived tables for affected gameweeks — NOT YET: Phase 5 doesn't
-     exist yet. Logged, not silently skipped.
-  8. Regenerate recap/digest for newly finalized gameweeks — NOT YET: Phase 6/7
-     don't exist yet. Logged, not silently skipped.
+  7. Recompute derived tables for affected gameweeks — run manually via
+     src/calculate.py (Phase 5), not yet auto-triggered from here
+  8. Regenerate recap/digest for newly finalized gameweeks — run manually via
+     src/recap.py / src/digest.py / src/build_dashboard.py (Phase 6/7), not
+     yet auto-triggered from here
   9. Log the run — done
+
+Also captures a provisional (is_final=0) snapshot of the *next* gameweek once
+its deadline has passed but before FPL has data-checked it: squads, captains,
+and live/incomplete points, overwritten on every run until finalized.
 
 Usage:
     python -m src.daily_sync
@@ -27,9 +32,20 @@ Usage:
 from __future__ import annotations
 
 import sys
+from datetime import datetime, timezone
 
 from . import config, ingest
 from .fpl_client import FPLClient
+
+
+def deadline_has_passed(conn, gw: int) -> bool:
+    row = conn.execute(
+        "SELECT deadline_utc FROM gameweeks WHERE season_id = 1 AND gw_id = ?", (gw,)
+    ).fetchone()
+    if not row or not row[0]:
+        return False
+    deadline = datetime.fromisoformat(row[0].replace("Z", "+00:00"))
+    return deadline < datetime.now(timezone.utc)
 
 
 def incomplete_gameweeks(conn, data_checked_gws: list[int]) -> list[int]:
@@ -83,6 +99,20 @@ def run() -> int:
     else:
         print("\nNo new data-checked gameweeks since last run — nothing to ingest.")
 
+    # The first gameweek we haven't finalized yet — NOT ref["next_gw"], which
+    # is FPL's own is_next flag and can point further ahead (e.g. once GW4 is
+    # underway, FPL considers GW4 "current" and GW5 "next", but GW4 is what we
+    # still need a provisional snapshot of).
+    next_gw = max(data_checked_gws) + 1 if data_checked_gws and max(data_checked_gws) < 38 else None
+    if next_gw and deadline_has_passed(conn, next_gw):
+        print(f"\nGW{next_gw} deadline has passed — capturing provisional squads and live points "
+              f"(is_final=0; overwritten on every run until FPL data-checks this gameweek)")
+        player_points = ingest.load_player_gw_stats(conn, client, next_gw, is_final=False)
+        for mgr_id, entry_id in managers:
+            ingest.load_manager_gw(conn, client, next_gw, mgr_id, entry_id, player_points, is_final=False)
+        conn.commit()
+        print(f"  Captured provisional GW{next_gw} for all {len(managers)} managers.")
+
     ingest.load_h2h_matches(conn, client, entry_to_manager, data_checked_gws)
     ingest.cross_check_h2h(conn, data_checked_gws)
     ingest.load_current_standings_snapshot(conn, client, entry_to_manager, max(data_checked_gws))
@@ -90,8 +120,9 @@ def run() -> int:
 
     problems = ingest.run_validators(conn, data_checked_gws)
 
-    print("\nDerived-table recompute: not run — Phase 5 (analytics) does not exist yet.")
-    print("Recap/digest regeneration: not run — Phase 6/7 do not exist yet.")
+    print("\nDerived-table recompute and recap/digest regeneration are not auto-triggered "
+          "from here yet — run src/calculate.py, src/recap.py, src/digest.py, and "
+          "src/build_dashboard.py manually after this completes.")
 
     status = "success" if not problems else "partial"
     ingest.log_run(conn, "daily_sync", status, client.request_count)

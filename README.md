@@ -79,6 +79,22 @@ file. Verified with `node --check` on the extracted `<script>` block before
 opening it in a browser this time, to catch any repeat of the earlier
 Python-string-escaping bug before it reached the page.
 
+**Update 2026-09-12:** once a gameweek's deadline passes, `daily_sync.py`
+now captures its squads/captains/live points immediately — previously the
+pipeline only ever touched a gameweek after FPL fully finalized it, which
+left a real gap between "deadline passed" and "scored" (often several days).
+`raw_manager_gw`/`raw_manager_gw_picks`/`raw_player_gw_stats` are upserted
+with `is_final=0` for this gameweek and overwritten on every run until FPL
+data-checks it — a `WHERE ... is_final = 0` guard on the upsert makes it
+impossible for a genuinely final row to ever be overwritten, so this can't
+regress a finalized week even if called incorrectly. My Team and Managers
+show this gameweek with a red **LIVE** badge and nulled-out rank/efficiency
+(honestly unknown, not zero or guessed); History and League don't show it at
+all, since it isn't finalized standings/results. Verified against the real
+GW4 deadline (passed 12:30 UTC) — captured locked-in squads for all 18
+managers within the hour, correctly at 0 points since no matches had
+kicked off yet.
+
 ---
 
 ## Setup

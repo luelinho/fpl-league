@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T13:38:11.661681+00:00",
+  "generated_at": "2026-09-12T13:51:43.061169+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -1070,7 +1070,8 @@
         "chip": null,
         "rank": 17,
         "captain_efficiency_pct": 25.0,
-        "xi_efficiency_pct": 88.2
+        "xi_efficiency_pct": 88.2,
+        "is_final": true
       },
       {
         "gw": 2,
@@ -1081,7 +1082,8 @@
         "chip": null,
         "rank": 16,
         "captain_efficiency_pct": 100.0,
-        "xi_efficiency_pct": 89.2
+        "xi_efficiency_pct": 89.2,
+        "is_final": true
       },
       {
         "gw": 3,
@@ -1092,11 +1094,24 @@
         "chip": "3xc",
         "rank": 2,
         "captain_efficiency_pct": 60.0,
-        "xi_efficiency_pct": 72.1
+        "xi_efficiency_pct": 72.1,
+        "is_final": true
+      },
+      {
+        "gw": 4,
+        "net_points": 0,
+        "gross_points": 0,
+        "hit_cost": 0,
+        "bench_points": 0,
+        "chip": null,
+        "rank": null,
+        "captain_efficiency_pct": null,
+        "xi_efficiency_pct": null,
+        "is_final": false
       }
     ],
     "latest_roster": {
-      "gw": 3,
+      "gw": 4,
       "players": [
         {
           "name": "Lammens",
@@ -1105,34 +1120,34 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 2
+          "raw_points": 0
         },
         {
-          "name": "Shaw",
+          "name": "Virgil",
           "position": "DEF",
           "slot": 2,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 4
+          "raw_points": 0
         },
         {
-          "name": "Virgil",
+          "name": "Konsa",
           "position": "DEF",
           "slot": 3,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 6
+          "raw_points": 0
         },
         {
-          "name": "Konsa",
+          "name": "Van Hecke",
           "position": "DEF",
           "slot": 4,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 4
+          "raw_points": 0
         },
         {
           "name": "Mbeumo",
@@ -1141,7 +1156,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 8
+          "raw_points": 0
         },
         {
           "name": "Rogers",
@@ -1150,7 +1165,7 @@
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 6
+          "raw_points": 0
         },
         {
           "name": "Szoboszlai",
@@ -1159,25 +1174,25 @@
           "is_starter": true,
           "armband": "VC",
           "multiplier": 1,
-          "raw_points": 3
+          "raw_points": 0
         },
         {
-          "name": "Cherki",
+          "name": "Gibbs-White",
           "position": "MID",
           "slot": 8,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 3
+          "raw_points": 0
         },
         {
-          "name": "Gibbs-White",
+          "name": "Cherki",
           "position": "MID",
           "slot": 9,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 3
+          "raw_points": 0
         },
         {
           "name": "Haaland",
@@ -1185,17 +1200,17 @@
           "slot": 10,
           "is_starter": true,
           "armband": "C",
-          "multiplier": 3,
-          "raw_points": 9
+          "multiplier": 2,
+          "raw_points": 0
         },
         {
-          "name": "Wissa",
+          "name": "Calvert-Lewin",
           "position": "FWD",
           "slot": 11,
           "is_starter": true,
           "armband": "",
           "multiplier": 1,
-          "raw_points": 1
+          "raw_points": 0
         },
         {
           "name": "Dubravka",
@@ -1207,33 +1222,34 @@
           "raw_points": 0
         },
         {
-          "name": "Calvert-Lewin",
-          "position": "FWD",
+          "name": "Mitchell",
+          "position": "DEF",
           "slot": 13,
           "is_starter": false,
           "armband": "",
           "multiplier": 0,
-          "raw_points": 1
+          "raw_points": 0
         },
         {
-          "name": "Mitchell",
-          "position": "DEF",
+          "name": "Wissa",
+          "position": "FWD",
           "slot": 14,
           "is_starter": false,
           "armband": "",
           "multiplier": 0,
-          "raw_points": 15
+          "raw_points": 0
         },
         {
-          "name": "Van Hecke",
+          "name": "Shaw",
           "position": "DEF",
           "slot": 15,
           "is_starter": false,
           "armband": "",
           "multiplier": 0,
-          "raw_points": 8
+          "raw_points": 0
         }
-      ]
+      ],
+      "is_final": false
     },
     "rosters_by_gw": {
       "1": [
@@ -1646,6 +1662,143 @@
           "multiplier": 0,
           "raw_points": 8
         }
+      ],
+      "4": [
+        {
+          "name": "Lammens",
+          "position": "GKP",
+          "slot": 1,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Virgil",
+          "position": "DEF",
+          "slot": 2,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Konsa",
+          "position": "DEF",
+          "slot": 3,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Van Hecke",
+          "position": "DEF",
+          "slot": 4,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Mbeumo",
+          "position": "MID",
+          "slot": 5,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Rogers",
+          "position": "MID",
+          "slot": 6,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Szoboszlai",
+          "position": "MID",
+          "slot": 7,
+          "is_starter": true,
+          "armband": "VC",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Gibbs-White",
+          "position": "MID",
+          "slot": 8,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Cherki",
+          "position": "MID",
+          "slot": 9,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Haaland",
+          "position": "FWD",
+          "slot": 10,
+          "is_starter": true,
+          "armband": "C",
+          "multiplier": 2,
+          "raw_points": 0
+        },
+        {
+          "name": "Calvert-Lewin",
+          "position": "FWD",
+          "slot": 11,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 0
+        },
+        {
+          "name": "Dubravka",
+          "position": "GKP",
+          "slot": 12,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Mitchell",
+          "position": "DEF",
+          "slot": 13,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Wissa",
+          "position": "FWD",
+          "slot": 14,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Shaw",
+          "position": "DEF",
+          "slot": 15,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        }
       ]
     },
     "transfers": [
@@ -1704,7 +1857,8 @@
           "chip": "bboost",
           "rank": 3,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 85.0
+          "xi_efficiency_pct": 85.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -1715,7 +1869,8 @@
           "chip": null,
           "rank": 10,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 83.0
+          "xi_efficiency_pct": 83.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -1726,11 +1881,24 @@
           "chip": "3xc",
           "rank": 6,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 81.4
+          "xi_efficiency_pct": 81.4,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Verbruggen",
@@ -1739,16 +1907,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Maguire",
+            "name": "Muharemovi\u0107",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gabriel",
@@ -1757,7 +1925,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -1766,7 +1934,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Wirtz",
@@ -1775,7 +1943,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Gibbs-White",
@@ -1784,7 +1952,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -1793,16 +1961,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Gro\u00df",
             "position": "MID",
             "slot": 8,
             "is_starter": true,
-            "armband": "VC",
+            "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Calvert-Lewin",
@@ -1811,7 +1979,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -1819,17 +1987,17 @@
             "slot": 10,
             "is_starter": true,
             "armband": "C",
-            "multiplier": 3,
-            "raw_points": 9
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
+            "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -1838,36 +2006,37 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
-            "name": "Muharemovi\u0107",
+            "name": "Maguire",
             "position": "DEF",
             "slot": 13,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 4
-          },
-          {
-            "name": "Hume",
-            "position": "DEF",
-            "slot": 14,
-            "is_starter": false,
-            "armband": "",
-            "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Slater",
             "position": "MID",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Hume",
+            "position": "DEF",
             "slot": 15,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -2280,6 +2449,143 @@
             "multiplier": 0,
             "raw_points": 3
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Muharemovi\u0107",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gabriel",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Wirtz",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gibbs-White",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gro\u00df",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Maguire",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Slater",
+            "position": "MID",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Hume",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -2333,7 +2639,8 @@
           "chip": null,
           "rank": 5,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 96.6
+          "xi_efficiency_pct": 96.6,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -2344,7 +2651,8 @@
           "chip": null,
           "rank": 5,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 84.0
+          "xi_efficiency_pct": 84.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -2355,11 +2663,24 @@
           "chip": null,
           "rank": 16,
           "captain_efficiency_pct": 25.0,
-          "xi_efficiency_pct": 92.1
+          "xi_efficiency_pct": 92.1,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Verbruggen",
@@ -2368,16 +2689,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Gabriel",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
-            "armband": "",
+            "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -2386,7 +2707,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gu\u00e9hi",
@@ -2395,25 +2716,25 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Cherki",
             "position": "MID",
             "slot": 5,
             "is_starter": true,
-            "armband": "VC",
+            "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
             "position": "MID",
             "slot": 6,
             "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 2
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -2422,7 +2743,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -2431,7 +2752,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Gibbs-White",
@@ -2440,7 +2761,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Thiago",
@@ -2449,16 +2770,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 1
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Dubravka",
@@ -2476,7 +2797,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Greaves",
@@ -2485,7 +2806,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Kusi-Asare",
@@ -2496,7 +2817,8 @@
             "multiplier": 0,
             "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -2909,6 +3231,143 @@
             "multiplier": 0,
             "raw_points": 0
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gabriel",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gu\u00e9hi",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gibbs-White",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Thiago",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Dubravka",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Greaves",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Kusi-Asare",
+            "position": "FWD",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -2962,7 +3421,8 @@
           "chip": null,
           "rank": 1,
           "captain_efficiency_pct": 15.4,
-          "xi_efficiency_pct": 84.1
+          "xi_efficiency_pct": 84.1,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -2973,7 +3433,8 @@
           "chip": null,
           "rank": 17,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 98.2
+          "xi_efficiency_pct": 98.2,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -2984,11 +3445,24 @@
           "chip": null,
           "rank": 17,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 79.4
+          "xi_efficiency_pct": 79.4,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Pickford",
@@ -2997,7 +3471,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Ajayi",
@@ -3006,7 +3480,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
             "name": "Kayode",
@@ -3015,7 +3489,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -3024,7 +3498,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -3033,7 +3507,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Dewsbury-Hall",
@@ -3042,7 +3516,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Wilson",
@@ -3060,7 +3534,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -3069,7 +3543,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -3078,7 +3552,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Thiago",
@@ -3087,7 +3561,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Steele",
@@ -3105,7 +3579,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 7
+            "raw_points": 0
           },
           {
             "name": "R\u00f6hl",
@@ -3114,7 +3588,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Costinha",
@@ -3123,9 +3597,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -3537,6 +4012,143 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 1
+          }
+        ],
+        "4": [
+          {
+            "name": "Pickford",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Ajayi",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kayode",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Dewsbury-Hall",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Wilson",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Palmer",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Thiago",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Steele",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Pedro Porro",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "R\u00f6hl",
+            "position": "MID",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Costinha",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
           }
         ]
       },
@@ -3591,7 +4203,8 @@
           "chip": null,
           "rank": 13,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 88.2
+          "xi_efficiency_pct": 88.2,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -3602,7 +4215,8 @@
           "chip": null,
           "rank": 12,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 92.1
+          "xi_efficiency_pct": 92.1,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -3613,11 +4227,24 @@
           "chip": null,
           "rank": 1,
           "captain_efficiency_pct": 69.2,
-          "xi_efficiency_pct": 96.8
+          "xi_efficiency_pct": 96.8,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Kinsky",
@@ -3626,7 +4253,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -3635,7 +4262,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Konsa",
@@ -3644,7 +4271,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Shaw",
@@ -3653,7 +4280,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -3662,7 +4289,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Tzolis",
@@ -3671,7 +4298,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
             "name": "Wirtz",
@@ -3680,7 +4307,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -3689,16 +4316,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Haaland",
             "position": "FWD",
             "slot": 9,
             "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 9
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -3707,16 +4334,16 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Isak",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 13
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Dubravka",
@@ -3734,7 +4361,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Hume",
@@ -3743,7 +4370,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Slater",
@@ -3752,9 +4379,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -4166,6 +4794,143 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 3
+          }
+        ],
+        "4": [
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Konsa",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Tzolis",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Wirtz",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Isak",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Dubravka",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Robertson",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Hume",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Slater",
+            "position": "MID",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
           }
         ]
       },
@@ -4214,7 +4979,8 @@
           "chip": null,
           "rank": 17,
           "captain_efficiency_pct": 25.0,
-          "xi_efficiency_pct": 88.2
+          "xi_efficiency_pct": 88.2,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -4225,7 +4991,8 @@
           "chip": null,
           "rank": 16,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 89.2
+          "xi_efficiency_pct": 89.2,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -4236,11 +5003,24 @@
           "chip": "3xc",
           "rank": 2,
           "captain_efficiency_pct": 60.0,
-          "xi_efficiency_pct": 72.1
+          "xi_efficiency_pct": 72.1,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Lammens",
@@ -4249,34 +5029,34 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Shaw",
+            "name": "Virgil",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
-            "name": "Virgil",
+            "name": "Konsa",
             "position": "DEF",
             "slot": 3,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
-            "name": "Konsa",
+            "name": "Van Hecke",
             "position": "DEF",
             "slot": 4,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -4285,7 +5065,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Rogers",
@@ -4294,7 +5074,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -4303,25 +5083,25 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Cherki",
+            "name": "Gibbs-White",
             "position": "MID",
             "slot": 8,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Gibbs-White",
+            "name": "Cherki",
             "position": "MID",
             "slot": 9,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -4329,17 +5109,17 @@
             "slot": 10,
             "is_starter": true,
             "armband": "C",
-            "multiplier": 3,
-            "raw_points": 9
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
-            "name": "Wissa",
+            "name": "Calvert-Lewin",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Dubravka",
@@ -4351,33 +5131,34 @@
             "raw_points": 0
           },
           {
-            "name": "Calvert-Lewin",
-            "position": "FWD",
+            "name": "Mitchell",
+            "position": "DEF",
             "slot": 13,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "Mitchell",
-            "position": "DEF",
+            "name": "Wissa",
+            "position": "FWD",
             "slot": 14,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 15
+            "raw_points": 0
           },
           {
-            "name": "Van Hecke",
+            "name": "Shaw",
             "position": "DEF",
             "slot": 15,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 8
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -4789,6 +5570,143 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 8
+          }
+        ],
+        "4": [
+          {
+            "name": "Lammens",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Virgil",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Konsa",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Van Hecke",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rogers",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gibbs-White",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Dubravka",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Mitchell",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Wissa",
+            "position": "FWD",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
           }
         ]
       },
@@ -4843,7 +5761,8 @@
           "chip": null,
           "rank": 8,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 87.1
+          "xi_efficiency_pct": 87.1,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -4854,7 +5773,8 @@
           "chip": null,
           "rank": 2,
           "captain_efficiency_pct": 39.1,
-          "xi_efficiency_pct": 96.1
+          "xi_efficiency_pct": 96.1,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -4865,11 +5785,24 @@
           "chip": null,
           "rank": 13,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 78.7
+          "xi_efficiency_pct": 78.7,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Verbruggen",
@@ -4878,7 +5811,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -4887,7 +5820,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Aina",
@@ -4896,7 +5829,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Shaw",
@@ -4905,7 +5838,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
@@ -4914,7 +5847,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -4923,7 +5856,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -4932,7 +5865,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Gro\u00df",
@@ -4941,7 +5874,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Cherki",
@@ -4950,7 +5883,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -4959,7 +5892,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -4968,7 +5901,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -4977,7 +5910,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Egan",
@@ -4986,7 +5919,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Diop",
@@ -4995,7 +5928,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Akpom",
@@ -5006,7 +5939,8 @@
             "multiplier": 0,
             "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -5419,6 +6353,143 @@
             "multiplier": 0,
             "raw_points": 0
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Aina",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gro\u00df",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Egan",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Diop",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Akpom",
+            "position": "FWD",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -5478,7 +6549,8 @@
           "chip": null,
           "rank": 16,
           "captain_efficiency_pct": 15.4,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -5489,7 +6561,8 @@
           "chip": null,
           "rank": 14,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -5500,11 +6573,24 @@
           "chip": null,
           "rank": 10,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Horn\u00ed\u010dek",
@@ -5513,7 +6599,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gvardiol",
@@ -5522,7 +6608,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Hato",
@@ -5531,7 +6617,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Davis",
@@ -5540,7 +6626,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Palmer",
@@ -5549,16 +6635,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "Cunha",
+            "name": "Mbeumo",
             "position": "MID",
             "slot": 6,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Rice",
@@ -5567,7 +6653,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -5576,7 +6662,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Cherki",
@@ -5585,7 +6671,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -5594,7 +6680,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -5603,7 +6689,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Steele",
@@ -5641,7 +6727,8 @@
             "multiplier": 0,
             "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -6054,6 +7141,143 @@
             "multiplier": 0,
             "raw_points": 0
           }
+        ],
+        "4": [
+          {
+            "name": "Horn\u00ed\u010dek",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gvardiol",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Hato",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Davis",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Palmer",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rice",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Steele",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Targett",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Kitching",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Madjo",
+            "position": "FWD",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -6113,7 +7337,8 @@
           "chip": null,
           "rank": 4,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 90.5
+          "xi_efficiency_pct": 90.5,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -6124,7 +7349,8 @@
           "chip": null,
           "rank": 6,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -6135,20 +7361,33 @@
           "chip": "3xc",
           "rank": 3,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 92.9
+          "xi_efficiency_pct": 92.9,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
-            "name": "Lammens",
+            "name": "Verbruggen",
             "position": "GKP",
             "slot": 1,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -6157,7 +7396,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "White",
@@ -6166,16 +7405,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Maguire",
+            "name": "De Cuyper",
             "position": "DEF",
             "slot": 4,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -6184,7 +7423,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -6193,7 +7432,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Ndiaye",
@@ -6202,65 +7441,65 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
             "position": "MID",
             "slot": 8,
             "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rogers",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
-            "position": "FWD",
-            "slot": 9,
-            "is_starter": true,
-            "armband": "C",
-            "multiplier": 3,
-            "raw_points": 9
-          },
-          {
-            "name": "Calvert-Lewin",
             "position": "FWD",
             "slot": 10,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 1
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
-            "name": "Verbruggen",
+            "name": "Lammens",
             "position": "GKP",
             "slot": 12,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Diop",
-            "position": "DEF",
+            "name": "Calvert-Lewin",
+            "position": "FWD",
             "slot": 13,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Sarr",
-            "position": "MID",
+            "name": "Diop",
+            "position": "DEF",
             "slot": 14,
             "is_starter": false,
             "armband": "",
@@ -6268,7 +7507,7 @@
             "raw_points": 0
           },
           {
-            "name": "Palestra",
+            "name": "Ajayi",
             "position": "DEF",
             "slot": 15,
             "is_starter": false,
@@ -6276,7 +7515,8 @@
             "multiplier": 0,
             "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -6689,6 +7929,143 @@
             "multiplier": 0,
             "raw_points": 0
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "White",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "De Cuyper",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Ndiaye",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rogers",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Lammens",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Diop",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Ajayi",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": []
@@ -6729,7 +8106,8 @@
           "chip": null,
           "rank": 14,
           "captain_efficiency_pct": 22.2,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -6740,7 +8118,8 @@
           "chip": null,
           "rank": 13,
           "captain_efficiency_pct": 56.5,
-          "xi_efficiency_pct": 93.3
+          "xi_efficiency_pct": 93.3,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -6751,11 +8130,24 @@
           "chip": null,
           "rank": 5,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 88.2
+          "xi_efficiency_pct": 88.2,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Trafford",
@@ -6764,7 +8156,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "White",
@@ -6773,7 +8165,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gvardiol",
@@ -6782,7 +8174,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Van Hecke",
@@ -6791,7 +8183,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Wirtz",
@@ -6800,7 +8192,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
@@ -6809,7 +8201,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Ndiaye",
@@ -6818,7 +8210,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Grealish",
@@ -6827,7 +8219,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Belloumi",
@@ -6836,16 +8228,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
-            "name": "Calvert-Lewin",
+            "name": "Barry",
             "position": "FWD",
             "slot": 10,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -6854,7 +8246,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Forster",
@@ -6872,10 +8264,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 7
+            "raw_points": 0
           },
           {
-            "name": "Zirkzee",
+            "name": "Calvert-Lewin",
             "position": "FWD",
             "slot": 14,
             "is_starter": false,
@@ -6892,7 +8284,8 @@
             "multiplier": 0,
             "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -7305,6 +8698,143 @@
             "multiplier": 0,
             "raw_points": 0
           }
+        ],
+        "4": [
+          {
+            "name": "Trafford",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "White",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gvardiol",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Van Hecke",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Wirtz",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Ndiaye",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Grealish",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Belloumi",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Barry",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Forster",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Pedro Porro",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Alderete",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -7358,7 +8888,8 @@
           "chip": null,
           "rank": 12,
           "captain_efficiency_pct": 15.4,
-          "xi_efficiency_pct": 90.2
+          "xi_efficiency_pct": 90.2,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -7369,7 +8900,8 @@
           "chip": null,
           "rank": 9,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -7380,11 +8912,24 @@
           "chip": null,
           "rank": 9,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 83.3
+          "xi_efficiency_pct": 83.3,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Lammens",
@@ -7393,16 +8938,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Thomas",
+            "name": "Mosquera",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Cash",
@@ -7411,7 +8956,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Shaw",
@@ -7420,7 +8965,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Palmer",
@@ -7429,7 +8974,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Cherki",
@@ -7438,7 +8983,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -7447,7 +8992,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -7456,7 +9001,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -7465,7 +9010,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -7474,7 +9019,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Calvert-Lewin",
@@ -7483,7 +9028,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Dovin",
@@ -7501,10 +9046,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
-            "name": "Mosquera",
+            "name": "Thomas",
             "position": "DEF",
             "slot": 14,
             "is_starter": false,
@@ -7519,9 +9064,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -7934,6 +9480,143 @@
             "multiplier": 0,
             "raw_points": 2
           }
+        ],
+        "4": [
+          {
+            "name": "Lammens",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mosquera",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cash",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Palmer",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Dovin",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "E.Le F\u00e9e",
+            "position": "MID",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Thomas",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Amenda",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -7981,7 +9664,8 @@
           "chip": null,
           "rank": 9,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 91.5
+          "xi_efficiency_pct": 91.5,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -7992,7 +9676,8 @@
           "chip": null,
           "rank": 11,
           "captain_efficiency_pct": 17.4,
-          "xi_efficiency_pct": 88.0
+          "xi_efficiency_pct": 88.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -8003,11 +9688,24 @@
           "chip": null,
           "rank": 18,
           "captain_efficiency_pct": 37.5,
-          "xi_efficiency_pct": 93.9
+          "xi_efficiency_pct": 93.9,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Kelleher",
@@ -8016,97 +9714,97 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Maguire",
+            "name": "Tarkowski",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Tarkowski",
+            "name": "Gabriel",
             "position": "DEF",
             "slot": 3,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Gabriel",
+            "name": "Van Hecke",
             "position": "DEF",
             "slot": 4,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Van Hecke",
-            "position": "DEF",
+            "name": "B.Fernandes",
+            "position": "MID",
             "slot": 5,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
-            "name": "B.Fernandes",
+            "name": "Rogers",
             "position": "MID",
             "slot": 6,
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
-          },
-          {
-            "name": "Cherki",
-            "position": "MID",
-            "slot": 7,
-            "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gibbs-White",
             "position": "MID",
             "slot": 8,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Gibbs-White",
+            "name": "Dewsbury-Hall",
             "position": "MID",
             "slot": 9,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Thiago",
+            "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 10,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 2
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
-            "name": "Calvert-Lewin",
+            "name": "Thiago",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Dubravka",
@@ -8118,33 +9816,34 @@
             "raw_points": 0
           },
           {
-            "name": "Dewsbury-Hall",
-            "position": "MID",
+            "name": "Calvert-Lewin",
+            "position": "FWD",
             "slot": 13,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Jo\u00e3o Pedro",
-            "position": "FWD",
+            "name": "O'Shea",
+            "position": "DEF",
             "slot": 14,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "O'Shea",
+            "name": "Maguire",
             "position": "DEF",
             "slot": 15,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -8557,6 +10256,143 @@
             "multiplier": 0,
             "raw_points": 3
           }
+        ],
+        "4": [
+          {
+            "name": "Kelleher",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Tarkowski",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gabriel",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Van Hecke",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rogers",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gibbs-White",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Dewsbury-Hall",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Thiago",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Dubravka",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "O'Shea",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Maguire",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -8610,7 +10446,8 @@
           "chip": null,
           "rank": 15,
           "captain_efficiency_pct": 20.0,
-          "xi_efficiency_pct": 80.0
+          "xi_efficiency_pct": 80.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -8621,7 +10458,8 @@
           "chip": null,
           "rank": 7,
           "captain_efficiency_pct": 56.5,
-          "xi_efficiency_pct": 91.8
+          "xi_efficiency_pct": 91.8,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -8632,29 +10470,42 @@
           "chip": null,
           "rank": 4,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 85.2
+          "xi_efficiency_pct": 85.2,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
-            "name": "Kinsky",
+            "name": "Verbruggen",
             "position": "GKP",
             "slot": 1,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
-            "name": "Maguire",
+            "name": "Mykolenko",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -8663,7 +10514,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gu\u00e9hi",
@@ -8672,7 +10523,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -8681,16 +10532,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
             "position": "MID",
             "slot": 6,
             "is_starter": true,
-            "armband": "VC",
+            "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gomez",
@@ -8699,7 +10550,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Rice",
@@ -8708,7 +10559,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
             "name": "Calvert-Lewin",
@@ -8717,7 +10568,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -8726,25 +10577,25 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Wissa",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
+            "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "Verbruggen",
+            "name": "Kinsky",
             "position": "GKP",
             "slot": 12,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Ampadu",
@@ -8753,7 +10604,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Cash",
@@ -8762,7 +10613,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Thomas",
@@ -8771,9 +10622,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 4
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -9186,6 +11038,143 @@
             "multiplier": 0,
             "raw_points": 4
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mykolenko",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gu\u00e9hi",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gomez",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Rice",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Wissa",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Ampadu",
+            "position": "MID",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Cash",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Thomas",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -9239,7 +11228,8 @@
           "chip": null,
           "rank": 18,
           "captain_efficiency_pct": 28.6,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -9250,7 +11240,8 @@
           "chip": null,
           "rank": 18,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -9261,11 +11252,24 @@
           "chip": null,
           "rank": 7,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 83.0
+          "xi_efficiency_pct": 83.0,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Kelleher",
@@ -9274,7 +11278,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "van Ewijk",
@@ -9283,7 +11287,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Mings",
@@ -9292,7 +11296,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Konsa",
@@ -9301,7 +11305,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -9310,7 +11314,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -9319,7 +11323,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Wilson",
@@ -9337,7 +11341,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Gy\u00f6keres",
@@ -9346,7 +11350,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -9355,7 +11359,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Thiago",
@@ -9364,7 +11368,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Henderson",
@@ -9373,7 +11377,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Van de Ven",
@@ -9382,7 +11386,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Hudson-Odoi",
@@ -9400,9 +11404,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -9815,6 +11820,143 @@
             "multiplier": 0,
             "raw_points": 1
           }
+        ],
+        "4": [
+          {
+            "name": "Kelleher",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "van Ewijk",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mings",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Konsa",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Wilson",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Anderson",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gy\u00f6keres",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Thiago",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Henderson",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Van de Ven",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Hudson-Odoi",
+            "position": "MID",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Davis",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -9868,7 +12010,8 @@
           "chip": null,
           "rank": 6,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 87.3
+          "xi_efficiency_pct": 87.3,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -9879,7 +12022,8 @@
           "chip": null,
           "rank": 3,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 86.6
+          "xi_efficiency_pct": 86.6,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -9890,11 +12034,24 @@
           "chip": null,
           "rank": 12,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 83.7
+          "xi_efficiency_pct": 83.7,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Verbruggen",
@@ -9903,16 +12060,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Shaw",
+            "name": "White",
             "position": "DEF",
             "slot": 2,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -9921,7 +12078,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Konsa",
@@ -9930,7 +12087,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Gro\u00df",
@@ -9939,7 +12096,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -9948,16 +12105,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "B.Fernandes",
+            "name": "Palmer",
             "position": "MID",
             "slot": 7,
             "is_starter": true,
-            "armband": "VC",
-            "multiplier": 1,
-            "raw_points": 2
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Semenyo",
@@ -9966,7 +12123,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Calvert-Lewin",
@@ -9975,16 +12132,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
             "position": "FWD",
             "slot": 10,
             "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 9
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -9993,7 +12150,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -10002,7 +12159,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Gomez",
@@ -10011,27 +12168,28 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "White",
+            "name": "O'Shea",
             "position": "DEF",
             "slot": 14,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "O'Shea",
+            "name": "Shaw",
             "position": "DEF",
             "slot": 15,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -10444,6 +12602,143 @@
             "multiplier": 0,
             "raw_points": 3
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "White",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Konsa",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gro\u00df",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Palmer",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Semenyo",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Gomez",
+            "position": "MID",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "O'Shea",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": []
@@ -10484,7 +12779,8 @@
           "chip": null,
           "rank": 2,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 94.4
+          "xi_efficiency_pct": 94.4,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -10495,7 +12791,8 @@
           "chip": null,
           "rank": 8,
           "captain_efficiency_pct": 92.9,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -10506,11 +12803,24 @@
           "chip": null,
           "rank": 15,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 76.3
+          "xi_efficiency_pct": 76.3,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Trafford",
@@ -10519,7 +12829,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "James",
@@ -10528,7 +12838,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Branthwaite",
@@ -10537,16 +12847,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
-            "name": "Mu\u00f1oz",
+            "name": "Mosquera",
             "position": "DEF",
             "slot": 4,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Cherki",
@@ -10555,7 +12865,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Elanga",
@@ -10564,25 +12874,25 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
-          },
-          {
-            "name": "Saka",
-            "position": "MID",
-            "slot": 7,
-            "is_starter": true,
-            "armband": "VC",
-            "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
             "position": "MID",
-            "slot": 8,
+            "slot": 7,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
+          },
+          {
+            "name": "Saka",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -10591,7 +12901,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -10600,7 +12910,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Evanilson",
@@ -10609,7 +12919,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -10618,11 +12928,11 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
-            "name": "Gray",
-            "position": "MID",
+            "name": "Maatsen",
+            "position": "DEF",
             "slot": 13,
             "is_starter": false,
             "armband": "",
@@ -10630,7 +12940,7 @@
             "raw_points": 0
           },
           {
-            "name": "Mosquera",
+            "name": "Mu\u00f1oz",
             "position": "DEF",
             "slot": 14,
             "is_starter": false,
@@ -10639,15 +12949,16 @@
             "raw_points": 0
           },
           {
-            "name": "Maatsen",
-            "position": "DEF",
+            "name": "Gray",
+            "position": "MID",
             "slot": 15,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 7
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -11060,6 +13371,143 @@
             "multiplier": 0,
             "raw_points": 7
           }
+        ],
+        "4": [
+          {
+            "name": "Trafford",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "James",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Branthwaite",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mosquera",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Cherki",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Elanga",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Saka",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Evanilson",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Maatsen",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Mu\u00f1oz",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Gray",
+            "position": "MID",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": []
@@ -11100,7 +13548,8 @@
           "chip": null,
           "rank": 7,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 90.2
+          "xi_efficiency_pct": 90.2,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -11111,7 +13560,8 @@
           "chip": null,
           "rank": 4,
           "captain_efficiency_pct": 39.1,
-          "xi_efficiency_pct": 96.0
+          "xi_efficiency_pct": 96.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -11122,11 +13572,24 @@
           "chip": null,
           "rank": 11,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 80.4
+          "xi_efficiency_pct": 80.4,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Verbruggen",
@@ -11135,7 +13598,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -11144,7 +13607,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Ballard",
@@ -11153,7 +13616,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "White",
@@ -11162,7 +13625,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gomez",
@@ -11171,7 +13634,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
@@ -11180,16 +13643,16 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
-            "name": "Mbeumo",
+            "name": "Tonali",
             "position": "MID",
             "slot": 7,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -11198,16 +13661,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
             "position": "FWD",
             "slot": 9,
             "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 9
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Calvert-Lewin",
@@ -11216,16 +13679,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 1
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -11234,7 +13697,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Kayode",
@@ -11243,16 +13706,16 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "Tonali",
+            "name": "Mbeumo",
             "position": "MID",
             "slot": 14,
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 5
+            "raw_points": 0
           },
           {
             "name": "Diop",
@@ -11261,9 +13724,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -11676,6 +14140,143 @@
             "multiplier": 0,
             "raw_points": 3
           }
+        ],
+        "4": [
+          {
+            "name": "Verbruggen",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Ballard",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "White",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gomez",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Tonali",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calvert-Lewin",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Kayode",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Diop",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -11723,7 +14324,8 @@
           "chip": null,
           "rank": 10,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -11734,7 +14336,8 @@
           "chip": "wildcard",
           "rank": 15,
           "captain_efficiency_pct": 69.2,
-          "xi_efficiency_pct": 100.0
+          "xi_efficiency_pct": 100.0,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -11745,11 +14348,24 @@
           "chip": null,
           "rank": 8,
           "captain_efficiency_pct": 90.0,
-          "xi_efficiency_pct": 75.0
+          "xi_efficiency_pct": 75.0,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Raya",
@@ -11758,7 +14374,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Kayode",
@@ -11767,7 +14383,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -11776,7 +14392,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Gu\u00e9hi",
@@ -11785,7 +14401,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "\u00d8degaard",
@@ -11794,7 +14410,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 10
+            "raw_points": 0
           },
           {
             "name": "Ndiaye",
@@ -11803,16 +14419,16 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
             "position": "MID",
             "slot": 7,
             "is_starter": true,
-            "armband": "VC",
+            "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Palmer",
@@ -11821,34 +14437,34 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
-            "name": "Elanga",
+            "name": "Gakpo",
             "position": "MID",
             "slot": 9,
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Haaland",
             "position": "FWD",
             "slot": 10,
             "is_starter": true,
-            "armband": "C",
-            "multiplier": 2,
-            "raw_points": 9
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
             "position": "FWD",
             "slot": 11,
             "is_starter": true,
-            "armband": "",
-            "multiplier": 1,
-            "raw_points": 1
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -11857,7 +14473,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Mendy",
@@ -11866,7 +14482,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "De Cuyper",
@@ -11875,7 +14491,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Barry",
@@ -11884,9 +14500,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 2
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -12299,6 +14916,143 @@
             "multiplier": 0,
             "raw_points": 2
           }
+        ],
+        "4": [
+          {
+            "name": "Raya",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kayode",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gu\u00e9hi",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "\u00d8degaard",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Ndiaye",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Palmer",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gakpo",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Mendy",
+            "position": "DEF",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "De Cuyper",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Barry",
+            "position": "FWD",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          }
         ]
       },
       "transfers": [
@@ -12406,7 +15160,8 @@
           "chip": null,
           "rank": 11,
           "captain_efficiency_pct": 18.2,
-          "xi_efficiency_pct": 98.2
+          "xi_efficiency_pct": 98.2,
+          "is_final": true
         },
         {
           "gw": 2,
@@ -12417,7 +15172,8 @@
           "chip": null,
           "rank": 1,
           "captain_efficiency_pct": 100.0,
-          "xi_efficiency_pct": 95.1
+          "xi_efficiency_pct": 95.1,
+          "is_final": true
         },
         {
           "gw": 3,
@@ -12428,11 +15184,24 @@
           "chip": null,
           "rank": 14,
           "captain_efficiency_pct": 22.2,
-          "xi_efficiency_pct": 78.4
+          "xi_efficiency_pct": 78.4,
+          "is_final": true
+        },
+        {
+          "gw": 4,
+          "net_points": 0,
+          "gross_points": 0,
+          "hit_cost": 0,
+          "bench_points": 0,
+          "chip": null,
+          "rank": null,
+          "captain_efficiency_pct": null,
+          "xi_efficiency_pct": null,
+          "is_final": false
         }
       ],
       "latest_roster": {
-        "gw": 3,
+        "gw": 4,
         "players": [
           {
             "name": "Raya",
@@ -12441,7 +15210,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Calafiori",
@@ -12450,7 +15219,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Konsa",
@@ -12459,7 +15228,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Shaw",
@@ -12468,7 +15237,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 4
+            "raw_points": 0
           },
           {
             "name": "Mbeumo",
@@ -12477,7 +15246,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 8
+            "raw_points": 0
           },
           {
             "name": "Gro\u00df",
@@ -12486,7 +15255,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Szoboszlai",
@@ -12495,7 +15264,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "B.Fernandes",
@@ -12504,7 +15273,7 @@
             "is_starter": true,
             "armband": "C",
             "multiplier": 2,
-            "raw_points": 2
+            "raw_points": 0
           },
           {
             "name": "Ndiaye",
@@ -12513,7 +15282,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "Haaland",
@@ -12522,7 +15291,7 @@
             "is_starter": true,
             "armband": "VC",
             "multiplier": 1,
-            "raw_points": 9
+            "raw_points": 0
           },
           {
             "name": "Jo\u00e3o Pedro",
@@ -12531,7 +15300,7 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1
+            "raw_points": 0
           },
           {
             "name": "Kinsky",
@@ -12540,7 +15309,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 6
+            "raw_points": 0
           },
           {
             "name": "Kusi-Asare",
@@ -12558,7 +15327,7 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 3
+            "raw_points": 0
           },
           {
             "name": "N.Williams",
@@ -12567,9 +15336,10 @@
             "is_starter": false,
             "armband": "",
             "multiplier": 0,
-            "raw_points": 7
+            "raw_points": 0
           }
-        ]
+        ],
+        "is_final": false
       },
       "rosters_by_gw": {
         "1": [
@@ -12981,6 +15751,143 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 7
+          }
+        ],
+        "4": [
+          {
+            "name": "Raya",
+            "position": "GKP",
+            "slot": 1,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Calafiori",
+            "position": "DEF",
+            "slot": 2,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Konsa",
+            "position": "DEF",
+            "slot": 3,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Shaw",
+            "position": "DEF",
+            "slot": 4,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Mbeumo",
+            "position": "MID",
+            "slot": 5,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Gro\u00df",
+            "position": "MID",
+            "slot": 6,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Szoboszlai",
+            "position": "MID",
+            "slot": 7,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "B.Fernandes",
+            "position": "MID",
+            "slot": 8,
+            "is_starter": true,
+            "armband": "C",
+            "multiplier": 2,
+            "raw_points": 0
+          },
+          {
+            "name": "Ndiaye",
+            "position": "MID",
+            "slot": 9,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Haaland",
+            "position": "FWD",
+            "slot": 10,
+            "is_starter": true,
+            "armband": "VC",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Jo\u00e3o Pedro",
+            "position": "FWD",
+            "slot": 11,
+            "is_starter": true,
+            "armband": "",
+            "multiplier": 1,
+            "raw_points": 0
+          },
+          {
+            "name": "Kinsky",
+            "position": "GKP",
+            "slot": 12,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Kusi-Asare",
+            "position": "FWD",
+            "slot": 13,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "Diop",
+            "position": "DEF",
+            "slot": 14,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
+          },
+          {
+            "name": "N.Williams",
+            "position": "DEF",
+            "slot": 15,
+            "is_starter": false,
+            "armband": "",
+            "multiplier": 0,
+            "raw_points": 0
           }
         ]
       },
