@@ -351,8 +351,17 @@ tr:last-child td { border-bottom: none; }
 }
 .h2h-record b { color: var(--ink); }
 .h2h-pitches { display: flex; gap: 18px; flex-wrap: wrap; }
-.h2h-pitches > div { flex: 1; min-width: 260px; }
+.h2h-pitches > div { flex: 1; min-width: 340px; }
 .h2h-pitches h3 { text-align: center; }
+/* A 5-a-side line (max legal DEF or MID count) must fit one row at this
+   half-width, or the 5th chip wraps onto the pitch markings and the two
+   teams' formation lines stop lining up with each other. */
+.h2h-pitches .pitch-row { gap: 4px; }
+.h2h-pitches .player-chip { width: 60px; }
+.h2h-pitches .player-jersey, .h2h-pitches .kit-img { width: 34px; height: 34px; }
+.h2h-pitches .player-name, .h2h-pitches .player-pts { font-size: 9px; padding: 2px 4px; }
+.h2h-pitches .player-armband { width: 15px; height: 15px; font-size: 8px; }
+.h2h-pitches .player-flag { width: 13px; height: 13px; font-size: 7px; }
 """
 
 
