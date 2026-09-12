@@ -17,7 +17,8 @@ Full design: [`SPEC.md`](SPEC.md)
 | 2 — Schema & league reconstruction | **Complete** (2026-09-12) |
 | 3 — Historical backfill | **Complete** (2026-09-12) |
 | 4 — Automation | **Complete** (2026-09-12), not yet scheduled |
-| 5+ | Not started |
+| 5 — Tier 0–2 analytics | **Complete** (2026-09-12) |
+| 6+ | Not started |
 
 GW1–3 fully backfilled: 656 players, 20 clubs, 1,890 player-gameweek stat rows,
 54 manager-gameweek summaries, 810 picks, 16 autosubs, 36 transfers, 27 H2H
@@ -31,9 +32,16 @@ self-heals once Phase 4's daily job starts snapshotting going forward.
 `src/daily_sync.py` (Phase 4) proved idempotent over 3 consecutive runs — every
 data table byte-identical, only the append-only `raw_payloads`/`ingest_runs`
 logs grew. It is not yet wired to a scheduler (no GitHub Actions / cron), and
-this repo is not yet under git, so the "commit the database on every run" audit
-trail from SPEC.md §6 doesn't exist yet either. Next up is Phase 5: Tier 0–2
-analytics (ledger, recap, manager skill).
+`src/calculate.py` (Phase 5) computes `derived_manager_gw` and
+`derived_manager_season` for every finalized gameweek — captain efficiency,
+XI efficiency, bench points, score rank/percentile. Two managers hand-verified
+by independent reconstruction from raw tables, plus a live check against the
+FPL site itself (owner's GW3 captain points and bench points read directly off
+the site's pitch view, matching exactly). Tier 3–5 (luck, power rankings,
+projections) and the close/blowout match-margin thresholds are deliberately
+left NULL — Phase 8's job, and an undefined threshold respectively. This repo
+is now under git (see below); GitHub Actions is configured but the repo isn't
+pushed anywhere yet. Next up is Phase 6: the Claude query interface.
 
 ---
 
@@ -123,9 +131,43 @@ expensive per-manager fetch for any gameweek already fully stored — a normal
 day costs ~9 requests (bootstrap, H2H matches, standings) instead of ~30+.
 A missed day self-heals: the next run just finds more incomplete gameweeks.
 
-Not yet wired to a scheduler. SPEC.md §6 recommends GitHub Actions on a cron
-schedule with the database committed each run; that setup, and putting this
-repo under git in the first place, hasn't been done yet.
+A GitHub Actions workflow (`.github/workflows/daily.yml`) is committed and
+runs this on a 06:05 UTC cron, committing `db/league.sqlite` only when it
+changed. It won't actually run until this repo is pushed to GitHub — see
+"Git and CI" below.
+
+---
+
+## Running Phase 5
+
+```bash
+source .venv/bin/activate
+python -m src.calculate
+```
+
+Computes `derived_manager_gw` (score rank/percentile, captain efficiency, XI
+efficiency, bench points) and `derived_manager_season` (season-to-date
+aggregates, one permanent row per `through_gw`) for every finalized gameweek.
+Tier 3–5 columns (luck, power rankings, projections) and the close/blowout
+match-margin columns are left `NULL` on purpose — see the module docstring.
+
+---
+
+## Git and CI
+
+This repo is a local git repository (`git init`, not yet pushed anywhere).
+To finish wiring up Phase 4's automation:
+
+```bash
+gh repo create fpl-league --private --source=. --remote=origin
+git push -u origin main
+```
+
+(or create the private repo yourself on github.com and `git remote add origin
+<url>` first). Once pushed, `.github/workflows/daily.yml` starts running on
+its own — no further setup needed. GitHub Actions' default `GITHUB_TOKEN` has
+write access to the repo it runs in, so no extra secrets are required for the
+commit-back step.
 
 ---
 
