@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T13:20:50.308383+00:00",
+  "generated_at": "2026-09-12T13:24:01.405303+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -1098,6 +1098,419 @@
     "latest_roster": {
       "gw": 3,
       "players": [
+        {
+          "name": "Lammens",
+          "position": "GKP",
+          "slot": 1,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Shaw",
+          "position": "DEF",
+          "slot": 2,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 4
+        },
+        {
+          "name": "Virgil",
+          "position": "DEF",
+          "slot": 3,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 6
+        },
+        {
+          "name": "Konsa",
+          "position": "DEF",
+          "slot": 4,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 4
+        },
+        {
+          "name": "Mbeumo",
+          "position": "MID",
+          "slot": 5,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 8
+        },
+        {
+          "name": "Rogers",
+          "position": "MID",
+          "slot": 6,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 6
+        },
+        {
+          "name": "Szoboszlai",
+          "position": "MID",
+          "slot": 7,
+          "is_starter": true,
+          "armband": "VC",
+          "multiplier": 1,
+          "raw_points": 3
+        },
+        {
+          "name": "Cherki",
+          "position": "MID",
+          "slot": 8,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 3
+        },
+        {
+          "name": "Gibbs-White",
+          "position": "MID",
+          "slot": 9,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 3
+        },
+        {
+          "name": "Haaland",
+          "position": "FWD",
+          "slot": 10,
+          "is_starter": true,
+          "armband": "C",
+          "multiplier": 3,
+          "raw_points": 9
+        },
+        {
+          "name": "Wissa",
+          "position": "FWD",
+          "slot": 11,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Dubravka",
+          "position": "GKP",
+          "slot": 12,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Calvert-Lewin",
+          "position": "FWD",
+          "slot": 13,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 1
+        },
+        {
+          "name": "Mitchell",
+          "position": "DEF",
+          "slot": 14,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 15
+        },
+        {
+          "name": "Van Hecke",
+          "position": "DEF",
+          "slot": 15,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 8
+        }
+      ]
+    },
+    "rosters_by_gw": {
+      "1": [
+        {
+          "name": "Lammens",
+          "position": "GKP",
+          "slot": 1,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Mitchell",
+          "position": "DEF",
+          "slot": 2,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Shaw",
+          "position": "DEF",
+          "slot": 3,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Virgil",
+          "position": "DEF",
+          "slot": 4,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Mbeumo",
+          "position": "MID",
+          "slot": 5,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Rogers",
+          "position": "MID",
+          "slot": 6,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 8
+        },
+        {
+          "name": "Szoboszlai",
+          "position": "MID",
+          "slot": 7,
+          "is_starter": true,
+          "armband": "VC",
+          "multiplier": 1,
+          "raw_points": 8
+        },
+        {
+          "name": "Gibbs-White",
+          "position": "MID",
+          "slot": 8,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Semenyo",
+          "position": "MID",
+          "slot": 9,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Haaland",
+          "position": "FWD",
+          "slot": 10,
+          "is_starter": true,
+          "armband": "C",
+          "multiplier": 2,
+          "raw_points": 2
+        },
+        {
+          "name": "Calvert-Lewin",
+          "position": "FWD",
+          "slot": 11,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Dubravka",
+          "position": "GKP",
+          "slot": 12,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Konsa",
+          "position": "DEF",
+          "slot": 13,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "McBurnie",
+          "position": "FWD",
+          "slot": 14,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 5
+        },
+        {
+          "name": "Van Hecke",
+          "position": "DEF",
+          "slot": 15,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 1
+        }
+      ],
+      "2": [
+        {
+          "name": "Lammens",
+          "position": "GKP",
+          "slot": 1,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Shaw",
+          "position": "DEF",
+          "slot": 2,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 2
+        },
+        {
+          "name": "Virgil",
+          "position": "DEF",
+          "slot": 3,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Van Hecke",
+          "position": "DEF",
+          "slot": 4,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Mbeumo",
+          "position": "MID",
+          "slot": 5,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 11
+        },
+        {
+          "name": "Rogers",
+          "position": "MID",
+          "slot": 6,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 5
+        },
+        {
+          "name": "Szoboszlai",
+          "position": "MID",
+          "slot": 7,
+          "is_starter": true,
+          "armband": "VC",
+          "multiplier": 1,
+          "raw_points": 4
+        },
+        {
+          "name": "Semenyo",
+          "position": "MID",
+          "slot": 8,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 5
+        },
+        {
+          "name": "Gibbs-White",
+          "position": "MID",
+          "slot": 9,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 13
+        },
+        {
+          "name": "Haaland",
+          "position": "FWD",
+          "slot": 10,
+          "is_starter": true,
+          "armband": "C",
+          "multiplier": 2,
+          "raw_points": 13
+        },
+        {
+          "name": "McBurnie",
+          "position": "FWD",
+          "slot": 11,
+          "is_starter": true,
+          "armband": "",
+          "multiplier": 1,
+          "raw_points": 1
+        },
+        {
+          "name": "Dubravka",
+          "position": "GKP",
+          "slot": 12,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Mitchell",
+          "position": "DEF",
+          "slot": 13,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 0
+        },
+        {
+          "name": "Konsa",
+          "position": "DEF",
+          "slot": 14,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 1
+        },
+        {
+          "name": "Calvert-Lewin",
+          "position": "FWD",
+          "slot": 15,
+          "is_starter": false,
+          "armband": "",
+          "multiplier": 0,
+          "raw_points": 8
+        }
+      ],
+      "3": [
         {
           "name": "Lammens",
           "position": "GKP",

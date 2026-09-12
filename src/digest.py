@@ -253,16 +253,27 @@ def owner_block(conn, latest_gw: int) -> dict:
         """, (mgr_id,),
     ).fetchall()
 
-    latest_roster = conn.execute(
+    all_picks = conn.execute(
         """
-        SELECT pl.web_name, pl.position, p.slot, p.is_starter, p.is_captain, p.is_vice,
+        SELECT p.gw_id, pl.web_name, pl.position, p.slot, p.is_starter, p.is_captain, p.is_vice,
                p.multiplier, s.total_points
         FROM raw_manager_gw_picks p
         JOIN players pl ON pl.season_id = p.season_id AND pl.player_id = p.player_id
         JOIN raw_player_gw_stats s ON s.season_id = p.season_id AND s.gw_id = p.gw_id AND s.player_id = p.player_id
-        WHERE p.manager_id = ? AND p.gw_id = ? ORDER BY p.slot
-        """, (mgr_id, latest_gw),
+        WHERE p.manager_id = ? ORDER BY p.gw_id, p.slot
+        """, (mgr_id,),
     ).fetchall()
+    rosters_by_gw: dict[int, list[dict]] = {}
+    for gw, name_, pos, slot, starter, cap, vice, mult, pts in all_picks:
+        rosters_by_gw.setdefault(gw, []).append({
+            "name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
+            "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts,
+        })
+    latest_roster = [
+        {"name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
+         "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts}
+        for gw, name_, pos, slot, starter, cap, vice, mult, pts in all_picks if gw == latest_gw
+    ]
 
     transfers = conn.execute(
         """
@@ -294,14 +305,8 @@ def owner_block(conn, latest_gw: int) -> dict:
              "xi_efficiency_pct": round(xe * 100, 1) if xe is not None else None}
             for gw, net, gross, hits, bench, chip, rank, ce, xe in gw_history
         ],
-        "latest_roster": {
-            "gw": latest_gw,
-            "players": [
-                {"name": name_, "position": pos, "slot": slot, "is_starter": bool(starter),
-                 "armband": "C" if cap else ("VC" if vice else ""), "multiplier": mult, "raw_points": pts}
-                for name_, pos, slot, starter, cap, vice, mult, pts in latest_roster
-            ],
-        },
+        "latest_roster": {"gw": latest_gw, "players": latest_roster},
+        "rosters_by_gw": {str(gw): players for gw, players in rosters_by_gw.items()},
         "transfers": [
             {"gw": gw, "player_in": pin, "player_out": pout, "time": t}
             for gw, pin, pout, t in transfers

@@ -154,6 +154,8 @@ th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; text-transform
 th:hover { color: var(--ink); }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
+tr.clickable-row { cursor: pointer; }
+tr.row-selected td { background: var(--accent-soft); }
 tr:last-child td { border-bottom: none; }
 .badge {
   display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 700;
@@ -350,8 +352,9 @@ function renderMyTeam(root) {
   const histCard = el('div', 'card');
   histCard.style.marginTop = '16px';
   histCard.appendChild(el('h2', null, 'Gameweek history'));
+  histCard.appendChild(el('p', 'muted', 'Click a row to see the roster and transfers for that gameweek below.'));
   let rows = o.gw_history.map(g => `
-    <tr><td>GW${g.gw}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
+    <tr class="clickable-row" data-gw="${g.gw}"><td>GW${g.gw}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
     <td>${g.rank}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
     <td>${fmtPct(g.captain_efficiency_pct)}</td><td>${fmtPct(g.xi_efficiency_pct)}</td></tr>`).join('');
   histCard.innerHTML += `<table><thead><tr><th>GW</th><th>Net</th><th>Rank</th><th>Bench</th><th>Chip</th><th>Cap Eff</th><th>XI Eff</th></tr></thead><tbody>${rows}</tbody></table>`;
@@ -359,25 +362,57 @@ function renderMyTeam(root) {
 
   const rosterCard = el('div', 'card');
   rosterCard.style.marginTop = '16px';
-  rosterCard.appendChild(el('h2', null, `Latest roster — GW${o.latest_roster.gw}`));
-  o.latest_roster.players.forEach(p => {
-    rosterCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
-      <span class="pill">${p.position}</span>
-      ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
-      <span style="flex:1">${p.name}</span>
-      <span class="muted">${p.raw_points} pts × ${p.multiplier}</span>
-    `));
-  });
-  root.appendChild(rosterCard);
+  const transfersCard = el('div', 'card');
+  transfersCard.style.marginTop = '16px';
 
-  if (o.transfers.length) {
-    const tCard = el('div', 'card');
-    tCard.style.marginTop = '16px';
-    tCard.appendChild(el('h2', null, 'Transfers'));
-    let trows = o.transfers.map(t => `<tr><td>GW${t.gw}</td><td>${t.player_in} in</td><td>${t.player_out} out</td></tr>`).join('');
-    tCard.innerHTML += `<table><tbody>${trows}</tbody></table>`;
-    root.appendChild(tCard);
+  function showGwDetail(gw) {
+    const g = o.gw_history.find(x => x.gw === gw);
+    const roster = o.rosters_by_gw[gw] || [];
+
+    rosterCard.innerHTML = '';
+    rosterCard.appendChild(el('h2', null, `Roster — GW${gw}${g ? ` (${g.net_points} pts, rank ${g.rank})` : ''}`));
+    if (g) {
+      rosterCard.appendChild(el('div', 'stat-chips', `
+        <span class="chip">Gross ${g.gross_points}${g.hit_cost ? ` (-${g.hit_cost})` : ''}</span>
+        <span class="chip">Bench ${g.bench_points}</span>
+        ${g.chip ? `<span class="chip">${g.chip}</span>` : ''}
+        <span class="chip">Cap Eff ${fmtPct(g.captain_efficiency_pct)}</span>
+        <span class="chip">XI Eff ${fmtPct(g.xi_efficiency_pct)}</span>
+      `));
+      rosterCard.appendChild(el('div', 'divider'));
+    }
+    roster.forEach(p => {
+      rosterCard.appendChild(el('div', `roster-row ${p.is_starter ? '' : 'bench'}`, `
+        <span class="pill">${p.position}</span>
+        ${p.armband ? `<span class="armband">${p.armband}</span>` : ''}
+        <span style="flex:1">${p.name}</span>
+        <span class="muted">${p.raw_points} pts × ${p.multiplier}</span>
+      `));
+    });
+
+    transfersCard.innerHTML = '';
+    transfersCard.appendChild(el('h2', null, `Transfers — GW${gw}`));
+    const gwTransfers = o.transfers.filter(t => t.gw === gw);
+    if (gwTransfers.length) {
+      let trows = gwTransfers.map(t => `<tr><td>${t.player_in} in</td><td>${t.player_out} out</td></tr>`).join('');
+      transfersCard.innerHTML += `<table><tbody>${trows}</tbody></table>`;
+    } else {
+      transfersCard.appendChild(el('p', 'muted', 'No transfers made this gameweek.'));
+    }
+
+    histCard.querySelectorAll('tr[data-gw]').forEach(tr => {
+      tr.classList.toggle('row-selected', +tr.dataset.gw === gw);
+    });
   }
+
+  histCard.querySelector('tbody').addEventListener('click', (e) => {
+    const tr = e.target.closest('tr[data-gw]');
+    if (tr) showGwDetail(+tr.dataset.gw);
+  });
+
+  root.appendChild(rosterCard);
+  root.appendChild(transfersCard);
+  showGwDetail(o.latest_roster.gw);
 }
 
 function renderLeague(root) {
