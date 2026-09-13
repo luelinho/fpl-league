@@ -429,10 +429,18 @@ tr:last-child td { border-bottom: none; }
 .h2h-pitches .player-flag { width: 13px; height: 13px; font-size: 7px; }
 .h2h-team-tabs { display: none; }
 @media (max-width: 720px) {
-  .h2h-team-tabs { display: flex; }
+  .h2h-team-tabs {
+    display: flex; gap: 0; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+  }
+  .h2h-team-tabs button {
+    flex: 1; background: none; border: none; border-bottom: 2px solid transparent;
+    padding: 10px 4px; font-size: 14.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+  }
+  .h2h-team-tabs button.active { color: var(--ink); border-bottom-color: var(--accent); }
   .h2h-pitches { gap: 0; }
   .h2h-pitches > div.h2h-team { display: none; min-width: 0; }
   .h2h-pitches > div.h2h-team.active { display: block; }
+  .h2h-pitches > div.h2h-team h3 { display: none; }
 }
 """
 
@@ -709,7 +717,7 @@ function openMatchupModal(gw, nameA, nameB) {
       : `First time these two have met.`;
     body.appendChild(recordEl);
 
-    const teamTabs = el('div', 'tabbtn-group h2h-team-tabs');
+    const teamTabs = el('div', 'h2h-team-tabs');
     const tabA = el('button', 'active', nameA);
     const tabB = el('button', null, nameB);
     teamTabs.appendChild(tabA);
