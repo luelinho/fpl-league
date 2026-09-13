@@ -175,6 +175,13 @@ body {
     padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); justify-content: space-around;
   }
   #tabs .tab { flex: 1; text-align: center; padding: 8px 2px; font-size: 11px; }
+  /* The 8 manager stat tiles (Record, League points, ... Hit cost) — compact
+     them to a 2-column grid with smaller type so Gameweek history's heading
+     comes into view sooner instead of needing to scroll past 8 full-width rows. */
+  .grid-4 { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .grid-4 .card.stat { padding: 10px 12px; border-radius: 14px; }
+  .grid-4 .stat .value { font-size: 18px; }
+  .grid-4 .stat .label { font-size: 10.5px; }
 }
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
