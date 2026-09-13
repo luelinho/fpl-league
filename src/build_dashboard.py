@@ -161,6 +161,21 @@ body {
   }
 }
 @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {
+  .tab[data-tab="myteam"] { display: none; }
+  .container { padding-bottom: 90px; }
+  /* backdrop-filter on .topbar (an ancestor of #tabs) creates a new containing
+     block for fixed-position descendants, so #tabs's "bottom: 0" would resolve
+     against .topbar instead of the viewport unless this is dropped here. */
+  .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(10,7,15,0.92); }
+  #tabs {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 15;
+    background: rgba(10,7,15,0.92); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    border-top: 1px solid var(--border); border-radius: 0; max-width: none;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); justify-content: space-around;
+  }
+  #tabs .tab { flex: 1; text-align: center; padding: 8px 2px; font-size: 11px; }
+}
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border: 1px solid var(--border); border-radius: 20px; overflow-x: auto;
