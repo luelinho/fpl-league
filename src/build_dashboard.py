@@ -453,9 +453,16 @@ tr:last-child td { border-bottom: none; }
 }
 .tabbtn-group button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .muted { color: var(--ink-soft); font-size: 12.5px; }
-.countdown { font-size: 30px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; margin: 4px 0 8px; font-variant-numeric: tabular-nums; }
 .stat-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
 .chip { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--card-2); border: 1px solid var(--border); color: var(--ink); }
+.bench-row { opacity: 0.55; }
+.fixture-cell { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex: 1; min-width: 0; }
+.fdr-pill { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.fdr-1 { background: #0b8a43; color: #fff; }
+.fdr-2 { background: #5cc95c; color: #0a0a0d; }
+.fdr-3 { background: #e0e04a; color: #2c1c00; }
+.fdr-4 { background: #ff8a50; color: #2c1c00; }
+.fdr-5 { background: #c0392b; color: #fff; }
 .divider { height: 1px; background: var(--border); margin: 18px 0 14px; }
 .footer { text-align: center; color: var(--ink-soft); font-size: 12px; padding: 20px; }
 .match-row.clickable { cursor: pointer; border-radius: 10px; transition: background 0.1s; }
@@ -870,30 +877,14 @@ function renderHome(root) {
 
   const nextCard = el('div', 'card gc-next');
   const o = d.owner;
-  const nextGw = d.gw_status.next_gw;
-  nextCard.appendChild(el('h2', null, nextGw ? `Next up — GW${nextGw}` : 'Season complete'));
-  if (nextGw && o) {
-    const opp = d.owner_next_opponent;
-    const lastFinalGw = [...o.gw_history].reverse().find(g => g.is_final);
-    const squadIsForNextGw = o.latest_roster.gw === nextGw;
-    let html = `<div class="countdown" data-deadline="${d.gw_status.next_gw_deadline}">—</div>
-      <p class="muted" style="margin:0 0 10px">Deadline: ${formatDeadline(d.gw_status.next_gw_deadline)}</p>`;
-    if (opp) html += `<p class="muted"><b style="color:var(--ink)">${o.team_name}</b> vs <b style="color:var(--ink)">${opp.name}</b> (${opp.team})</p>`;
-    html += `<div class="stat-chips">
-      <span class="chip">Rank #${o.rank ?? '—'}</span>
-      <span class="chip">${o.ledger.w}-${o.ledger.d}-${o.ledger.l}</span>
-      <span class="chip">${o.ledger.league_points} league pts</span>
-      ${lastFinalGw ? `<span class="chip">Last week: ${lastFinalGw.net_points} pts (rank ${lastFinalGw.rank})</span>` : ''}
-    </div>
-    <div class="divider"></div>
-    <h3>Your squad — GW${o.latest_roster.gw}${squadIsForNextGw ? ' <span class="badge badge-l">LIVE</span>' : ''}</h3>
-    <p class="muted" style="margin:0 0 10px">${squadIsForNextGw
-      ? 'Locked in — live. Points update as matches are played, and are final once FPL data-checks this gameweek.'
-      : `Transfers made before the GW${nextGw} deadline won't show here yet.`}</p>`;
-    nextCard.innerHTML += html;
-    renderPitch(nextCard, o.latest_roster.players);
+  const sf = d.owner_squad_fixtures || [];
+  nextCard.appendChild(el('h2', null, o ? `Your squad's fixtures — GW${o.latest_roster.gw}` : 'Fixtures'));
+  if (o && sf.length) {
+    nextCard.appendChild(el('p', 'muted',
+      'Real Premier League fixtures for each player in your squad this gameweek — not the FPL head-to-head matchup.'));
+    sf.forEach(p => nextCard.appendChild(squadFixtureRow(p)));
   } else {
-    nextCard.innerHTML += '<p class="muted">No upcoming gameweek.</p>';
+    nextCard.innerHTML += '<p class="muted">No squad fixtures available yet.</p>';
   }
   homeGrid.appendChild(nextCard);
   root.appendChild(homeGrid);
@@ -945,27 +936,23 @@ function renderHome(root) {
   }
 }
 
-function formatDeadline(iso) {
-  if (!iso) return '—';
-  const dt = new Date(iso);
-  if (isNaN(dt.getTime())) return '—';
-  return dt.toLocaleString('en-US', {
-    month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
-    timeZone: 'UTC', timeZoneName: 'short',
-  });
+function fdrPill(fx) {
+  const side = fx.is_home ? 'H' : 'A';
+  const scoreText = fx.finished && fx.score ? ` · ${fx.score}` : '';
+  return `<span class="fdr-pill fdr-${fx.difficulty || 3}">${fx.opponent} (${side})${scoreText}</span>`;
 }
 
-function updateCountdowns() {
-  document.querySelectorAll('[data-deadline]').forEach(node => {
-    const deadline = new Date(node.dataset.deadline).getTime();
-    const diff = deadline - Date.now();
-    if (!node.dataset.deadline || isNaN(deadline)) { node.textContent = '—'; return; }
-    if (diff <= 0) { node.textContent = 'Deadline passed — squad locked in'; return; }
-    const s = Math.floor(diff / 1000);
-    const days = Math.floor(s / 86400), hrs = Math.floor((s % 86400) / 3600),
-          mins = Math.floor((s % 3600) / 60), secs = s % 60;
-    node.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
-  });
+function squadFixtureRow(p) {
+  const row = el('div', `plist-row${p.is_starter ? '' : ' bench-row'}`);
+  const fixturesHtml = p.fixtures.length
+    ? p.fixtures.map(fdrPill).join('')
+    : '<span class="muted">No fixture</span>';
+  row.innerHTML = `
+    ${plistKitImg(p)}
+    <div class="plist-name wide"><span class="pname">${p.name}</span><span class="plist-sub">${p.position}${p.is_starter ? '' : ' · bench'}</span></div>
+    <div class="fixture-cell">${fixturesHtml}</div>
+  `;
+  return row;
 }
 
 function statTier(label, value) {
@@ -1515,8 +1502,6 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 
 renderHome(document.getElementById('page-home'));
 rendered.home = true;
-updateCountdowns();
-setInterval(updateCountdowns, 1000);
 
 document.getElementById('modal-close-btn').addEventListener('click', closeMatchupModal);
 document.getElementById('matchup-modal').addEventListener('click', (e) => {

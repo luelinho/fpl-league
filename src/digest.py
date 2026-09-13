@@ -588,13 +588,46 @@ def all_managers_detail(conn, latest_gw: int) -> dict:
     return {str(mgr_id): manager_detail(conn, mgr_id, latest_gw) for (mgr_id,) in ids}
 
 
-def owner_next_fixture(upcoming_matches: list[dict], owner_name: str) -> dict | None:
-    for m in upcoming_matches:
-        if m["a"]["name"] == owner_name:
-            return m["b"]
-        if m["b"]["name"] == owner_name:
-            return m["a"]
-    return None
+def squad_fixtures(conn, roster: list[dict], gw: int) -> list[dict]:
+    """Real-world PL fixture(s) for every club in a roster that gameweek —
+    the actual Premier League schedule, not the FPL H2H matchup. A club can
+    have zero fixtures that gameweek (a blank) or more than one (a double),
+    so this is a list per player, never assumed to be exactly one.
+    """
+    if not gw or not roster:
+        return []
+    short_names = dict(conn.execute(
+        "SELECT club_id, short_name FROM pl_clubs WHERE season_id = 1"
+    ).fetchall())
+    fixture_rows = conn.execute(
+        """
+        SELECT team_h, team_a, team_h_score, team_a_score, team_h_difficulty, team_a_difficulty,
+               kickoff_time, finished
+        FROM raw_pl_fixtures WHERE season_id = 1 AND gw_id = ?
+        """,
+        (gw,),
+    ).fetchall()
+    by_club: dict[int, list[dict]] = {}
+    for th, ta, ths, tas, thd, tad, ko, finished in fixture_rows:
+        for club_id, opp_id, is_home, difficulty, my_score, opp_score in (
+            (th, ta, True, thd, ths, tas), (ta, th, False, tad, tas, ths),
+        ):
+            by_club.setdefault(club_id, []).append({
+                "opponent": short_names.get(opp_id, "?"),
+                "is_home": is_home,
+                "difficulty": difficulty,
+                "kickoff_time": ko,
+                "finished": bool(finished),
+                "score": f"{my_score}-{opp_score}" if finished and my_score is not None else None,
+            })
+    return [
+        {
+            "player_id": p["player_id"], "name": p["name"], "position": p["position"],
+            "club_id": p["club_id"], "is_starter": p["is_starter"],
+            "fixtures": by_club.get(p["club_id"], []),
+        }
+        for p in roster
+    ]
 
 
 PLAYERS_LIST_LIMIT = 10
@@ -828,7 +861,10 @@ def build_digest() -> dict:
         "leaderboard": leaderboard(conn, latest) if latest else [],
         "recaps": [gw_recap_summary(conn, gw) for gw in status["data_checked_gws"]],
         "owner": owner_blk,
-        "owner_next_opponent": owner_next_fixture(upcoming_matches, owner_blk["display_name"]) if owner_blk else None,
+        "owner_squad_fixtures": (
+            squad_fixtures(conn, owner_blk["latest_roster"]["players"], owner_blk["latest_roster"]["gw"])
+            if owner_blk else []
+        ),
         "managers_detail": all_managers_detail(conn, latest) if latest else {},
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},

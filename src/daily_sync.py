@@ -76,6 +76,7 @@ def run() -> int:
 
     ref = ingest.load_reference_data(conn, client)
     data_checked_gws = ref["data_checked_gws"]
+    ingest.load_fixtures(conn, client)
 
     managers = conn.execute("SELECT manager_id, entry_id FROM managers").fetchall()
     entry_to_manager = {entry_id: mgr_id for mgr_id, entry_id in managers}

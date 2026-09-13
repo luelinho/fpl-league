@@ -128,6 +128,41 @@ def load_reference_data(conn: sqlite3.Connection, client: FPLClient) -> dict:
     return {"data_checked_gws": data_checked, "current_gw": current, "next_gw": next_gw}
 
 
+def load_fixtures(conn: sqlite3.Connection, client: FPLClient) -> int:
+    """Real-world PL fixtures (kickoff time, home/away, FDR) — separate from
+    everything else here, which is FPL-league data. Upserted every run:
+    kickoff times and difficulty ratings can change right up to kickoff, and
+    a fixture's gw_id can too (postponements). Returns the fixture count.
+    """
+    print("PL fixtures")
+    res = client.get("fixtures/")
+    if not res.ok:
+        log_issue(conn, "warning", "fixtures_fetch_failed", f"fixtures/ failed: {res.summary()}")
+        return 0
+    fixtures = res.json_body
+    for fx in fixtures:
+        conn.execute(
+            """
+            INSERT INTO raw_pl_fixtures
+                (season_id, fixture_id, gw_id, team_h, team_a, team_h_score, team_a_score,
+                 team_h_difficulty, team_a_difficulty, kickoff_time, finished, fetched_at)
+            VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT (season_id, fixture_id) DO UPDATE SET
+                gw_id = excluded.gw_id, team_h_score = excluded.team_h_score,
+                team_a_score = excluded.team_a_score, team_h_difficulty = excluded.team_h_difficulty,
+                team_a_difficulty = excluded.team_a_difficulty, kickoff_time = excluded.kickoff_time,
+                finished = excluded.finished, fetched_at = excluded.fetched_at
+            """,
+            (fx["id"], fx.get("event"), fx["team_h"], fx["team_a"],
+             fx.get("team_h_score"), fx.get("team_a_score"),
+             fx.get("team_h_difficulty"), fx.get("team_a_difficulty"),
+             fx.get("kickoff_time"), int(bool(fx.get("finished"))), now()),
+        )
+    conn.commit()
+    print(f"  {len(fixtures)} fixtures.")
+    return len(fixtures)
+
+
 # --- per-gameweek player stats ------------------------------------------------
 
 STAT_COLS = [

@@ -68,6 +68,31 @@ CREATE TABLE IF NOT EXISTS pl_clubs (
   PRIMARY KEY (season_id, club_id)
 );
 
+-- Real-world Premier League fixtures — `fixtures/` endpoint, confirmed live
+-- 2026-09-13 (HTTP 200, 380 fixtures for the season). team_h/team_a are the
+-- same club_id space as pl_clubs (both come from bootstrap-static's team.id).
+-- gw_id is nullable: a fixture not yet slotted into a gameweek (postponement,
+-- or simply not yet scheduled that far out) genuinely has none, not a value
+-- we failed to capture. Upserted every sync since scores/difficulty/kickoff
+-- time can all change (postponements, re-scheduling) right up to kickoff.
+CREATE TABLE IF NOT EXISTS raw_pl_fixtures (
+  season_id         INTEGER NOT NULL REFERENCES seasons(season_id),
+  fixture_id        INTEGER NOT NULL,
+  gw_id             INTEGER,
+  team_h            INTEGER NOT NULL,
+  team_a            INTEGER NOT NULL,
+  team_h_score      INTEGER,
+  team_a_score      INTEGER,
+  team_h_difficulty INTEGER,
+  team_a_difficulty INTEGER,
+  kickoff_time      TEXT,
+  finished          BOOLEAN NOT NULL DEFAULT 0,
+  fetched_at        TEXT NOT NULL,
+  PRIMARY KEY (season_id, fixture_id),
+  FOREIGN KEY (season_id, team_h) REFERENCES pl_clubs(season_id, club_id),
+  FOREIGN KEY (season_id, team_a) REFERENCES pl_clubs(season_id, club_id)
+);
+
 CREATE TABLE IF NOT EXISTS players (
   season_id  INTEGER NOT NULL REFERENCES seasons(season_id),
   player_id  INTEGER NOT NULL,

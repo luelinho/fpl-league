@@ -121,6 +121,16 @@ Never claim something works unless it has actually been run.
   — the dashboard's Chip tracker (League page) lists every gameweek a chip
   was played rather than asserting a remaining count, since the schema alone
   can't distinguish first-half vs second-half usage.
+- `raw_pl_fixtures` holds the real-world Premier League schedule (kickoff
+  time, home/away, FDR 1-5, score) from FPL's own `fixtures/` endpoint —
+  separate from everything else in the DB, which is FPL-*league* data, not
+  real-world match data. Added 2026-09-13; confirmed live (HTTP 200, 380
+  fixtures for the season) before use, fetched and upserted every sync
+  alongside `bootstrap-static/`. Powers Home's "Your squad's fixtures" card
+  (`digest.squad_fixtures`), which replaced the old countdown/deadline
+  "Next up" box — a club can have zero fixtures a gameweek (a blank) or two
+  (a double), so that function always returns a list per player, never
+  assumes exactly one.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never
