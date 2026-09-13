@@ -427,6 +427,13 @@ tr:last-child td { border-bottom: none; }
 .h2h-pitches .player-name, .h2h-pitches .player-pts { font-size: 9px; padding: 2px 4px; }
 .h2h-pitches .player-armband { width: 15px; height: 15px; font-size: 8px; }
 .h2h-pitches .player-flag { width: 13px; height: 13px; font-size: 7px; }
+.h2h-team-tabs { display: none; }
+@media (max-width: 720px) {
+  .h2h-team-tabs { display: flex; }
+  .h2h-pitches { gap: 0; }
+  .h2h-pitches > div.h2h-team { display: none; min-width: 0; }
+  .h2h-pitches > div.h2h-team.active { display: block; }
+}
 """
 
 
@@ -702,15 +709,31 @@ function openMatchupModal(gw, nameA, nameB) {
       : `First time these two have met.`;
     body.appendChild(recordEl);
 
+    const teamTabs = el('div', 'tabbtn-group h2h-team-tabs');
+    const tabA = el('button', 'active', nameA);
+    const tabB = el('button', null, nameB);
+    teamTabs.appendChild(tabA);
+    teamTabs.appendChild(tabB);
+    body.appendChild(teamTabs);
+
     const pitches = el('div', 'h2h-pitches');
     pitches.style.marginTop = '18px';
-    const colA = el('div', null, `<h3>${nameA}</h3>`);
-    const colB = el('div', null, `<h3>${nameB}</h3>`);
+    const colA = el('div', 'h2h-team active', `<h3>${nameA}</h3>`);
+    const colB = el('div', 'h2h-team', `<h3>${nameB}</h3>`);
     if (rosterA.length) renderPitch(colA, rosterA); else colA.appendChild(el('p', 'muted', 'Roster not available.'));
     if (rosterB.length) renderPitch(colB, rosterB); else colB.appendChild(el('p', 'muted', 'Roster not available.'));
     pitches.appendChild(colA);
     pitches.appendChild(colB);
     body.appendChild(pitches);
+
+    tabA.onclick = () => {
+      tabA.classList.add('active'); tabB.classList.remove('active');
+      colA.classList.add('active'); colB.classList.remove('active');
+    };
+    tabB.onclick = () => {
+      tabB.classList.add('active'); tabA.classList.remove('active');
+      colB.classList.add('active'); colA.classList.remove('active');
+    };
   }
   document.getElementById('matchup-modal').style.display = 'flex';
 }
