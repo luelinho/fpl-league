@@ -182,6 +182,56 @@ body {
   .grid-4 .card.stat { padding: 10px 12px; border-radius: 14px; }
   .grid-4 .stat .value { font-size: 18px; }
   .grid-4 .stat .label { font-size: 10.5px; }
+
+  /* Tighter card/section rhythm — desktop's padding and heading margins were
+     tuned for a wide canvas and eat too much of a phone's width/height. */
+  .container { padding-left: 14px; padding-right: 14px; }
+  .card { padding: 16px 14px; border-radius: 16px; }
+  .locked-card { padding: 20px 16px; }
+  .section-title { font-size: 17px; margin: 24px 0 12px; }
+  table { font-size: 13px; }
+  th, td { padding: 9px 7px; }
+
+  /* Record badges (3W 0D 0L) can force some table columns down to their
+     min-content width, which used to wrap each badge onto its own line and
+     triple a row's height. record-badges keeps them one nowrap unit instead —
+     the column just takes its natural width and the table scrolls sideways. */
+  .record-badges .badge { padding: 2px 6px; font-size: 10.5px; }
+
+  /* Tables with more columns than a phone can show at once (League/Analytics
+     standings, gameweek history) still scroll horizontally via .card's own
+     overflow-x — this just makes that discoverable instead of looking like a
+     cut-off layout bug. */
+  .wide-table { position: relative; }
+  .wide-table::after {
+    content: ''; position: absolute; top: 1px; right: 1px; bottom: 1px; width: 24px;
+    background: linear-gradient(to right, transparent, rgba(10,7,15,0.8));
+    border-radius: 0 15px 15px 0; pointer-events: none;
+  }
+
+  /* Bump touch targets that were sized for a mouse cursor up toward the ~40px+
+     minimum that's comfortable to hit with a thumb. */
+  .modal-close { width: 40px; height: 40px; font-size: 15px; top: 12px; right: 12px; }
+  .gw-nav-arrow { width: 42px; height: 42px; font-size: 17px; }
+  .gw-nav-select { padding: 9px 14px; min-height: 42px; }
+  .tabbtn-group button { padding: 10px 16px; min-height: 40px; }
+  #manager-select { min-height: 44px; padding: 11px 12px !important; }
+  th { padding-top: 11px; padding-bottom: 11px; }
+
+  /* The modal's fixed side padding was tuned for desktop's 920px card; on a
+     360-400px phone it was taking a visible bite out of already-tight content
+     width. */
+  .modal-overlay { padding: 16px 8px; }
+  .modal-card { padding: 20px 14px 22px; border-radius: 16px; }
+}
+/* Visible keyboard/switch-control focus ring — the buttons, tabs and rows
+   below are otherwise borderless with no default focus indication. Applies
+   at every width; it only ever shows for non-pointer input. */
+.tab:focus-visible, .tabbtn-group button:focus-visible, .gw-nav-arrow:focus-visible,
+.modal-close:focus-visible, .h2h-team-tabs button:focus-visible, th:focus-visible,
+.match-row.clickable:focus-visible, tr.clickable-row:focus-visible, .proj-card:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
 }
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
@@ -217,6 +267,7 @@ tr:last-child td { border-bottom: none; }
 .badge {
   display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 700;
 }
+.record-badges { display: inline-flex; gap: 3px; white-space: nowrap; }
 .badge-w { background: var(--win-soft); color: var(--win); }
 .badge-l { background: var(--loss-soft); color: var(--loss); }
 .badge-d { background: var(--draw-soft); color: var(--draw); }
@@ -472,9 +523,17 @@ function fmtPct(v) { return v === null || v === undefined ? '—' : v.toFixed(1)
 const MANAGER_ID_BY_NAME = {};
 DIGEST.managers.forEach(m => { MANAGER_ID_BY_NAME[m.display_name] = m.manager_id; });
 function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+function makeActivatable(elm) {
+  elm.tabIndex = 0;
+  elm.setAttribute('role', 'button');
+  elm.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elm.click(); }
+  });
+  return elm;
+}
 
 function resultBadge(w, d, l) {
-  return `<span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span>`;
+  return `<span class="record-badges"><span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span></span>`;
 }
 
 function matchRow(gw, m, showTeam) {
@@ -488,6 +547,7 @@ function matchRow(gw, m, showTeam) {
     <div class="match-side right">${m.b.name}${showTeam ? `<div class="muted">${m.b.team}</div>` : ''}</div>
   `);
   row.onclick = () => openMatchupModal(+gw, m.a.name, m.b.name);
+  makeActivatable(row);
   return row;
 }
 
@@ -523,6 +583,7 @@ function projectedMatchRow(gw, m) {
     ${m.has_unproven_players ? '<div class="proj-caveat">Includes a player with no scoring history yet</div>' : ''}
   `;
   card.onclick = () => openMatchupModal(+gw, m.a.name, m.b.name);
+  makeActivatable(card);
   return card;
 }
 
@@ -778,7 +839,7 @@ function renderHome(root) {
 
   const homeGrid = el('div', 'home-top-grid');
 
-  const standingsCard = el('div', 'card gc-standings');
+  const standingsCard = el('div', 'card gc-standings wide-table');
   standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
   let rows = d.standings.map(s => `
     <tr class="${s.is_owner ? 'owner-row' : ''}">
@@ -950,12 +1011,12 @@ function renderManagerCards(root, o) {
   });
   root.appendChild(statsGrid);
 
-  const histCard = el('div', 'card');
+  const histCard = el('div', 'card wide-table');
   histCard.style.marginTop = '16px';
   histCard.appendChild(el('h2', null, 'Gameweek history'));
   histCard.appendChild(el('p', 'muted', 'Click a row to see the roster and transfers for that gameweek below.'));
   let rows = o.gw_history.map(g => `
-    <tr class="clickable-row" data-gw="${g.gw}"><td>GW${g.gw}${g.is_final ? '' : ' <span class="badge badge-l">LIVE</span>'}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
+    <tr class="clickable-row" data-gw="${g.gw}" tabindex="0" role="button"><td>GW${g.gw}${g.is_final ? '' : ' <span class="badge badge-l">LIVE</span>'}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
     <td>${g.rank ?? '—'}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
     <td>${fmtPct(g.captain_efficiency_pct)}</td><td>${fmtPct(g.xi_efficiency_pct)}</td></tr>`).join('');
   histCard.innerHTML += `<table><thead><tr><th>GW</th><th>Net</th><th>Rank</th><th>Bench</th><th>Chip</th><th>Cap Eff</th><th>XI Eff</th></tr></thead><tbody>${rows}</tbody></table>`;
@@ -1008,6 +1069,10 @@ function renderManagerCards(root, o) {
     const tr = e.target.closest('tr[data-gw]');
     if (tr) showGwDetail(+tr.dataset.gw);
   });
+  histCard.querySelector('tbody').addEventListener('keydown', (e) => {
+    const tr = e.target.closest('tr[data-gw]');
+    if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); showGwDetail(+tr.dataset.gw); }
+  });
 
   root.appendChild(rosterCard);
   root.appendChild(transfersCard);
@@ -1031,7 +1096,7 @@ function renderManagers(root) {
   const options = all.map(m => `<option value="${m.manager_id}">${m.team_name} — ${m.display_name}</option>`).join('');
   selectorCard.innerHTML = `
     <h3>Choose a manager</h3>
-    <select id="manager-select" style="width:100%; padding:10px 12px; border-radius:10px; background:var(--card-2); color:var(--ink); border:1px solid var(--border); font-size:14px;">
+    <select id="manager-select" aria-label="Choose a manager" style="width:100%; padding:10px 12px; border-radius:10px; background:var(--card-2); color:var(--ink); border:1px solid var(--border); font-size:14px;">
       ${options}
     </select>
   `;
@@ -1060,7 +1125,7 @@ function renderLeague(root) {
   const d = DIGEST;
   root.innerHTML = '';
   root.appendChild(el('div', 'section-title', `Standings — after GW${d.standings_gw}`));
-  const table = el('div', 'card');
+  const table = el('div', 'card wide-table');
   let rows = d.standings.map(s => `
     <tr class="${s.is_owner ? 'owner-row' : ''}">
       <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
@@ -1174,10 +1239,12 @@ function renderPlayers(root) {
   root.appendChild(el('div', 'section-title', 'Most owned & most captained'));
   const nav = el('div', 'gw-nav');
   const prevBtn = el('button', 'gw-nav-arrow', '&larr;');
+  prevBtn.setAttribute('aria-label', 'Previous gameweek');
   prevBtn.disabled = idx <= 0;
   prevBtn.onclick = () => { playersSelectedGw = d.gws[idx - 1]; renderPlayers(root); };
   const select = document.createElement('select');
   select.className = 'gw-nav-select';
+  select.setAttribute('aria-label', 'Select gameweek');
   d.gws.forEach(gw => {
     const opt = document.createElement('option');
     opt.value = gw;
@@ -1187,6 +1254,7 @@ function renderPlayers(root) {
   });
   select.onchange = () => { playersSelectedGw = Number(select.value); renderPlayers(root); };
   const nextBtn = el('button', 'gw-nav-arrow', '&rarr;');
+  nextBtn.setAttribute('aria-label', 'Next gameweek');
   nextBtn.disabled = idx >= d.gws.length - 1;
   nextBtn.onclick = () => { playersSelectedGw = d.gws[idx + 1]; renderPlayers(root); };
   nav.appendChild(prevBtn);
@@ -1273,7 +1341,7 @@ function renderAnalytics(root) {
   const d = DIGEST;
   root.innerHTML = '';
   root.appendChild(el('div', 'section-title', 'Manager skill leaderboard'));
-  const card = el('div', 'card');
+  const card = el('div', 'card wide-table');
   root.appendChild(card);
   const rows = d.leaderboard.map(m => [m.display_name, m.team_name, `${m.w}-${m.d}-${m.l}`, m.league_points,
     m.captain_efficiency_pct, m.xi_efficiency_pct, m.bench_points, m.is_owner]);
