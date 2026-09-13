@@ -113,6 +113,14 @@ Never claim something works unless it has actually been run.
 - "Close" match margin is **under 5 points**; "blowout" is **over 20 points**
   (owner's decision, 2026-09-12 — SPEC.md never defined these, so they were
   not guessed). Used by `derived_manager_season.close_w/close_l/blowout_w/blowout_l`.
+- Each of the 4 chips (Wildcard, Bench Boost, Triple Captain, Free Hit) is
+  available **twice this season**, once per half — first copy must be played
+  by the GW19 deadline, second copy refreshes for GW20–38 (confirmed via
+  premierleague.com, 2026-09-13). `raw_manager_gw.chip_played` only ever
+  records *that* a chip was played in a given gameweek, not which half's copy
+  — the dashboard's Chip tracker (League page) lists every gameweek a chip
+  was played rather than asserting a remaining count, since the schema alone
+  can't distinguish first-half vs second-half usage.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never

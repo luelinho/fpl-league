@@ -1152,6 +1152,29 @@ function renderLeague(root) {
   root.appendChild(btnGroup);
   root.appendChild(matchupsBody);
   if (gwKeys.length) showGw(gwKeys[gwKeys.length - 1]);
+
+  root.appendChild(el('div', 'section-title', 'Chip tracker'));
+  const chipCard = el('div', 'card wide-table');
+  chipCard.appendChild(el('p', 'muted',
+    'Each chip is available twice this season (once per half, split at GW19) — shows every gameweek it’s been played so far.'));
+  const chipRows = d.standings.map(s => {
+    const mgr = DIGEST.managers_detail[MANAGER_ID_BY_NAME[s.display_name]];
+    return `<tr class="${s.is_owner ? 'owner-row' : ''}">
+      <td>${s.display_name}<div class="muted">${s.team_name}</div></td>
+      ${CHIP_ORDER.map(code => `<td>${chipTrackerCell(mgr, code)}</td>`).join('')}
+    </tr>`;
+  }).join('');
+  chipCard.innerHTML += `<table><thead><tr><th>Manager</th>${CHIP_ORDER.map(c => `<th>${CHIP_LABELS[c]}</th>`).join('')}</tr></thead><tbody>${chipRows}</tbody></table>`;
+  root.appendChild(chipCard);
+}
+
+const CHIP_LABELS = { wildcard: 'Wildcard', bboost: 'Bench Boost', '3xc': 'Triple Captain', freehit: 'Free Hit' };
+const CHIP_ORDER = ['wildcard', 'bboost', '3xc', 'freehit'];
+
+function chipTrackerCell(mgrDetail, code) {
+  if (!mgrDetail) return '<span class="muted">—</span>';
+  const gws = mgrDetail.gw_history.filter(g => g.chip === code).map(g => `<span class="chip">GW${g.gw}</span>`);
+  return gws.length ? gws.join(' ') : '<span class="muted">—</span>';
 }
 
 function sortableTable(container, headers, rows, rowRenderer) {
@@ -1228,6 +1251,38 @@ function flaggedListRows(container, list) {
   });
 }
 
+function poolLeaguePlayersForGw(gw) {
+  const seen = new Map();
+  Object.values(DIGEST.managers_detail).forEach(m => {
+    const roster = m.rosters_by_gw[String(gw)];
+    if (!roster) return;
+    roster.forEach(p => { if (!seen.has(p.player_id)) seen.set(p.player_id, p); });
+  });
+  return [...seen.values()];
+}
+
+function bestXIFromPool(pool) {
+  const byPos = { GKP: [], DEF: [], MID: [], FWD: [] };
+  pool.forEach(p => byPos[p.position].push(p));
+  Object.values(byPos).forEach(arr => arr.sort((a, b) => b.raw_points - a.raw_points));
+  if (!byPos.GKP.length) return null;
+  const gkp = byPos.GKP[0];
+  const sum = arr => arr.reduce((s, p) => s + p.raw_points, 0);
+  let best = null, bestTotal = -1;
+  for (let d = 3; d <= 5; d++) {
+    for (let mi = 2; mi <= 5; mi++) {
+      for (let f = 1; f <= 3; f++) {
+        if (d + mi + f !== 10) continue;
+        if (d > byPos.DEF.length || mi > byPos.MID.length || f > byPos.FWD.length) continue;
+        const defSel = byPos.DEF.slice(0, d), midSel = byPos.MID.slice(0, mi), fwdSel = byPos.FWD.slice(0, f);
+        const total = gkp.raw_points + sum(defSel) + sum(midSel) + sum(fwdSel);
+        if (total > bestTotal) { bestTotal = total; best = [gkp, ...defSel, ...midSel, ...fwdSel]; }
+      }
+    }
+  }
+  return best;
+}
+
 let playersSelectedGw = null;
 
 function renderPlayers(root) {
@@ -1262,6 +1317,19 @@ function renderPlayers(root) {
   nav.appendChild(select);
   nav.appendChild(nextBtn);
   root.appendChild(nav);
+
+  root.appendChild(el('div', 'section-title', 'League Dream Team'));
+  const dreamCard = el('div', 'card');
+  dreamCard.appendChild(el('p', 'muted',
+    'The best valid XI (1 GKP, 3-5 DEF, 2-5 MID, 1-3 FWD) picked from every player owned by anyone in the league this gameweek — by raw points, captaincy not applied.'));
+  const dreamXIRaw = bestXIFromPool(poolLeaguePlayersForGw(playersSelectedGw));
+  const dreamXI = (dreamXIRaw || []).map(p => ({ ...p, is_starter: true, armband: '', multiplier: 1 }));
+  if (dreamXI.length === 11) {
+    renderPitch(dreamCard, dreamXI);
+  } else {
+    dreamCard.appendChild(el('p', 'muted', 'Not enough roster data for this gameweek yet.'));
+  }
+  root.appendChild(dreamCard);
 
   const gwData = d.by_gw[String(playersSelectedGw)] || {};
 
