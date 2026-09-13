@@ -201,12 +201,13 @@ body {
   /* Tables with more columns than a phone can show at once (League/Analytics
      standings, gameweek history) still scroll horizontally via .card's own
      overflow-x — this just makes that discoverable instead of looking like a
-     cut-off layout bug. */
-  .wide-table { position: relative; }
-  .wide-table::after {
-    content: ''; position: absolute; top: 1px; right: 1px; bottom: 1px; width: 24px;
-    background: linear-gradient(to right, transparent, rgba(10,7,15,0.8));
-    border-radius: 0 15px 15px 0; pointer-events: none;
+     cut-off layout bug. A mask paints the fade without adding any box to the
+     layout: an absolutely-positioned ::after here (an earlier attempt at this
+     same fade) expanded the container's own scrollable area and made these
+     tables load pre-scrolled, hiding the # and Manager columns by default. */
+  .wide-table {
+    mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 24px), transparent 100%);
   }
 
   /* Bump touch targets that were sized for a mouse cursor up toward the ~40px+
