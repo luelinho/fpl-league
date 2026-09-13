@@ -143,10 +143,23 @@ body {
 .page { display: none; }
 .page.active { display: block; }
 .grid { display: grid; gap: 16px; }
-.grid.align-top { align-items: start; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
+.home-top-grid {
+  display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
+  grid-template-areas: "standings fixtures" "results next";
+}
+.home-top-grid > .gc-standings { grid-area: standings; align-self: start; }
+.home-top-grid > .gc-fixtures { grid-area: fixtures; }
+.home-top-grid > .gc-results { grid-area: results; }
+.home-top-grid > .gc-next { grid-area: next; }
+@media (max-width: 720px) {
+  .home-top-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "fixtures" "results" "standings" "next";
+  }
+}
 @media (max-width: 720px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
@@ -710,9 +723,9 @@ function renderHome(root) {
   const d = DIGEST;
   root.innerHTML = '';
 
-  const grid = el('div', 'grid grid-2 align-top');
+  const homeGrid = el('div', 'home-top-grid');
 
-  const standingsCard = el('div', 'card');
+  const standingsCard = el('div', 'card gc-standings');
   standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
   let rows = d.standings.map(s => `
     <tr class="${s.is_owner ? 'owner-row' : ''}">
@@ -721,9 +734,9 @@ function renderHome(root) {
     </tr>`).join('');
   const standingsScroll = el('div', 'table-scroll', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`);
   standingsCard.appendChild(standingsScroll);
-  grid.appendChild(standingsCard);
+  homeGrid.appendChild(standingsCard);
 
-  const fixturesCard = el('div', 'card');
+  const fixturesCard = el('div', 'card gc-fixtures');
   const uf = d.upcoming_fixtures;
   const fixturesLive = uf.matches.some(m => m.live);
   fixturesCard.appendChild(el('h2', null, uf.gw
@@ -732,26 +745,15 @@ function renderHome(root) {
   uf.matches.forEach(m => fixturesCard.appendChild(
     m.a.win_pct !== undefined ? projectedMatchRow(uf.gw, m) : matchRow(uf.gw, m, true)
   ));
-  grid.appendChild(fixturesCard);
-  root.appendChild(grid);
+  homeGrid.appendChild(fixturesCard);
 
-  const VISIBLE_STANDINGS_ROWS = 9;
-  const standingsBodyRows = standingsScroll.querySelectorAll('tbody tr');
-  if (standingsBodyRows.length > VISIBLE_STANDINGS_ROWS) {
-    const thead = standingsScroll.querySelector('thead');
-    let fitHeight = thead.offsetHeight;
-    for (let i = 0; i < VISIBLE_STANDINGS_ROWS; i++) fitHeight += standingsBodyRows[i].offsetHeight;
-    standingsScroll.style.maxHeight = fitHeight + 'px';
-  }
-
-  const grid2 = el('div', 'grid grid-2');
-  const resultsCard = el('div', 'card');
+  const resultsCard = el('div', 'card gc-results');
   const lr = d.last_results;
   resultsCard.appendChild(el('h2', null, lr ? `Last results — GW${lr.gw}` : 'No results yet'));
   if (lr) lr.matches.forEach(m => resultsCard.appendChild(matchRow(lr.gw, m, false)));
-  grid2.appendChild(resultsCard);
+  homeGrid.appendChild(resultsCard);
 
-  const nextCard = el('div', 'card');
+  const nextCard = el('div', 'card gc-next');
   const o = d.owner;
   const nextGw = d.gw_status.next_gw;
   nextCard.appendChild(el('h2', null, nextGw ? `Next up — GW${nextGw}` : 'Season complete'));
@@ -778,8 +780,17 @@ function renderHome(root) {
   } else {
     nextCard.innerHTML += '<p class="muted">No upcoming gameweek.</p>';
   }
-  grid2.appendChild(nextCard);
-  root.appendChild(grid2);
+  homeGrid.appendChild(nextCard);
+  root.appendChild(homeGrid);
+
+  const VISIBLE_STANDINGS_ROWS = 9;
+  const standingsBodyRows = standingsScroll.querySelectorAll('tbody tr');
+  if (standingsBodyRows.length > VISIBLE_STANDINGS_ROWS) {
+    const thead = standingsScroll.querySelector('thead');
+    let fitHeight = thead.offsetHeight;
+    for (let i = 0; i < VISIBLE_STANDINGS_ROWS; i++) fitHeight += standingsBodyRows[i].offsetHeight;
+    standingsScroll.style.maxHeight = fitHeight + 'px';
+  }
 
   const pm = d.price_movers;
   const priceCard = el('div', 'card');
