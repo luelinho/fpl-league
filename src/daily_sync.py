@@ -94,11 +94,24 @@ def run() -> int:
         for mgr_id, entry_id in managers:
             for gw in todo:
                 ingest.load_manager_gw(conn, client, gw, mgr_id, entry_id, player_points_by_gw[gw])
-            ingest.load_transfers(conn, client, mgr_id, entry_id)
             conn.commit()
         print(f"  Ingested {len(todo)} gameweek(s) for all {len(managers)} managers.")
     else:
         print("\nNo new data-checked gameweeks since last run — nothing to ingest.")
+
+    # Transfers are fetched unconditionally every run, not gated behind `todo`.
+    # entry/{id}/transfers/ returns a manager's complete history (not
+    # gw-scoped), so re-fetching it daily is cheap and idempotent (upsert on
+    # the natural key) — and it must not wait for the *next* gameweek to
+    # finalize, since a transfer made for the gameweek in progress right now
+    # is exactly the one a manager wants to see today, not a week from now.
+    # Previously nested inside `if todo:`, which meant transfers for the
+    # current live gameweek didn't appear until the following gameweek was
+    # data-checked (found 2026-09-18: GW5 transfers missing from the
+    # dashboard while GW5 was still in progress).
+    for mgr_id, entry_id in managers:
+        ingest.load_transfers(conn, client, mgr_id, entry_id)
+    conn.commit()
 
     # The first gameweek we haven't finalized yet — NOT ref["next_gw"], which
     # is FPL's own is_next flag and can point further ahead (e.g. once GW4 is
