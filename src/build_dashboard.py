@@ -308,6 +308,16 @@ tr:last-child td { border-bottom: none; }
 .match-side.right { text-align: right; }
 .match-score { padding: 0 16px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
 .match-score .win { color: var(--win); }
+.transfer-gw-box { margin-bottom: 14px; }
+.transfer-gw-box:last-child { margin-bottom: 0; }
+.transfer-gw-box h3 { margin-bottom: 6px; }
+.transfer-row {
+  display: flex; justify-content: space-between; gap: 12px; padding: 6px 0;
+  border-bottom: 1px solid var(--border); font-size: 13px; color: var(--ink);
+}
+.transfer-row:last-child { border-bottom: none; }
+.transfer-in::before { content: '+ '; color: var(--win); font-weight: 700; }
+.transfer-out::before { content: '− '; color: var(--loss); font-weight: 700; }
 .proj-card {
   padding: 10px 14px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--border);
   cursor: pointer; margin-bottom: 6px; transition: background 0.1s;
@@ -980,6 +990,27 @@ function statTier(label, value) {
   return null;
 }
 
+function renderTransferHistory(container, transfers) {
+  if (!transfers.length) {
+    container.appendChild(el('p', 'muted', 'No transfers made this season.'));
+    return;
+  }
+  const byGw = new Map();
+  transfers.forEach(t => {
+    if (!byGw.has(t.gw)) byGw.set(t.gw, []);
+    byGw.get(t.gw).push(t);
+  });
+  [...byGw.keys()].sort((a, b) => b - a).forEach(gw => {
+    const box = el('div', 'transfer-gw-box');
+    box.appendChild(el('h3', null, `GW${gw}`));
+    byGw.get(gw).forEach(t => box.appendChild(el('div', 'transfer-row', `
+      <span class="transfer-in">${t.player_in} <span class="muted">in</span></span>
+      <span class="transfer-out">${t.player_out} <span class="muted">out</span></span>
+    `)));
+    container.appendChild(box);
+  });
+}
+
 function renderManagerCards(root, o) {
   const statsGrid = el('div', 'grid grid-4');
   const L = o.ledger;
@@ -1065,6 +1096,12 @@ function renderManagerCards(root, o) {
   root.appendChild(rosterCard);
   root.appendChild(transfersCard);
   showGwDetail(o.latest_roster.gw);
+
+  const transferHistCard = el('div', 'card');
+  transferHistCard.style.marginTop = '16px';
+  transferHistCard.appendChild(el('h2', null, 'Transfer history'));
+  renderTransferHistory(transferHistCard, o.transfers);
+  root.appendChild(transferHistCard);
 }
 
 function renderMyTeam(root) {
