@@ -1033,7 +1033,7 @@ function renderManagerCards(root, o) {
   const histCard = el('div', 'card wide-table');
   histCard.style.marginTop = '16px';
   histCard.appendChild(el('h2', null, 'Gameweek history'));
-  histCard.appendChild(el('p', 'muted', 'Click a row to see the roster and transfers for that gameweek below.'));
+  histCard.appendChild(el('p', 'muted', 'Click a row to see the roster for that gameweek below.'));
   let rows = o.gw_history.map(g => `
     <tr class="clickable-row" data-gw="${g.gw}" tabindex="0" role="button"><td>GW${g.gw}${g.is_final ? '' : ' <span class="badge badge-l">LIVE</span>'}</td><td>${g.net_points}${g.hit_cost ? ` <span class="muted">(-${g.hit_cost})</span>` : ''}</td>
     <td>${g.rank ?? '—'}</td><td>${g.bench_points}</td><td>${g.chip || '—'}</td>
@@ -1043,8 +1043,6 @@ function renderManagerCards(root, o) {
 
   const rosterCard = el('div', 'card');
   rosterCard.style.marginTop = '16px';
-  const transfersCard = el('div', 'card');
-  transfersCard.style.marginTop = '16px';
 
   function showGwDetail(gw) {
     const g = o.gw_history.find(x => x.gw === gw);
@@ -1069,16 +1067,6 @@ function renderManagerCards(root, o) {
     }
     renderPitch(rosterCard, roster);
 
-    transfersCard.innerHTML = '';
-    transfersCard.appendChild(el('h2', null, `Transfers — GW${gw}`));
-    const gwTransfers = o.transfers.filter(t => t.gw === gw);
-    if (gwTransfers.length) {
-      let trows = gwTransfers.map(t => `<tr><td>${t.player_in} in</td><td>${t.player_out} out</td></tr>`).join('');
-      transfersCard.innerHTML += `<table><tbody>${trows}</tbody></table>`;
-    } else {
-      transfersCard.appendChild(el('p', 'muted', 'No transfers made this gameweek.'));
-    }
-
     histCard.querySelectorAll('tr[data-gw]').forEach(tr => {
       tr.classList.toggle('row-selected', +tr.dataset.gw === gw);
     });
@@ -1094,7 +1082,6 @@ function renderManagerCards(root, o) {
   });
 
   root.appendChild(rosterCard);
-  root.appendChild(transfersCard);
   showGwDetail(o.latest_roster.gw);
 
   const transferHistCard = el('div', 'card');
