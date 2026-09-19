@@ -303,6 +303,18 @@ Never claim something works unless it has actually been run.
   not by eyeballing — if either card's content changes later (a new
   standings column, a taller fixture row), re-measure and adjust both
   rather than just one.
+- The standings table's default `table-layout:auto` + `width:100%` gave
+  its narrow numeric columns (#, Pts, the live-gw/Streak column) leftover
+  stretch-width they didn't need, which just showed up as dead space
+  after each left-aligned number (owner noticed this 2026-09-19).
+  `.gc-standings` now uses `table-layout:fixed` with explicit per-column
+  widths (numeric columns right-aligned and sized to content, Manager
+  left with no explicit width so it absorbs whatever's left) — scoped to
+  `.gc-standings` only, not the shared `table`/`th,td` rules the
+  League/Analytics standings tables also use. The desktop widths are too
+  wide for a phone's much narrower card (would squeeze Manager down to
+  wrapping every name onto 3+ lines), so there's a separate, tighter set
+  of the same per-column widths in the consolidated mobile block.
 - The League page's "All matchups" section uses the same prev/next-arrow
   + `<select>` gameweek picker as the Players page and Home's results
   card, not one button per gameweek — a 35-button row stopped being

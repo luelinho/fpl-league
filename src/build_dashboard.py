@@ -336,10 +336,20 @@ th:hover { color: var(--ink); }
    .gc-standings specifically so the League/Analytics standings tables (same
    markup, different context) keep their normal, more readable size. */
 .gc-standings .table-scroll { max-height: 1000px; }
-.gc-standings table { font-size: 13.5px; }
+.gc-standings table { font-size: 13px; table-layout: fixed; width: 100%; }
 .gc-standings th, .gc-standings td { padding: 7px 9px; }
-.gc-standings td .muted { font-size: 11px; }
+.gc-standings td .muted { font-size: 10.5px; }
 .gc-standings .record-badges .badge { padding: 2px 6px; font-size: 10.5px; }
+/* # / Pts / GW-or-streak are narrow numeric columns — table-layout:auto's
+   100%-stretch was handing them leftover width they didn't need, which
+   just showed up as dead space after the left-aligned number (owner
+   noticed this 2026-09-19). table-layout:fixed + explicit widths give
+   that space to the Manager column instead, and right-aligning the
+   numbers reads better than left-aligned digits anyway. */
+.gc-standings th:nth-child(1), .gc-standings td:nth-child(1) { width: 52px; }
+.gc-standings th:nth-child(3), .gc-standings td:nth-child(3) { width: 118px; }
+.gc-standings th:nth-child(4), .gc-standings td:nth-child(4),
+.gc-standings th:nth-child(5), .gc-standings td:nth-child(5) { width: 40px; text-align: right; }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
 tr.clickable-row { cursor: pointer; }
@@ -727,6 +737,16 @@ tr:last-child td { border-bottom: none; }
      alone in the topbar, so it reads better centered instead of stranded
      top-left. */
   .topbar-inner { justify-content: center; }
+
+  /* The fixed column widths that fix the standings table's desktop dead-
+     space problem are too wide for a phone's much narrower card — they'd
+     squeeze the Manager column down to wrapping every name onto 3+ lines.
+     Shrink them further here so Manager still gets most of the width. */
+  .gc-standings th:nth-child(1), .gc-standings td:nth-child(1) { width: 26px; }
+  .gc-standings th:nth-child(3), .gc-standings td:nth-child(3) { width: 98px; }
+  .gc-standings th:nth-child(4), .gc-standings td:nth-child(4) { width: 32px; }
+  .gc-standings th:nth-child(5), .gc-standings td:nth-child(5) { width: 32px; }
+  .gc-standings th:nth-child(4), .gc-standings th:nth-child(5) { font-size: 9.5px; }
 
   /* "This week's fixtures" (Home page) — owner's ask 2026-09-19, twice, to
      shrink it enough to see 10 matchups at once on a phone. Same technique
