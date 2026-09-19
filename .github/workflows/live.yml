@@ -1,0 +1,79 @@
+name: Live FPL sync
+
+# Runs the same pipeline as daily.yml, but every 5 minutes during typical
+# Premier League kickoff windows (UTC), so scores update while matches are
+# actually being played rather than waiting for the once-a-day 06:05 UTC
+# run. 5 minutes is GitHub Actions' practical floor for a schedule trigger
+# (and a queued run can lag a few minutes further under platform load), so
+# this is the fastest cadence available, not a hard guarantee.
+#
+# Scoped to broad matchday windows instead of firing 24/7: Friday evening
+# kickoffs, all-day Saturday, Sunday, and Monday Night Football / midweek
+# rounds (Tue-Thu evenings, which also covers rearranged and European
+# nights). Outside these windows the once-daily job still runs. The
+# pipeline is cheap and idempotent when nothing's new (daily_sync.py
+# upserts on natural keys — see CLAUDE.md §6/§7), so a window firing when
+# no match happens to be on just costs a few no-op API calls, not a bad
+# write. This repo is public, so Actions minutes are unmetered.
+on:
+  schedule:
+    - cron: "*/5 17-23 * * 5"   # Friday evening kickoffs
+    - cron: "*/5 10-23 * * 6"   # Saturday — early kickoff through late
+    - cron: "*/5 10-22 * * 0"   # Sunday
+    - cron: "*/5 17-23 * * 1-4" # Monday Night Football + midweek/European rounds
+  workflow_dispatch: {}
+
+concurrency:
+  # Shared with daily.yml on purpose — both write db/league.sqlite and
+  # dashboard.html and push to main, so they must never run concurrently.
+  group: daily-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run sync and rebuild derived outputs
+        run: |
+          python -m src.daily_sync
+          python -m src.calculate
+          python -m src.recap
+          python -m src.digest
+          python -m src.build_dashboard
+
+      - name: Commit and push if anything changed
+        run: |
+          if git diff --quiet -- db/league.sqlite digest/season.json dashboard.html reports/; then
+            echo "No changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "fpl-league-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add db/league.sqlite digest/season.json dashboard.html reports/
+          git commit -m "Live sync $(date -u +%Y-%m-%dT%H:%M)Z"
+          # Someone/something else may have pushed to main since this job
+          # checked out (the daily job, an overlapping live run, or a manual
+          # push) — rebase onto the latest and retry rather than failing the
+          # whole run over a plain race condition.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt) — pulling latest and retrying..."
+            git pull --rebase origin main
+            sleep 5
+          done
+          echo "::error::Could not push after 5 attempts."
+          exit 1

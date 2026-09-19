@@ -191,6 +191,22 @@ Never claim something works unless it has actually been run.
   (89.3%). Any future mobile-only CSS addition to this file must be
   placed after its base selector's rule, and verified with a computed-
   style check, not just a screenshot.
+- The dashboard refreshes every 5 minutes during live matches via
+  `.github/workflows/live.yml`, added 2026-09-19 (owner's ask: "quickest
+  we can update without breaking"). 5 minutes is GitHub Actions' practical
+  floor for a `schedule` trigger — a queued run can lag further under
+  platform load, so it's a target cadence, not a guarantee. Scoped to
+  broad matchday windows (Fri evening, all-day Sat/Sun, Mon Night
+  Football, midweek Tue-Thu evenings) rather than 24/7, both because a
+  window firing when no match is actually on wastes nothing but a few
+  no-op API calls and because it keeps the schedule legible — this repo
+  is public so Actions minutes themselves are free either way. Shares
+  `daily.yml`'s exact five-command pipeline and its `daily-sync`
+  concurrency group (both write `db/league.sqlite` and `dashboard.html`
+  and push to `main`, so they must never run concurrently). Safe to run
+  this often only because `daily_sync.py` is upsert-on-natural-key
+  idempotent per §6/§7 — a no-op poll costs ~3-4 cheap API calls, not a
+  bad write.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never
@@ -245,10 +261,13 @@ python -m src.digest
 python -m src.build_dashboard
 ```
 
-The GitHub Actions workflow runs all five in order already. If you edit
-`src/build_dashboard.py`, always run `build_dashboard` again afterward and
-re-open the file — editing the generator does not change the already-written
-`dashboard.html` on disk.
+Two GitHub Actions workflows run all five in order: `daily.yml` once a day
+at 06:05 UTC, and `live.yml` every 5 minutes during typical Premier League
+kickoff windows (Fri evening, all-day Sat/Sun, Mon Night Football, midweek
+evenings) — see §9 for why 5 minutes and why windowed rather than 24/7. If
+you edit `src/build_dashboard.py`, always run `build_dashboard` again
+afterward and re-open the file — editing the generator does not change the
+already-written `dashboard.html` on disk.
 
 ## 14. The MCP server
 
