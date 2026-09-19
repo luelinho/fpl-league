@@ -50,11 +50,25 @@ def deadline_has_passed(conn, gw: int) -> bool:
 
 def incomplete_gameweeks(conn, data_checked_gws: list[int]) -> list[int]:
     """A data-checked GW is 'complete' here if every manager has a raw_manager_gw
-    row, every one of them has all 15 picks, and player stats exist for it."""
+    row, every one of them has all 15 picks, player stats exist for it, and none
+    of those rows are still sitting at is_final=0.
+
+    That last check matters on its own, separate from row presence: a gw's
+    rows can reach full count *while still provisional* (captured the moment
+    its deadline passed, before FPL data-checks it — see the provisional
+    block below). Row-count checks alone can't tell that apart from "actually
+    finalized," so a gw that picked up full counts while provisional would
+    look complete here forever and never get re-ingested with is_final=True
+    once it left data_checked_gws — found 2026-09-19: GW4 sat at is_final=0
+    across raw_manager_gw/_picks/raw_player_gw_stats despite being
+    data-checked, showing a stale LIVE badge on the Managers page."""
     incomplete = []
     for gw in data_checked_gws:
         n_mgr = conn.execute("SELECT COUNT(*) FROM raw_manager_gw WHERE gw_id = ?", (gw,)).fetchone()[0]
         n_stats = conn.execute("SELECT COUNT(*) FROM raw_player_gw_stats WHERE gw_id = ?", (gw,)).fetchone()[0]
+        n_not_final = conn.execute(
+            "SELECT COUNT(*) FROM raw_manager_gw WHERE gw_id = ? AND is_final = 0", (gw,)
+        ).fetchone()[0]
         n_bad_picks = conn.execute(
             """
             SELECT COUNT(*) FROM (
@@ -64,7 +78,7 @@ def incomplete_gameweeks(conn, data_checked_gws: list[int]) -> list[int]:
             """,
             (gw,),
         ).fetchone()[0]
-        if n_mgr < config.EXPECTED_TEAM_COUNT or n_stats == 0 or n_bad_picks > 0:
+        if n_mgr < config.EXPECTED_TEAM_COUNT or n_stats == 0 or n_bad_picks > 0 or n_not_final > 0:
             incomplete.append(gw)
     return incomplete
 

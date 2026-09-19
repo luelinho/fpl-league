@@ -80,6 +80,23 @@ forever, enforced by a `WHERE <table>.is_final = 0` guard on the upsert itself
 `derived_manager_gw` row exists yet), not zero or estimated. The dashboard
 shows these gameweeks with a red **LIVE** badge.
 
+**Bug found and fixed 2026-09-19**: `daily_sync.incomplete_gameweeks()`
+decided whether a data-checked gw needed re-ingesting by row *count* alone
+(18 managers present, 15 picks each, stats exist) — it never checked
+`is_final`. A gw that reached full row counts *while still provisional*
+(captured the moment its deadline passed) looked permanently "complete"
+from then on, even after FPL data-checked it, so it never got re-ingested
+with `is_final=True` and stayed stuck at `is_final=0` forever. Caught live:
+GW4 sat at `is_final=0` across `raw_manager_gw`/`raw_manager_gw_picks`/
+`raw_player_gw_stats` despite being in `data_checked_gws`, showing a stale
+**LIVE** badge on the Managers page days after the gameweek actually
+finished. Fixed by also checking `COUNT(*) WHERE is_final = 0` per gw in
+`incomplete_gameweeks()`; re-running `daily_sync` immediately flipped GW4
+correctly (the existing `WHERE is_final = 0` upsert guard allows exactly
+this one 0→1 transition, then blocks all further writes). Worth
+remembering: row presence and finality are different facts — never assume
+one implies the other when deciding what needs re-ingesting.
+
 ## 6. Idempotency
 
 Every write is an upsert on a natural key. Running any job twice must produce
