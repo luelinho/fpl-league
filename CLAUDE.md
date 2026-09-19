@@ -152,6 +152,29 @@ Never claim something works unless it has actually been run.
   kit there, despite `bootstrap-static` already reporting the current one;
   the premierleague.com bucket had all three correct). 120/122 (98%)
   coverage across every currently-rostered player before switching over.
+- The dashboard's font is **Inter**, embedded as base64
+  (`assets/fonts/inter-variable-latin.woff2`, Google's own variable-weight
+  latin-only subset file, 47KB) rather than linked from Google Fonts, to
+  keep the page fully self-contained. Picked 2026-09-19 after live-
+  comparing it against Manrope, Nunito Sans, Work Sans, and Poppins one
+  per Home card, then a full-page Inter-vs-Work-Sans head-to-head, before
+  settling on Inter for this dashboard's table/number density.
+- The color palette is **EPL-inspired purple**, adopted 2026-09-19,
+  replacing the original near-black/lime theme — real colors sampled from
+  premierleague.com's own live stylesheet, not guessed: `#37003c`-family
+  purple for backgrounds, `#00ff87` (their neon green) as the primary
+  accent (wins, active tab, captain badge), `#ff2882` (their pink) as the
+  secondary accent (draws, vice-captain, gradient frame). Every hardcoded
+  near-black in the stylesheet (topbar, modal, tooltip backgrounds) was
+  also shifted to match, not just the `:root` custom properties, so there
+  are no leftover near-black surfaces anywhere in the page.
+- The full-size pitch (My Team, Managers, League Dream Team, and each
+  side of the mobile H2H tab view) renders at ~85% of its desktop
+  dimensions on mobile — fonts, jersey/photo images, gaps, and padding
+  all scaled together, not just font-size, since the images are fixed px
+  and dominate the height. Scoped to stay clear of the H2H modal's own
+  separately-tuned compact side-by-side sizing (34x42 images), which is
+  more specific in CSS and always wins regardless of viewport.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never

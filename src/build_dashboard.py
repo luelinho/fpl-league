@@ -123,17 +123,22 @@ const DIGEST = {data_json};
 
 CSS = """
 :root {
-  --bg: #0a070f;
-  --card: rgba(26,22,34,0.6);
-  --card-2: rgba(32,27,42,0.65);
+  /* EPL-inspired palette, adopted 2026-09-19 — real colors sampled from
+     premierleague.com's own live stylesheet, not guessed: #37003c (their
+     signature purple), #ff2882 (pink), #00ff87 (their neon green).
+     Replaced the original near-black/lime palette after a live
+     side-by-side comparison. */
+  --bg: #1a0020;
+  --card: rgba(65,5,75,0.55);
+  --card-2: rgba(84,30,93,0.5);
   --ink: #f5f4f8;
-  --ink-soft: #9997a8;
-  --border: rgba(255,255,255,0.09);
-  --accent: #d6fb3d;
-  --accent-ink: #0a0a0d;
-  --accent-soft: rgba(214,251,61,0.14);
-  --purple: #c3b3f7;
-  --purple-soft: rgba(195,179,247,0.16);
+  --ink-soft: #c3b2c4;
+  --border: rgba(255,255,255,0.10);
+  --accent: #00ff87;
+  --accent-ink: #051b10;
+  --accent-soft: rgba(0,255,135,0.14);
+  --purple: #ff2882;
+  --purple-soft: rgba(255,40,130,0.16);
   --coral: #ff7a70;
   --coral-soft: rgba(255,122,112,0.15);
   --win: var(--accent);
@@ -142,7 +147,7 @@ CSS = """
   --loss-soft: var(--coral-soft);
   --draw: var(--purple);
   --draw-soft: var(--purple-soft);
-  --locked: #726f80;
+  --locked: #9b809d;
   --shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02);
   --blur: blur(24px);
 }
@@ -150,9 +155,9 @@ CSS = """
 body {
   margin: 0; color: var(--ink); min-height: 100vh;
   background:
-    radial-gradient(ellipse 900px 650px at 6% -8%, rgba(130,70,210,0.38), transparent 55%),
-    radial-gradient(ellipse 1000px 750px at 100% 105%, rgba(230,120,40,0.30), transparent 55%),
-    radial-gradient(ellipse 700px 600px at 60% 30%, rgba(90,50,150,0.12), transparent 60%),
+    radial-gradient(ellipse 900px 650px at 6% -8%, rgba(130,20,150,0.42), transparent 55%),
+    radial-gradient(ellipse 1000px 750px at 100% 105%, rgba(255,40,130,0.22), transparent 55%),
+    radial-gradient(ellipse 700px 600px at 60% 30%, rgba(0,255,135,0.08), transparent 60%),
     var(--bg);
   background-attachment: fixed;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -161,7 +166,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .topbar {
-  background: rgba(10,7,15,0.55); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  background: rgba(26,0,32,0.55); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 10;
 }
@@ -206,10 +211,10 @@ body {
   /* backdrop-filter on .topbar (an ancestor of #tabs) creates a new containing
      block for fixed-position descendants, so #tabs's "bottom: 0" would resolve
      against .topbar instead of the viewport unless this is dropped here. */
-  .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(10,7,15,0.92); }
+  .topbar { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(26,0,32,0.92); }
   #tabs {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 15;
-    background: rgba(10,7,15,0.92); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    background: rgba(26,0,32,0.92); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
     border-top: 1px solid var(--border); border-radius: 0; max-width: none;
     padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); justify-content: space-around;
   }
@@ -507,7 +512,7 @@ tr:last-child td { border-bottom: none; }
 }
 .player-tooltip {
   position: fixed; z-index: 300; pointer-events: none; max-width: 240px;
-  background: #16121e; border: 1px solid var(--border); border-radius: 10px;
+  background: #26102b; border: 1px solid var(--border); border-radius: 10px;
   padding: 8px 12px; box-shadow: var(--shadow); opacity: 0; transform: translateY(4px);
   transition: opacity 0.12s ease, transform 0.12s ease;
 }
@@ -516,6 +521,30 @@ tr:last-child td { border-bottom: none; }
 .player-tooltip .pt-meta { font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; line-height: 1.4; }
 .bench-strip { margin-top: 14px; }
 .bench-strip h3 { margin-bottom: 10px; }
+/* Mobile-only: the full-size pitch (My Team, Managers, League Dream Team,
+   and each side of the mobile H2H tab view — everywhere except the H2H
+   modal's own side-by-side compact mode, which already has its own
+   smaller sizing below) at ~85% of desktop scale, so the whole formation
+   plus bench fits with less scrolling on a phone. Scaling font-size alone
+   wouldn't do this — the images are fixed px and dominate the height — so
+   this scales the jersey/photo dimensions, gaps and padding together with
+   the text, roughly 85% of every value above. */
+@media (max-width: 720px) {
+  .pitch { gap: 12px; min-height: 320px; padding: 19px 7px; }
+  .pitch-row { gap: 5px; }
+  .player-chip { width: 71px; }
+  .player-pos-label { font-size: 7.5px; }
+  .player-jersey { width: 39px; height: 49px; }
+  .kit-img { width: 39px; height: 39px; }
+  .player-photo-img { width: 39px; height: 49px; }
+  .player-armband { width: 15px; height: 15px; font-size: 8.5px; }
+  .player-flag { width: 14px; height: 14px; font-size: 7.5px; }
+  .player-name { margin-top: 7px; font-size: 9px; padding: 2.5px 6px; }
+  .player-pts { font-size: 9px; padding: 2.5px 6px; }
+  .fdr-pill.mini { font-size: 7px; padding: 1.5px 2px; }
+  .bench-shelf { margin-top: 7px; padding: 14px 10px; }
+  .bench-strip { margin-top: 12px; }
+}
 .tabbtn-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
 .tabbtn-group button {
   border: 1px solid var(--border); background: var(--card); padding: 7px 15px; border-radius: 999px;
@@ -538,12 +567,12 @@ tr:last-child td { border-bottom: none; }
 .match-row.clickable { cursor: pointer; border-radius: 10px; transition: background 0.1s; }
 .match-row.clickable:hover { background: rgba(255,255,255,0.04); }
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(5,3,8,0.72); backdrop-filter: blur(6px);
+  position: fixed; inset: 0; background: rgba(20,0,26,0.72); backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px); z-index: 100; display: flex; align-items: flex-start;
   justify-content: center; padding: 40px 16px; overflow-y: auto;
 }
 .modal-card {
-  position: relative; background: #16121e; border: 1px solid var(--border); border-radius: 20px;
+  position: relative; background: #26102b; border: 1px solid var(--border); border-radius: 20px;
   max-width: 920px; width: 100%; padding: 26px 26px 30px; box-shadow: var(--shadow);
 }
 .modal-close {
