@@ -131,6 +131,19 @@ Never claim something works unless it has actually been run.
   "Next up" box — a club can have zero fixtures a gameweek (a blank) or two
   (a double), so that function always returns a list per player, never
   assumes exactly one.
+- Player face photos replaced club kits as the primary pitch-chip image
+  2026-09-19 (owner's call, reversing the earlier "no player photos"
+  decision) — `players.code` (FPL's per-player code, distinct from
+  `player_id`, same pattern as `pl_clubs.badge_code`) builds the URL
+  `resources.premierleague.com/premierleague/photos/players/110x140/
+  p{code}.png`; confirmed live before use. `digest.player_photos()` only
+  fetches players who've actually appeared in a league roster (not FPL's
+  full ~660-player universe) and resizes each down via Pillow (now a real
+  dependency, not a one-off tool) before caching — the source photo is
+  ~100KB and this project can see 150-250 distinct rostered players in a
+  season, so embedding at native size would multiply the dashboard's file
+  size several times over. Kits are still fetched and used as the fallback
+  image for any player a photo wasn't found for.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never
@@ -165,8 +178,15 @@ network access needed to open it) with seven pages: Home, My Team, League,
 Managers (every manager gets My Team's exact view via a dropdown), Players
 (most-owned/most-captained among the 18 this gameweek, season transfer
 activity — league-scoped, not full FPL-universe stats), Analytics, History.
-Rosters render as a pitch (formation rows, club kit jerseys, no player
-photos), and clicking any matchup anywhere opens a head-to-head modal.
+Rosters render as a pitch (formation rows, player headshots — club kit
+jerseys as the fallback when a photo isn't cached — with the armband/flag
+overlays unchanged), and clicking any matchup anywhere opens a head-to-head
+modal. A player who hasn't played yet this gameweek shows their next two
+real-world fixtures (color-coded by difficulty) instead of a points pill;
+once they've played, or once the gameweek is fully data-checked, it shows
+points as normal — see `playerChip()`'s `gwIsFinal` check, which exists
+specifically so an unused bench player in an already-finished gameweek
+shows their real (possibly zero) points rather than stale fixtures.
 
 It is a snapshot, not a live view — regenerate it after any data change:
 

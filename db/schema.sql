@@ -101,6 +101,11 @@ CREATE TABLE IF NOT EXISTS players (
   web_name   TEXT NOT NULL,
   position   TEXT NOT NULL CHECK (position IN ('GKP','DEF','MID','FWD')),
   club_id    INTEGER NOT NULL,
+  -- code: FPL's own per-player code (distinct from player_id), used to build
+  -- the headshot photo URL: resources.premierleague.com/premierleague/photos/
+  -- players/110x140/p{code}.png. Added 2026-09-19; confirmed live (HTTP 200)
+  -- before use, same pattern as pl_clubs.badge_code for kit images.
+  code       INTEGER,
   PRIMARY KEY (season_id, player_id),
   FOREIGN KEY (season_id, club_id) REFERENCES pl_clubs(season_id, club_id)
 );

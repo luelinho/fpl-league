@@ -411,11 +411,16 @@ tr:last-child td { border-bottom: none; }
   color: rgba(255,255,255,0.55); margin-bottom: 3px;
 }
 .player-jersey {
-  width: 46px; height: 46px; position: relative;
+  width: 46px; height: 58px; position: relative;
   display: flex; align-items: center; justify-content: center;
 }
 .kit-img { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5)); }
 .player-chip.bench .kit-img { filter: grayscale(0.6) opacity(0.85) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+.player-photo-img {
+  width: 46px; height: 58px; object-fit: cover; border-radius: 8px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+}
+.player-chip.bench .player-photo-img { filter: grayscale(0.6) opacity(0.85) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
 .player-armband {
   position: absolute; top: -3px; left: -3px; width: 18px; height: 18px; border-radius: 50%;
   font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center;
@@ -442,6 +447,11 @@ tr:last-child td { border-bottom: none; }
 .player-pts.tier-ok { background: #ffb04a; color: #2c1c00; }
 .player-pts.tier-low { background: rgba(255,255,255,0.18); color: #fff; }
 .player-pts.not-played { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); font-weight: 600; }
+.player-fixtures {
+  display: flex; flex-direction: column; gap: 1px; width: 100%;
+  border-radius: 0 0 6px 6px; overflow: hidden;
+}
+.fdr-pill.mini { display: block; width: 100%; padding: 2px 3px; font-size: 8.5px; border-radius: 0; text-align: center; }
 .bench-shelf {
   margin-top: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px; padding: 16px 12px;
@@ -515,8 +525,11 @@ tr:last-child td { border-bottom: none; }
    teams' formation lines stop lining up with each other. */
 .h2h-pitches .pitch-row { gap: 4px; }
 .h2h-pitches .player-chip { width: 60px; }
-.h2h-pitches .player-jersey, .h2h-pitches .kit-img { width: 34px; height: 34px; }
+.h2h-pitches .player-jersey { width: 34px; height: 42px; }
+.h2h-pitches .kit-img { width: 34px; height: 34px; }
+.h2h-pitches .player-photo-img { width: 34px; height: 42px; }
 .h2h-pitches .player-name, .h2h-pitches .player-pts { font-size: 9px; padding: 2px 4px; }
+.h2h-pitches .fdr-pill.mini { font-size: 6.5px; padding: 1px 2px; }
 .h2h-pitches .player-armband { width: 15px; height: 15px; font-size: 8px; }
 .h2h-pitches .player-flag { width: 13px; height: 13px; font-size: 7px; }
 .h2h-team-tabs { display: none; }
@@ -681,23 +694,51 @@ function pointsTierClass(p, hasPlayed) {
   return 'tier-low';
 }
 
+function nextFixtures(clubId, fromGw, count) {
+  const list = DIGEST.club_fixtures[clubId] || [];
+  return list.filter(f => f.gw >= fromGw).slice(0, count);
+}
+
+function fixturePillMini(f) {
+  return `<span class="fdr-pill mini fdr-${f.difficulty || 3}">${f.opponent} (${f.is_home ? 'H' : 'A'})</span>`;
+}
+
 function playerChip(p, isBench) {
   const chip = el('div', `player-chip${isBench ? ' bench' : ''}`);
+  const photo = DIGEST.player_photos[p.player_id];
   const kit = DIGEST.club_kits[p.club_id];
   const kitSrc = kit ? (p.position === 'GKP' ? kit.gk : kit.out) : null;
-  const jerseyContent = kitSrc ? `<img src="${kitSrc}" alt="${p.position}" class="kit-img">` : p.position;
+  const jerseyContent = photo
+    ? `<img src="${photo}" alt="${p.name}" class="player-photo-img">`
+    : (kitSrc ? `<img src="${kitSrc}" alt="${p.position}" class="kit-img">` : p.position);
   const hasPlayed = (p.minutes || 0) > 0;
+  // A gameweek FPL has already data-checked is settled history — a 0-minute
+  // bench player there genuinely didn't feature, full stop, not "hasn't
+  // played yet." Fixtures-instead-of-points only makes sense for the
+  // current/future gameweek, where hasPlayed is a real "not started" signal.
+  const gwIsFinal = DIGEST.gw_status.data_checked_gws.includes(p.gw);
   const armClass = p.armband === 'C' ? 'cap' : p.armband === 'VC' ? 'vice' : null;
   const armHtml = armClass ? `<span class="player-armband ${armClass}">${p.armband === 'C' ? 'C' : 'V'}</span>` : '';
   const flagged = p.status && p.status !== 'a';
   const flagTitle = flagged ? `${FLAG_STATUS_TEXT[p.status] || 'Flagged'}${p.news ? ' — ' + p.news : ''}` : '';
   const flagHtml = flagged ? `<span class="player-flag" title="${flagTitle}">&#9888;</span>` : '';
   const posLabel = isBench ? `<div class="player-pos-label">${p.position}</div>` : '';
+
+  let bottomHtml;
+  if (!gwIsFinal && !hasPlayed) {
+    const fixtures = nextFixtures(p.club_id, p.gw, 2);
+    bottomHtml = fixtures.length
+      ? `<div class="player-fixtures" title="Hasn’t played yet — showing next fixture(s) instead of points">${fixtures.map(fixturePillMini).join('')}</div>`
+      : `<div class="player-pts not-played" title="Hasn’t played yet">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>`;
+  } else {
+    bottomHtml = `<div class="player-pts ${pointsTierClass(p, hasPlayed)}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>`;
+  }
+
   chip.innerHTML = `
     ${posLabel}
     <div class="player-jersey">${jerseyContent}${armHtml}${flagHtml}</div>
     <div class="player-name">${p.name}</div>
-    <div class="player-pts ${pointsTierClass(p, hasPlayed)}" title="${hasPlayed ? '' : 'Hasn’t played yet'}">${p.raw_points}${p.multiplier > 1 ? `×${p.multiplier}` : ''}</div>
+    ${bottomHtml}
   `;
   chip.addEventListener('mouseenter', () => { if (!playerTooltipPinnedChip) showPlayerTooltip(chip, p); });
   chip.addEventListener('mouseleave', () => { if (!playerTooltipPinnedChip) hidePlayerTooltip(); });

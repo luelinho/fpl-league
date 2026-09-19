@@ -12,12 +12,14 @@ Usage:
 from __future__ import annotations
 
 import base64
+import io
 import json
 import random
 import sys
 from datetime import datetime, timezone
 
 import requests
+from PIL import Image
 
 from . import config, ingest
 from .recap import biggest_upset, manager_name
@@ -25,6 +27,10 @@ from .recap import biggest_upset, manager_name
 KIT_CACHE_DIR = config.REPO_ROOT / "digest" / ".kit_cache"
 KIT_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{code}-66.png"
 KIT_GK_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{code}_1-66.png"
+
+PHOTO_CACHE_DIR = config.REPO_ROOT / "digest" / ".photo_cache"
+PHOTO_URL = "https://resources.premierleague.com/premierleague/photos/players/110x140/p{code}.png"
+PHOTO_SIZE = (60, 76)  # close to the source 110x140 aspect ratio, small enough to embed hundreds
 
 
 def league_info(conn) -> dict:
@@ -311,16 +317,40 @@ def _fetch_and_cache(url: str, cache_path) -> str | None:
     return "data:image/png;base64," + base64.b64encode(cache_path.read_bytes()).decode()
 
 
+def _fetch_and_cache_resized(url: str, cache_path, size: tuple[int, int]) -> str | None:
+    """Like _fetch_and_cache, but the cached file itself is resized down to
+    `size` — for assets (player photos) too large at native resolution to
+    embed hundreds of without multiplying the dashboard's file size. The
+    resize happens once, at cache-write time, not on every build.
+    """
+    if not cache_path.exists():
+        try:
+            resp = requests.get(url, timeout=10)
+            resp.raise_for_status()
+            img = Image.open(io.BytesIO(resp.content)).convert("RGBA")
+            img = img.resize(size, Image.LANCZOS)
+            buf = io.BytesIO()
+            img.save(buf, format="PNG", optimize=True)
+            cache_path.write_bytes(buf.getvalue())
+        except (requests.RequestException, OSError):
+            return None
+    return "data:image/png;base64," + base64.b64encode(cache_path.read_bytes()).decode()
+
+
 def club_kits(conn) -> dict[str, dict[str, str]]:
     """{club_id: {'out': data-uri, 'gk': data-uri}} for every PL club — real
-    club kit jerseys (outfield + goalkeeper variant), no player photos
-    (owner's explicit call). Downloaded once and cached to disk
-    (KIT_CACHE_DIR) so repeat digest builds don't re-fetch 40 images from
-    FPL's own CDN every time; verified live 2026-09-12 (HTTP 200, both
-    variants, all 20 clubs) before this was built. Replaces the earlier
-    badge-in-circle chip (owner's call, 2026-09-12) with actual shirt art —
-    the GK kit visibly differs from the outfield kit, which a badge never
-    could show.
+    club kit jerseys (outfield + goalkeeper variant). Downloaded once and
+    cached to disk (KIT_CACHE_DIR) so repeat digest builds don't re-fetch 40
+    images from FPL's own CDN every time; verified live 2026-09-12 (HTTP
+    200, both variants, all 20 clubs) before this was built. Replaces the
+    earlier badge-in-circle chip (owner's call, 2026-09-12) with actual
+    shirt art — the GK kit visibly differs from the outfield kit, which a
+    badge never could show.
+
+    Used as the fallback jersey image (player_photos() is preferred where
+    available) and still the only image on the bench-position label — the
+    "no player photos" rule from earlier in the project was reversed
+    2026-09-19, owner's call, after seeing a reference design.
     """
     KIT_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     rows = conn.execute("SELECT club_id, badge_code FROM pl_clubs WHERE season_id = 1").fetchall()
@@ -334,6 +364,63 @@ def club_kits(conn) -> dict[str, dict[str, str]]:
             continue
         kits[str(club_id)] = {"out": out, "gk": gk or out}
     return kits
+
+
+def player_photos(conn) -> dict[str, str]:
+    """{player_id: data-uri} of each player's official headshot, resized
+    down to PHOTO_SIZE — FPL's own photo is ~100KB at 110x140, and this
+    project can have 150-250 distinct players rostered across the league
+    over a season, so embedding them at native size would multiply the
+    dashboard's file size several times over. Resized once and cached
+    (PHOTO_CACHE_DIR) at the small size so repeat builds don't re-fetch or
+    re-resize. Scoped to players who have actually appeared in a roster
+    this season, not FPL's full ~660-player universe, for the same reason.
+    Confirmed live 2026-09-19 (HTTP 200) before use, same pattern as
+    club_kits()'s badge URLs. Falls back to the club kit in the UI for any
+    player this returns nothing for (fetch failure, or code missing).
+    """
+    PHOTO_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    rows = conn.execute(
+        """
+        SELECT DISTINCT p.player_id, p.code FROM players p
+        JOIN raw_manager_gw_picks pk ON pk.season_id = p.season_id AND pk.player_id = p.player_id
+        WHERE p.season_id = 1 AND p.code IS NOT NULL
+        """
+    ).fetchall()
+    photos: dict[str, str] = {}
+    for player_id, code in rows:
+        uri = _fetch_and_cache_resized(
+            PHOTO_URL.format(code=code), PHOTO_CACHE_DIR / f"p{code}.png", PHOTO_SIZE
+        )
+        if uri:
+            photos[str(player_id)] = uri
+    return photos
+
+
+def club_fixtures_list(conn) -> dict[str, list[dict]]:
+    """{club_id: [{gw, opponent, is_home, difficulty, kickoff_time}, ...]},
+    sorted by gw, for the whole season. Lets the client find a player's
+    next N fixtures from any given gameweek by filtering client-side —
+    robust to a blank gameweek (a club with zero fixtures that week) since
+    it doesn't assume gw+1 is necessarily the next one.
+    """
+    short_names = dict(conn.execute(
+        "SELECT club_id, short_name FROM pl_clubs WHERE season_id = 1"
+    ).fetchall())
+    rows = conn.execute(
+        """
+        SELECT gw_id, team_h, team_a, team_h_difficulty, team_a_difficulty, kickoff_time
+        FROM raw_pl_fixtures WHERE season_id = 1 AND gw_id IS NOT NULL ORDER BY gw_id
+        """
+    ).fetchall()
+    out: dict[str, list[dict]] = {}
+    for gw, th, ta, thd, tad, ko in rows:
+        for club_id, opp_id, is_home, difficulty in ((th, ta, True, thd), (ta, th, False, tad)):
+            out.setdefault(str(club_id), []).append({
+                "gw": gw, "opponent": short_names.get(opp_id, "?"),
+                "is_home": is_home, "difficulty": difficulty, "kickoff_time": ko,
+            })
+    return out
 
 
 def all_managers(conn) -> list[dict]:
@@ -869,6 +956,8 @@ def build_digest() -> dict:
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
         "club_kits": club_kits(conn),
+        "player_photos": player_photos(conn),
+        "club_fixtures": club_fixtures_list(conn),
         "price_movers": price_movers(conn),
         "players": {
             "gws": players_gws,
