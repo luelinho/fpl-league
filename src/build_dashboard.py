@@ -363,14 +363,19 @@ tr:last-child td { border-bottom: none; }
 .roster-row:last-child { border-bottom: none; }
 .roster-row.bench { opacity: 0.5; }
 .armband { font-weight: 800; font-size: 11px; background: var(--accent); color: var(--accent-ink); border-radius: 5px; padding: 1px 5px; }
+.pitch-frame {
+  position: relative; border-radius: 20px; padding: 3px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, #6fd6ff 100%);
+  box-shadow: 0 10px 40px -8px rgba(214,251,61,0.25), 0 10px 40px -8px rgba(195,179,247,0.2);
+}
 .pitch {
   position: relative; display: flex; flex-direction: column; justify-content: space-around;
-  gap: 14px; min-height: 380px; padding: 22px 8px; border-radius: 16px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
+  gap: 14px; min-height: 380px; padding: 22px 8px; border-radius: 17px; overflow: hidden;
   background:
-    radial-gradient(ellipse 100% 70% at 50% 50%, transparent 45%, rgba(0,0,0,0.32) 100%),
-    repeating-linear-gradient(180deg, rgba(255,255,255,0.055) 0 34px, rgba(0,0,0,0.05) 34px 68px),
-    linear-gradient(180deg, #1f5c39 0%, #1a4f30 50%, #1f5c39 100%);
+    radial-gradient(ellipse 90% 60% at 50% 42%, rgba(255,255,255,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 70% at 50% 50%, transparent 40%, rgba(0,0,0,0.34) 100%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.06) 0 34px, rgba(0,0,0,0.05) 34px 68px),
+    linear-gradient(180deg, #227048 0%, #1a4f30 50%, #227048 100%);
 }
 .pitch::before {
   content: ''; position: absolute; left: 4%; right: 4%; top: 50%; height: 1px;
@@ -414,11 +419,16 @@ tr:last-child td { border-bottom: none; }
   width: 46px; height: 58px; position: relative;
   display: flex; align-items: center; justify-content: center;
 }
-.kit-img { width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5)); }
+.kit-img {
+  width: 46px; height: 46px; object-fit: contain; border-radius: 10px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.07);
+}
 .player-chip.bench .kit-img { filter: grayscale(0.6) opacity(0.85) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
 .player-photo-img {
-  width: 46px; height: 58px; object-fit: cover; border-radius: 8px;
+  width: 46px; height: 58px; object-fit: cover; border-radius: 10px;
   filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.07);
 }
 .player-chip.bench .player-photo-img { filter: grayscale(0.6) opacity(0.85) drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
 .player-armband {
@@ -434,13 +444,13 @@ tr:last-child td { border-bottom: none; }
   border: 2px solid rgba(10,10,13,0.5); cursor: help;
 }
 .player-name {
-  margin-top: 6px; background: #f4f2ef; color: #171321; font-weight: 800; font-size: 10.5px;
-  padding: 2px 7px; border-radius: 6px 6px 0 0; width: 100%;
+  margin-top: 8px; background: #f4f2ef; color: #171321; font-weight: 900; font-size: 10.5px;
+  letter-spacing: -0.01em; padding: 3px 7px; border-radius: 9px 9px 0 0; width: 100%;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .player-chip.bench .player-name { background: #dedad3; }
 .player-pts {
-  font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 0 0 6px 6px; width: 100%; color: #fff;
+  font-size: 10.5px; font-weight: 900; padding: 3px 7px; border-radius: 0 0 9px 9px; width: 100%; color: #fff;
 }
 .player-pts.tier-elite { background: var(--accent); color: var(--accent-ink); }
 .player-pts.tier-great { background: #8fd645; color: #0a0a0d; }
@@ -449,9 +459,9 @@ tr:last-child td { border-bottom: none; }
 .player-pts.not-played { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65); font-weight: 600; }
 .player-fixtures {
   display: flex; flex-direction: column; gap: 1px; width: 100%;
-  border-radius: 0 0 6px 6px; overflow: hidden;
+  border-radius: 0 0 9px 9px; overflow: hidden;
 }
-.fdr-pill.mini { display: block; width: 100%; padding: 2px 3px; font-size: 8.5px; border-radius: 0; text-align: center; }
+.fdr-pill.mini { display: block; width: 100%; padding: 2px 3px; font-size: 8.5px; font-weight: 800; border-radius: 0; text-align: center; }
 .bench-shelf {
   margin-top: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px; padding: 16px 12px;
@@ -774,7 +784,9 @@ function renderPitch(container, players) {
     inRow.forEach(p => row.appendChild(playerChip(p)));
     pitch.appendChild(row);
   });
-  container.appendChild(pitch);
+  const frame = el('div', 'pitch-frame');
+  frame.appendChild(pitch);
+  container.appendChild(frame);
 
   if (bench.length) {
     const benchWrap = el('div', 'bench-strip');
