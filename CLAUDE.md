@@ -175,6 +175,22 @@ Never claim something works unless it has actually been run.
   and dominate the height. Scoped to stay clear of the H2H modal's own
   separately-tuned compact side-by-side sizing (34x42 images), which is
   more specific in CSS and always wins regardless of viewport.
+- CSS gotcha, hit twice: a `@media (max-width: 720px)` override placed
+  *before* its same-selector base rule in source order loses the
+  cascade tiebreak regardless of the media query matching — the later
+  base rule silently wins. Bit `.h2h-header`/`.h2h-score`/`.h2h-record`
+  first, then `.modal-overlay`/`.modal-card` — the second instance had
+  been live and ineffective since an earlier "audit fixes" commit,
+  meaning the H2H modal was rendering at full desktop padding (26px
+  sides) on every phone the whole time, making the pitch noticeably
+  narrower than intended. Found 2026-09-19 via the owner comparing a
+  live render against a manually zoomed-out screenshot ("field looks
+  wider" in the reference); confirmed by `getComputedStyle` measurement,
+  not by eye. Fixed by moving both overrides to after their base rules;
+  pitch width on a 375px viewport went from 283px (75.5%) to 335px
+  (89.3%). Any future mobile-only CSS addition to this file must be
+  placed after its base selector's rule, and verified with a computed-
+  style check, not just a screenshot.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never

@@ -262,12 +262,6 @@ body {
   .tabbtn-group button { padding: 10px 16px; min-height: 40px; }
   #manager-select { min-height: 44px; padding: 11px 12px !important; }
   th { padding-top: 11px; padding-bottom: 11px; }
-
-  /* The modal's fixed side padding was tuned for desktop's 920px card; on a
-     360-400px phone it was taking a visible bite out of already-tight content
-     width. */
-  .modal-overlay { padding: 16px 8px; }
-  .modal-card { padding: 20px 14px 22px; border-radius: 16px; }
 }
 /* Visible keyboard/switch-control focus ring — the buttons, tabs and rows
    below are otherwise borderless with no default focus indication. Applies
@@ -581,6 +575,17 @@ tr:last-child td { border-bottom: none; }
   cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
 .modal-close:hover { background: var(--coral-soft); color: var(--coral); }
+/* The modal's fixed side padding was tuned for desktop's 920px card; on a
+   360-400px phone it was taking a visible bite out of already-tight content
+   width — most of all the pitch itself, which is why it was rendering
+   noticeably narrower than intended. (This override previously lived
+   earlier in the stylesheet, before .modal-overlay/.modal-card's own base
+   rules — same specificity, so the later base rule was silently winning
+   and this never actually took effect on mobile until moved down here.) */
+@media (max-width: 720px) {
+  .modal-overlay { padding: 10px 6px; }
+  .modal-card { padding: 16px 10px 16px; border-radius: 16px; }
+}
 .h2h-header { text-align: center; margin-bottom: 6px; }
 .h2h-header .gw-label { color: var(--ink-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em; }
 .h2h-score {
@@ -595,6 +600,20 @@ tr:last-child td { border-bottom: none; }
   text-align: center; color: var(--ink-soft); font-size: 13px; margin-bottom: 18px;
 }
 .h2h-record b { color: var(--ink); }
+/* The H2H modal's header/score/record chrome, shrunk on mobile so the
+   whole card (score, tabs, full pitch, bench) reads at a glance instead
+   of needing to scroll past a full-size header first — this is on top of
+   the pitch's own 85% mobile scaling further down, since the header was
+   untouched by that and was eating just as much vertical space. */
+@media (max-width: 720px) {
+  .h2h-header { margin-bottom: 4px; }
+  .h2h-header .gw-label { font-size: 11px; }
+  .h2h-score { gap: 6px; margin: 6px 0 2px; }
+  .h2h-score .side-name { font-size: 13px; }
+  .h2h-score .score-box { font-size: 20px; padding: 0 2px; }
+  .h2h-score .side-extra { font-size: 9px; margin-top: 3px; white-space: nowrap; }
+  .h2h-record { font-size: 11px; margin-bottom: 10px; }
+}
 .h2h-pitches { display: flex; gap: 18px; flex-wrap: wrap; }
 .h2h-pitches > div { flex: 1; min-width: 340px; }
 .h2h-pitches h3 { text-align: center; }
@@ -613,11 +632,11 @@ tr:last-child td { border-bottom: none; }
 .h2h-team-tabs { display: none; }
 @media (max-width: 720px) {
   .h2h-team-tabs {
-    display: flex; gap: 0; margin-bottom: 14px; border-bottom: 1px solid var(--border);
+    display: flex; gap: 0; margin-bottom: 8px; border-bottom: 1px solid var(--border);
   }
   .h2h-team-tabs button {
     flex: 1; background: none; border: none; border-bottom: 2px solid transparent;
-    padding: 10px 4px; font-size: 14.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+    padding: 7px 4px; font-size: 13px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
   }
   .h2h-team-tabs button.active { color: var(--ink); border-bottom-color: var(--accent); }
   .h2h-pitches { gap: 0; }
