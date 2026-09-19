@@ -595,6 +595,7 @@ tr:last-child td { border-bottom: none; }
 .h2h-score .side-name.right { text-align: right; }
 .h2h-score .score-box { font-size: 30px; font-weight: 800; color: var(--ink); white-space: nowrap; }
 .h2h-score .score-box .win { color: var(--accent); }
+.h2h-score .side-rank { font-size: 11.5px; font-weight: 700; color: var(--accent); margin-top: 2px; white-space: nowrap; }
 .h2h-score .side-extra { font-size: 12px; font-weight: 500; color: var(--ink-soft); margin-top: 4px; }
 .h2h-record {
   text-align: center; color: var(--ink-soft); font-size: 13px; margin-bottom: 18px;
@@ -611,6 +612,7 @@ tr:last-child td { border-bottom: none; }
   .h2h-score { gap: 6px; margin: 6px 0 2px; }
   .h2h-score .side-name { font-size: 13px; }
   .h2h-score .score-box { font-size: 20px; padding: 0 2px; }
+  .h2h-score .side-rank { font-size: 9px; margin-top: 2px; }
   .h2h-score .side-extra { font-size: 9px; margin-top: 3px; white-space: nowrap; }
   .h2h-record { font-size: 11px; margin-bottom: 10px; }
 }
@@ -904,6 +906,13 @@ function allTimeRecord(nameA, nameB) {
   return { played, wA, wB, draws, pfA, pfB };
 }
 
+function rankRecordLine(name) {
+  const s = (DIGEST.standings || []).find(x => x.display_name === name);
+  if (!s) return '';
+  const rankTxt = s.rank ? `#${s.rank}` : 'Rank —';
+  return `${rankTxt} · ${s.wins}-${s.draws}-${s.losses}`;
+}
+
 function openMatchupModal(gw, nameA, nameB) {
   const mgrA = MANAGER_ID_BY_NAME[nameA], mgrB = MANAGER_ID_BY_NAME[nameB];
   const detailA = DIGEST.managers_detail[mgrA], detailB = DIGEST.managers_detail[mgrB];
@@ -946,11 +955,11 @@ function openMatchupModal(gw, nameA, nameB) {
     `;
     const scoreRow = el('div', 'h2h-score');
     scoreRow.innerHTML = `
-      <div class="side-name">${nameA}<div class="muted">${detailA.team_name}</div>${sideExtrasA}</div>
+      <div class="side-name">${nameA}<div class="side-rank">${rankRecordLine(nameA)}</div><div class="muted">${detailA.team_name}</div>${sideExtrasA}</div>
       <div class="score-box">${hasScore
         ? `<span class="${aWin ? 'win' : ''}">${gA.net_points}</span> - <span class="${bWin ? 'win' : ''}">${gB.net_points}</span>`
         : 'vs'}</div>
-      <div class="side-name right">${nameB}<div class="muted">${detailB.team_name}</div>${sideExtrasB}</div>
+      <div class="side-name right">${nameB}<div class="side-rank">${rankRecordLine(nameB)}</div><div class="muted">${detailB.team_name}</div>${sideExtrasB}</div>
     `;
     body.appendChild(scoreRow);
 
