@@ -276,6 +276,7 @@ body {
   padding: 20px 22px; box-shadow: var(--shadow);
 }
 .card h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 700; }
+.gc-fixtures h2 { text-align: center; }
 .card h3 { margin: 0 0 8px; font-size: 13px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em; }
 .recap-card { border-left: 3px solid var(--accent); }
 .recap-card h2 { color: var(--accent); }
