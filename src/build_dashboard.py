@@ -227,14 +227,11 @@ body {
   .grid-4 .stat .value { font-size: 18px; }
   .grid-4 .stat .label { font-size: 10.5px; }
 
-  /* Tighter card/section rhythm — desktop's padding and heading margins were
-     tuned for a wide canvas and eat too much of a phone's width/height. */
   .container { padding-left: 14px; padding-right: 14px; }
-  .card { padding: 16px 14px; border-radius: 16px; }
-  .locked-card { padding: 20px 16px; }
-  .section-title { font-size: 17px; margin: 24px 0 12px; }
-  table { font-size: 13px; }
-  th, td { padding: 9px 7px; }
+  /* .card/.locked-card/.section-title/table/th,td's own mobile shrink lives
+     at the end of this stylesheet, after their base rules — see the note
+     down there for why (same ordering bug as everything else flagged in
+     CLAUDE.md). */
 
   /* Record badges (3W 0D 0L) can force some table columns down to their
      min-content width, which used to wrap each badge onto its own line and
@@ -255,13 +252,12 @@ body {
   }
 
   /* Bump touch targets that were sized for a mouse cursor up toward the ~40px+
-     minimum that's comfortable to hit with a thumb. */
-  .modal-close { width: 40px; height: 40px; font-size: 15px; top: 12px; right: 12px; }
-  .gw-nav-arrow { width: 42px; height: 42px; font-size: 17px; }
-  .gw-nav-select { padding: 9px 14px; min-height: 42px; }
-  .tabbtn-group button { padding: 10px 16px; min-height: 40px; }
+     minimum that's comfortable to hit with a thumb. .modal-close/.gw-nav-arrow/
+     .gw-nav-select/.tabbtn-group button/th's own bump moved to the end of this
+     stylesheet (same reason as above) — #manager-select is the only one of
+     this group that actually took effect here, because it's the only one
+     using !important. */
   #manager-select { min-height: 44px; padding: 11px 12px !important; }
-  th { padding-top: 11px; padding-bottom: 11px; }
 }
 /* Visible keyboard/switch-control focus ring — the buttons, tabs and rows
    below are otherwise borderless with no default focus indication. Applies
@@ -269,9 +265,11 @@ body {
 .tab:focus-visible, .tabbtn-group button:focus-visible, .gw-nav-arrow:focus-visible,
 .modal-close:focus-visible, .h2h-team-tabs button:focus-visible, th:focus-visible,
 .match-row.clickable:focus-visible, tr.clickable-row:focus-visible, .proj-card:focus-visible,
-select:focus-visible {
+.side-name-link:focus-visible, select:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 2px;
 }
+.side-name-link { cursor: pointer; }
+.side-name-link:hover { text-decoration: underline; }
 .card {
   background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border: 1px solid var(--border); border-radius: 20px; overflow-x: auto;
@@ -337,6 +335,9 @@ tr:last-child td { border-bottom: none; }
   background: var(--card-2); border: 1px solid var(--border); color: var(--ink); border-radius: 999px;
   padding: 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer;
 }
+.gw-nav-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.gw-nav-header h2 { margin: 0; flex: 1; text-align: center; }
+.gw-nav-header .gw-nav-arrow { width: 30px; height: 30px; font-size: 13px; flex: none; }
 .match-row {
   display: flex; align-items: center; justify-content: space-between; padding: 11px 0;
   border-bottom: 1px solid var(--border);
@@ -545,6 +546,9 @@ tr:last-child td { border-bottom: none; }
   font-size: 13px; font-weight: 600; cursor: pointer; color: var(--ink-soft);
 }
 .tabbtn-group button.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.tabbtn-group button.gw-tab-upcoming { opacity: 0.55; }
+.tabbtn-group button.gw-tab-upcoming.active { opacity: 1; }
+.tabbtn-group button.gw-tab-live:not(.active) { border-color: var(--purple); color: var(--ink); }
 .muted { color: var(--ink-soft); font-size: 12.5px; }
 .stat-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
 .chip { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--card-2); border: 1px solid var(--border); color: var(--ink); }
@@ -645,6 +649,32 @@ tr:last-child td { border-bottom: none; }
   .h2h-pitches > div.h2h-team { display: none; min-width: 0; }
   .h2h-pitches > div.h2h-team.active { display: block; }
   .h2h-pitches > div.h2h-team h3 { display: none; }
+}
+/* Site-wide mobile shrink, matching the density the H2H modal already got
+   (owner's ask, 2026-09-19: "do exactly same shrinking for all pages").
+   This block must stay HERE, after every base rule it touches — an earlier
+   version of most of these lines lived up near the top of the mobile media
+   query, before .card/.section-title/table/th,td/.modal-close/.gw-nav-arrow/
+   .gw-nav-select/.tabbtn-group button's own base rules, so the base rule
+   (same specificity, later in source order) always won and these were
+   silently no-ops the whole time — the exact bug already documented in
+   CLAUDE.md for .h2h-header/.modal-card, just far more of it at once. Values
+   below are also pushed noticeably smaller than that original attempt, not
+   just fixed in place, to actually match the modal's compactness. */
+@media (max-width: 720px) {
+  .card { padding: 14px 12px; border-radius: 14px; }
+  .locked-card { padding: 18px 14px; }
+  .card h2 { font-size: 13.5px; margin-bottom: 9px; }
+  .section-title { font-size: 15px; margin: 18px 0 9px; }
+  table { font-size: 12px; }
+  th, td { padding: 7px 6px; }
+  th { font-size: 10.5px; padding-top: 9px; padding-bottom: 9px; }
+  .modal-close { width: 40px; height: 40px; font-size: 15px; top: 12px; right: 12px; }
+  .gw-nav-arrow { width: 42px; height: 42px; font-size: 17px; }
+  .gw-nav-select { padding: 9px 14px; min-height: 42px; }
+  .tabbtn-group button { padding: 8px 13px; font-size: 12px; min-height: 40px; }
+  .gw-nav-header .gw-nav-arrow { width: 34px; height: 34px; font-size: 12px; }
+  .gw-nav-header h2 { font-size: 13px; }
 }
 """
 
@@ -913,6 +943,20 @@ function rankRecordLine(name) {
   return `${rankTxt} · ${s.wins}-${s.draws}-${s.losses}`;
 }
 
+function goToManagerPage(managerId) {
+  closeMatchupModal();
+  const tabBtn = document.querySelector('.tab[data-tab="managers"]');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tabBtn.classList.add('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-managers');
+  page.classList.add('active');
+  if (!rendered.managers) { RENDERERS.managers(page); rendered.managers = true; }
+  const select = document.getElementById('manager-select');
+  select.value = managerId;
+  select.dispatchEvent(new Event('change'));
+}
+
 function openMatchupModal(gw, nameA, nameB) {
   const mgrA = MANAGER_ID_BY_NAME[nameA], mgrB = MANAGER_ID_BY_NAME[nameB];
   const detailA = DIGEST.managers_detail[mgrA], detailB = DIGEST.managers_detail[mgrB];
@@ -955,12 +999,18 @@ function openMatchupModal(gw, nameA, nameB) {
     `;
     const scoreRow = el('div', 'h2h-score');
     scoreRow.innerHTML = `
-      <div class="side-name">${nameA}<div class="side-rank">${rankRecordLine(nameA)}</div><div class="muted">${detailA.team_name}</div>${sideExtrasA}</div>
+      <div class="side-name"><span class="side-name-link" data-manager="${mgrA}" role="button" tabindex="0">${nameA}</span><div class="side-rank">${rankRecordLine(nameA)}</div><div class="muted">${detailA.team_name}</div>${sideExtrasA}</div>
       <div class="score-box">${hasScore
         ? `<span class="${aWin ? 'win' : ''}">${gA.net_points}</span> - <span class="${bWin ? 'win' : ''}">${gB.net_points}</span>`
         : 'vs'}</div>
-      <div class="side-name right">${nameB}<div class="side-rank">${rankRecordLine(nameB)}</div><div class="muted">${detailB.team_name}</div>${sideExtrasB}</div>
+      <div class="side-name right"><span class="side-name-link" data-manager="${mgrB}" role="button" tabindex="0">${nameB}</span><div class="side-rank">${rankRecordLine(nameB)}</div><div class="muted">${detailB.team_name}</div>${sideExtrasB}</div>
     `;
+    scoreRow.querySelectorAll('.side-name-link').forEach(elm => {
+      elm.addEventListener('click', () => goToManagerPage(elm.dataset.manager));
+      elm.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToManagerPage(elm.dataset.manager); }
+      });
+    });
     body.appendChild(scoreRow);
 
     const recordEl = el('div', 'h2h-record');
@@ -1031,9 +1081,46 @@ function renderHome(root) {
   homeGrid.appendChild(fixturesCard);
 
   const resultsCard = el('div', 'card gc-results');
+  const seasonGws = Object.keys(d.season_matchups_by_gw).map(Number).sort((a, b) => a - b);
   const lr = d.last_results;
-  resultsCard.appendChild(el('h2', null, lr ? `Last results — GW${lr.gw}` : 'No results yet'));
-  if (lr) lr.matches.forEach(m => resultsCard.appendChild(matchRow(lr.gw, m, false)));
+  let resultsGw = lr ? lr.gw : (seasonGws.length ? seasonGws[seasonGws.length - 1] : null);
+  if (resultsGw !== null) {
+    const header = el('div', 'gw-nav-header');
+    const prevBtn = el('button', 'gw-nav-arrow', '&larr;');
+    prevBtn.setAttribute('aria-label', 'Previous gameweek');
+    const title = el('h2');
+    const nextBtn = el('button', 'gw-nav-arrow', '&rarr;');
+    nextBtn.setAttribute('aria-label', 'Next gameweek');
+    header.appendChild(prevBtn);
+    header.appendChild(title);
+    header.appendChild(nextBtn);
+    resultsCard.appendChild(header);
+    const resultsBody = el('div');
+    resultsCard.appendChild(resultsBody);
+
+    function showResultsGw(gw) {
+      resultsGw = gw;
+      const idx = seasonGws.indexOf(gw);
+      prevBtn.disabled = idx <= 0;
+      nextBtn.disabled = idx === -1 || idx >= seasonGws.length - 1;
+      const entry = d.season_matchups_by_gw[String(gw)];
+      const state = entry ? entry.state : 'final';
+      const badge = state === 'live' ? ' <span class="badge badge-l">LIVE</span>'
+        : state === 'upcoming' ? ' <span class="muted">(upcoming)</span>' : '';
+      title.innerHTML = `${state === 'upcoming' ? 'Matchups' : 'Results'} — GW${gw}${badge}`;
+      resultsBody.innerHTML = '';
+      if (!entry) { resultsBody.appendChild(el('p', 'muted', 'No matchup data for this gameweek.')); return; }
+      if (entry.state === 'upcoming') {
+        resultsBody.appendChild(el('p', 'muted', "Fixtures only — this gameweek hasn't started yet."));
+      }
+      entry.matches.forEach(m => resultsBody.appendChild(matchRow(gw, m, false)));
+    }
+    prevBtn.onclick = () => { const i = seasonGws.indexOf(resultsGw); if (i > 0) showResultsGw(seasonGws[i - 1]); };
+    nextBtn.onclick = () => { const i = seasonGws.indexOf(resultsGw); if (i >= 0 && i < seasonGws.length - 1) showResultsGw(seasonGws[i + 1]); };
+    showResultsGw(resultsGw);
+  } else {
+    resultsCard.appendChild(el('h2', null, 'No results yet'));
+  }
   homeGrid.appendChild(resultsCard);
 
   const nextCard = el('div', 'card gc-next');
@@ -1291,30 +1378,49 @@ function renderLeague(root) {
   root.appendChild(el('div', 'section-title', `Standings — after GW${d.standings_gw}`));
   const table = el('div', 'card wide-table');
   let rows = d.standings.map(s => `
-    <tr class="${s.is_owner ? 'owner-row' : ''}">
+    <tr class="clickable-row ${s.is_owner ? 'owner-row' : ''}" data-manager="${MANAGER_ID_BY_NAME[s.display_name]}" tabindex="0" role="button">
       <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
       <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td>
       <td>${s.points_for}</td><td>${s.points_against}</td><td>${s.streak || '—'}</td>
     </tr>`).join('');
   table.innerHTML = `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>PF</th><th>PA</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`;
+  table.querySelector('tbody').addEventListener('click', (e) => {
+    const tr = e.target.closest('tr[data-manager]');
+    if (tr) goToManagerPage(tr.dataset.manager);
+  });
+  table.querySelector('tbody').addEventListener('keydown', (e) => {
+    const tr = e.target.closest('tr[data-manager]');
+    if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); goToManagerPage(tr.dataset.manager); }
+  });
   root.appendChild(table);
 
   root.appendChild(el('div', 'section-title', 'All matchups'));
-  const gwKeys = Object.keys(d.all_matchups_by_gw).sort((a, b) => a - b);
+  root.appendChild(el('p', 'muted', 'Grey tabs are upcoming fixtures — pairings only, no score yet.'));
+  const gwKeys = Object.keys(d.season_matchups_by_gw).sort((a, b) => a - b);
   const btnGroup = el('div', 'tabbtn-group');
   const matchupsBody = el('div', 'card');
   function showGw(gw) {
     matchupsBody.innerHTML = '';
-    (d.all_matchups_by_gw[gw] || []).forEach(m => matchupsBody.appendChild(matchRow(gw, m, false)));
+    const entry = d.season_matchups_by_gw[gw];
+    if (!entry) return;
+    if (entry.state === 'upcoming') {
+      matchupsBody.appendChild(el('p', 'muted', "Fixtures only — this gameweek hasn't started yet."));
+    }
+    (entry.matches || []).forEach(m => matchupsBody.appendChild(matchRow(gw, m, false)));
   }
-  gwKeys.forEach((gw, i) => {
-    const b = el('button', i === gwKeys.length - 1 ? 'active' : '', `GW${gw}`);
+  const defaultGw = gwKeys.find(gw => d.season_matchups_by_gw[gw].state === 'live')
+    || [...gwKeys].reverse().find(gw => d.season_matchups_by_gw[gw].state === 'final')
+    || gwKeys[0];
+  gwKeys.forEach((gw) => {
+    const state = d.season_matchups_by_gw[gw].state;
+    const label = `GW${gw}${state === 'live' ? ' <span class="badge badge-l">LIVE</span>' : ''}`;
+    const b = el('button', `gw-tab-${state}${gw === defaultGw ? ' active' : ''}`, label);
     b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); showGw(gw); };
     btnGroup.appendChild(b);
   });
   root.appendChild(btnGroup);
   root.appendChild(matchupsBody);
-  if (gwKeys.length) showGw(gwKeys[gwKeys.length - 1]);
+  if (defaultGw) showGw(defaultGw);
 
   root.appendChild(el('div', 'section-title', 'Chip tracker'));
   const chipCard = el('div', 'card wide-table');

@@ -255,6 +255,29 @@ def results_for_gw(conn, gw: int) -> list[dict]:
 ALERTS_SHOWN_LIMIT = 5
 
 
+def season_matchups_by_gw(conn, data_checked_gws: list[int], next_gw: int | None, latest_finalized_gw: int | None) -> dict:
+    """Every gameweek raw_h2h_matches knows about — not just finalized ones.
+    FPL generates the whole double round-robin schedule upfront, so future
+    pairings are already real stored fact (raw_h2h_matches.status='scheduled'),
+    just without a score yet. Labels each gw 'final' (data-checked, immutable
+    score from raw_h2h_matches itself), 'live' (the one gw currently being
+    provisionally tracked — reuses fixtures_for_gw's raw_manager_gw is_final=0
+    lookup so a live score shows if the deadline's passed), or 'upcoming'
+    (pairing only, no score exists anywhere to show)."""
+    gw_ids = [r[0] for r in conn.execute(
+        "SELECT DISTINCT gw_id FROM raw_h2h_matches ORDER BY gw_id"
+    ).fetchall()]
+    out = {}
+    for gw in gw_ids:
+        if gw in data_checked_gws:
+            out[str(gw)] = {"state": "final", "matches": results_for_gw(conn, gw)}
+        elif gw == next_gw:
+            out[str(gw)] = {"state": "live", "matches": fixtures_for_gw(conn, gw, latest_finalized_gw)}
+        else:
+            out[str(gw)] = {"state": "upcoming", "matches": fixtures_for_gw(conn, gw, latest_finalized_gw)}
+    return out
+
+
 def alerts(conn) -> dict:
     """Capped so the Home page can't grow an unbounded list over a season —
     most severe and most recent first. `total` lets the UI say "N more" for
@@ -962,6 +985,7 @@ def build_digest() -> dict:
         ),
         "managers_detail": all_managers_detail(conn, latest) if latest else {},
         "all_matchups_by_gw": {str(gw): results_for_gw(conn, gw) for gw in status["data_checked_gws"]},
+        "season_matchups_by_gw": season_matchups_by_gw(conn, status["data_checked_gws"], status["next_gw"], latest),
         "all_standings_by_gw": {str(gw): standings(conn, gw) for gw in status["data_checked_gws"]},
         "club_kits": club_kits(conn),
         "player_photos": player_photos(conn),

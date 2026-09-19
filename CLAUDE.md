@@ -175,22 +175,28 @@ Never claim something works unless it has actually been run.
   and dominate the height. Scoped to stay clear of the H2H modal's own
   separately-tuned compact side-by-side sizing (34x42 images), which is
   more specific in CSS and always wins regardless of viewport.
-- CSS gotcha, hit twice: a `@media (max-width: 720px)` override placed
-  *before* its same-selector base rule in source order loses the
+- CSS gotcha, hit three times now: a `@media (max-width: 720px)` override
+  placed *before* its same-selector base rule in source order loses the
   cascade tiebreak regardless of the media query matching — the later
   base rule silently wins. Bit `.h2h-header`/`.h2h-score`/`.h2h-record`
-  first, then `.modal-overlay`/`.modal-card` — the second instance had
-  been live and ineffective since an earlier "audit fixes" commit,
-  meaning the H2H modal was rendering at full desktop padding (26px
-  sides) on every phone the whole time, making the pitch noticeably
-  narrower than intended. Found 2026-09-19 via the owner comparing a
-  live render against a manually zoomed-out screenshot ("field looks
-  wider" in the reference); confirmed by `getComputedStyle` measurement,
-  not by eye. Fixed by moving both overrides to after their base rules;
-  pitch width on a 375px viewport went from 283px (75.5%) to 335px
-  (89.3%). Any future mobile-only CSS addition to this file must be
-  placed after its base selector's rule, and verified with a computed-
-  style check, not just a screenshot.
+  first, then `.modal-overlay`/`.modal-card` (found 2026-09-19 via the
+  owner comparing a live render against a manually zoomed-out screenshot,
+  "field looks wider" — the H2H modal had been rendering at full desktop
+  padding on every phone since an earlier "audit fixes" commit), then —
+  same day, same root cause — almost the *entire* original mobile-shrink
+  block: `.card`, `.locked-card`, `.section-title`, `table`, `th,td`,
+  `.modal-close`, `.gw-nav-arrow`, `.gw-nav-select`, `.tabbtn-group
+  button` had all been no-ops site-wide since whenever each was first
+  written (`#manager-select` survived only because it used `!important`;
+  a few others survived on higher specificity, e.g. `.grid-4 .stat
+  .value`). All of it is now consolidated at the very end of the
+  stylesheet, after every base rule, and pushed noticeably smaller than
+  the original (broken) attempt — not just fixed in place — per the
+  owner's 2026-09-19 ask to shrink every page to the H2H modal's density.
+  Confirmed via `getComputedStyle`, not by eye. **Any future mobile-only
+  CSS added to this file goes at the end of the stylesheet, after every
+  base rule it touches — never inline near a related feature — and gets
+  verified with a computed-style check, not just a screenshot.**
 - The dashboard refreshes every 5 minutes during live matches via
   `.github/workflows/live.yml`, added 2026-09-19 (owner's ask: "quickest
   we can update without breaking"). 5 minutes is GitHub Actions' practical
@@ -213,6 +219,26 @@ Never claim something works unless it has actually been run.
   empirically verified — see SPEC.md §13 for how to eventually confirm it once
   a future gameweek produces a real tie. W/D/L/points for those two gameweeks
   ARE exact, reconstructed from immutable raw match data — only rank is gated.
+- Manager names are click-throughs to their Managers-page detail view —
+  the League page's standings rows (`goToManagerPage()`, added
+  2026-09-19) and each side's name at the top of the H2H modal
+  (`.side-name-link`). Both reuse the Managers tab's own lazy-render +
+  `<select>` machinery rather than duplicating it, so there's one code
+  path for "show this manager's detail."
+- The League page's "All matchups" section and the Home page's
+  "results" card (arrow-navigable, added 2026-09-19) both cover every
+  gameweek in `raw_h2h_matches` — not just finalized ones — via
+  `digest.season_matchups_by_gw()`. FPL generates the whole double
+  round-robin schedule upfront, so future pairings are already real
+  stored fact (`status='scheduled'`, no score), just not previously
+  surfaced. Each gw is labeled `final` (immutable score from
+  `raw_h2h_matches` itself), `live` (the one gw currently being
+  provisionally tracked — score comes from `raw_manager_gw`'s `is_final
+  =0` rows via `fixtures_for_gw()`, same source the Home page's live
+  fixtures card already used), or `upcoming` (pairing only). This is
+  separate from the older `all_matchups_by_gw` (final-only), which stays
+  as-is because `allTimeRecord()` and the History page's per-gw recap
+  both need it restricted to real, finalized results.
 
 ## 10. Gross vs net
 
