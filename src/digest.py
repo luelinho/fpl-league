@@ -94,6 +94,89 @@ def standings(conn, gw: int) -> list[dict]:
     ]
 
 
+def live_standings_projection(conn, live_gw: int) -> dict | None:
+    """Projected league standings "if GW `live_gw` ended right now" — a
+    Computed projection per CLAUDE.md §3, not a fact, labeled as such in the
+    UI ("GW{n} LIVE"). Built from raw_manager_gw's live net_points (real,
+    provisional, is_final=0 — same source fixtures_for_gw() already uses for
+    the Home page's live fixtures card), applied on top of the last
+    finalized standings snapshot.
+
+    Returns None if there's no prior finalized standings to project from, or
+    no live data has been captured yet for live_gw (its deadline hasn't
+    passed) — in both cases there's nothing honest to show yet.
+
+    Tie-break on equal projected league_points is NOT FPL's own H2H
+    tiebreak rule — that rule has never been empirically verified (see
+    CLAUDE.md §9 / SPEC.md §13) — so ties instead keep each manager's
+    previous rank order rather than presenting an invented precise order.
+    """
+    base_gw = live_gw - 1
+    if base_gw < 1:
+        return None
+    base_rows = conn.execute(
+        """
+        SELECT s.manager_id, s.rank, m.display_name, tn.team_name, s.wins, s.draws, s.losses,
+               s.league_points, m.is_owner
+        FROM standings_snapshots s
+        JOIN managers m ON m.manager_id = s.manager_id
+        JOIN team_names tn ON tn.manager_id = m.manager_id
+        WHERE s.gw_id = ?
+        """,
+        (base_gw,),
+    ).fetchall()
+    if not base_rows:
+        return None
+
+    live_pts = dict(conn.execute(
+        "SELECT manager_id, net_points FROM raw_manager_gw WHERE gw_id = ?", (live_gw,)
+    ).fetchall())
+    if not live_pts:
+        return None
+
+    base = {
+        mgr_id: {
+            "manager_id": mgr_id, "prev_rank": rank, "display_name": name, "team_name": team,
+            "wins": w, "draws": d, "losses": l, "league_points": lp, "is_owner": bool(is_owner),
+            "gw_live_points": None,
+        }
+        for mgr_id, rank, name, team, w, d, l, lp, is_owner in base_rows
+    }
+
+    matches = conn.execute(
+        "SELECT manager_a, manager_b FROM raw_h2h_matches WHERE gw_id = ?", (live_gw,)
+    ).fetchall()
+    for mgr_a, mgr_b in matches:
+        if mgr_a not in base or mgr_b not in base:
+            continue
+        pa, pb = live_pts.get(mgr_a), live_pts.get(mgr_b)
+        if pa is None or pb is None:
+            continue
+        base[mgr_a]["gw_live_points"], base[mgr_b]["gw_live_points"] = pa, pb
+        if pa > pb:
+            base[mgr_a]["league_points"] += 3
+            base[mgr_a]["wins"] += 1
+            base[mgr_b]["losses"] += 1
+        elif pb > pa:
+            base[mgr_b]["league_points"] += 3
+            base[mgr_b]["wins"] += 1
+            base[mgr_a]["losses"] += 1
+        else:
+            base[mgr_a]["league_points"] += 1
+            base[mgr_b]["league_points"] += 1
+            base[mgr_a]["draws"] += 1
+            base[mgr_b]["draws"] += 1
+
+    rows = list(base.values())
+    rows.sort(key=lambda r: (-r["league_points"], r["prev_rank"]))
+    for i, r in enumerate(rows, start=1):
+        r["projected_rank"] = i
+        r["rank_change"] = r["prev_rank"] - i  # positive = moved up
+        del r["manager_id"]
+
+    return {"based_on_gw": base_gw, "live_gw": live_gw, "rows": rows}
+
+
 PROJECTION_SIM_RUNS = 2000
 
 
@@ -972,6 +1055,7 @@ def build_digest() -> dict:
         "gates": gates(latest or 0),
         "standings": standings(conn, latest) if latest else [],
         "standings_gw": latest,
+        "live_standings": live_standings_projection(conn, status["next_gw"]) if status["next_gw"] else None,
         "upcoming_fixtures": {"gw": status["next_gw"], "matches": upcoming_matches},
         "last_results": {"gw": latest, "matches": results_for_gw(conn, latest)} if latest else None,
         "alerts": alerts(conn),

@@ -268,15 +268,40 @@ Never claim something works unless it has actually been run.
   "Jost," the closest geometric-sans Google Font candidate, side by side
   against the real wordmark) but the letterforms didn't match closely
   enough to be confident — so per the owner's call, the wordmark image
-  itself replaces the text instead of guessing a substitute font. Layout
-  is responsive on purpose: desktop hugs the brand to the left with the
-  tab nav right after it (`justify-content: flex-start`); mobile centers
-  it (`justify-content: center`, in the consolidated end-of-stylesheet
-  mobile block per the CSS-ordering rule above) because the tab nav moves
-  to a fixed bottom bar there, leaving the brand alone in the topbar. The
-  subtitle under the wordmark shows only the season (e.g. "2026/27") —
-  the league ID was dropped as clutter once the wordmark image made the
-  league name itself redundant to restate.
+  itself replaces the text instead of guessing a substitute font. The
+  brand+tabs are centered as one group on every width (`justify-content:
+  center` on `.topbar-inner`) — briefly tried hugging the brand left on
+  desktop with the tabs right after it, but the owner asked to go back to
+  centering both. The subtitle under the wordmark shows only the season
+  (e.g. "2026/27") — the league ID was dropped as clutter once the
+  wordmark image made the league name itself redundant to restate.
+- Switching tabs (or `goToManagerPage()`'s programmatic tab switch from
+  the League table / H2H modal) always resets scroll to the top
+  (`window.scrollTo(0, 0)`) — added 2026-09-19 after the owner found a
+  new page could open mid-scroll, inheriting the previous page's
+  position.
+- Home's Standings card projects live standings while a gameweek is in
+  progress, via `digest.live_standings_projection()`: a **Computed**
+  projection per CLAUDE.md §3 (labeled "GW{n} LIVE" in the UI, never
+  presented as fact), built from `raw_manager_gw`'s live net_points
+  applied on top of the last finalized standings snapshot. Each
+  manager's rank movement vs. the pre-live-gw snapshot shows as ▲
+  (green, moved up), ▼ (red, moved down), or no icon (unchanged) — never
+  invented for a tie: equal projected league points keep each manager's
+  previous relative order rather than asserting FPL's own unverified H2H
+  tiebreak rule (see §9 standings-rank note / SPEC.md §13). Falls back to
+  the plain finalized-standings view outside of a live gameweek. To fit
+  all 18 managers in the card without it growing taller than its
+  neighbor (the fixtures card) — the owner's explicit call: shrink the
+  row density, don't grow the box — the table is scoped compact
+  (`.gc-standings table/th/td`, smaller fonts/padding, single-line
+  manager+team) rather than touching the shared `table`/`th,td` rules
+  the League and Analytics pages' standings tables also use.
+- The League page's "All matchups" section uses the same prev/next-arrow
+  + `<select>` gameweek picker as the Players page and Home's results
+  card, not one button per gameweek — a 35-button row stopped being
+  usable once every gameweek (not just finalized ones) got a tab (see
+  `season_matchups_by_gw` above).
 
 ## 10. Gross vs net
 

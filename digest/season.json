@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:16:55.844717+00:00",
+  "generated_at": "2026-09-19T20:12:40.793041+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -285,6 +285,246 @@
     }
   ],
   "standings_gw": 4,
+  "live_standings": {
+    "based_on_gw": 4,
+    "live_gw": 5,
+    "rows": [
+      {
+        "prev_rank": 1,
+        "display_name": "Chris Mazzatta",
+        "team_name": "CMazz",
+        "wins": 5,
+        "draws": 0,
+        "losses": 0,
+        "league_points": 15,
+        "is_owner": false,
+        "gw_live_points": 18,
+        "projected_rank": 1,
+        "rank_change": 0
+      },
+      {
+        "prev_rank": 4,
+        "display_name": "Craig Allen",
+        "team_name": "Game of Throw-In",
+        "wins": 4,
+        "draws": 0,
+        "losses": 1,
+        "league_points": 12,
+        "is_owner": false,
+        "gw_live_points": 19,
+        "projected_rank": 2,
+        "rank_change": 2
+      },
+      {
+        "prev_rank": 2,
+        "display_name": "Erik Baxter",
+        "team_name": "Erik's Team",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "league_points": 10,
+        "is_owner": false,
+        "gw_live_points": 9,
+        "projected_rank": 3,
+        "rank_change": -1
+      },
+      {
+        "prev_rank": 3,
+        "display_name": "Jordan Fernholz",
+        "team_name": "Blue Bloods",
+        "wins": 3,
+        "draws": 1,
+        "losses": 1,
+        "league_points": 10,
+        "is_owner": false,
+        "gw_live_points": 9,
+        "projected_rank": 4,
+        "rank_change": -1
+      },
+      {
+        "prev_rank": 5,
+        "display_name": "Andrew Romani",
+        "team_name": "Rock \u2018n\u2019 Iraola",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 9,
+        "is_owner": false,
+        "gw_live_points": 8,
+        "projected_rank": 5,
+        "rank_change": 0
+      },
+      {
+        "prev_rank": 6,
+        "display_name": "Isaac Sotelo",
+        "team_name": "#GOAT",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 9,
+        "is_owner": false,
+        "gw_live_points": 10,
+        "projected_rank": 6,
+        "rank_change": 0
+      },
+      {
+        "prev_rank": 8,
+        "display_name": "Ryan Smith",
+        "team_name": "Big Cannon Energy",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 9,
+        "is_owner": false,
+        "gw_live_points": 14,
+        "projected_rank": 7,
+        "rank_change": 1
+      },
+      {
+        "prev_rank": 10,
+        "display_name": "Reggie Mazz",
+        "team_name": "Keiner Bobby Dazzler",
+        "wins": 3,
+        "draws": 0,
+        "losses": 2,
+        "league_points": 9,
+        "is_owner": false,
+        "gw_live_points": 43,
+        "projected_rank": 8,
+        "rank_change": 2
+      },
+      {
+        "prev_rank": 7,
+        "display_name": "Yorick Stoepker",
+        "team_name": "Hoevoeloe",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 22,
+        "projected_rank": 9,
+        "rank_change": -2
+      },
+      {
+        "prev_rank": 9,
+        "display_name": "Joe Gannitello",
+        "team_name": "Bruno's Bros",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 19,
+        "projected_rank": 10,
+        "rank_change": -1
+      },
+      {
+        "prev_rank": 11,
+        "display_name": "Chris Miller",
+        "team_name": "millers minions",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 29,
+        "projected_rank": 11,
+        "rank_change": 0
+      },
+      {
+        "prev_rank": 12,
+        "display_name": "Brian Moran",
+        "team_name": "Kick'in the balls",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 21,
+        "projected_rank": 12,
+        "rank_change": 0
+      },
+      {
+        "prev_rank": 15,
+        "display_name": "Brady Baxter",
+        "team_name": "Championship side",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 19,
+        "projected_rank": 13,
+        "rank_change": 2
+      },
+      {
+        "prev_rank": 17,
+        "display_name": "Kirk Baxter",
+        "team_name": "Toffee Machine",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 26,
+        "projected_rank": 14,
+        "rank_change": 3
+      },
+      {
+        "prev_rank": 18,
+        "display_name": "Harry Daskalopoulos",
+        "team_name": "OliveOilMoneh",
+        "wins": 2,
+        "draws": 0,
+        "losses": 3,
+        "league_points": 6,
+        "is_owner": false,
+        "gw_live_points": 22,
+        "projected_rank": 15,
+        "rank_change": 3
+      },
+      {
+        "prev_rank": 13,
+        "display_name": "Iain Abshier",
+        "team_name": "FOGGING ESTANDARDS",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "league_points": 3,
+        "is_owner": false,
+        "gw_live_points": 12,
+        "projected_rank": 16,
+        "rank_change": -3
+      },
+      {
+        "prev_rank": 14,
+        "display_name": "Luel Waktola",
+        "team_name": "Midtable Crisis",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "league_points": 3,
+        "is_owner": true,
+        "gw_live_points": 13,
+        "projected_rank": 17,
+        "rank_change": -3
+      },
+      {
+        "prev_rank": 16,
+        "display_name": "Danilo Arroyo",
+        "team_name": "Ophelia Balls",
+        "wins": 1,
+        "draws": 0,
+        "losses": 4,
+        "league_points": 3,
+        "is_owner": false,
+        "gw_live_points": 1,
+        "projected_rank": 18,
+        "rank_change": -2
+      }
+    ]
+  },
   "upcoming_fixtures": {
     "gw": 5,
     "matches": [
@@ -301,7 +541,7 @@
           "projected_total": 54.7,
           "yet_to_play": 7,
           "played": 4,
-          "win_pct": 64.3
+          "win_pct": 62.7
         },
         "b": {
           "name": "Craig Allen",
@@ -312,10 +552,10 @@
             "l": 1
           },
           "score": 19,
-          "projected_total": 49.9,
+          "projected_total": 50.1,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 35.7
+          "win_pct": 37.3
         },
         "live": true,
         "winner": "b",
@@ -331,10 +571,10 @@
             "l": 0
           },
           "score": 9,
-          "projected_total": 53.7,
+          "projected_total": 54.2,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 23.2
+          "win_pct": 23.9
         },
         "b": {
           "name": "Brian Moran",
@@ -345,10 +585,10 @@
             "l": 3
           },
           "score": 21,
-          "projected_total": 67.8,
+          "projected_total": 67.7,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 76.8
+          "win_pct": 76.1
         },
         "live": true,
         "winner": "b",
@@ -367,7 +607,7 @@
           "projected_total": 52.2,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 33.6
+          "win_pct": 34.4
         },
         "b": {
           "name": "Danilo Arroyo",
@@ -378,10 +618,10 @@
             "l": 3
           },
           "score": 1,
-          "projected_total": 59.4,
+          "projected_total": 58.6,
           "yet_to_play": 9,
           "played": 2,
-          "win_pct": 66.4
+          "win_pct": 65.6
         },
         "live": true,
         "winner": "a",
@@ -397,10 +637,10 @@
             "l": 3
           },
           "score": 29,
-          "projected_total": 75.5,
+          "projected_total": 75.2,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 83.2
+          "win_pct": 82.4
         },
         "b": {
           "name": "Isaac Sotelo",
@@ -411,10 +651,10 @@
             "l": 1
           },
           "score": 10,
-          "projected_total": 57.6,
+          "projected_total": 57.2,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 16.8
+          "win_pct": 17.6
         },
         "live": true,
         "winner": "a",
@@ -430,10 +670,10 @@
             "l": 3
           },
           "score": 19,
-          "projected_total": 62.8,
+          "projected_total": 63.5,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 56.0
+          "win_pct": 58.2
         },
         "b": {
           "name": "Iain Abshier",
@@ -444,10 +684,10 @@
             "l": 3
           },
           "score": 12,
-          "projected_total": 59.6,
+          "projected_total": 59.3,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 44.0
+          "win_pct": 41.8
         },
         "live": true,
         "winner": "a",
@@ -463,10 +703,10 @@
             "l": 3
           },
           "score": 26,
-          "projected_total": 56.6,
+          "projected_total": 56.5,
           "yet_to_play": 4,
           "played": 7,
-          "win_pct": 45.8
+          "win_pct": 46.5
         },
         "b": {
           "name": "Andrew Romani",
@@ -477,10 +717,10 @@
             "l": 1
           },
           "score": 8,
-          "projected_total": 58.1,
+          "projected_total": 57.9,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 54.2
+          "win_pct": 53.5
         },
         "live": true,
         "winner": "a",
@@ -496,7 +736,7 @@
             "l": 2
           },
           "score": 43,
-          "projected_total": 59.7,
+          "projected_total": 59.4,
           "yet_to_play": 3,
           "played": 8,
           "win_pct": 33.2
@@ -510,7 +750,7 @@
             "l": 2
           },
           "score": 22,
-          "projected_total": 65.5,
+          "projected_total": 65.4,
           "yet_to_play": 6,
           "played": 5,
           "win_pct": 66.8
@@ -529,10 +769,10 @@
             "l": 3
           },
           "score": 13,
-          "projected_total": 59.6,
+          "projected_total": 59.0,
           "yet_to_play": 7,
           "played": 4,
-          "win_pct": 52.0
+          "win_pct": 52.7
         },
         "b": {
           "name": "Chris Mazzatta",
@@ -543,10 +783,10 @@
             "l": 0
           },
           "score": 18,
-          "projected_total": 62.3,
+          "projected_total": 61.6,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 48.0
+          "win_pct": 47.3
         },
         "live": true,
         "winner": "b",
@@ -565,7 +805,7 @@
           "projected_total": 48.5,
           "yet_to_play": 4,
           "played": 7,
-          "win_pct": 15.2
+          "win_pct": 15.3
         },
         "b": {
           "name": "Joe Gannitello",
@@ -579,7 +819,7 @@
           "projected_total": 65.6,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 84.8
+          "win_pct": 84.7
         },
         "live": true,
         "winner": "a",
@@ -42290,10 +42530,10 @@
               "l": 0
             },
             "score": 9,
-            "projected_total": 54.8,
+            "projected_total": 54.9,
             "yet_to_play": 7,
             "played": 4,
-            "win_pct": 64.7
+            "win_pct": 63.9
           },
           "b": {
             "name": "Craig Allen",
@@ -42304,10 +42544,10 @@
               "l": 1
             },
             "score": 19,
-            "projected_total": 49.8,
+            "projected_total": 50.3,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 35.3
+            "win_pct": 36.1
           },
           "live": true,
           "winner": "b",
@@ -42323,10 +42563,10 @@
               "l": 0
             },
             "score": 9,
-            "projected_total": 54.1,
+            "projected_total": 53.5,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 24.6
+            "win_pct": 24.4
           },
           "b": {
             "name": "Brian Moran",
@@ -42337,10 +42577,10 @@
               "l": 3
             },
             "score": 21,
-            "projected_total": 67.2,
+            "projected_total": 67.4,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 75.4
+            "win_pct": 75.6
           },
           "live": true,
           "winner": "b",
@@ -42356,10 +42596,10 @@
               "l": 2
             },
             "score": 14,
-            "projected_total": 52.5,
+            "projected_total": 51.8,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 34.9
+            "win_pct": 33.5
           },
           "b": {
             "name": "Danilo Arroyo",
@@ -42370,10 +42610,10 @@
               "l": 3
             },
             "score": 1,
-            "projected_total": 59.1,
+            "projected_total": 59.0,
             "yet_to_play": 9,
             "played": 2,
-            "win_pct": 65.1
+            "win_pct": 66.5
           },
           "live": true,
           "winner": "a",
@@ -42389,10 +42629,10 @@
               "l": 3
             },
             "score": 29,
-            "projected_total": 75.3,
+            "projected_total": 75.9,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 82.1
+            "win_pct": 83.1
           },
           "b": {
             "name": "Isaac Sotelo",
@@ -42403,10 +42643,10 @@
               "l": 1
             },
             "score": 10,
-            "projected_total": 57.4,
+            "projected_total": 57.3,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 17.9
+            "win_pct": 16.9
           },
           "live": true,
           "winner": "a",
@@ -42422,10 +42662,10 @@
               "l": 3
             },
             "score": 19,
-            "projected_total": 62.9,
+            "projected_total": 62.6,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 56.9
+            "win_pct": 54.7
           },
           "b": {
             "name": "Iain Abshier",
@@ -42436,10 +42676,10 @@
               "l": 3
             },
             "score": 12,
-            "projected_total": 59.4,
+            "projected_total": 59.3,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 43.1
+            "win_pct": 45.3
           },
           "live": true,
           "winner": "a",
@@ -42455,10 +42695,10 @@
               "l": 3
             },
             "score": 26,
-            "projected_total": 56.7,
+            "projected_total": 56.0,
             "yet_to_play": 4,
             "played": 7,
-            "win_pct": 46.3
+            "win_pct": 47.4
           },
           "b": {
             "name": "Andrew Romani",
@@ -42469,10 +42709,10 @@
               "l": 1
             },
             "score": 8,
-            "projected_total": 58.2,
+            "projected_total": 57.2,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 53.7
+            "win_pct": 52.6
           },
           "live": true,
           "winner": "a",
@@ -42488,10 +42728,10 @@
               "l": 2
             },
             "score": 43,
-            "projected_total": 59.4,
+            "projected_total": 60.0,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 31.9
+            "win_pct": 34.1
           },
           "b": {
             "name": "Yorick Stoepker",
@@ -42502,10 +42742,10 @@
               "l": 2
             },
             "score": 22,
-            "projected_total": 65.7,
+            "projected_total": 65.6,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 68.1
+            "win_pct": 65.9
           },
           "live": true,
           "winner": "a",
@@ -42521,10 +42761,10 @@
               "l": 3
             },
             "score": 13,
-            "projected_total": 59.3,
+            "projected_total": 59.7,
             "yet_to_play": 7,
             "played": 4,
-            "win_pct": 53.0
+            "win_pct": 53.8
           },
           "b": {
             "name": "Chris Mazzatta",
@@ -42535,10 +42775,10 @@
               "l": 0
             },
             "score": 18,
-            "projected_total": 62.5,
+            "projected_total": 62.3,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 47.0
+            "win_pct": 46.2
           },
           "live": true,
           "winner": "b",
@@ -42554,10 +42794,10 @@
               "l": 3
             },
             "score": 22,
-            "projected_total": 48.5,
+            "projected_total": 48.4,
             "yet_to_play": 4,
             "played": 7,
-            "win_pct": 15.3
+            "win_pct": 15.7
           },
           "b": {
             "name": "Joe Gannitello",
@@ -42568,10 +42808,10 @@
               "l": 2
             },
             "score": 19,
-            "projected_total": 65.1,
+            "projected_total": 65.9,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 84.7
+            "win_pct": 84.3
           },
           "live": true,
           "winner": "a",

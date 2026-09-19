@@ -201,7 +201,7 @@ body {
 }
 .topbar-inner {
   max-width: 1080px; margin: 0 auto; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 24px;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 24px;
 }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-logo { height: 34px; width: auto; display: block; flex: none; }
@@ -327,9 +327,19 @@ th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--bo
 th { color: var(--ink-soft); font-weight: 600; font-size: 11.5px; text-transform: uppercase;
      letter-spacing: 0.04em; cursor: pointer; user-select: none; }
 th:hover { color: var(--ink); }
-.table-scroll { max-height: 380px; overflow-y: auto; }
+.table-scroll { overflow-y: auto; }
 .table-scroll table { margin: 0; }
 .table-scroll thead th { position: sticky; top: 0; background: var(--card); z-index: 1; }
+/* Home's standings card needs to fit all 18 managers without ballooning the
+   card taller than its neighbor (the fixtures card) — owner's call
+   2026-09-19: shrink the row density instead of growing the box. Scoped to
+   .gc-standings specifically so the League/Analytics standings tables (same
+   markup, different context) keep their normal, more readable size. */
+.gc-standings .table-scroll { max-height: 720px; }
+.gc-standings table { font-size: 12px; }
+.gc-standings th, .gc-standings td { padding: 5px 8px; }
+.gc-standings td .muted { font-size: 10px; }
+.gc-standings .record-badges .badge { padding: 1px 5px; font-size: 9.5px; }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
 tr.clickable-row { cursor: pointer; }
@@ -339,6 +349,9 @@ tr:last-child td { border-bottom: none; }
   display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 700;
 }
 .record-badges { display: inline-flex; gap: 3px; white-space: nowrap; }
+.rank-move { display: inline-block; margin-left: 5px; font-size: 11px; }
+.rank-move.rank-up { color: var(--accent); }
+.rank-move.rank-down { color: var(--coral); }
 .badge-w { background: var(--win-soft); color: var(--win); }
 .badge-l { background: var(--loss-soft); color: var(--loss); }
 .badge-d { background: var(--draw-soft); color: var(--draw); }
@@ -752,6 +765,13 @@ function resultBadge(w, d, l) {
   return `<span class="record-badges"><span class="badge badge-w">${w}W</span> <span class="badge badge-d">${d}D</span> <span class="badge badge-l">${l}L</span></span>`;
 }
 
+function rankMoveIndicator(delta) {
+  if (!delta) return '';
+  return delta > 0
+    ? `<span class="rank-move rank-up" title="Up ${delta} from GW${DIGEST.live_standings.based_on_gw}">▲</span>`
+    : `<span class="rank-move rank-down" title="Down ${Math.abs(delta)} from GW${DIGEST.live_standings.based_on_gw}">▼</span>`;
+}
+
 function matchRow(gw, m, showTeam) {
   const hasScore = m.a.score !== undefined && m.a.score !== null;
   const aWin = m.winner === 'a', bWin = m.winner === 'b';
@@ -1010,6 +1030,7 @@ function goToManagerPage(managerId) {
   const select = document.getElementById('manager-select');
   select.value = managerId;
   select.dispatchEvent(new Event('change'));
+  window.scrollTo(0, 0);
 }
 
 function openMatchupModal(gw, nameA, nameB) {
@@ -1114,14 +1135,30 @@ function renderHome(root) {
   const homeGrid = el('div', 'home-top-grid');
 
   const standingsCard = el('div', 'card gc-standings wide-table');
-  standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
-  let rows = d.standings.map(s => `
-    <tr class="${s.is_owner ? 'owner-row' : ''}">
-      <td>${s.rank}</td><td>${s.display_name}<div class="muted">${s.team_name}</div></td>
-      <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
-    </tr>`).join('');
-  const standingsScroll = el('div', 'table-scroll', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`);
-  standingsCard.appendChild(standingsScroll);
+  const ls = d.live_standings;
+  let standingsScroll;
+  if (ls) {
+    standingsCard.appendChild(el('h2', null, `Standings — GW${ls.live_gw} <span class="badge badge-l">LIVE</span>`));
+    standingsCard.appendChild(el('p', 'muted',
+      `Projected — where the table would sit if GW${ls.live_gw} ended right now. Recalculates as live scores change; not final.`));
+    let rows = ls.rows.map(s => `
+      <tr class="${s.is_owner ? 'owner-row' : ''}">
+        <td>${s.projected_rank}${rankMoveIndicator(s.rank_change)}</td><td>${s.display_name} <span class="muted">${s.team_name}</span></td>
+        <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.gw_live_points ?? '—'}</td>
+      </tr>`).join('');
+    standingsScroll = el('div', 'table-scroll',
+      `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>GW${ls.live_gw}</th></tr></thead><tbody>${rows}</tbody></table>`);
+    standingsCard.appendChild(standingsScroll);
+  } else {
+    standingsCard.appendChild(el('h2', null, `Standings — after GW${d.standings_gw}`));
+    let rows = d.standings.map(s => `
+      <tr class="${s.is_owner ? 'owner-row' : ''}">
+        <td>${s.rank}</td><td>${s.display_name} <span class="muted">${s.team_name}</span></td>
+        <td>${resultBadge(s.wins, s.draws, s.losses)}</td><td>${s.league_points}</td><td>${s.streak || '—'}</td>
+      </tr>`).join('');
+    standingsScroll = el('div', 'table-scroll', `<table><thead><tr><th>#</th><th>Manager</th><th>Record</th><th>Pts</th><th>Streak</th></tr></thead><tbody>${rows}</tbody></table>`);
+    standingsCard.appendChild(standingsScroll);
+  }
   homeGrid.appendChild(standingsCard);
 
   const fixturesCard = el('div', 'card gc-fixtures');
@@ -1191,15 +1228,6 @@ function renderHome(root) {
   }
   homeGrid.appendChild(nextCard);
   root.appendChild(homeGrid);
-
-  const VISIBLE_STANDINGS_ROWS = 9;
-  const standingsBodyRows = standingsScroll.querySelectorAll('tbody tr');
-  if (standingsBodyRows.length > VISIBLE_STANDINGS_ROWS) {
-    const thead = standingsScroll.querySelector('thead');
-    let fitHeight = thead.offsetHeight;
-    for (let i = 0; i < VISIBLE_STANDINGS_ROWS; i++) fitHeight += standingsBodyRows[i].offsetHeight;
-    standingsScroll.style.maxHeight = fitHeight + 'px';
-  }
 
   const pm = d.price_movers;
   const priceCard = el('div', 'card');
@@ -1450,9 +1478,7 @@ function renderLeague(root) {
   root.appendChild(table);
 
   root.appendChild(el('div', 'section-title', 'All matchups'));
-  root.appendChild(el('p', 'muted', 'Grey tabs are upcoming fixtures — pairings only, no score yet.'));
   const gwKeys = Object.keys(d.season_matchups_by_gw).sort((a, b) => a - b);
-  const btnGroup = el('div', 'tabbtn-group');
   const matchupsBody = el('div', 'card');
   function showGw(gw) {
     matchupsBody.innerHTML = '';
@@ -1466,16 +1492,44 @@ function renderLeague(root) {
   const defaultGw = gwKeys.find(gw => d.season_matchups_by_gw[gw].state === 'live')
     || [...gwKeys].reverse().find(gw => d.season_matchups_by_gw[gw].state === 'final')
     || gwKeys[0];
-  gwKeys.forEach((gw) => {
+  let matchupsGw = defaultGw;
+  const matchupsNav = el('div', 'gw-nav');
+  const matchupsPrev = el('button', 'gw-nav-arrow', '&larr;');
+  matchupsPrev.setAttribute('aria-label', 'Previous gameweek');
+  const matchupsSelect = document.createElement('select');
+  matchupsSelect.className = 'gw-nav-select';
+  matchupsSelect.setAttribute('aria-label', 'Select gameweek');
+  gwKeys.forEach(gw => {
     const state = d.season_matchups_by_gw[gw].state;
-    const label = `GW${gw}${state === 'live' ? ' <span class="badge badge-l">LIVE</span>' : ''}`;
-    const b = el('button', `gw-tab-${state}${gw === defaultGw ? ' active' : ''}`, label);
-    b.onclick = () => { btnGroup.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); showGw(gw); };
-    btnGroup.appendChild(b);
+    const opt = document.createElement('option');
+    opt.value = gw;
+    opt.textContent = `GW${gw}${state === 'live' ? ' (LIVE)' : state === 'upcoming' ? ' (upcoming)' : ''}`;
+    if (gw === matchupsGw) opt.selected = true;
+    matchupsSelect.appendChild(opt);
   });
-  root.appendChild(btnGroup);
+  const matchupsNext = el('button', 'gw-nav-arrow', '&rarr;');
+  matchupsNext.setAttribute('aria-label', 'Next gameweek');
+  function updateMatchupsNav() {
+    const idx = gwKeys.indexOf(matchupsGw);
+    matchupsPrev.disabled = idx <= 0;
+    matchupsNext.disabled = idx === -1 || idx >= gwKeys.length - 1;
+    showGw(matchupsGw);
+  }
+  matchupsPrev.onclick = () => {
+    const idx = gwKeys.indexOf(matchupsGw);
+    if (idx > 0) { matchupsGw = gwKeys[idx - 1]; matchupsSelect.value = matchupsGw; updateMatchupsNav(); }
+  };
+  matchupsNext.onclick = () => {
+    const idx = gwKeys.indexOf(matchupsGw);
+    if (idx < gwKeys.length - 1) { matchupsGw = gwKeys[idx + 1]; matchupsSelect.value = matchupsGw; updateMatchupsNav(); }
+  };
+  matchupsSelect.onchange = () => { matchupsGw = matchupsSelect.value; updateMatchupsNav(); };
+  matchupsNav.appendChild(matchupsPrev);
+  matchupsNav.appendChild(matchupsSelect);
+  matchupsNav.appendChild(matchupsNext);
+  root.appendChild(matchupsNav);
   root.appendChild(matchupsBody);
-  if (defaultGw) showGw(defaultGw);
+  if (defaultGw) updateMatchupsNav();
 
   root.appendChild(el('div', 'section-title', 'Chip tracker'));
   const chipCard = el('div', 'card wide-table');
@@ -1835,6 +1889,7 @@ document.getElementById('tabs').addEventListener('click', (e) => {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   if (!rendered[name]) { RENDERERS[name](document.getElementById('page-' + name)); rendered[name] = true; }
+  window.scrollTo(0, 0);
 });
 
 renderHome(document.getElementById('page-home'));
