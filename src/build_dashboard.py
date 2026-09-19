@@ -675,6 +675,19 @@ tr:last-child td { border-bottom: none; }
   .tabbtn-group button { padding: 8px 13px; font-size: 12px; min-height: 40px; }
   .gw-nav-header .gw-nav-arrow { width: 34px; height: 34px; font-size: 12px; }
   .gw-nav-header h2 { font-size: 13px; }
+
+  /* "This week's fixtures" (Home page) — owner's ask 2026-09-19 to shrink
+     it further still, on top of the site-wide pass above. */
+  .proj-card { padding: 7px 10px; border-radius: 10px; margin-bottom: 5px; }
+  .proj-score-row { margin-bottom: 4px; gap: 6px; }
+  .proj-live { font-size: 16px; }
+  .proj-total { font-size: 9px; }
+  .proj-bar-label { font-size: 8px; margin-bottom: 2px; }
+  .proj-bar-row { gap: 4px; margin-bottom: 3px; }
+  .proj-pct { font-size: 8.5px; }
+  .proj-bar-track { height: 5px; }
+  .proj-bottom-row { gap: 6px; }
+  .proj-info { font-size: 9.5px; }
 }
 """
 
