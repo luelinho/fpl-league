@@ -330,6 +330,7 @@ tr:last-child td { border-bottom: none; }
 .proj-live { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
 .proj-live.win { color: var(--accent); }
 .proj-total { font-size: 10.5px; color: var(--ink-soft); white-space: nowrap; }
+.proj-bar-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); text-align: center; margin-bottom: 3px; opacity: 0.75; }
 .proj-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
 .proj-pct { font-size: 10px; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .proj-bar-track { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; display: flex; }
@@ -586,6 +587,7 @@ function projectedMatchRow(gw, m) {
         <span class="proj-total">proj ${m.b.projected_total}</span>
       </div>
     </div>
+    <div class="proj-bar-label">Win probability</div>
     <div class="proj-bar-row">
       <span class="proj-pct">${m.a.win_pct}%</span>
       <div class="proj-bar-track">
@@ -917,12 +919,13 @@ function renderHome(root) {
       'Price history needs at least two days of snapshots to show movement — ' +
       `only ${pm.latest_date || 'today'} has been captured so far. Check back after tomorrow's sync.`));
   } else {
-    const fmtPrice = t => `£${(t / 10).toFixed(1)}m`;
+    const fmtPrice = t => `£${(Math.abs(t) / 10).toFixed(1)}m`;
+    const fmtDelta = t => `${t > 0 ? '+' : t < 0 ? '−' : ''}${fmtPrice(t)}`;
     const moverRow = m => `
       <div class="match-row">
         <div class="match-side">${m.name}<div class="muted">${m.club}</div></div>
         <div class="match-score ${m.delta_tenths > 0 ? 'win' : ''}" style="${m.delta_tenths < 0 ? 'color:var(--loss)' : ''}">
-          ${m.delta_tenths > 0 ? '+' : ''}${fmtPrice(m.delta_tenths)}
+          ${fmtDelta(m.delta_tenths)}
         </div>
         <div class="match-side right muted">${fmtPrice(m.price_tenths)}</div>
       </div>`;

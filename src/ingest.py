@@ -635,17 +635,15 @@ def reconstruct_gap_standings(conn: sqlite3.Connection, data_checked_gws: list[i
         )
         already_logged = conn.execute(
             "SELECT COUNT(*) FROM data_issues WHERE category = 'historical_gap' "
-            "AND description LIKE 'W/D/L, league points%'"
+            "AND (description LIKE 'W/D/L, league points%' OR description LIKE 'Standings for GW%')"
         ).fetchone()[0]
         if not already_logged:
             log_issue(conn, "info", "historical_gap",
-                      f"W/D/L, league points, points for/against, and streak for GW{filled} were "
-                      f"reconstructed from raw match data (exact — every result is immutable and "
-                      f"already stored). Rank is NOT available for these gameweeks: FPL's H2H "
-                      f"tiebreak rule for ties has never been empirically verified, so computing a "
-                      f"rank would mean asserting an unconfirmed method. Revisit once a future "
-                      f"gameweek's real tie lets the tiebreak formula be validated against confirmed "
-                      f"data (see SPEC.md §13).")
+                      f"Standings for GW{filled}: records, points, and streaks are exact (rebuilt "
+                      f"from final match results). League rank isn't shown for those gameweeks — "
+                      f"when two managers are tied, we don't yet know for certain how FPL breaks the "
+                      f"tie that early in the season, so rank is left blank rather than guessed. "
+                      f"It'll fill in once a real tie in a later gameweek lets us confirm the rule.")
         conn.commit()
         print(f"  Reconstructed W/D/L/points/streak for GW {filled} (rank intentionally left NULL)")
     return filled
