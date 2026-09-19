@@ -256,6 +256,27 @@ Never claim something works unless it has actually been run.
   separate from the older `all_matchups_by_gw` (final-only), which stays
   as-is because `allTimeRecord()` and the History page's per-gw recap
   both need it restricted to real, finalized results.
+- The topbar shows the owner-supplied logo (added 2026-09-19), split into
+  two cropped assets — `assets/images/logo-icon.png` (the goal/diving-
+  player mark) and `logo-wordmark.png` (the "Almost All Americans" text) —
+  rather than the single full lockup, so they can sit side by side at
+  header height instead of the source art's tall stacked layout.
+  Background removed from the source PNG (a flat white square) via a
+  brightness-ramp alpha, not a hard chroma-key cutoff, so the anti-aliased
+  edges stay smooth instead of haloed. We tried to identify and reuse the
+  wordmark's actual typeface for the plain-text title first (rendered
+  "Jost," the closest geometric-sans Google Font candidate, side by side
+  against the real wordmark) but the letterforms didn't match closely
+  enough to be confident — so per the owner's call, the wordmark image
+  itself replaces the text instead of guessing a substitute font. Layout
+  is responsive on purpose: desktop hugs the brand to the left with the
+  tab nav right after it (`justify-content: flex-start`); mobile centers
+  it (`justify-content: center`, in the consolidated end-of-stylesheet
+  mobile block per the CSS-ordering rule above) because the tab nav moves
+  to a fixed bottom bar there, leaving the brand alone in the topbar. The
+  subtitle under the wordmark shows only the season (e.g. "2026/27") —
+  the league ID was dropped as clutter once the wordmark image made the
+  league name itself redundant to restate.
 
 ## 10. Gross vs net
 

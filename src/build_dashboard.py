@@ -23,6 +23,15 @@ from .digest import build_digest
 
 OUT_PATH_NAME = "dashboard.html"
 FONT_PATH = config.REPO_ROOT / "assets" / "fonts" / "inter-variable-latin.woff2"
+LOGO_ICON_PATH = config.REPO_ROOT / "assets" / "images" / "logo-icon.png"
+LOGO_WORDMARK_PATH = config.REPO_ROOT / "assets" / "images" / "logo-wordmark.png"
+
+
+def _image_data_uri(path) -> str:
+    if not path.exists():
+        return ""
+    data = base64.b64encode(path.read_bytes()).decode()
+    return f"data:image/png;base64,{data}"
 
 
 def _font_face_css() -> str:
@@ -61,6 +70,23 @@ def _font_face_css() -> str:
 
 def render(digest: dict) -> str:
     data_json = json.dumps(digest)
+    icon_uri = _image_data_uri(LOGO_ICON_PATH)
+    wordmark_uri = _image_data_uri(LOGO_WORDMARK_PATH)
+    # Both cropped from the owner-supplied logo (2026-09-19), background
+    # removed via a brightness-ramp alpha (not a hard chroma-key cutoff, so
+    # anti-aliased edges stay smooth instead of haloed) — icon and wordmark
+    # cropped separately so they can sit side by side at header size instead
+    # of the full lockup's tall stacked layout. The wordmark image replaces
+    # the plain-text title rather than reproducing it in a system font: we
+    # tried to identify the logo's actual typeface (rendered "Jost", the
+    # closest geometric-sans Google Font candidate, side by side against the
+    # real wordmark) but the letterforms didn't match closely enough to be
+    # confident, and CLAUDE.md's "never invent" spirit extends here too —
+    # don't guess a substitute font when the real artwork is right there.
+    brand_title = (
+        f'<img class="brand-wordmark" src="{wordmark_uri}" alt="{digest["league"]["name"]}">'
+        if wordmark_uri else f'<span class="brand-name">{digest["league"]["name"]}</span>'
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -76,8 +102,11 @@ def render(digest: dict) -> str:
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-name">{digest['league']['name']}</span>
-      <span class="brand-sub">{digest['league']['season']} · League {digest['league'].get('id', '')}</span>
+      {f'<img class="brand-logo" src="{icon_uri}" alt="">' if icon_uri else ''}
+      <div class="brand-text">
+        {brand_title}
+        <span class="brand-sub">{digest['league']['season']}</span>
+      </div>
     </div>
     <nav class="tabs" id="tabs">
       <button class="tab active" data-tab="home">Home</button>
@@ -172,10 +201,14 @@ body {
 }
 .topbar-inner {
   max-width: 1080px; margin: 0 auto; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 24px;
 }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-logo { height: 34px; width: auto; display: block; flex: none; }
+.brand-text { display: flex; flex-direction: column; align-items: center; }
 .brand-name { font-weight: 700; font-size: 17px; display: block; color: var(--ink); letter-spacing: -0.01em; }
-.brand-sub { color: var(--ink-soft); font-size: 12.5px; }
+.brand-wordmark { height: 20px; width: auto; display: block; }
+.brand-sub { color: var(--ink-soft); font-size: 12.5px; display: block; margin-top: 3px; text-align: center; }
 .tabs { display: flex; gap: 4px; background: var(--card); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 5px; border-radius: 999px; border: 1px solid var(--border); max-width: 100%; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .tab {
   border: none; background: transparent; padding: 9px 16px; border-radius: 999px;
@@ -676,6 +709,11 @@ tr:last-child td { border-bottom: none; }
   .tabbtn-group button { padding: 8px 13px; font-size: 12px; min-height: 40px; }
   .gw-nav-header .gw-nav-arrow { width: 34px; height: 34px; font-size: 12px; }
   .gw-nav-header h2 { font-size: 13px; }
+  /* Desktop hugs the brand to the left with tabs right after it; on mobile
+     the tabs move to a fixed bottom bar (see #tabs above), leaving the brand
+     alone in the topbar, so it reads better centered instead of stranded
+     top-left. */
+  .topbar-inner { justify-content: center; }
 
   /* "This week's fixtures" (Home page) — owner's ask 2026-09-19, twice, to
      shrink it enough to see 10 matchups at once on a phone. Same technique
