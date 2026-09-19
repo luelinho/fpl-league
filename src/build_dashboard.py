@@ -335,11 +335,11 @@ th:hover { color: var(--ink); }
    2026-09-19: shrink the row density instead of growing the box. Scoped to
    .gc-standings specifically so the League/Analytics standings tables (same
    markup, different context) keep their normal, more readable size. */
-.gc-standings .table-scroll { max-height: 720px; }
-.gc-standings table { font-size: 12px; }
-.gc-standings th, .gc-standings td { padding: 5px 8px; }
-.gc-standings td .muted { font-size: 10px; }
-.gc-standings .record-badges .badge { padding: 1px 5px; font-size: 9.5px; }
+.gc-standings .table-scroll { max-height: 1000px; }
+.gc-standings table { font-size: 13.5px; }
+.gc-standings th, .gc-standings td { padding: 7px 9px; }
+.gc-standings td .muted { font-size: 11px; }
+.gc-standings .record-badges .badge { padding: 2px 6px; font-size: 10.5px; }
 tbody tr:hover td { background: rgba(255,255,255,0.02); }
 tr.owner-row td { background: var(--accent-soft); }
 tr.clickable-row { cursor: pointer; }
@@ -405,26 +405,26 @@ tr:last-child td { border-bottom: none; }
 .transfer-in::before { content: '+ '; color: var(--win); font-weight: 700; }
 .transfer-out::before { content: '− '; color: var(--loss); font-weight: 700; }
 .proj-card {
-  padding: 10px 14px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--border);
-  cursor: pointer; margin-bottom: 6px; transition: background 0.1s;
+  padding: 8px 12px; border-radius: 11px; background: var(--card-2); border: 1px solid var(--border);
+  cursor: pointer; margin-bottom: 5px; transition: background 0.1s;
 }
 .proj-card:last-child { margin-bottom: 0; }
 .proj-card:hover { background: rgba(255,255,255,0.05); }
-.proj-score-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; gap: 10px; }
+.proj-score-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; gap: 10px; }
 .proj-score-side { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
 .proj-score-side.right { flex-direction: row-reverse; }
-.proj-live { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
+.proj-live { font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
 .proj-live.win { color: var(--accent); }
-.proj-total { font-size: 10.5px; color: var(--ink-soft); white-space: nowrap; }
-.proj-bar-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); text-align: center; margin-bottom: 3px; opacity: 0.75; }
-.proj-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
-.proj-pct { font-size: 10px; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.proj-bar-track { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; display: flex; }
+.proj-total { font-size: 9.5px; color: var(--ink-soft); white-space: nowrap; }
+.proj-bar-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); text-align: center; margin-bottom: 2px; opacity: 0.75; }
+.proj-bar-row { display: flex; align-items: center; gap: 5px; margin-bottom: 4px; }
+.proj-pct { font-size: 9px; color: var(--ink-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.proj-bar-track { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; display: flex; }
 .proj-bar-seg { height: 100%; }
 .proj-bar-seg.lead { background: var(--accent); }
 .proj-bar-seg.trail { background: rgba(255,255,255,0.16); }
-.proj-bottom-row { display: flex; justify-content: space-between; gap: 10px; }
-.proj-info { font-size: 11px; color: var(--ink-soft); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proj-bottom-row { display: flex; justify-content: space-between; gap: 8px; }
+.proj-info { font-size: 10px; color: var(--ink-soft); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .proj-info.right { text-align: right; }
 .proj-info b { font-weight: 700; color: var(--ink); }
 .proj-caveat { font-size: 10px; color: #ffb04a; margin-top: 6px; text-align: center; }

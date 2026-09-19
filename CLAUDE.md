@@ -291,12 +291,18 @@ Never claim something works unless it has actually been run.
   previous relative order rather than asserting FPL's own unverified H2H
   tiebreak rule (see §9 standings-rank note / SPEC.md §13). Falls back to
   the plain finalized-standings view outside of a live gameweek. To fit
-  all 18 managers in the card without it growing taller than its
-  neighbor (the fixtures card) — the owner's explicit call: shrink the
-  row density, don't grow the box — the table is scoped compact
-  (`.gc-standings table/th/td`, smaller fonts/padding, single-line
-  manager+team) rather than touching the shared `table`/`th,td` rules
-  the League and Analytics pages' standings tables also use.
+  all 18 managers in the card without it growing much taller than its
+  neighbor (the fixtures card), the table is scoped compact
+  (`.gc-standings table/th/td`, single-line manager+team) rather than
+  touching the shared `table`/`th,td` rules the League/Analytics
+  standings tables also use — sized (13.5px table font, 7px/9px cell
+  padding) specifically to land close to the fixtures card's own
+  natural height once its `.proj-card` rows were also trimmed slightly,
+  so the two boxes read as a matched pair rather than one dwarfing the
+  other. Both were tuned together, by measuring actual rendered height,
+  not by eyeballing — if either card's content changes later (a new
+  standings column, a taller fixture row), re-measure and adjust both
+  rather than just one.
 - The League page's "All matchups" section uses the same prev/next-arrow
   + `<select>` gameweek picker as the Players page and Home's results
   card, not one button per gameweek — a 35-button row stopped being
