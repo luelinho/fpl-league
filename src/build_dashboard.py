@@ -14,6 +14,7 @@ Usage:
 
 from __future__ import annotations
 
+import base64
 import json
 import sys
 
@@ -21,6 +22,41 @@ from . import config
 from .digest import build_digest
 
 OUT_PATH_NAME = "dashboard.html"
+FONT_PATH = config.REPO_ROOT / "assets" / "fonts" / "inter-variable-latin.woff2"
+
+
+def _font_face_css() -> str:
+    """Inter, embedded as base64 — chosen for mobile legibility (tall
+    x-height, open apertures, designed and widely used for UI text at small
+    sizes) over relying only on each OS's own system font. Picked 2026-09-19
+    after comparing it live against Manrope, Nunito Sans, Work Sans, and
+    Poppins — one font per Home card, then Inter vs. Work Sans head-to-head
+    across the whole page (the two strongest candidates) — before settling
+    on Inter for the density of tables/numbers this dashboard is built from.
+    Embedded rather than linked from Google Fonts to keep the page fully
+    self-contained (no network access needed to open it, same reasoning as
+    every other asset here). It's the variable-weight file (one file covers
+    400-900, every weight this stylesheet actually uses) and the latin-only
+    subset (Google's own CSS2 API split by unicode range; this dashboard
+    only ever renders Latin text) to keep it small — 47KB, versus several
+    hundred KB for the full multi-script file. Falls back to the existing
+    system-font stack if the file is ever missing.
+    """
+    if not FONT_PATH.exists():
+        return ""
+    data = base64.b64encode(FONT_PATH.read_bytes()).decode()
+    return f"""
+@font-face {{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(data:font/woff2;base64,{data}) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}}
+"""
 
 
 def render(digest: dict) -> str:
@@ -32,6 +68,7 @@ def render(digest: dict) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{digest['league']['name']} — League Dashboard</title>
 <style>
+{_font_face_css()}
 {CSS}
 </style>
 </head>
@@ -118,8 +155,10 @@ body {
     radial-gradient(ellipse 700px 600px at 60% 30%, rgba(90,50,150,0.12), transparent 60%),
     var(--bg);
   background-attachment: fixed;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px; line-height: 1.45;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 .topbar {
   background: rgba(10,7,15,0.55); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
