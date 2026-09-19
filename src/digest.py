@@ -29,7 +29,7 @@ KIT_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{cod
 KIT_GK_URL = "https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_{code}_1-66.png"
 
 PHOTO_CACHE_DIR = config.REPO_ROOT / "digest" / ".photo_cache"
-PHOTO_URL = "https://resources.premierleague.com/premierleague/photos/players/110x140/p{code}.png"
+PHOTO_URL = "https://resources.premierleague.com/premierleague25/photos/players/110x140/{code}.png"
 PHOTO_SIZE = (60, 76)  # close to the source 110x140 aspect ratio, small enough to embed hundreds
 
 
@@ -368,16 +368,24 @@ def club_kits(conn) -> dict[str, dict[str, str]]:
 
 def player_photos(conn) -> dict[str, str]:
     """{player_id: data-uri} of each player's official headshot, resized
-    down to PHOTO_SIZE — FPL's own photo is ~100KB at 110x140, and this
+    down to PHOTO_SIZE — the source photo is ~100KB at 110x140, and this
     project can have 150-250 distinct players rostered across the league
     over a season, so embedding them at native size would multiply the
     dashboard's file size several times over. Resized once and cached
     (PHOTO_CACHE_DIR) at the small size so repeat builds don't re-fetch or
     re-resize. Scoped to players who have actually appeared in a roster
     this season, not FPL's full ~660-player universe, for the same reason.
-    Confirmed live 2026-09-19 (HTTP 200) before use, same pattern as
-    club_kits()'s badge URLs. Falls back to the club kit in the UI for any
-    player this returns nothing for (fetch failure, or code missing).
+
+    Uses the main premierleague.com photo bucket (PHOTO_URL), not FPL
+    Fantasy's own `resources.premierleague.com/premierleague/.../p{code}.png`
+    — confirmed live 2026-09-19 that Fantasy's bucket lags behind a real
+    transfer (three specific players still showed their *previous* club's
+    kit there despite bootstrap-static already reporting their current
+    club), while this one — same numeric `code`, no `p` prefix, a
+    season-numbered path segment instead — had all three correct and
+    current, and 120/122 (98%) coverage across every currently-rostered
+    player. Falls back to the club kit in the UI for any player this
+    returns nothing for (fetch failure, or code missing).
     """
     PHOTO_CACHE_DIR.mkdir(parents=True, exist_ok=True)
     rows = conn.execute(
@@ -390,7 +398,7 @@ def player_photos(conn) -> dict[str, str]:
     photos: dict[str, str] = {}
     for player_id, code in rows:
         uri = _fetch_and_cache_resized(
-            PHOTO_URL.format(code=code), PHOTO_CACHE_DIR / f"p{code}.png", PHOTO_SIZE
+            PHOTO_URL.format(code=code), PHOTO_CACHE_DIR / f"{code}.png", PHOTO_SIZE
         )
         if uri:
             photos[str(player_id)] = uri

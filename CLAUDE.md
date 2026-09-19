@@ -134,16 +134,24 @@ Never claim something works unless it has actually been run.
 - Player face photos replaced club kits as the primary pitch-chip image
   2026-09-19 (owner's call, reversing the earlier "no player photos"
   decision) — `players.code` (FPL's per-player code, distinct from
-  `player_id`, same pattern as `pl_clubs.badge_code`) builds the URL
-  `resources.premierleague.com/premierleague/photos/players/110x140/
-  p{code}.png`; confirmed live before use. `digest.player_photos()` only
-  fetches players who've actually appeared in a league roster (not FPL's
-  full ~660-player universe) and resizes each down via Pillow (now a real
-  dependency, not a one-off tool) before caching — the source photo is
-  ~100KB and this project can see 150-250 distinct rostered players in a
-  season, so embedding at native size would multiply the dashboard's file
-  size several times over. Kits are still fetched and used as the fallback
-  image for any player a photo wasn't found for.
+  `player_id`, same pattern as `pl_clubs.badge_code`) builds the photo URL.
+  `digest.player_photos()` only fetches players who've actually appeared in
+  a league roster (not FPL's full ~660-player universe) and resizes each
+  down via Pillow (now a real dependency, not a one-off tool) before
+  caching — the source photo is ~100KB and this project can see 150-250
+  distinct rostered players in a season, so embedding at native size would
+  multiply the dashboard's file size several times over. Kits are still
+  fetched and used as the fallback image for any player a photo wasn't
+  found for.
+- The photo source is the **main premierleague.com** photo bucket
+  (`resources.premierleague.com/premierleague25/photos/players/110x140/
+  {code}.png`, same `code` as above, no `p` prefix), not FPL Fantasy's own
+  bucket (`.../premierleague/.../p{code}.png`) — switched same day after
+  finding Fantasy's bucket lags behind FPL's own team-assignment data post-
+  transfer (three real players confirmed showing their *previous* club's
+  kit there, despite `bootstrap-static` already reporting the current one;
+  the premierleague.com bucket had all three correct). 120/122 (98%)
+  coverage across every currently-rostered player before switching over.
 - Standings `rank` for GW1–2 is permanently unknown (`standings_snapshots.source
   = 'reconstructed'`), not just missing. The live standings endpoint only ever
   exposes current state, and FPL's H2H tiebreak rule for ties was never
