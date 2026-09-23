@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T22:54:44.045512+00:00",
+  "generated_at": "2026-09-23T01:15:45.675571+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -14138,7 +14138,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -15771,7 +15771,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -18599,7 +18599,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -19655,7 +19655,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               17,
@@ -20232,7 +20232,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -37244,7 +37244,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -38062,7 +38062,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               17
@@ -38392,7 +38392,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 76,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               17,
@@ -38737,7 +38737,7 @@
             "multiplier": 0,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               17,
@@ -38877,7 +38877,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -39321,7 +39321,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -40954,7 +40954,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.2,
+            "owned_pct": 27.3,
             "form": 5.2,
             "recent_form": [
               0,
@@ -54803,10 +54803,41 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-22",
-    "previous_date": "2026-09-21",
+    "latest_date": "2026-09-23",
+    "previous_date": "2026-09-22",
     "risers": [],
-    "fallers": []
+    "fallers": [
+      {
+        "name": "Bendito Mantato",
+        "club": "MUN",
+        "delta_tenths": -1,
+        "price_tenths": 44
+      },
+      {
+        "name": "Maguire",
+        "club": "MUN",
+        "delta_tenths": -1,
+        "price_tenths": 48
+      },
+      {
+        "name": "Gyabi",
+        "club": "HUL",
+        "delta_tenths": -1,
+        "price_tenths": 44
+      },
+      {
+        "name": "Wharton",
+        "club": "CRY",
+        "delta_tenths": -1,
+        "price_tenths": 54
+      },
+      {
+        "name": "Maatsen",
+        "club": "AVL",
+        "delta_tenths": -1,
+        "price_tenths": 44
+      }
+    ]
   },
   "players": {
     "gws": [
