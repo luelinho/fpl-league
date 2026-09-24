@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T22:53:48.759816+00:00",
+  "generated_at": "2026-09-24T01:01:19.529759+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -14161,7 +14161,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 77,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 4.5,
             "recent_form": [
               9,
@@ -15310,7 +15310,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 4.5,
             "recent_form": [
               8,
@@ -15424,7 +15424,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 4.5,
             "recent_form": [
               8,
@@ -15794,7 +15794,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 77,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 4.5,
             "recent_form": [
               9,
@@ -54803,37 +54803,13 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-23",
-    "previous_date": "2026-09-22",
+    "latest_date": "2026-09-24",
+    "previous_date": "2026-09-23",
     "risers": [],
     "fallers": [
       {
-        "name": "Bendito Mantato",
-        "club": "MUN",
-        "delta_tenths": -1,
-        "price_tenths": 44
-      },
-      {
-        "name": "Maguire",
-        "club": "MUN",
-        "delta_tenths": -1,
-        "price_tenths": 48
-      },
-      {
-        "name": "Gyabi",
+        "name": "Butland",
         "club": "HUL",
-        "delta_tenths": -1,
-        "price_tenths": 44
-      },
-      {
-        "name": "Wharton",
-        "club": "CRY",
-        "delta_tenths": -1,
-        "price_tenths": 54
-      },
-      {
-        "name": "Maatsen",
-        "club": "AVL",
         "delta_tenths": -1,
         "price_tenths": 44
       }
