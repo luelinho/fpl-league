@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T23:16:17.706486+00:00",
+  "generated_at": "2026-09-25T01:37:47.383673+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -54803,30 +54803,10 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-24",
-    "previous_date": "2026-09-23",
-    "risers": [
-      {
-        "name": "Tzolakis",
-        "club": "HUL",
-        "delta_tenths": 1,
-        "price_tenths": 47
-      }
-    ],
-    "fallers": [
-      {
-        "name": "Butland",
-        "club": "HUL",
-        "delta_tenths": -1,
-        "price_tenths": 44
-      },
-      {
-        "name": "Smith Rowe",
-        "club": "FUL",
-        "delta_tenths": -1,
-        "price_tenths": 53
-      }
-    ]
+    "latest_date": "2026-09-25",
+    "previous_date": "2026-09-24",
+    "risers": [],
+    "fallers": []
   },
   "players": {
     "gws": [
