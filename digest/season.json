@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T01:37:47.383673+00:00",
+  "generated_at": "2026-09-25T11:41:19.872178+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -1541,7 +1541,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [
             0,
@@ -1638,7 +1638,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 10.0,
+          "owned_pct": 9.9,
           "form": 2.5,
           "recent_form": [],
           "gw": 1,
@@ -1847,7 +1847,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [],
           "gw": 1,
@@ -1925,7 +1925,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 10.0,
+          "owned_pct": 9.9,
           "form": 2.5,
           "recent_form": [
             1
@@ -2156,7 +2156,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [
             0
@@ -2242,7 +2242,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 10.0,
+          "owned_pct": 9.9,
           "form": 2.5,
           "recent_form": [
             1,
@@ -2484,7 +2484,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [
             0,
@@ -2574,7 +2574,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 10.0,
+          "owned_pct": 9.9,
           "form": 2.5,
           "recent_form": [
             1,
@@ -2827,7 +2827,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [
             0,
@@ -3174,7 +3174,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 17.2,
+          "owned_pct": 17.1,
           "form": 0.0,
           "recent_form": [
             0,
@@ -3295,7 +3295,7 @@
         {
           "opponent": "SUN",
           "is_home": true,
-          "difficulty": 2,
+          "difficulty": 3,
           "kickoff_time": "2026-09-20T13:00:00Z",
           "finished": true,
           "score": "5-3"
@@ -3329,7 +3329,7 @@
         {
           "opponent": "BHA",
           "is_home": false,
-          "difficulty": 3,
+          "difficulty": 4,
           "kickoff_time": "2026-09-19T14:00:00Z",
           "finished": true,
           "score": "0-3"
@@ -3431,7 +3431,7 @@
         {
           "opponent": "SUN",
           "is_home": true,
-          "difficulty": 2,
+          "difficulty": 3,
           "kickoff_time": "2026-09-20T13:00:00Z",
           "finished": true,
           "score": "5-3"
@@ -3448,7 +3448,7 @@
         {
           "opponent": "SUN",
           "is_home": true,
-          "difficulty": 2,
+          "difficulty": 3,
           "kickoff_time": "2026-09-20T13:00:00Z",
           "finished": true,
           "score": "5-3"
@@ -3465,7 +3465,7 @@
         {
           "opponent": "CRY",
           "is_home": true,
-          "difficulty": 3,
+          "difficulty": 2,
           "kickoff_time": "2026-09-20T13:00:00Z",
           "finished": true,
           "score": "0-0"
@@ -3759,7 +3759,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -3920,7 +3920,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -4184,7 +4184,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -4222,7 +4222,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [],
             "gw": 1,
@@ -4491,7 +4491,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -4533,7 +4533,7 @@
             "multiplier": 0,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2
@@ -4752,7 +4752,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -4818,7 +4818,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -5091,7 +5091,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -5160,7 +5160,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -5392,7 +5392,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -5553,7 +5553,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -5983,7 +5983,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -6006,7 +6006,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -6080,7 +6080,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [],
             "gw": 1,
@@ -6270,7 +6270,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -6289,7 +6289,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -6367,7 +6367,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1
@@ -6577,7 +6577,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -6598,7 +6598,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0
@@ -6904,7 +6904,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -6926,7 +6926,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -7246,7 +7246,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -7269,7 +7269,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -7616,7 +7616,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -7639,7 +7639,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -8138,7 +8138,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -8337,7 +8337,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -8663,7 +8663,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -8968,7 +8968,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -9309,7 +9309,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -9771,7 +9771,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -10132,7 +10132,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 80,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [
               8,
@@ -10155,7 +10155,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -10178,7 +10178,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -10423,7 +10423,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -10442,7 +10442,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [],
             "gw": 1,
@@ -10461,7 +10461,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -10728,7 +10728,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -10749,7 +10749,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [
               2
@@ -10770,7 +10770,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0
@@ -11054,7 +11054,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -11076,7 +11076,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 63,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [
               2,
@@ -11098,7 +11098,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -11395,7 +11395,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -11418,7 +11418,7 @@
             "multiplier": 2,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [
               2,
@@ -11441,7 +11441,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -11765,7 +11765,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 80,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [
               8,
@@ -11788,7 +11788,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -11811,7 +11811,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -12247,7 +12247,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -12344,7 +12344,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [],
             "gw": 1,
@@ -12553,7 +12553,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -12631,7 +12631,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1
@@ -12862,7 +12862,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0
@@ -12948,7 +12948,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -13190,7 +13190,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -13280,7 +13280,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -13533,7 +13533,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -13880,7 +13880,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -14276,7 +14276,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -14391,7 +14391,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -14594,7 +14594,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [],
             "gw": 1,
@@ -14632,7 +14632,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -14876,7 +14876,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2
@@ -14939,7 +14939,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -15200,7 +15200,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -15266,7 +15266,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -15539,7 +15539,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -15608,7 +15608,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -15909,7 +15909,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -16024,7 +16024,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -16426,7 +16426,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -16660,7 +16660,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 79,
-            "owned_pct": 5.7,
+            "owned_pct": 5.8,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -16959,7 +16959,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 79,
-            "owned_pct": 5.7,
+            "owned_pct": 5.8,
             "form": 6.0,
             "recent_form": [
               2
@@ -17043,7 +17043,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -17260,7 +17260,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 69,
-            "owned_pct": 5.7,
+            "owned_pct": 5.8,
             "form": 6.0,
             "recent_form": [
               2,
@@ -17370,7 +17370,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -17712,7 +17712,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -18059,7 +18059,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -18300,7 +18300,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               2,
@@ -18576,7 +18576,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -18650,7 +18650,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [],
             "gw": 1,
@@ -18821,7 +18821,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -18937,7 +18937,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1
@@ -19126,7 +19126,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -19254,7 +19254,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -19474,7 +19474,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -19816,7 +19816,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -19839,7 +19839,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -19933,7 +19933,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               2,
@@ -20209,7 +20209,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -22508,7 +22508,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               2,
@@ -22784,7 +22784,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -22858,7 +22858,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [],
             "gw": 1,
@@ -23029,7 +23029,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -23145,7 +23145,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1
@@ -23334,7 +23334,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -23462,7 +23462,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -23660,7 +23660,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -23794,7 +23794,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               1,
@@ -24001,7 +24001,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -24141,7 +24141,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 10.0,
+            "owned_pct": 9.9,
             "form": 2.5,
             "recent_form": [
               2,
@@ -24417,7 +24417,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -24853,7 +24853,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -24876,7 +24876,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -25140,7 +25140,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -25426,7 +25426,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -25796,7 +25796,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -25840,7 +25840,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -26093,7 +26093,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -26139,7 +26139,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -26486,7 +26486,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 17.2,
+            "owned_pct": 17.1,
             "form": 0.0,
             "recent_form": [
               0,
@@ -26509,7 +26509,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -29286,7 +29286,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 22.4,
+            "owned_pct": 22.5,
             "form": 7.8,
             "recent_form": [],
             "gw": 1,
@@ -31066,7 +31066,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -31158,7 +31158,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -31365,7 +31365,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [],
             "gw": 1,
@@ -31422,7 +31422,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -31729,7 +31729,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -31771,7 +31771,7 @@
             "multiplier": 0,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2
@@ -31924,7 +31924,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -32056,7 +32056,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -32260,7 +32260,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -32398,7 +32398,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -32699,7 +32699,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -32791,7 +32791,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -33204,7 +33204,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 5.5,
             "recent_form": [
               2,
@@ -33296,7 +33296,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -33514,7 +33514,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -33800,7 +33800,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -34126,7 +34126,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -34467,7 +34467,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -34837,7 +34837,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 7.1,
+            "owned_pct": 7.0,
             "form": 5.5,
             "recent_form": [
               2,
@@ -34929,7 +34929,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -35348,7 +35348,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -35612,7 +35612,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -35919,7 +35919,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -36246,7 +36246,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -36588,7 +36588,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -36981,7 +36981,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -37451,7 +37451,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -37692,7 +37692,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -37999,7 +37999,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -38326,7 +38326,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -38668,7 +38668,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -39084,7 +39084,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -39482,7 +39482,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -39574,7 +39574,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -39743,7 +39743,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [],
             "gw": 1,
@@ -39838,7 +39838,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [],
             "gw": 1,
@@ -40040,7 +40040,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2
@@ -40145,7 +40145,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11
@@ -40362,7 +40362,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -40472,7 +40472,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -40699,7 +40699,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               2,
@@ -40814,7 +40814,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               11,
@@ -41115,7 +41115,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.2,
+            "owned_pct": 28.3,
             "form": 11.2,
             "recent_form": [
               13,
@@ -41207,7 +41207,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.5,
+            "owned_pct": 65.4,
             "form": 5.5,
             "recent_form": [
               9,
@@ -49452,7 +49452,7 @@
         "gw": 2,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-08-31T19:00:00Z"
       },
       {
@@ -49473,14 +49473,14 @@
         "gw": 5,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-09-19T14:00:00Z"
       },
       {
         "gw": 6,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-10T11:30:00Z"
       },
       {
@@ -49592,7 +49592,7 @@
         "gw": 22,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-23T15:00:00Z"
       },
       {
@@ -49634,7 +49634,7 @@
         "gw": 28,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-03-03T20:00:00Z"
       },
       {
@@ -49648,7 +49648,7 @@
         "gw": 30,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-03-20T15:00:00Z"
       },
       {
@@ -49676,7 +49676,7 @@
         "gw": 34,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-05-01T14:00:00Z"
       },
       {
@@ -49704,7 +49704,7 @@
         "gw": 38,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-30T15:00:00Z"
       }
     ],
@@ -49734,7 +49734,7 @@
         "gw": 4,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-09-13T13:00:00Z"
       },
       {
@@ -49748,7 +49748,7 @@
         "gw": 6,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-12T19:00:00Z"
       },
       {
@@ -49769,7 +49769,7 @@
         "gw": 9,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-31T15:00:00Z"
       },
       {
@@ -49783,7 +49783,7 @@
         "gw": 11,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-11-21T15:00:00Z"
       },
       {
@@ -49867,7 +49867,7 @@
         "gw": 23,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-30T15:00:00Z"
       },
       {
@@ -49916,7 +49916,7 @@
         "gw": 30,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-03-20T15:00:00Z"
       },
       {
@@ -49937,7 +49937,7 @@
         "gw": 33,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-04-24T14:00:00Z"
       },
       {
@@ -49958,7 +49958,7 @@
         "gw": 36,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-05-15T14:00:00Z"
       },
       {
@@ -49981,7 +49981,7 @@
         "gw": 1,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-08-22T16:30:00Z"
       },
       {
@@ -49995,7 +49995,7 @@
         "gw": 3,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-09-05T14:00:00Z"
       },
       {
@@ -50016,7 +50016,7 @@
         "gw": 6,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-10-10T14:00:00Z"
       },
       {
@@ -50044,7 +50044,7 @@
         "gw": 10,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-11-08T14:00:00Z"
       },
       {
@@ -50086,7 +50086,7 @@
         "gw": 16,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-19T15:00:00Z"
       },
       {
@@ -50107,7 +50107,7 @@
         "gw": 19,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-02T15:00:00Z"
       },
       {
@@ -50121,7 +50121,7 @@
         "gw": 21,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-16T15:00:00Z"
       },
       {
@@ -50198,7 +50198,7 @@
         "gw": 32,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-17T14:00:00Z"
       },
       {
@@ -50256,7 +50256,7 @@
         "gw": 2,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-08-29T16:30:00Z"
       },
       {
@@ -50305,7 +50305,7 @@
         "gw": 9,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-10-31T17:30:00Z"
       },
       {
@@ -50368,7 +50368,7 @@
         "gw": 18,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-29T19:30:00Z"
       },
       {
@@ -50389,7 +50389,7 @@
         "gw": 21,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-16T15:00:00Z"
       },
       {
@@ -50403,7 +50403,7 @@
         "gw": 23,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-30T15:00:00Z"
       },
       {
@@ -50424,7 +50424,7 @@
         "gw": 26,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-02-20T15:00:00Z"
       },
       {
@@ -50508,7 +50508,7 @@
         "gw": 38,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-05-30T15:00:00Z"
       }
     ],
@@ -50517,7 +50517,7 @@
         "gw": 1,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-08-22T14:00:00Z"
       },
       {
@@ -50601,7 +50601,7 @@
         "gw": 13,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-12-02T20:00:00Z"
       },
       {
@@ -50615,7 +50615,7 @@
         "gw": 15,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-12-12T15:00:00Z"
       },
       {
@@ -50629,7 +50629,7 @@
         "gw": 17,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-26T15:00:00Z"
       },
       {
@@ -50678,14 +50678,14 @@
         "gw": 24,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-06T15:00:00Z"
       },
       {
         "gw": 25,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-10T20:00:00Z"
       },
       {
@@ -50720,7 +50720,7 @@
         "gw": 30,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-03-20T15:00:00Z"
       },
       {
@@ -50741,7 +50741,7 @@
         "gw": 33,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-24T14:00:00Z"
       },
       {
@@ -50827,14 +50827,14 @@
         "gw": 7,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-10-18T13:00:00Z"
       },
       {
         "gw": 8,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-25T14:00:00Z"
       },
       {
@@ -50876,7 +50876,7 @@
         "gw": 14,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-12-05T15:00:00Z"
       },
       {
@@ -50932,7 +50932,7 @@
         "gw": 22,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-23T15:00:00Z"
       },
       {
@@ -50967,7 +50967,7 @@
         "gw": 27,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-27T15:00:00Z"
       },
       {
@@ -51030,7 +51030,7 @@
         "gw": 36,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-15T14:00:00Z"
       },
       {
@@ -51044,7 +51044,7 @@
         "gw": 38,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-30T15:00:00Z"
       }
     ],
@@ -51123,7 +51123,7 @@
         "gw": 11,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-11-22T14:00:00Z"
       },
       {
@@ -51151,7 +51151,7 @@
         "gw": 15,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-12-12T15:00:00Z"
       },
       {
@@ -51172,7 +51172,7 @@
         "gw": 18,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-29T19:30:00Z"
       },
       {
@@ -51207,21 +51207,21 @@
         "gw": 23,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-30T15:00:00Z"
       },
       {
         "gw": 24,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-02-06T15:00:00Z"
       },
       {
         "gw": 25,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-10T20:00:00Z"
       },
       {
@@ -51249,7 +51249,7 @@
         "gw": 29,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-03-13T15:00:00Z"
       },
       {
@@ -51312,7 +51312,7 @@
         "gw": 38,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-30T15:00:00Z"
       }
     ],
@@ -51356,7 +51356,7 @@
         "gw": 6,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-10-10T16:30:00Z"
       },
       {
@@ -51440,28 +51440,28 @@
         "gw": 18,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-30T19:30:00Z"
       },
       {
         "gw": 19,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-01-02T12:30:00Z"
       },
       {
         "gw": 20,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-07T20:00:00Z"
       },
       {
         "gw": 21,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-01-16T15:00:00Z"
       },
       {
@@ -51489,7 +51489,7 @@
         "gw": 25,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-10T20:00:00Z"
       },
       {
@@ -51545,7 +51545,7 @@
         "gw": 33,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-04-24T14:00:00Z"
       },
       {
@@ -51566,7 +51566,7 @@
         "gw": 36,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-15T14:00:00Z"
       },
       {
@@ -51589,7 +51589,7 @@
         "gw": 1,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-08-22T14:00:00Z"
       },
       {
@@ -51687,14 +51687,14 @@
         "gw": 15,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-12T15:00:00Z"
       },
       {
         "gw": 16,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-12-19T15:00:00Z"
       },
       {
@@ -51743,14 +51743,14 @@
         "gw": 23,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-01-30T15:00:00Z"
       },
       {
         "gw": 24,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-02-06T15:00:00Z"
       },
       {
@@ -51771,7 +51771,7 @@
         "gw": 27,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-27T15:00:00Z"
       },
       {
@@ -51792,7 +51792,7 @@
         "gw": 30,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-03-20T15:00:00Z"
       },
       {
@@ -51820,7 +51820,7 @@
         "gw": 34,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-01T14:00:00Z"
       },
       {
@@ -51892,7 +51892,7 @@
         "gw": 6,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-10T14:00:00Z"
       },
       {
@@ -51906,7 +51906,7 @@
         "gw": 8,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-25T16:30:00Z"
       },
       {
@@ -51927,14 +51927,14 @@
         "gw": 11,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-11-21T15:00:00Z"
       },
       {
         "gw": 12,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-11-29T14:05:00Z"
       },
       {
@@ -51962,7 +51962,7 @@
         "gw": 16,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-12-19T15:00:00Z"
       },
       {
@@ -52088,14 +52088,14 @@
         "gw": 34,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-01T14:00:00Z"
       },
       {
         "gw": 35,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-05-08T14:00:00Z"
       },
       {
@@ -52125,7 +52125,7 @@
         "gw": 1,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-08-22T14:00:00Z"
       },
       {
@@ -52139,14 +52139,14 @@
         "gw": 3,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-09-05T14:00:00Z"
       },
       {
         "gw": 4,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-09-12T14:00:00Z"
       },
       {
@@ -52216,7 +52216,7 @@
         "gw": 14,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-05T15:00:00Z"
       },
       {
@@ -52314,7 +52314,7 @@
         "gw": 28,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-03-03T20:00:00Z"
       },
       {
@@ -52349,21 +52349,21 @@
         "gw": 33,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-24T14:00:00Z"
       },
       {
         "gw": 34,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-05-01T14:00:00Z"
       },
       {
         "gw": 35,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-05-08T14:00:00Z"
       },
       {
@@ -52407,21 +52407,21 @@
         "gw": 3,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-09-05T14:00:00Z"
       },
       {
         "gw": 4,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-09-14T19:00:00Z"
       },
       {
         "gw": 5,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-09-20T13:00:00Z"
       },
       {
@@ -52456,7 +52456,7 @@
         "gw": 10,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-11-07T12:30:00Z"
       },
       {
@@ -52505,7 +52505,7 @@
         "gw": 17,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-12-26T12:30:00Z"
       },
       {
@@ -52589,7 +52589,7 @@
         "gw": 29,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-03-13T15:00:00Z"
       },
       {
@@ -52645,7 +52645,7 @@
         "gw": 37,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-23T14:00:00Z"
       },
       {
@@ -52675,7 +52675,7 @@
         "gw": 3,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-09-05T14:00:00Z"
       },
       {
@@ -52703,7 +52703,7 @@
         "gw": 7,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-10-18T13:00:00Z"
       },
       {
@@ -52738,7 +52738,7 @@
         "gw": 12,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-11-29T14:05:00Z"
       },
       {
@@ -52836,7 +52836,7 @@
         "gw": 26,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-02-20T15:00:00Z"
       },
       {
@@ -52871,7 +52871,7 @@
         "gw": 31,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-04-10T14:00:00Z"
       },
       {
@@ -52899,7 +52899,7 @@
         "gw": 35,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-08T14:00:00Z"
       },
       {
@@ -52929,7 +52929,7 @@
         "gw": 1,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-08-23T13:00:00Z"
       },
       {
@@ -52999,7 +52999,7 @@
         "gw": 11,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-11-21T15:00:00Z"
       },
       {
@@ -53020,7 +53020,7 @@
         "gw": 14,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-12-05T15:00:00Z"
       },
       {
@@ -53041,7 +53041,7 @@
         "gw": 17,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-26T12:30:00Z"
       },
       {
@@ -53139,7 +53139,7 @@
         "gw": 31,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-10T14:00:00Z"
       },
       {
@@ -53174,7 +53174,7 @@
         "gw": 36,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-05-15T14:00:00Z"
       },
       {
@@ -53188,7 +53188,7 @@
         "gw": 38,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-05-30T15:00:00Z"
       }
     ],
@@ -53225,7 +53225,7 @@
         "gw": 5,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-09-20T13:00:00Z"
       },
       {
@@ -53246,14 +53246,14 @@
         "gw": 8,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-10-24T11:30:00Z"
       },
       {
         "gw": 9,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-31T15:00:00Z"
       },
       {
@@ -53281,7 +53281,7 @@
         "gw": 13,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-02T20:00:00Z"
       },
       {
@@ -53323,7 +53323,7 @@
         "gw": 19,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-03T16:30:00Z"
       },
       {
@@ -53344,7 +53344,7 @@
         "gw": 22,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-01-23T15:00:00Z"
       },
       {
@@ -53372,7 +53372,7 @@
         "gw": 26,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-20T15:00:00Z"
       },
       {
@@ -53414,7 +53414,7 @@
         "gw": 32,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-04-17T14:00:00Z"
       },
       {
@@ -53507,7 +53507,7 @@
         "gw": 7,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-18T13:00:00Z"
       },
       {
@@ -53521,7 +53521,7 @@
         "gw": 9,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-31T15:00:00Z"
       },
       {
@@ -53549,7 +53549,7 @@
         "gw": 13,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-02T20:00:00Z"
       },
       {
@@ -53598,7 +53598,7 @@
         "gw": 20,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-01-05T19:30:00Z"
       },
       {
@@ -53633,14 +53633,14 @@
         "gw": 25,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-02-10T20:00:00Z"
       },
       {
         "gw": 26,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-02-20T15:00:00Z"
       },
       {
@@ -53654,14 +53654,14 @@
         "gw": 28,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-03-03T20:00:00Z"
       },
       {
         "gw": 29,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-03-13T15:00:00Z"
       },
       {
@@ -53810,7 +53810,7 @@
         "gw": 12,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2026-11-29T14:05:00Z"
       },
       {
@@ -53824,7 +53824,7 @@
         "gw": 14,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-05T15:00:00Z"
       },
       {
@@ -53887,7 +53887,7 @@
         "gw": 23,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-30T15:00:00Z"
       },
       {
@@ -53936,7 +53936,7 @@
         "gw": 30,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-03-20T15:00:00Z"
       },
       {
@@ -53950,7 +53950,7 @@
         "gw": 32,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-04-17T14:00:00Z"
       },
       {
@@ -53978,14 +53978,14 @@
         "gw": 36,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-05-15T14:00:00Z"
       },
       {
         "gw": 37,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-05-23T14:00:00Z"
       },
       {
@@ -54050,7 +54050,7 @@
         "gw": 8,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-10-25T14:00:00Z"
       },
       {
@@ -54085,7 +54085,7 @@
         "gw": 13,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-02T20:00:00Z"
       },
       {
@@ -54099,14 +54099,14 @@
         "gw": 15,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-12T15:00:00Z"
       },
       {
         "gw": 16,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-12-19T15:00:00Z"
       },
       {
@@ -54120,7 +54120,7 @@
         "gw": 18,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-12-30T20:15:00Z"
       },
       {
@@ -54141,7 +54141,7 @@
         "gw": 21,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-16T15:00:00Z"
       },
       {
@@ -54211,7 +54211,7 @@
         "gw": 31,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-10T14:00:00Z"
       },
       {
@@ -54253,7 +54253,7 @@
         "gw": 37,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-05-23T14:00:00Z"
       },
       {
@@ -54283,7 +54283,7 @@
         "gw": 3,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-09-05T14:00:00Z"
       },
       {
@@ -54325,14 +54325,14 @@
         "gw": 9,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2026-10-31T20:00:00Z"
       },
       {
         "gw": 10,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-11-07T15:00:00Z"
       },
       {
@@ -54381,7 +54381,7 @@
         "gw": 17,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-12-26T15:00:00Z"
       },
       {
@@ -54402,7 +54402,7 @@
         "gw": 20,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2027-01-06T19:30:00Z"
       },
       {
@@ -54451,14 +54451,14 @@
         "gw": 27,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-02-27T15:00:00Z"
       },
       {
         "gw": 28,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-03-03T20:00:00Z"
       },
       {
@@ -54486,7 +54486,7 @@
         "gw": 32,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-04-17T14:00:00Z"
       },
       {
@@ -54544,7 +54544,7 @@
         "gw": 2,
         "opponent": "BHA",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-08-30T13:00:00Z"
       },
       {
@@ -54586,7 +54586,7 @@
         "gw": 8,
         "opponent": "TOT",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-10-24T16:30:00Z"
       },
       {
@@ -54607,7 +54607,7 @@
         "gw": 11,
         "opponent": "LEE",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2026-11-21T15:00:00Z"
       },
       {
@@ -54621,7 +54621,7 @@
         "gw": 13,
         "opponent": "CRY",
         "is_home": true,
-        "difficulty": 3,
+        "difficulty": 2,
         "kickoff_time": "2026-12-02T20:00:00Z"
       },
       {
@@ -54663,7 +54663,7 @@
         "gw": 19,
         "opponent": "NEW",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-03T14:00:00Z"
       },
       {
@@ -54677,7 +54677,7 @@
         "gw": 21,
         "opponent": "SUN",
         "is_home": true,
-        "difficulty": 2,
+        "difficulty": 3,
         "kickoff_time": "2027-01-16T15:00:00Z"
       },
       {
@@ -54719,7 +54719,7 @@
         "gw": 27,
         "opponent": "AVL",
         "is_home": false,
-        "difficulty": 4,
+        "difficulty": 3,
         "kickoff_time": "2027-02-27T15:00:00Z"
       },
       {
@@ -54754,7 +54754,7 @@
         "gw": 32,
         "opponent": "BHA",
         "is_home": false,
-        "difficulty": 3,
+        "difficulty": 4,
         "kickoff_time": "2027-04-17T14:00:00Z"
       },
       {
