@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T23:04:49.826317+00:00",
+  "generated_at": "2026-09-27T01:24:18.357930+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -54803,17 +54803,10 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-26",
-    "previous_date": "2026-09-25",
+    "latest_date": "2026-09-27",
+    "previous_date": "2026-09-26",
     "risers": [],
-    "fallers": [
-      {
-        "name": "Zepa",
-        "club": "FUL",
-        "delta_tenths": -1,
-        "price_tenths": 44
-      }
-    ]
+    "fallers": []
   },
   "players": {
     "gws": [
