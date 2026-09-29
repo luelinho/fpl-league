@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T22:26:49.872430+00:00",
+  "generated_at": "2026-09-29T02:12:59.449638+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -54802,22 +54802,33 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-28",
-    "previous_date": "2026-09-27",
-    "risers": [
-      {
-        "name": "Barry",
-        "club": "EVE",
-        "delta_tenths": 1,
-        "price_tenths": 57
-      }
-    ],
+    "latest_date": "2026-09-29",
+    "previous_date": "2026-09-28",
+    "risers": [],
     "fallers": [
       {
-        "name": "Emegha",
-        "club": "CHE",
+        "name": "Diarra",
+        "club": "SUN",
+        "delta_tenths": -1,
+        "price_tenths": 53
+      },
+      {
+        "name": "Ellborg",
+        "club": "SUN",
+        "delta_tenths": -1,
+        "price_tenths": 44
+      },
+      {
+        "name": "Morita",
+        "club": "HUL",
         "delta_tenths": -1,
         "price_tenths": 49
+      },
+      {
+        "name": "N\u00f8rgaard",
+        "club": "EVE",
+        "delta_tenths": -1,
+        "price_tenths": 48
       }
     ]
   },
