@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T12:25:46.023879+00:00",
+  "generated_at": "2026-09-30T21:16:59.602106+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -1335,7 +1335,7 @@
           "raw_points": 1,
           "minutes": 90,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [
             1,
             4,
@@ -1357,7 +1357,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [
             1,
@@ -1366,8 +1366,8 @@
           ],
           "gw": 5,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         },
         {
           "player_id": 427,
@@ -1867,7 +1867,7 @@
           "raw_points": 0,
           "minutes": 0,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [],
           "gw": 1,
           "owner_manager_id": 16,
@@ -1904,13 +1904,13 @@
           "multiplier": 0,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [],
           "gw": 1,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         }
       ],
       "2": [
@@ -1988,15 +1988,15 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [
             1
           ],
           "gw": 2,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         },
         {
           "player_id": 427,
@@ -2199,7 +2199,7 @@
           "raw_points": 1,
           "minutes": 11,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [
             0
           ],
@@ -2309,7 +2309,7 @@
           "raw_points": 4,
           "minutes": 90,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [
             0,
             1
@@ -2550,7 +2550,7 @@
           "multiplier": 0,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [
             1,
@@ -2558,8 +2558,8 @@
           ],
           "gw": 3,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         }
       ],
       "4": [
@@ -2621,7 +2621,7 @@
           "raw_points": 6,
           "minutes": 90,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [
             0,
             1,
@@ -2643,7 +2643,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [
             1,
@@ -2652,8 +2652,8 @@
           ],
           "gw": 4,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         },
         {
           "player_id": 427,
@@ -2968,7 +2968,7 @@
           "raw_points": 1,
           "minutes": 90,
           "owned_pct": 19.4,
-          "form": 3.0,
+          "form": 3.7,
           "recent_form": [
             1,
             4,
@@ -2990,7 +2990,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 6.6,
+          "owned_pct": 6.5,
           "form": 7.3,
           "recent_form": [
             1,
@@ -2999,8 +2999,8 @@
           ],
           "gw": 5,
           "owner_manager_id": 16,
-          "status": "a",
-          "news": ""
+          "status": "d",
+          "news": "Foot injury - 75% chance of playing"
         },
         {
           "player_id": 427,
@@ -3668,7 +3668,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -3714,7 +3714,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -3759,7 +3759,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -3920,7 +3920,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -4033,7 +4033,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 9,
@@ -4071,7 +4071,7 @@
             "raw_points": 6,
             "minutes": 75,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 9,
@@ -4184,7 +4184,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -4222,7 +4222,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [],
             "gw": 1,
@@ -4261,7 +4261,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 9,
@@ -4324,7 +4324,7 @@
             "raw_points": 8,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5
             ],
@@ -4345,7 +4345,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -4366,7 +4366,7 @@
             "raw_points": 0,
             "minutes": 45,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               6
             ],
@@ -4491,7 +4491,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -4533,7 +4533,7 @@
             "multiplier": 0,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2
@@ -4643,7 +4643,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8
@@ -4665,7 +4665,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -4752,7 +4752,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -4818,7 +4818,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -4977,7 +4977,7 @@
             "raw_points": 9,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8,
@@ -5000,7 +5000,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -5091,7 +5091,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -5160,7 +5160,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -5301,7 +5301,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -5347,7 +5347,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -5392,7 +5392,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -5553,7 +5553,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -5754,7 +5754,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -5777,7 +5777,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -6006,7 +6006,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -6100,7 +6100,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 2,
@@ -6119,7 +6119,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 2,
@@ -6157,7 +6157,7 @@
             "raw_points": 6,
             "minutes": 75,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 2,
@@ -6270,7 +6270,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -6389,7 +6389,7 @@
             "raw_points": 8,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5
             ],
@@ -6410,7 +6410,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -6473,7 +6473,7 @@
             "raw_points": 0,
             "minutes": 45,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               6
             ],
@@ -6577,7 +6577,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -6707,7 +6707,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8
@@ -6729,7 +6729,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -6904,7 +6904,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -7040,7 +7040,7 @@
             "raw_points": 9,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8,
@@ -7063,7 +7063,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -7246,7 +7246,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -7387,7 +7387,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -7410,7 +7410,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -7639,7 +7639,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -7886,7 +7886,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -8138,7 +8138,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -8224,7 +8224,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 14,
@@ -8337,7 +8337,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -8517,7 +8517,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -8663,7 +8663,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -8837,7 +8837,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -8968,7 +8968,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -9172,7 +9172,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -9309,7 +9309,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -9519,7 +9519,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -9771,7 +9771,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -9926,7 +9926,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -9949,7 +9949,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -10041,7 +10041,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               0,
               5,
@@ -10178,7 +10178,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -10272,7 +10272,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 1,
@@ -10291,7 +10291,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 1,
@@ -10348,7 +10348,7 @@
             "raw_points": 6,
             "minutes": 75,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 1,
@@ -10423,7 +10423,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -10561,7 +10561,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -10582,7 +10582,7 @@
             "raw_points": 6,
             "minutes": 78,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6
             ],
@@ -10645,7 +10645,7 @@
             "raw_points": 0,
             "minutes": 45,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               6
             ],
@@ -10728,7 +10728,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -10879,7 +10879,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -10901,7 +10901,7 @@
             "raw_points": 4,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1
@@ -10967,7 +10967,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               6,
               0
@@ -11054,7 +11054,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -11212,7 +11212,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -11235,7 +11235,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1,
@@ -11304,7 +11304,7 @@
             "raw_points": 3,
             "minutes": 80,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               6,
               0,
@@ -11395,7 +11395,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -11559,7 +11559,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -11582,7 +11582,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -11674,7 +11674,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 12.2,
-            "form": 2.5,
+            "form": 3.3,
             "recent_form": [
               0,
               5,
@@ -11811,7 +11811,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -12041,7 +12041,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -12063,7 +12063,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -12072,8 +12072,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 427,
@@ -12573,7 +12573,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 16,
@@ -12610,13 +12610,13 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           }
         ],
         "2": [
@@ -12694,15 +12694,15 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1
             ],
             "gw": 2,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 427,
@@ -12905,7 +12905,7 @@
             "raw_points": 1,
             "minutes": 11,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0
             ],
@@ -13015,7 +13015,7 @@
             "raw_points": 4,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1
@@ -13256,7 +13256,7 @@
             "multiplier": 0,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -13264,8 +13264,8 @@
             ],
             "gw": 3,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           }
         ],
         "4": [
@@ -13327,7 +13327,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1,
@@ -13349,7 +13349,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -13358,8 +13358,8 @@
             ],
             "gw": 4,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 427,
@@ -13674,7 +13674,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -13696,7 +13696,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -13705,8 +13705,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 16,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 427,
@@ -14116,7 +14116,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -14138,7 +14138,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -14254,7 +14254,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -14276,7 +14276,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -14391,7 +14391,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -14462,7 +14462,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 10,
@@ -14481,7 +14481,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 10,
@@ -14594,7 +14594,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [],
             "gw": 1,
@@ -14632,7 +14632,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -14751,7 +14751,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -14772,7 +14772,7 @@
             "raw_points": 6,
             "minutes": 78,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6
             ],
@@ -14876,7 +14876,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2
@@ -14939,7 +14939,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -15069,7 +15069,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -15200,7 +15200,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -15266,7 +15266,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -15402,7 +15402,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -15539,7 +15539,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -15608,7 +15608,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -15749,7 +15749,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -15771,7 +15771,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -15887,7 +15887,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -15909,7 +15909,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -16024,7 +16024,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -16335,7 +16335,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -16358,7 +16358,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -16426,7 +16426,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -16680,7 +16680,7 @@
             "raw_points": 3,
             "minutes": 67,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 7,
@@ -16794,7 +16794,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.8,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 7,
@@ -16981,7 +16981,7 @@
             "raw_points": 5,
             "minutes": 84,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3
             ],
@@ -17043,7 +17043,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -17283,7 +17283,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3,
               5
@@ -17370,7 +17370,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -17621,7 +17621,7 @@
             "raw_points": 6,
             "minutes": 80,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3,
               5,
@@ -17712,7 +17712,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -17968,7 +17968,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -17991,7 +17991,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -18059,7 +18059,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -18324,7 +18324,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -18576,7 +18576,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -18599,7 +18599,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -18670,7 +18670,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 3,
@@ -18708,7 +18708,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 3,
@@ -18821,7 +18821,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -18959,7 +18959,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -18980,7 +18980,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11
             ],
@@ -19126,7 +19126,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -19277,7 +19277,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -19299,7 +19299,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7
@@ -19474,7 +19474,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -19610,7 +19610,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -19633,7 +19633,7 @@
             "raw_points": 1,
             "minutes": 45,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7,
@@ -19655,7 +19655,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               17,
@@ -19816,7 +19816,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -19957,7 +19957,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -20209,7 +20209,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -20232,7 +20232,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -20422,7 +20422,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -20467,7 +20467,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -20476,8 +20476,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 366,
@@ -20560,7 +20560,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -20768,7 +20768,7 @@
             "raw_points": 1,
             "minutes": 9,
             "owned_pct": 0.9,
-            "form": 0.2,
+            "form": 0.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 13,
@@ -20805,13 +20805,13 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 535,
@@ -20996,7 +20996,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.8,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 13,
@@ -21057,7 +21057,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11
             ],
@@ -21098,15 +21098,15 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1
             ],
             "gw": 2,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 499,
@@ -21162,7 +21162,7 @@
             "raw_points": 1,
             "minutes": 19,
             "owned_pct": 1.8,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               0
             ],
@@ -21375,7 +21375,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7
@@ -21418,7 +21418,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -21426,8 +21426,8 @@
             ],
             "gw": 3,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 366,
@@ -21708,7 +21708,7 @@
             "raw_points": 1,
             "minutes": 45,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7,
@@ -21753,7 +21753,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -21762,8 +21762,8 @@
             ],
             "gw": 4,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 366,
@@ -22055,7 +22055,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -22100,7 +22100,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -22109,8 +22109,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 13,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 366,
@@ -22193,7 +22193,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -22555,7 +22555,7 @@
             "raw_points": -1,
             "minutes": 45,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               2,
               6,
@@ -22784,7 +22784,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -22808,7 +22808,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               0,
@@ -22878,7 +22878,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 12,
@@ -22897,7 +22897,7 @@
             "raw_points": -1,
             "minutes": 90,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 12,
@@ -23029,7 +23029,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -23167,7 +23167,7 @@
             "raw_points": 6,
             "minutes": 78,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6
             ],
@@ -23334,7 +23334,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -23419,7 +23419,7 @@
             "raw_points": 2,
             "minutes": 77,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1
             ],
@@ -23507,7 +23507,7 @@
             "raw_points": 6,
             "minutes": 84,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1,
               2
@@ -23660,7 +23660,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -23749,7 +23749,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               6
@@ -24001,7 +24001,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -24094,7 +24094,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               6,
@@ -24117,7 +24117,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1,
               2,
@@ -24188,7 +24188,7 @@
             "raw_points": -1,
             "minutes": 45,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               2,
               6,
@@ -24417,7 +24417,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -24441,7 +24441,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               0,
@@ -24647,7 +24647,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -24669,7 +24669,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -24678,8 +24678,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 426,
@@ -24876,7 +24876,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -25008,7 +25008,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 15,
@@ -25140,7 +25140,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -25197,13 +25197,13 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 304,
@@ -25301,7 +25301,7 @@
             "raw_points": 8,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5
             ],
@@ -25426,7 +25426,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -25510,15 +25510,15 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1
             ],
             "gw": 2,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 304,
@@ -25621,7 +25621,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8
@@ -25642,7 +25642,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -25650,8 +25650,8 @@
             ],
             "gw": 3,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 426,
@@ -25840,7 +25840,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -25933,7 +25933,7 @@
             "raw_points": 9,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               5,
               8,
@@ -25955,7 +25955,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -25964,8 +25964,8 @@
             ],
             "gw": 4,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 426,
@@ -26093,7 +26093,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -26280,7 +26280,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 22.7,
-            "form": 5.0,
+            "form": 4.0,
             "recent_form": [
               8,
               2,
@@ -26302,7 +26302,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -26311,8 +26311,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 15,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 426,
@@ -26509,7 +26509,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -26739,7 +26739,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -26854,7 +26854,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -27015,7 +27015,7 @@
             "raw_points": -1,
             "minutes": 45,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               2,
               6,
@@ -27081,7 +27081,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 4,
@@ -27176,7 +27176,7 @@
             "raw_points": 3,
             "minutes": 67,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 4,
@@ -27290,7 +27290,7 @@
             "raw_points": -1,
             "minutes": 90,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 4,
@@ -27372,7 +27372,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -27477,7 +27477,7 @@
             "raw_points": 5,
             "minutes": 84,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3
             ],
@@ -27603,7 +27603,7 @@
             "raw_points": 2,
             "minutes": 77,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1
             ],
@@ -27691,7 +27691,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -27801,7 +27801,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3,
               5
@@ -27933,7 +27933,7 @@
             "raw_points": 6,
             "minutes": 84,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1,
               2
@@ -28025,7 +28025,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -28140,7 +28140,7 @@
             "raw_points": 6,
             "minutes": 80,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               3,
               5,
@@ -28278,7 +28278,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               -1,
               2,
@@ -28372,7 +28372,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -28487,7 +28487,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 11.6,
-            "form": 4.2,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -28648,7 +28648,7 @@
             "raw_points": -1,
             "minutes": 45,
             "owned_pct": 4.8,
-            "form": 1.8,
+            "form": 1.7,
             "recent_form": [
               2,
               6,
@@ -28808,7 +28808,7 @@
             "raw_points": 3,
             "minutes": 90,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [
               0,
               6,
@@ -28854,7 +28854,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -29173,7 +29173,7 @@
             "raw_points": 1,
             "minutes": 16,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 17,
@@ -29401,7 +29401,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 17,
@@ -29464,7 +29464,7 @@
             "raw_points": 1,
             "minutes": 11,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0
             ],
@@ -29674,7 +29674,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [
               1
             ],
@@ -29716,7 +29716,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 3.1,
-            "form": 0.5,
+            "form": 0.7,
             "recent_form": [
               0
             ],
@@ -29783,7 +29783,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [
               1,
               0
@@ -29805,7 +29805,7 @@
             "raw_points": 4,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1
@@ -29915,7 +29915,7 @@
             "raw_points": 1,
             "minutes": 12,
             "owned_pct": 3.1,
-            "form": 0.5,
+            "form": 0.7,
             "recent_form": [
               0,
               0
@@ -30094,7 +30094,7 @@
             "raw_points": 0,
             "minutes": 65,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [
               1,
               0,
@@ -30117,7 +30117,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1,
@@ -30347,7 +30347,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 3.1,
-            "form": 0.5,
+            "form": 0.7,
             "recent_form": [
               0,
               0,
@@ -30441,7 +30441,7 @@
             "raw_points": 3,
             "minutes": 90,
             "owned_pct": 0.4,
-            "form": 2.2,
+            "form": 3.0,
             "recent_form": [
               0,
               6,
@@ -30487,7 +30487,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -30905,7 +30905,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -30914,8 +30914,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 8,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 8,
@@ -30929,7 +30929,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -30952,7 +30952,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -31066,7 +31066,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -31158,7 +31158,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -31252,7 +31252,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 8,
@@ -31290,7 +31290,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 8,
@@ -31365,7 +31365,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [],
             "gw": 1,
@@ -31422,7 +31422,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -31461,7 +31461,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 8,
@@ -31541,7 +31541,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11
             ],
@@ -31583,7 +31583,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -31604,7 +31604,7 @@
             "raw_points": 1,
             "minutes": 11,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0
             ],
@@ -31729,7 +31729,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -31771,7 +31771,7 @@
             "multiplier": 0,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2
@@ -31881,7 +31881,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -31903,7 +31903,7 @@
             "raw_points": 4,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1
@@ -31924,7 +31924,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -32056,7 +32056,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -32123,7 +32123,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7
@@ -32192,7 +32192,7 @@
             "raw_points": 1,
             "minutes": 45,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7,
@@ -32215,7 +32215,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -32238,7 +32238,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1,
@@ -32260,7 +32260,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -32398,7 +32398,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -32538,7 +32538,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 6.6,
+            "owned_pct": 6.5,
             "form": 7.3,
             "recent_form": [
               1,
@@ -32547,8 +32547,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 8,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Foot injury - 75% chance of playing"
           },
           {
             "player_id": 8,
@@ -32562,7 +32562,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -32585,7 +32585,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -32699,7 +32699,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -32791,7 +32791,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -33044,7 +33044,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -33113,7 +33113,7 @@
             "raw_points": 2,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               11,
               2,
@@ -33274,7 +33274,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               1,
               7,
@@ -33296,7 +33296,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -33382,7 +33382,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 11,
@@ -33477,7 +33477,7 @@
             "raw_points": 9,
             "minutes": 67,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 11,
@@ -33514,7 +33514,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -33572,7 +33572,7 @@
             "raw_points": 0,
             "minutes": 81,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 11,
@@ -33675,7 +33675,7 @@
             "raw_points": 6,
             "minutes": 78,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6
             ],
@@ -33759,7 +33759,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               9
             ],
@@ -33800,7 +33800,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -33906,7 +33906,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               0
             ],
@@ -34061,7 +34061,7 @@
             "raw_points": 2,
             "minutes": 89,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               9,
               11
@@ -34126,7 +34126,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -34215,7 +34215,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               6
@@ -34237,7 +34237,7 @@
             "raw_points": 7,
             "minutes": 74,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               0,
               1
@@ -34330,7 +34330,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               0,
               1,
@@ -34399,7 +34399,7 @@
             "raw_points": 8,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               9,
               11,
@@ -34467,7 +34467,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -34537,7 +34537,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 1.6,
-            "form": 1.5,
+            "form": 0.0,
             "recent_form": [
               6,
               6,
@@ -34677,7 +34677,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -34746,7 +34746,7 @@
             "raw_points": 2,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               11,
               2,
@@ -34907,7 +34907,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 0.5,
-            "form": 2.2,
+            "form": 2.7,
             "recent_form": [
               1,
               7,
@@ -34929,7 +34929,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -35119,7 +35119,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -35348,7 +35348,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -35372,7 +35372,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               7,
               2,
@@ -35461,7 +35461,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 6,
@@ -35480,7 +35480,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 6,
@@ -35612,7 +35612,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -35752,7 +35752,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -35794,7 +35794,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11
             ],
@@ -35919,7 +35919,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -36049,7 +36049,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -36093,7 +36093,7 @@
             "raw_points": 2,
             "minutes": 90,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7
@@ -36246,7 +36246,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -36382,7 +36382,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -36428,7 +36428,7 @@
             "raw_points": 1,
             "minutes": 45,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               11,
               7,
@@ -36588,7 +36588,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -36752,7 +36752,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -36981,7 +36981,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -37005,7 +37005,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 4.9,
-            "form": 2.5,
+            "form": 1.0,
             "recent_form": [
               7,
               2,
@@ -37199,7 +37199,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -37244,7 +37244,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -37268,7 +37268,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -37451,7 +37451,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -37560,7 +37560,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 18,
@@ -37598,7 +37598,7 @@
             "raw_points": 11,
             "minutes": 75,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 18,
@@ -37692,7 +37692,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -37731,7 +37731,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 18,
@@ -37832,7 +37832,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -37874,7 +37874,7 @@
             "raw_points": 3,
             "minutes": 70,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               11
             ],
@@ -37999,7 +37999,7 @@
             "multiplier": 2,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -38062,7 +38062,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               17
@@ -38151,7 +38151,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -38195,7 +38195,7 @@
             "raw_points": 10,
             "minutes": 76,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               11,
               3
@@ -38326,7 +38326,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -38392,7 +38392,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 76,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               17,
@@ -38485,7 +38485,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -38531,7 +38531,7 @@
             "raw_points": 3,
             "minutes": 84,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               11,
               3,
@@ -38668,7 +38668,7 @@
             "multiplier": 2,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -38737,7 +38737,7 @@
             "multiplier": 0,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               17,
@@ -38832,7 +38832,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               11,
               2,
@@ -38877,7 +38877,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -38901,7 +38901,7 @@
             "raw_points": 2,
             "minutes": 72,
             "owned_pct": 19.8,
-            "form": 4.5,
+            "form": 5.0,
             "recent_form": [
               3,
               10,
@@ -39084,7 +39084,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -39321,7 +39321,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -39368,7 +39368,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -39437,7 +39437,7 @@
             "raw_points": 2,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               11,
               2,
@@ -39482,7 +39482,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -39574,7 +39574,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
@@ -39668,7 +39668,7 @@
             "raw_points": 9,
             "minutes": 80,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 5,
@@ -39743,7 +39743,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [],
             "gw": 1,
@@ -39838,7 +39838,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [],
             "gw": 1,
@@ -39877,7 +39877,7 @@
             "raw_points": 0,
             "minutes": 0,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 5,
@@ -39957,7 +39957,7 @@
             "raw_points": 11,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9
             ],
@@ -39978,7 +39978,7 @@
             "raw_points": 1,
             "minutes": 11,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0
             ],
@@ -40040,7 +40040,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2
@@ -40145,7 +40145,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11
@@ -40275,7 +40275,7 @@
             "raw_points": 2,
             "minutes": 66,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11
@@ -40297,7 +40297,7 @@
             "raw_points": 4,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1
@@ -40362,7 +40362,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -40472,7 +40472,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -40608,7 +40608,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 50.5,
-            "form": 5.0,
+            "form": 3.0,
             "recent_form": [
               9,
               11,
@@ -40631,7 +40631,7 @@
             "raw_points": 6,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               0,
               1,
@@ -40699,7 +40699,7 @@
             "multiplier": 1,
             "raw_points": 17,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               2,
@@ -40814,7 +40814,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               11,
@@ -40954,7 +40954,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 27.7,
+            "owned_pct": 27.8,
             "form": 7.0,
             "recent_form": [
               0,
@@ -41001,7 +41001,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 19.4,
-            "form": 3.0,
+            "form": 3.7,
             "recent_form": [
               1,
               4,
@@ -41070,7 +41070,7 @@
             "raw_points": 2,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 5.8,
+            "form": 4.0,
             "recent_form": [
               11,
               2,
@@ -41115,7 +41115,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 28.8,
+            "owned_pct": 28.9,
             "form": 10.7,
             "recent_form": [
               13,
@@ -41207,7 +41207,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 65.2,
+            "owned_pct": 65.1,
             "form": 4.3,
             "recent_form": [
               9,
