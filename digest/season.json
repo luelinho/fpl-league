@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T21:16:59.602106+00:00",
+  "generated_at": "2026-10-01T00:37:29.851530+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -54802,27 +54802,34 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-09-30",
-    "previous_date": "2026-09-29",
-    "risers": [],
+    "latest_date": "2026-10-01",
+    "previous_date": "2026-09-30",
+    "risers": [
+      {
+        "name": "Tarkowski",
+        "club": "EVE",
+        "delta_tenths": 1,
+        "price_tenths": 62
+      }
+    ],
     "fallers": [
       {
-        "name": "Kerkez",
-        "club": "LIV",
+        "name": "Heaven",
+        "club": "MUN",
         "delta_tenths": -1,
-        "price_tenths": 53
+        "price_tenths": 43
       },
       {
-        "name": "Wright",
-        "club": "COV",
+        "name": "Richards",
+        "club": "CRY",
         "delta_tenths": -1,
-        "price_tenths": 53
+        "price_tenths": 49
       },
       {
-        "name": "Pau",
-        "club": "AVL",
+        "name": "Merino",
+        "club": "ARS",
         "delta_tenths": -1,
-        "price_tenths": 44
+        "price_tenths": 57
       }
     ]
   },
