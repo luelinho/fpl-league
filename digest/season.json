@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T21:15:18.592722+00:00",
+  "generated_at": "2026-10-03T00:33:56.974737+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -7839,7 +7839,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               6,
@@ -8792,7 +8792,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               14,
@@ -9125,7 +9125,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               14,
@@ -9472,7 +9472,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               6,
@@ -18622,7 +18622,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               6,
@@ -19908,7 +19908,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               14,
@@ -20255,7 +20255,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.0,
+            "owned_pct": 13.9,
             "form": 2.3,
             "recent_form": [
               6,
@@ -33089,7 +33089,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 11.6,
+            "owned_pct": 11.7,
             "form": 8.7,
             "recent_form": [
               10,
@@ -34722,7 +34722,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 11.6,
+            "owned_pct": 11.7,
             "form": 8.7,
             "recent_form": [
               10,
@@ -54802,10 +54802,41 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-10-02",
-    "previous_date": "2026-10-01",
+    "latest_date": "2026-10-03",
+    "previous_date": "2026-10-02",
     "risers": [],
-    "fallers": []
+    "fallers": [
+      {
+        "name": "I.Sangar\u00e9",
+        "club": "NFO",
+        "delta_tenths": -1,
+        "price_tenths": 48
+      },
+      {
+        "name": "A\u00eft-Nouri",
+        "club": "MCI",
+        "delta_tenths": -1,
+        "price_tenths": 52
+      },
+      {
+        "name": "Szoboszlai",
+        "club": "LIV",
+        "delta_tenths": -1,
+        "price_tenths": 69
+      },
+      {
+        "name": "Mamardashvili",
+        "club": "LIV",
+        "delta_tenths": -1,
+        "price_tenths": 48
+      },
+      {
+        "name": "Longstaff",
+        "club": "LEE",
+        "delta_tenths": -1,
+        "price_tenths": 48
+      }
+    ]
   },
   "players": {
     "gws": [
