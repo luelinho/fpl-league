@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T21:55:56.969235+00:00",
+  "generated_at": "2026-10-05T00:24:51.818346+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -54802,46 +54802,21 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-10-04",
-    "previous_date": "2026-10-03",
-    "risers": [
-      {
-        "name": "Gro\u00df",
-        "club": "BHA",
-        "delta_tenths": 1,
-        "price_tenths": 59
-      }
-    ],
+    "latest_date": "2026-10-05",
+    "previous_date": "2026-10-04",
+    "risers": [],
     "fallers": [
       {
-        "name": "Martinez",
+        "name": "De Ligt",
         "club": "MUN",
         "delta_tenths": -1,
         "price_tenths": 49
       },
       {
-        "name": "Kova\u010di\u0107",
-        "club": "MCI",
-        "delta_tenths": -1,
-        "price_tenths": 53
-      },
-      {
-        "name": "Dowell",
-        "club": "HUL",
-        "delta_tenths": -1,
-        "price_tenths": 44
-      },
-      {
-        "name": "McNeil",
+        "name": "Drakes-Thomas",
         "club": "CRY",
         "delta_tenths": -1,
-        "price_tenths": 53
-      },
-      {
-        "name": "Woolfenden",
-        "club": "COV",
-        "delta_tenths": -1,
-        "price_tenths": 39
+        "price_tenths": 44
       }
     ]
   },
