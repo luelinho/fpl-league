@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T00:53:59.787482+00:00",
+  "generated_at": "2026-11-15T13:50:06.929772+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -1585,7 +1585,7 @@
           "multiplier": 1,
           "raw_points": 12,
           "minutes": 90,
-          "owned_pct": 9.4,
+          "owned_pct": 9.5,
           "form": 7.5,
           "recent_form": [
             11,
@@ -3912,7 +3912,7 @@
           "multiplier": 1,
           "raw_points": 11,
           "minutes": 90,
-          "owned_pct": 9.4,
+          "owned_pct": 9.5,
           "form": 7.5,
           "recent_form": [
             6,
@@ -4466,7 +4466,7 @@
           "multiplier": 0,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 9.4,
+          "owned_pct": 9.5,
           "form": 7.5,
           "recent_form": [
             8,
@@ -4790,7 +4790,7 @@
           "multiplier": 0,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 9.4,
+          "owned_pct": 9.5,
           "form": 7.5,
           "recent_form": [
             8,
@@ -4953,7 +4953,7 @@
           "multiplier": 1,
           "raw_points": 12,
           "minutes": 90,
-          "owned_pct": 9.4,
+          "owned_pct": 9.5,
           "form": 7.5,
           "recent_form": [
             11,
@@ -21680,7 +21680,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 9.4,
+            "owned_pct": 9.5,
             "form": 7.5,
             "recent_form": [
               11,
@@ -24007,7 +24007,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 9.4,
+            "owned_pct": 9.5,
             "form": 7.5,
             "recent_form": [
               6,
@@ -24561,7 +24561,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 9.4,
+            "owned_pct": 9.5,
             "form": 7.5,
             "recent_form": [
               8,
@@ -24885,7 +24885,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 9.4,
+            "owned_pct": 9.5,
             "form": 7.5,
             "recent_form": [
               8,
@@ -25048,7 +25048,7 @@
             "multiplier": 1,
             "raw_points": 12,
             "minutes": 90,
-            "owned_pct": 9.4,
+            "owned_pct": 9.5,
             "form": 7.5,
             "recent_form": [
               11,
@@ -41354,8 +41354,8 @@
             ],
             "gw": 10,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -41692,8 +41692,8 @@
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 423,
@@ -42216,8 +42216,8 @@
             ],
             "gw": 2,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 182,
@@ -42305,8 +42305,8 @@
             ],
             "gw": 3,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 423,
@@ -42916,8 +42916,8 @@
             ],
             "gw": 4,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           }
         ],
         "5": [
@@ -42987,8 +42987,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -43334,8 +43334,8 @@
             ],
             "gw": 6,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -43681,8 +43681,8 @@
             ],
             "gw": 7,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -44028,8 +44028,8 @@
             ],
             "gw": 8,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -44375,8 +44375,8 @@
             ],
             "gw": 9,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -44722,8 +44722,8 @@
             ],
             "gw": 10,
             "owner_manager_id": 12,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 330,
@@ -49333,7 +49333,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 84,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               12,
@@ -49705,8 +49705,8 @@
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 173,
@@ -50020,8 +50020,8 @@
             ],
             "gw": 2,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 173,
@@ -50351,8 +50351,8 @@
             ],
             "gw": 3,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 173,
@@ -50697,8 +50697,8 @@
             ],
             "gw": 4,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 173,
@@ -51067,8 +51067,8 @@
             ],
             "gw": 5,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           }
         ],
         "6": [
@@ -51115,8 +51115,8 @@
             ],
             "gw": 6,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 8,
@@ -51738,8 +51738,8 @@
             ],
             "gw": 7,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 233,
@@ -51878,8 +51878,8 @@
             ],
             "gw": 8,
             "owner_manager_id": 4,
-            "status": "a",
-            "news": ""
+            "status": "d",
+            "news": "Concussion - 75% chance of playing"
           },
           {
             "player_id": 427,
@@ -52354,7 +52354,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 75,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               7,
@@ -52701,7 +52701,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 84,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               12,
@@ -61242,7 +61242,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 64,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               2,
@@ -61346,7 +61346,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 54,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [],
             "gw": 1,
@@ -61498,7 +61498,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 74,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [],
             "gw": 1,
@@ -61767,7 +61767,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 80,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               4
@@ -61830,7 +61830,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               0
@@ -61940,7 +61940,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 31,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               0,
@@ -62094,7 +62094,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               4,
@@ -62298,7 +62298,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               0,
@@ -62436,7 +62436,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 23.9,
+            "owned_pct": 24.0,
             "form": 9.0,
             "recent_form": [
               4,
@@ -62576,7 +62576,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               0,
@@ -62923,7 +62923,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               1,
@@ -63339,7 +63339,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               2,
@@ -63640,7 +63640,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               2,
@@ -64056,7 +64056,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               1,
@@ -64610,7 +64610,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 64,
-            "owned_pct": 4.2,
+            "owned_pct": 4.1,
             "form": 2.8,
             "recent_form": [
               2,
