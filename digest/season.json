@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T21:21:21.094065+00:00",
+  "generated_at": "2026-11-16T01:10:59.706887+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -91474,28 +91474,15 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-11-15",
-    "previous_date": "2026-11-14",
-    "risers": [
-      {
-        "name": "Konsa",
-        "club": "ARS",
-        "delta_tenths": 1,
-        "price_tenths": 49
-      }
-    ],
+    "latest_date": "2026-11-16",
+    "previous_date": "2026-11-15",
+    "risers": [],
     "fallers": [
       {
-        "name": "Frimpong",
-        "club": "LIV",
+        "name": "Hamer",
+        "club": "COV",
         "delta_tenths": -1,
-        "price_tenths": 51
-      },
-      {
-        "name": "Steele",
-        "club": "BHA",
-        "delta_tenths": -1,
-        "price_tenths": 39
+        "price_tenths": 52
       }
     ]
   },
