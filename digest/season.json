@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T17:49:22.213722+00:00",
+  "generated_at": "2026-11-21T18:08:37.340182+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -434,7 +434,7 @@
         "losses": 6,
         "league_points": 15,
         "is_owner": false,
-        "gw_live_points": 13,
+        "gw_live_points": 14,
         "projected_rank": 11,
         "rank_change": 0
       },
@@ -473,7 +473,7 @@
         "losses": 7,
         "league_points": 10,
         "is_owner": false,
-        "gw_live_points": 15,
+        "gw_live_points": 16,
         "projected_rank": 14,
         "rank_change": -1
       },
@@ -544,10 +544,10 @@
             "l": 2
           },
           "score": 24,
-          "projected_total": 44.4,
+          "projected_total": 43.7,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 83.0
+          "win_pct": 80.0
         },
         "b": {
           "name": "Craig Allen",
@@ -561,7 +561,7 @@
           "projected_total": 33.1,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 17.0
+          "win_pct": 20.0
         },
         "live": true,
         "winner": "a",
@@ -577,10 +577,10 @@
             "l": 2
           },
           "score": 31,
-          "projected_total": 45.3,
+          "projected_total": 45.4,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 58.4
+          "win_pct": 59.1
         },
         "b": {
           "name": "Harry Daskalopoulos",
@@ -591,10 +591,10 @@
             "l": 7
           },
           "score": 17,
-          "projected_total": 43.1,
+          "projected_total": 42.9,
           "yet_to_play": 6,
           "played": 5,
-          "win_pct": 41.6
+          "win_pct": 40.9
         },
         "live": true,
         "winner": "a",
@@ -610,10 +610,10 @@
             "l": 4
           },
           "score": 27,
-          "projected_total": 56.1,
+          "projected_total": 56.4,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 89.4
+          "win_pct": 90.6
         },
         "b": {
           "name": "Joe Gannitello",
@@ -627,7 +627,7 @@
           "projected_total": 41.7,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 10.6
+          "win_pct": 9.4
         },
         "live": true,
         "winner": "b",
@@ -646,7 +646,7 @@
           "projected_total": 39.0,
           "yet_to_play": 1,
           "played": 10,
-          "win_pct": 99.5
+          "win_pct": 99.2
         },
         "b": {
           "name": "Isaac Sotelo",
@@ -656,11 +656,11 @@
             "d": 0,
             "l": 5
           },
-          "score": 13,
-          "projected_total": 20.0,
+          "score": 14,
+          "projected_total": 21.1,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 0.5
+          "win_pct": 0.8
         },
         "live": true,
         "winner": "a",
@@ -679,7 +679,7 @@
           "projected_total": 29.1,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 1.9
+          "win_pct": 2.5
         },
         "b": {
           "name": "Yorick Stoepker",
@@ -690,10 +690,10 @@
             "l": 5
           },
           "score": 37,
-          "projected_total": 51.6,
+          "projected_total": 51.4,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 98.1
+          "win_pct": 97.5
         },
         "live": true,
         "winner": "b",
@@ -709,10 +709,10 @@
             "l": 8
           },
           "score": 19,
-          "projected_total": 40.2,
+          "projected_total": 39.8,
           "yet_to_play": 7,
           "played": 4,
-          "win_pct": 31.5
+          "win_pct": 27.6
         },
         "b": {
           "name": "Iain Abshier",
@@ -722,11 +722,11 @@
             "d": 1,
             "l": 6
           },
-          "score": 15,
-          "projected_total": 49.3,
+          "score": 16,
+          "projected_total": 50.1,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 68.5
+          "win_pct": 72.4
         },
         "live": true,
         "winner": "a",
@@ -742,10 +742,10 @@
             "l": 5
           },
           "score": 20,
-          "projected_total": 42.6,
+          "projected_total": 42.4,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 47.1
+          "win_pct": 46.0
         },
         "b": {
           "name": "Andrew Romani",
@@ -756,10 +756,10 @@
             "l": 2
           },
           "score": 30,
-          "projected_total": 43.2,
+          "projected_total": 43.1,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 52.9
+          "win_pct": 54.0
         },
         "live": true,
         "winner": "b",
@@ -775,10 +775,10 @@
             "l": 7
           },
           "score": 32,
-          "projected_total": 53.0,
+          "projected_total": 53.3,
           "yet_to_play": 4,
           "played": 7,
-          "win_pct": 73.1
+          "win_pct": 74.4
         },
         "b": {
           "name": "Chris Miller",
@@ -789,10 +789,10 @@
             "l": 5
           },
           "score": 17,
-          "projected_total": 44.6,
+          "projected_total": 44.9,
           "yet_to_play": 5,
           "played": 6,
-          "win_pct": 26.9
+          "win_pct": 25.6
         },
         "live": true,
         "winner": "a",
@@ -808,10 +808,10 @@
             "l": 5
           },
           "score": 29,
-          "projected_total": 50.2,
+          "projected_total": 50.5,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 71.7
+          "win_pct": 74.0
         },
         "b": {
           "name": "Kirk Baxter",
@@ -822,10 +822,10 @@
             "l": 9
           },
           "score": 11,
-          "projected_total": 42.1,
+          "projected_total": 41.7,
           "yet_to_play": 7,
           "played": 4,
-          "win_pct": 28.3
+          "win_pct": 26.0
         },
         "live": true,
         "winner": "a",
@@ -1860,7 +1860,7 @@
           "armband": "",
           "multiplier": 1,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 47.8,
           "form": 4.8,
           "recent_form": [
@@ -1906,7 +1906,7 @@
           "armband": "",
           "multiplier": 1,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 48.6,
           "form": 3.5,
           "recent_form": [
@@ -2159,7 +2159,7 @@
           "armband": "",
           "multiplier": 0,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 5.6,
           "form": 3.2,
           "recent_form": [
@@ -5575,7 +5575,7 @@
           "armband": "",
           "multiplier": 1,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 47.8,
           "form": 4.8,
           "recent_form": [
@@ -5621,7 +5621,7 @@
           "armband": "",
           "multiplier": 1,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 48.6,
           "form": 3.5,
           "recent_form": [
@@ -5874,7 +5874,7 @@
           "armband": "",
           "multiplier": 0,
           "raw_points": 1,
-          "minutes": 14,
+          "minutes": 35,
           "owned_pct": 5.6,
           "form": 3.2,
           "recent_form": [
@@ -6502,7 +6502,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -6548,7 +6548,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -10217,7 +10217,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -10263,7 +10263,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -10950,7 +10950,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -10973,7 +10973,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -14665,7 +14665,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -14688,7 +14688,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -15261,7 +15261,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -18976,7 +18976,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -19461,7 +19461,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -19484,7 +19484,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -23176,7 +23176,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -23199,7 +23199,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -23762,7 +23762,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -23808,7 +23808,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -24061,7 +24061,7 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 5.6,
             "form": 3.2,
             "recent_form": [
@@ -27477,7 +27477,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -27523,7 +27523,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -27776,7 +27776,7 @@
             "armband": "",
             "multiplier": 0,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 5.6,
             "form": 3.2,
             "recent_form": [
@@ -28169,7 +28169,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -28284,7 +28284,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -31884,7 +31884,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -31999,7 +31999,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -32416,8 +32416,8 @@
         },
         {
           "gw": 11,
-          "net_points": 13,
-          "gross_points": 13,
+          "net_points": 14,
+          "gross_points": 14,
           "hit_cost": 0,
           "bench_points": 0,
           "chip": null,
@@ -32440,7 +32440,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 1.1,
             "form": 3.8,
             "recent_form": [
@@ -32577,10 +32577,10 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1,
-            "minutes": 14,
+            "raw_points": 2,
+            "minutes": 35,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               8,
@@ -32601,7 +32601,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -32925,7 +32925,7 @@
             "raw_points": 3,
             "minutes": 67,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 7,
@@ -33226,7 +33226,7 @@
             "raw_points": 5,
             "minutes": 84,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3
             ],
@@ -33528,7 +33528,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               5
@@ -33866,7 +33866,7 @@
             "raw_points": 6,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               5,
@@ -34213,7 +34213,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -34560,7 +34560,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               5,
               6,
@@ -34907,7 +34907,7 @@
             "raw_points": 9,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               6,
               1,
@@ -35254,7 +35254,7 @@
             "raw_points": 3,
             "minutes": 79,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               1,
               7,
@@ -35601,7 +35601,7 @@
             "raw_points": 8,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               7,
               9,
@@ -35948,7 +35948,7 @@
             "raw_points": 3,
             "minutes": 62,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               9,
               3,
@@ -36155,7 +36155,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 1.1,
             "form": 3.8,
             "recent_form": [
@@ -36292,10 +36292,10 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1,
-            "minutes": 14,
+            "raw_points": 2,
+            "minutes": 35,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               8,
@@ -36316,7 +36316,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -36698,7 +36698,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -36767,7 +36767,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -36813,7 +36813,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -40413,7 +40413,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -40482,7 +40482,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -40528,7 +40528,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.6,
             "form": 4.5,
             "recent_form": [
@@ -41050,7 +41050,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -44765,7 +44765,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -49578,7 +49578,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 26.6,
             "form": 8.0,
             "recent_form": [
@@ -53293,7 +53293,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 26.6,
             "form": 8.0,
             "recent_form": [
@@ -53843,7 +53843,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -54305,7 +54305,7 @@
             "raw_points": 3,
             "minutes": 67,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [],
             "gw": 1,
             "owner_manager_id": 4,
@@ -54606,7 +54606,7 @@
             "raw_points": 5,
             "minutes": 84,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3
             ],
@@ -54930,7 +54930,7 @@
             "raw_points": 5,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               5
@@ -55269,7 +55269,7 @@
             "raw_points": 6,
             "minutes": 80,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               5,
@@ -55616,7 +55616,7 @@
             "raw_points": 1,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               5,
               5,
@@ -55963,7 +55963,7 @@
             "raw_points": 7,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               5,
               6,
@@ -56310,7 +56310,7 @@
             "raw_points": 9,
             "minutes": 90,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               6,
               1,
@@ -56657,7 +56657,7 @@
             "raw_points": 3,
             "minutes": 79,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               1,
               7,
@@ -57558,7 +57558,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -58231,7 +58231,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -61946,7 +61946,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -62438,7 +62438,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -62484,7 +62484,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -62507,7 +62507,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -66153,7 +66153,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -66199,7 +66199,7 @@
             "armband": "VC",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -66222,7 +66222,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -66714,7 +66714,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -66737,7 +66737,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.9,
             "form": 3.0,
             "recent_form": [
@@ -66783,7 +66783,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -70429,7 +70429,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -70452,7 +70452,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.9,
             "form": 3.0,
             "recent_form": [
@@ -70498,7 +70498,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -71025,7 +71025,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -74740,7 +74740,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -75248,8 +75248,8 @@
         },
         {
           "gw": 11,
-          "net_points": 15,
-          "gross_points": 15,
+          "net_points": 16,
+          "gross_points": 16,
           "hit_cost": 0,
           "bench_points": 8,
           "chip": null,
@@ -75272,7 +75272,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -75318,7 +75318,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -75386,10 +75386,10 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1,
-            "minutes": 14,
+            "raw_points": 2,
+            "minutes": 35,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               8,
@@ -78826,7 +78826,7 @@
             "raw_points": 3,
             "minutes": 62,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               9,
               3,
@@ -78987,7 +78987,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -79033,7 +79033,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 48.6,
             "form": 3.5,
             "recent_form": [
@@ -79101,10 +79101,10 @@
             "is_starter": true,
             "armband": "",
             "multiplier": 1,
-            "raw_points": 1,
-            "minutes": 14,
+            "raw_points": 2,
+            "minutes": 35,
             "owned_pct": 13.7,
-            "form": 3.8,
+            "form": 4.0,
             "recent_form": [
               3,
               8,
@@ -79614,7 +79614,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -79660,7 +79660,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -79683,7 +79683,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.9,
             "form": 3.0,
             "recent_form": [
@@ -83329,7 +83329,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 47.8,
             "form": 4.8,
             "recent_form": [
@@ -83375,7 +83375,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 25.6,
             "form": 8.2,
             "recent_form": [
@@ -83398,7 +83398,7 @@
             "armband": "",
             "multiplier": 1,
             "raw_points": 1,
-            "minutes": 14,
+            "minutes": 35,
             "owned_pct": 16.9,
             "form": 3.0,
             "recent_form": [
@@ -85964,10 +85964,10 @@
               "l": 2
             },
             "score": 24,
-            "projected_total": 43.9,
+            "projected_total": 44.4,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 80.8
+            "win_pct": 84.3
           },
           "b": {
             "name": "Craig Allen",
@@ -85978,10 +85978,10 @@
               "l": 2
             },
             "score": 14,
-            "projected_total": 33.2,
+            "projected_total": 32.7,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 19.2
+            "win_pct": 15.7
           },
           "live": true,
           "winner": "a",
@@ -85997,10 +85997,10 @@
               "l": 2
             },
             "score": 31,
-            "projected_total": 45.4,
+            "projected_total": 45.7,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 57.0
+            "win_pct": 58.9
           },
           "b": {
             "name": "Harry Daskalopoulos",
@@ -86011,10 +86011,10 @@
               "l": 7
             },
             "score": 17,
-            "projected_total": 43.3,
+            "projected_total": 42.9,
             "yet_to_play": 6,
             "played": 5,
-            "win_pct": 43.0
+            "win_pct": 41.1
           },
           "live": true,
           "winner": "a",
@@ -86030,10 +86030,10 @@
               "l": 4
             },
             "score": 27,
-            "projected_total": 56.2,
+            "projected_total": 55.9,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 90.0
+            "win_pct": 89.3
           },
           "b": {
             "name": "Joe Gannitello",
@@ -86044,10 +86044,10 @@
               "l": 3
             },
             "score": 29,
-            "projected_total": 41.8,
+            "projected_total": 41.9,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 10.0
+            "win_pct": 10.7
           },
           "live": true,
           "winner": "b",
@@ -86063,10 +86063,10 @@
               "l": 4
             },
             "score": 32,
-            "projected_total": 39.2,
+            "projected_total": 38.8,
             "yet_to_play": 1,
             "played": 10,
-            "win_pct": 99.4
+            "win_pct": 99.3
           },
           "b": {
             "name": "Isaac Sotelo",
@@ -86076,11 +86076,11 @@
               "d": 0,
               "l": 5
             },
-            "score": 13,
-            "projected_total": 20.1,
+            "score": 14,
+            "projected_total": 21.0,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 0.6
+            "win_pct": 0.7
           },
           "live": true,
           "winner": "a",
@@ -86096,10 +86096,10 @@
               "l": 7
             },
             "score": 17,
-            "projected_total": 29.1,
+            "projected_total": 28.9,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 1.5
+            "win_pct": 1.9
           },
           "b": {
             "name": "Yorick Stoepker",
@@ -86110,10 +86110,10 @@
               "l": 5
             },
             "score": 37,
-            "projected_total": 51.8,
+            "projected_total": 51.4,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 98.5
+            "win_pct": 98.1
           },
           "live": true,
           "winner": "b",
@@ -86129,10 +86129,10 @@
               "l": 8
             },
             "score": 19,
-            "projected_total": 39.9,
+            "projected_total": 40.0,
             "yet_to_play": 7,
             "played": 4,
-            "win_pct": 31.8
+            "win_pct": 27.8
           },
           "b": {
             "name": "Iain Abshier",
@@ -86142,11 +86142,11 @@
               "d": 1,
               "l": 6
             },
-            "score": 15,
-            "projected_total": 48.8,
+            "score": 16,
+            "projected_total": 50.5,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 68.2
+            "win_pct": 72.2
           },
           "live": true,
           "winner": "a",
@@ -86162,10 +86162,10 @@
               "l": 5
             },
             "score": 20,
-            "projected_total": 42.5,
+            "projected_total": 42.7,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 48.1
+            "win_pct": 47.8
           },
           "b": {
             "name": "Andrew Romani",
@@ -86179,7 +86179,7 @@
             "projected_total": 43.0,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 51.9
+            "win_pct": 52.2
           },
           "live": true,
           "winner": "b",
@@ -86195,10 +86195,10 @@
               "l": 7
             },
             "score": 32,
-            "projected_total": 52.9,
+            "projected_total": 53.1,
             "yet_to_play": 4,
             "played": 7,
-            "win_pct": 72.0
+            "win_pct": 73.6
           },
           "b": {
             "name": "Chris Miller",
@@ -86209,10 +86209,10 @@
               "l": 5
             },
             "score": 17,
-            "projected_total": 45.3,
+            "projected_total": 44.9,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 28.0
+            "win_pct": 26.4
           },
           "live": true,
           "winner": "a",
@@ -86228,10 +86228,10 @@
               "l": 5
             },
             "score": 29,
-            "projected_total": 50.4,
+            "projected_total": 50.7,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 71.7
+            "win_pct": 73.9
           },
           "b": {
             "name": "Kirk Baxter",
@@ -86242,10 +86242,10 @@
               "l": 9
             },
             "score": 11,
-            "projected_total": 42.3,
+            "projected_total": 42.0,
             "yet_to_play": 7,
             "played": 4,
-            "win_pct": 28.3
+            "win_pct": 26.1
           },
           "live": true,
           "winner": "a",
