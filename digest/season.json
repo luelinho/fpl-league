@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T22:46:18.207438+00:00",
+  "generated_at": "2026-11-23T03:12:44.496600+00:00",
   "league": {
     "name": "Almost all Americans",
     "id": 683383,
@@ -591,7 +591,7 @@
             "l": 7
           },
           "score": 32,
-          "projected_total": 35.6,
+          "projected_total": 35.5,
           "yet_to_play": 1,
           "played": 10,
           "win_pct": 0.0
@@ -610,10 +610,10 @@
             "l": 4
           },
           "score": 39,
-          "projected_total": 44.5,
+          "projected_total": 44.6,
           "yet_to_play": 1,
           "played": 10,
-          "win_pct": 76.6
+          "win_pct": 75.5
         },
         "b": {
           "name": "Joe Gannitello",
@@ -624,10 +624,10 @@
             "l": 3
           },
           "score": 32,
-          "projected_total": 39.6,
+          "projected_total": 39.7,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 23.4
+          "win_pct": 24.5
         },
         "live": true,
         "winner": "a",
@@ -676,10 +676,10 @@
             "l": 7
           },
           "score": 31,
-          "projected_total": 38.8,
+          "projected_total": 38.6,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 15.6
+          "win_pct": 14.6
         },
         "b": {
           "name": "Yorick Stoepker",
@@ -693,7 +693,7 @@
           "projected_total": 42.0,
           "yet_to_play": 0,
           "played": 11,
-          "win_pct": 84.4
+          "win_pct": 85.4
         },
         "live": true,
         "winner": "b",
@@ -709,10 +709,10 @@
             "l": 8
           },
           "score": 31,
-          "projected_total": 42.4,
+          "projected_total": 42.9,
           "yet_to_play": 4,
           "played": 7,
-          "win_pct": 63.7
+          "win_pct": 63.2
         },
         "b": {
           "name": "Iain Abshier",
@@ -723,10 +723,10 @@
             "l": 6
           },
           "score": 23,
-          "projected_total": 38.1,
+          "projected_total": 38.3,
           "yet_to_play": 2,
           "played": 9,
-          "win_pct": 36.3
+          "win_pct": 36.8
         },
         "live": true,
         "winner": "a",
@@ -775,10 +775,10 @@
             "l": 7
           },
           "score": 36,
-          "projected_total": 50.1,
+          "projected_total": 49.7,
           "yet_to_play": 3,
           "played": 8,
-          "win_pct": 74.6
+          "win_pct": 74.8
         },
         "b": {
           "name": "Chris Miller",
@@ -789,10 +789,10 @@
             "l": 5
           },
           "score": 42,
-          "projected_total": 44.9,
+          "projected_total": 45.0,
           "yet_to_play": 1,
           "played": 10,
-          "win_pct": 25.4
+          "win_pct": 25.2
         },
         "live": true,
         "winner": "b",
@@ -822,7 +822,7 @@
             "l": 9
           },
           "score": 21,
-          "projected_total": 41.0,
+          "projected_total": 41.1,
           "yet_to_play": 5,
           "played": 6,
           "win_pct": 77.6
@@ -1861,7 +1861,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 69,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             7,
@@ -1907,7 +1907,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             1,
@@ -1930,7 +1930,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             1,
@@ -2268,7 +2268,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [],
           "gw": 1,
@@ -2287,7 +2287,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [],
           "gw": 1,
@@ -2420,7 +2420,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [],
           "gw": 1,
@@ -2540,7 +2540,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [
             2
@@ -2582,7 +2582,7 @@
           "multiplier": 1,
           "raw_points": 11,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             2
@@ -2729,7 +2729,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [
             0
@@ -2859,7 +2859,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [
             2,
@@ -2903,7 +2903,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             2,
@@ -2969,7 +2969,7 @@
           "multiplier": 1,
           "raw_points": 3,
           "minutes": 65,
-          "owned_pct": 32.6,
+          "owned_pct": 32.5,
           "form": 2.8,
           "recent_form": [
             8,
@@ -3057,7 +3057,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [
             0,
@@ -3170,7 +3170,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [
             2,
@@ -3239,7 +3239,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             2,
@@ -3331,7 +3331,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 45,
-          "owned_pct": 32.6,
+          "owned_pct": 32.5,
           "form": 2.8,
           "recent_form": [
             8,
@@ -3400,7 +3400,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [
             0,
@@ -3494,7 +3494,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 7.0,
+          "owned_pct": 6.9,
           "form": 1.5,
           "recent_form": [
             0,
@@ -3517,7 +3517,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [
             1,
@@ -3586,7 +3586,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             11,
@@ -3678,7 +3678,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 84,
-          "owned_pct": 32.6,
+          "owned_pct": 32.5,
           "form": 2.8,
           "recent_form": [
             14,
@@ -3747,7 +3747,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [
             0,
@@ -3841,7 +3841,7 @@
           "multiplier": 1,
           "raw_points": 9,
           "minutes": 90,
-          "owned_pct": 7.0,
+          "owned_pct": 6.9,
           "form": 1.5,
           "recent_form": [
             7,
@@ -3864,7 +3864,7 @@
           "multiplier": 1,
           "raw_points": 0,
           "minutes": 90,
-          "owned_pct": 14.4,
+          "owned_pct": 14.5,
           "form": 5.0,
           "recent_form": [
             6,
@@ -3933,7 +3933,7 @@
           "multiplier": 1,
           "raw_points": 8,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             8,
@@ -3979,7 +3979,7 @@
           "multiplier": 1,
           "raw_points": 10,
           "minutes": 90,
-          "owned_pct": 32.6,
+          "owned_pct": 32.5,
           "form": 2.8,
           "recent_form": [
             3,
@@ -4094,7 +4094,7 @@
           "multiplier": 0,
           "raw_points": 0,
           "minutes": 0,
-          "owned_pct": 14.9,
+          "owned_pct": 14.8,
           "form": 0.0,
           "recent_form": [
             0,
@@ -4188,7 +4188,7 @@
           "multiplier": 1,
           "raw_points": 9,
           "minutes": 90,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             14,
@@ -4211,7 +4211,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             11,
@@ -4257,7 +4257,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             6,
@@ -4535,7 +4535,7 @@
           "multiplier": 1,
           "raw_points": 7,
           "minutes": 90,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             1,
@@ -4581,7 +4581,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 22,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             1,
@@ -4627,7 +4627,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             6,
@@ -4742,7 +4742,7 @@
           "multiplier": 1,
           "raw_points": 2,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             2,
@@ -4951,7 +4951,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             9,
@@ -4974,7 +4974,7 @@
           "multiplier": 1,
           "raw_points": 9,
           "minutes": 71,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             15,
@@ -5066,7 +5066,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 17.8,
+          "owned_pct": 17.7,
           "form": 1.5,
           "recent_form": [
             8,
@@ -5135,7 +5135,7 @@
           "multiplier": 0,
           "raw_points": 5,
           "minutes": 90,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             3,
@@ -5229,7 +5229,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 90,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             9,
@@ -5275,7 +5275,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 68,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             6,
@@ -5298,7 +5298,7 @@
           "multiplier": 1,
           "raw_points": 6,
           "minutes": 81,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             6,
@@ -5576,7 +5576,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 69,
-          "owned_pct": 46.9,
+          "owned_pct": 46.8,
           "form": 4.8,
           "recent_form": [
             7,
@@ -5622,7 +5622,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 48.5,
+          "owned_pct": 48.4,
           "form": 3.5,
           "recent_form": [
             1,
@@ -5645,7 +5645,7 @@
           "multiplier": 1,
           "raw_points": 1,
           "minutes": 90,
-          "owned_pct": 49.9,
+          "owned_pct": 50.0,
           "form": 4.2,
           "recent_form": [
             1,
@@ -6503,7 +6503,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -6526,7 +6526,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -6549,7 +6549,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -6802,7 +6802,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -6910,7 +6910,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -6948,7 +6948,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 62,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [],
             "gw": 1,
@@ -6986,7 +6986,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -7062,7 +7062,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -7119,7 +7119,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -7140,7 +7140,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -7203,7 +7203,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -7245,7 +7245,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2
@@ -7287,7 +7287,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -7434,7 +7434,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               6
@@ -7523,7 +7523,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -7545,7 +7545,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -7589,7 +7589,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -7699,7 +7699,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -7721,7 +7721,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -7812,7 +7812,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -7858,7 +7858,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -7881,7 +7881,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -7927,7 +7927,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -8042,7 +8042,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -8136,7 +8136,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -8182,7 +8182,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               4,
@@ -8205,7 +8205,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -8274,7 +8274,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 70,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               4,
@@ -8320,7 +8320,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -8483,7 +8483,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -8506,7 +8506,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 24,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               8,
@@ -8529,7 +8529,7 @@
             "multiplier": 1,
             "raw_points": 15,
             "minutes": 67,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               4,
@@ -8552,7 +8552,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -8782,7 +8782,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               4,
@@ -8830,7 +8830,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -8853,7 +8853,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 29,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               11,
@@ -8876,7 +8876,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -8899,7 +8899,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -8922,7 +8922,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -9177,7 +9177,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -9200,7 +9200,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -9223,7 +9223,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -9246,7 +9246,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -9269,7 +9269,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -9524,7 +9524,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -9547,7 +9547,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 78,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -9570,7 +9570,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -9593,7 +9593,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -9800,7 +9800,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -9871,7 +9871,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -9894,7 +9894,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -9917,7 +9917,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -9940,7 +9940,7 @@
             "multiplier": 1,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               5,
@@ -10218,7 +10218,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -10241,7 +10241,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -10264,7 +10264,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -10517,7 +10517,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -10928,7 +10928,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -10974,7 +10974,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -11158,7 +11158,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -11293,7 +11293,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -11426,7 +11426,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 82,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [],
             "gw": 1,
@@ -11464,7 +11464,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -11584,7 +11584,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -11731,7 +11731,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0
@@ -11773,7 +11773,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0
@@ -11903,7 +11903,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -11947,7 +11947,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -12057,7 +12057,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -12101,7 +12101,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -12237,7 +12237,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -12283,7 +12283,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -12398,7 +12398,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -12444,7 +12444,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -12584,7 +12584,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -12653,7 +12653,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 84,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               14,
@@ -12768,7 +12768,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -12791,7 +12791,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -12931,7 +12931,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -12977,7 +12977,7 @@
             "multiplier": 1,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               3,
@@ -13092,7 +13092,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -13138,7 +13138,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -13255,7 +13255,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -13278,7 +13278,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -13462,7 +13462,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               1,
@@ -13485,7 +13485,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -13531,7 +13531,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               1,
@@ -13602,7 +13602,7 @@
             "multiplier": 2,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -13625,7 +13625,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -13694,7 +13694,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -13809,7 +13809,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               5,
@@ -13832,7 +13832,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -13949,7 +13949,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -13972,7 +13972,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -14018,7 +14018,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -14156,7 +14156,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -14179,7 +14179,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -14296,7 +14296,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -14365,7 +14365,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -14480,7 +14480,7 @@
             "multiplier": 1,
             "raw_points": -2,
             "minutes": 22,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -14526,7 +14526,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -14643,7 +14643,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -14689,7 +14689,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -14873,7 +14873,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -15262,7 +15262,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -15423,7 +15423,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               5,
@@ -15600,7 +15600,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -15893,7 +15893,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -16213,7 +16213,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -16367,7 +16367,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -16548,7 +16548,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -16709,7 +16709,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -16895,7 +16895,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -17056,7 +17056,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -17242,7 +17242,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -17403,7 +17403,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -17589,7 +17589,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -17750,7 +17750,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               1,
@@ -17936,7 +17936,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -18097,7 +18097,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               5,
@@ -18283,7 +18283,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -18444,7 +18444,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -18630,7 +18630,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -18791,7 +18791,7 @@
             "multiplier": 1,
             "raw_points": -2,
             "minutes": 22,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -18977,7 +18977,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -19138,7 +19138,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               5,
@@ -19439,7 +19439,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -19462,7 +19462,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -19600,7 +19600,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -19692,7 +19692,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -19789,7 +19789,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -19808,7 +19808,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -19865,7 +19865,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -19903,7 +19903,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 62,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [],
             "gw": 1,
@@ -19998,7 +19998,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -20076,7 +20076,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -20097,7 +20097,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -20160,7 +20160,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -20202,7 +20202,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2
@@ -20307,7 +20307,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0
@@ -20393,7 +20393,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -20415,7 +20415,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -20481,7 +20481,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -20525,7 +20525,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -20635,7 +20635,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -20725,7 +20725,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -20748,7 +20748,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -20817,7 +20817,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -20863,7 +20863,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -20978,7 +20978,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -21072,7 +21072,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -21095,7 +21095,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -21187,7 +21187,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -21325,7 +21325,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -21419,7 +21419,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -21442,7 +21442,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -21511,7 +21511,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -21672,7 +21672,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -21766,7 +21766,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -21789,7 +21789,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -21858,7 +21858,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -22019,7 +22019,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -22113,7 +22113,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -22136,7 +22136,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -22228,7 +22228,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -22297,7 +22297,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -22366,7 +22366,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -22460,7 +22460,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -22483,7 +22483,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -22621,7 +22621,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -22713,7 +22713,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -22807,7 +22807,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -22830,7 +22830,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -22968,7 +22968,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -23060,7 +23060,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -23154,7 +23154,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -23177,7 +23177,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -23315,7 +23315,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -23407,7 +23407,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -23763,7 +23763,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -23809,7 +23809,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -23832,7 +23832,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -24170,7 +24170,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [],
             "gw": 1,
@@ -24189,7 +24189,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -24322,7 +24322,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [],
             "gw": 1,
@@ -24442,7 +24442,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [
               2
@@ -24484,7 +24484,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -24631,7 +24631,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0
@@ -24761,7 +24761,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [
               2,
@@ -24805,7 +24805,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -24871,7 +24871,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -24959,7 +24959,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -25072,7 +25072,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [
               2,
@@ -25141,7 +25141,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -25233,7 +25233,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -25302,7 +25302,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -25396,7 +25396,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 6.9,
             "form": 1.5,
             "recent_form": [
               0,
@@ -25419,7 +25419,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [
               1,
@@ -25488,7 +25488,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -25580,7 +25580,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 84,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               14,
@@ -25649,7 +25649,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -25743,7 +25743,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 6.9,
             "form": 1.5,
             "recent_form": [
               7,
@@ -25766,7 +25766,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 14.4,
+            "owned_pct": 14.5,
             "form": 5.0,
             "recent_form": [
               6,
@@ -25835,7 +25835,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -25881,7 +25881,7 @@
             "multiplier": 1,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               3,
@@ -25996,7 +25996,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -26090,7 +26090,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -26113,7 +26113,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -26159,7 +26159,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -26437,7 +26437,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -26483,7 +26483,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -26529,7 +26529,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -26644,7 +26644,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -26853,7 +26853,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -26876,7 +26876,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -26968,7 +26968,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -27037,7 +27037,7 @@
             "multiplier": 0,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -27131,7 +27131,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -27177,7 +27177,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -27200,7 +27200,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -27478,7 +27478,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -27524,7 +27524,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -27547,7 +27547,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -28170,7 +28170,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -28193,7 +28193,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -28262,7 +28262,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -28400,7 +28400,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -28516,7 +28516,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -28611,7 +28611,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -28706,7 +28706,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -28784,7 +28784,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -28805,7 +28805,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -28889,7 +28889,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -29123,7 +29123,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -29211,7 +29211,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -29277,7 +29277,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -29343,7 +29343,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -29456,7 +29456,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -29548,7 +29548,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -29617,7 +29617,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -29686,7 +29686,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -29803,7 +29803,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -29826,7 +29826,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               0,
@@ -29918,7 +29918,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -29987,7 +29987,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 84,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               14,
@@ -30033,7 +30033,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -30150,7 +30150,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -30196,7 +30196,7 @@
             "multiplier": 1,
             "raw_points": 15,
             "minutes": 67,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               4,
@@ -30265,7 +30265,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -30380,7 +30380,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -30426,7 +30426,7 @@
             "multiplier": 0,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               3,
@@ -30497,7 +30497,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -30543,7 +30543,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -30612,7 +30612,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -30727,7 +30727,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -30750,7 +30750,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               1,
@@ -30844,7 +30844,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -30890,7 +30890,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -30959,7 +30959,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -31028,7 +31028,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -31074,7 +31074,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -31191,7 +31191,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -31214,7 +31214,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -31283,7 +31283,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -31352,7 +31352,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -31421,7 +31421,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -31538,7 +31538,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -31561,7 +31561,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -31630,7 +31630,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -31768,7 +31768,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -31885,7 +31885,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -31908,7 +31908,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -31977,7 +31977,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -32115,7 +32115,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -32464,7 +32464,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -32556,7 +32556,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -32625,7 +32625,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -32810,7 +32810,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [],
             "gw": 1,
@@ -33099,7 +33099,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 74,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9
@@ -33417,7 +33417,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9,
@@ -33571,7 +33571,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -33750,7 +33750,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9,
@@ -33842,7 +33842,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -33911,7 +33911,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -34097,7 +34097,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               5,
@@ -34189,7 +34189,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -34258,7 +34258,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 84,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               14,
@@ -34444,7 +34444,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 24,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               8,
@@ -34536,7 +34536,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -34605,7 +34605,7 @@
             "multiplier": 1,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               3,
@@ -34791,7 +34791,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 29,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               11,
@@ -34883,7 +34883,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -34952,7 +34952,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               1,
@@ -35138,7 +35138,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -35230,7 +35230,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -35299,7 +35299,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -35485,7 +35485,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 78,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -35577,7 +35577,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -35646,7 +35646,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -35832,7 +35832,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               0,
@@ -35924,7 +35924,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -35993,7 +35993,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -36179,7 +36179,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -36271,7 +36271,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -36340,7 +36340,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -36699,7 +36699,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -36745,7 +36745,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -36768,7 +36768,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -36975,7 +36975,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -37068,7 +37068,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -37125,7 +37125,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -37357,7 +37357,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -37441,7 +37441,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -37675,7 +37675,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -37763,7 +37763,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -38008,7 +38008,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -38054,7 +38054,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               17,
@@ -38100,7 +38100,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -38355,7 +38355,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -38424,7 +38424,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -38631,7 +38631,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               0,
@@ -38679,7 +38679,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -38702,7 +38702,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -38725,7 +38725,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               4,
@@ -38748,7 +38748,7 @@
             "multiplier": 1,
             "raw_points": 15,
             "minutes": 67,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               4,
@@ -39001,7 +39001,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               4,
@@ -39026,7 +39026,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -39049,7 +39049,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -39072,7 +39072,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -39095,7 +39095,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -39118,7 +39118,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -39373,7 +39373,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -39396,7 +39396,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -39419,7 +39419,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -39442,7 +39442,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               13,
@@ -39465,7 +39465,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -39720,7 +39720,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -39743,7 +39743,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -39766,7 +39766,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -39789,7 +39789,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -39996,7 +39996,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -40067,7 +40067,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -40090,7 +40090,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               4,
@@ -40113,7 +40113,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -40136,7 +40136,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -40343,7 +40343,7 @@
             "multiplier": 0,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               5,
@@ -40414,7 +40414,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -40460,7 +40460,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -40483,7 +40483,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -40690,7 +40690,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 7.0,
+            "owned_pct": 7.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -41051,7 +41051,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -41097,7 +41097,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -41166,7 +41166,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -41281,7 +41281,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -41393,7 +41393,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [],
             "gw": 1,
@@ -41450,7 +41450,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 62,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [],
             "gw": 1,
@@ -41684,7 +41684,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 74,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9
@@ -41747,7 +41747,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2
@@ -42003,7 +42003,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9,
@@ -42047,7 +42047,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -42337,7 +42337,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               9,
@@ -42383,7 +42383,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -42661,7 +42661,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -42684,7 +42684,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               5,
@@ -42730,7 +42730,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 70,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               4,
@@ -43008,7 +43008,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -43031,7 +43031,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 24,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               8,
@@ -43077,7 +43077,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 65,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               3,
@@ -43355,7 +43355,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -43378,7 +43378,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 29,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               11,
@@ -43424,7 +43424,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               3,
@@ -43702,7 +43702,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -43725,7 +43725,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -43794,7 +43794,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 64,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -44072,7 +44072,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 78,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -44118,7 +44118,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 80,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               2,
@@ -44302,7 +44302,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -44396,7 +44396,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -44465,7 +44465,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               0,
@@ -44488,7 +44488,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               5,
@@ -44511,7 +44511,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -44766,7 +44766,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -44812,7 +44812,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -44881,7 +44881,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -44996,7 +44996,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -45402,7 +45402,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -45732,7 +45732,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -46029,7 +46029,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -46351,7 +46351,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -46688,7 +46688,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -47035,7 +47035,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -47382,7 +47382,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -47729,7 +47729,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -48076,7 +48076,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -48423,7 +48423,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -48770,7 +48770,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -49117,7 +49117,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -49786,7 +49786,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -49883,7 +49883,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [],
             "gw": 1,
@@ -50054,7 +50054,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 82,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [],
             "gw": 1,
@@ -50170,7 +50170,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6
@@ -50338,7 +50338,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0
@@ -50619,7 +50619,7 @@
             "multiplier": 2,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -50685,7 +50685,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -50729,7 +50729,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -51049,7 +51049,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -51072,7 +51072,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -51396,7 +51396,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -51419,7 +51419,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -51720,7 +51720,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -51766,7 +51766,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -52090,7 +52090,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               1,
@@ -52113,7 +52113,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -52437,7 +52437,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               5,
@@ -52460,7 +52460,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -52784,7 +52784,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -52807,7 +52807,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -53131,7 +53131,7 @@
             "multiplier": 1,
             "raw_points": -2,
             "minutes": 22,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -53154,7 +53154,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -53501,7 +53501,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 14.9,
+            "owned_pct": 14.8,
             "form": 0.0,
             "recent_form": [
               0,
@@ -53867,7 +53867,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -53936,7 +53936,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -54171,7 +54171,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -54209,7 +54209,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -54247,7 +54247,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -54458,7 +54458,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -54500,7 +54500,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -54542,7 +54542,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -54775,7 +54775,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -54819,7 +54819,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -54863,7 +54863,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -55153,7 +55153,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -55199,7 +55199,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -55360,7 +55360,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -55454,7 +55454,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -55500,7 +55500,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -55569,7 +55569,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -55847,7 +55847,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -55893,7 +55893,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -56054,7 +56054,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -56194,7 +56194,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -56263,7 +56263,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -56401,7 +56401,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -56518,7 +56518,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -56610,7 +56610,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -56888,7 +56888,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 78,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               4,
@@ -56957,7 +56957,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -57235,7 +57235,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               0,
@@ -57304,7 +57304,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -57582,7 +57582,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 12,
-            "owned_pct": 19.9,
+            "owned_pct": 19.8,
             "form": 1.0,
             "recent_form": [
               1,
@@ -57651,7 +57651,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -58255,7 +58255,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -58589,7 +58589,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -58703,7 +58703,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 82,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [],
             "gw": 1,
@@ -58905,7 +58905,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -59010,7 +59010,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0
@@ -59205,7 +59205,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -59337,7 +59337,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -59564,7 +59564,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -59679,7 +59679,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               0,
@@ -59911,7 +59911,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -60026,7 +60026,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               2,
@@ -60258,7 +60258,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -60582,7 +60582,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -60929,7 +60929,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -61276,7 +61276,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -61646,7 +61646,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -61970,7 +61970,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -62439,7 +62439,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -62485,7 +62485,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -62846,7 +62846,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -62998,7 +62998,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -63076,7 +63076,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -63139,7 +63139,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -63437,7 +63437,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -63635,7 +63635,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -63771,7 +63771,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -63978,7 +63978,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -64072,7 +64072,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -64118,7 +64118,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -64488,7 +64488,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -64672,7 +64672,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -64789,7 +64789,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -65019,7 +65019,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -65113,7 +65113,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -65159,7 +65159,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -65460,7 +65460,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -65782,7 +65782,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -65807,7 +65807,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -65853,7 +65853,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -66154,7 +66154,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -66200,7 +66200,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -66715,7 +66715,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -66738,7 +66738,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               5,
@@ -66807,7 +66807,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -66830,7 +66830,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -66968,7 +66968,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -67160,7 +67160,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 27,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [],
             "gw": 1,
@@ -67274,7 +67274,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -67436,7 +67436,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 81,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8
@@ -67583,7 +67583,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -67757,7 +67757,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 65,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -67911,7 +67911,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -68116,7 +68116,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -68254,7 +68254,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -68348,7 +68348,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -68440,7 +68440,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 84,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               14,
@@ -68601,7 +68601,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -68695,7 +68695,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -68787,7 +68787,7 @@
             "multiplier": 1,
             "raw_points": 10,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               3,
@@ -68948,7 +68948,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -69042,7 +69042,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -69065,7 +69065,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -69295,7 +69295,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -69318,7 +69318,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               1,
@@ -69389,7 +69389,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -69412,7 +69412,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               13,
@@ -69504,7 +69504,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -69642,7 +69642,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -69736,7 +69736,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -69759,7 +69759,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -69874,7 +69874,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -69989,7 +69989,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -70083,7 +70083,7 @@
             "multiplier": 2,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -70106,7 +70106,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               4,
@@ -70175,7 +70175,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -70198,7 +70198,7 @@
             "multiplier": 1,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               5,
@@ -70290,7 +70290,7 @@
             "multiplier": 1,
             "raw_points": -2,
             "minutes": 22,
-            "owned_pct": 6.7,
+            "owned_pct": 6.6,
             "form": 3.0,
             "recent_form": [
               4,
@@ -70336,7 +70336,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -70430,7 +70430,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -70453,7 +70453,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               5,
@@ -70522,7 +70522,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -70545,7 +70545,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 8.0,
+            "owned_pct": 8.2,
             "form": 8.8,
             "recent_form": [
               6,
@@ -70683,7 +70683,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -71003,7 +71003,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -71026,7 +71026,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -71391,7 +71391,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -71448,7 +71448,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -71562,7 +71562,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -71682,7 +71682,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -71766,7 +71766,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -71871,7 +71871,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -71979,7 +71979,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -72089,7 +72089,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -72199,7 +72199,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -72312,7 +72312,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -72542,7 +72542,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -72588,7 +72588,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -72636,7 +72636,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -72682,7 +72682,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -72820,7 +72820,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -73029,7 +73029,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -73098,7 +73098,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -73236,7 +73236,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -73353,7 +73353,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -73514,7 +73514,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -73583,7 +73583,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -73723,7 +73723,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -73792,7 +73792,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -73930,7 +73930,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -74024,7 +74024,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -74070,7 +74070,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -74371,7 +74371,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -74417,7 +74417,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -74718,7 +74718,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -74741,7 +74741,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -75273,7 +75273,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -75319,7 +75319,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -75342,7 +75342,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -75526,7 +75526,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -75623,7 +75623,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [],
             "gw": 1,
@@ -75680,7 +75680,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -75775,7 +75775,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -75832,7 +75832,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -75910,7 +75910,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6
@@ -75952,7 +75952,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -76141,7 +76141,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -76183,7 +76183,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               17
@@ -76227,7 +76227,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -76271,7 +76271,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -76469,7 +76469,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -76513,7 +76513,7 @@
             "multiplier": 0,
             "raw_points": 4,
             "minutes": 76,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               17,
@@ -76559,7 +76559,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -76605,7 +76605,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -76812,7 +76812,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -76858,7 +76858,7 @@
             "multiplier": 0,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               17,
@@ -76906,7 +76906,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -76952,7 +76952,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               11,
@@ -76998,7 +76998,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               0,
@@ -77159,7 +77159,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -77253,7 +77253,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -77299,7 +77299,7 @@
             "multiplier": 1,
             "raw_points": 15,
             "minutes": 67,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               4,
@@ -77322,7 +77322,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 81,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               2,
@@ -77506,7 +77506,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -77600,7 +77600,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -77646,7 +77646,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -77669,7 +77669,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -77853,7 +77853,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -77947,7 +77947,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -77970,7 +77970,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -77993,7 +77993,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 22,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -78200,7 +78200,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -78294,7 +78294,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -78317,7 +78317,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -78340,7 +78340,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -78547,7 +78547,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -78641,7 +78641,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -78664,7 +78664,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -78687,7 +78687,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 68,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               6,
@@ -78894,7 +78894,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -78988,7 +78988,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -79034,7 +79034,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               1,
@@ -79057,7 +79057,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -79241,7 +79241,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -79615,7 +79615,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -79638,7 +79638,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -79684,7 +79684,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               5,
@@ -79707,7 +79707,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -79730,7 +79730,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -79868,7 +79868,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -79965,7 +79965,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [],
             "gw": 1,
@@ -79984,7 +79984,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 80,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [],
             "gw": 1,
@@ -80041,7 +80041,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [],
             "gw": 1,
@@ -80174,7 +80174,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [],
             "gw": 1,
@@ -80252,7 +80252,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6
@@ -80273,7 +80273,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9
@@ -80336,7 +80336,7 @@
             "multiplier": 1,
             "raw_points": 11,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2
@@ -80483,7 +80483,7 @@
             "multiplier": 0,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2
@@ -80569,7 +80569,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -80591,7 +80591,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 66,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -80657,7 +80657,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -80811,7 +80811,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -80901,7 +80901,7 @@
             "multiplier": 1,
             "raw_points": 14,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -80924,7 +80924,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 48.5,
+            "owned_pct": 48.4,
             "form": 3.5,
             "recent_form": [
               9,
@@ -80993,7 +80993,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -81154,7 +81154,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -81248,7 +81248,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               6,
@@ -81271,7 +81271,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               0,
@@ -81340,7 +81340,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               11,
@@ -81501,7 +81501,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               1,
@@ -81570,7 +81570,7 @@
             "multiplier": 0,
             "raw_points": 13,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               11,
@@ -81595,7 +81595,7 @@
             "multiplier": 1,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -81618,7 +81618,7 @@
             "multiplier": 1,
             "raw_points": 15,
             "minutes": 67,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               4,
@@ -81664,7 +81664,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               4,
@@ -81687,7 +81687,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -81848,7 +81848,7 @@
             "multiplier": 0,
             "raw_points": 3,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               6,
@@ -81942,7 +81942,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               14,
@@ -81965,7 +81965,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               11,
@@ -82011,7 +82011,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -82034,7 +82034,7 @@
             "multiplier": 1,
             "raw_points": 8,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -82195,7 +82195,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               7,
@@ -82218,7 +82218,7 @@
             "multiplier": 0,
             "raw_points": 0,
             "minutes": 0,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               1,
@@ -82289,7 +82289,7 @@
             "multiplier": 1,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               1,
@@ -82312,7 +82312,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -82358,7 +82358,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               13,
@@ -82404,7 +82404,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -82450,7 +82450,7 @@
             "multiplier": 1,
             "raw_points": 0,
             "minutes": 45,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               8,
@@ -82542,7 +82542,7 @@
             "multiplier": 0,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -82636,7 +82636,7 @@
             "multiplier": 1,
             "raw_points": 5,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               3,
@@ -82659,7 +82659,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 71,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               15,
@@ -82705,7 +82705,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               0,
@@ -82751,7 +82751,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -82797,7 +82797,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 35,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               10,
@@ -82889,7 +82889,7 @@
             "multiplier": 0,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               3,
@@ -82983,7 +82983,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 90,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               9,
@@ -83006,7 +83006,7 @@
             "multiplier": 1,
             "raw_points": 6,
             "minutes": 81,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               6,
@@ -83052,7 +83052,7 @@
             "multiplier": 1,
             "raw_points": 4,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               4,
@@ -83075,7 +83075,7 @@
             "multiplier": 1,
             "raw_points": 2,
             "minutes": 82,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               8,
@@ -83098,7 +83098,7 @@
             "multiplier": 1,
             "raw_points": 9,
             "minutes": 90,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -83236,7 +83236,7 @@
             "multiplier": 0,
             "raw_points": 2,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               2,
@@ -83330,7 +83330,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 69,
-            "owned_pct": 46.9,
+            "owned_pct": 46.8,
             "form": 4.8,
             "recent_form": [
               7,
@@ -83353,7 +83353,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 49.9,
+            "owned_pct": 50.0,
             "form": 4.2,
             "recent_form": [
               1,
@@ -83399,7 +83399,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 90,
-            "owned_pct": 16.6,
+            "owned_pct": 16.5,
             "form": 3.0,
             "recent_form": [
               5,
@@ -83422,7 +83422,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 21,
-            "owned_pct": 17.8,
+            "owned_pct": 17.7,
             "form": 1.5,
             "recent_form": [
               2,
@@ -83445,7 +83445,7 @@
             "multiplier": 1,
             "raw_points": 1,
             "minutes": 20,
-            "owned_pct": 32.6,
+            "owned_pct": 32.5,
             "form": 2.8,
             "recent_form": [
               0,
@@ -83583,7 +83583,7 @@
             "multiplier": 0,
             "raw_points": 7,
             "minutes": 90,
-            "owned_pct": 16.0,
+            "owned_pct": 16.1,
             "form": 6.0,
             "recent_form": [
               9,
@@ -86011,7 +86011,7 @@
               "l": 7
             },
             "score": 32,
-            "projected_total": 35.4,
+            "projected_total": 35.5,
             "yet_to_play": 1,
             "played": 10,
             "win_pct": 0.0
@@ -86030,10 +86030,10 @@
               "l": 4
             },
             "score": 39,
-            "projected_total": 44.6,
+            "projected_total": 44.5,
             "yet_to_play": 1,
             "played": 10,
-            "win_pct": 76.2
+            "win_pct": 75.4
           },
           "b": {
             "name": "Joe Gannitello",
@@ -86044,10 +86044,10 @@
               "l": 3
             },
             "score": 32,
-            "projected_total": 39.6,
+            "projected_total": 39.8,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 23.8
+            "win_pct": 24.6
           },
           "live": true,
           "winner": "a",
@@ -86129,10 +86129,10 @@
               "l": 8
             },
             "score": 31,
-            "projected_total": 42.5,
+            "projected_total": 42.4,
             "yet_to_play": 4,
             "played": 7,
-            "win_pct": 62.4
+            "win_pct": 62.0
           },
           "b": {
             "name": "Iain Abshier",
@@ -86143,10 +86143,10 @@
               "l": 6
             },
             "score": 23,
-            "projected_total": 38.0,
+            "projected_total": 38.3,
             "yet_to_play": 2,
             "played": 9,
-            "win_pct": 37.6
+            "win_pct": 38.0
           },
           "live": true,
           "winner": "a",
@@ -86162,7 +86162,7 @@
               "l": 5
             },
             "score": 42,
-            "projected_total": 50.3,
+            "projected_total": 50.5,
             "yet_to_play": 2,
             "played": 9,
             "win_pct": 100.0
@@ -86195,10 +86195,10 @@
               "l": 7
             },
             "score": 36,
-            "projected_total": 50.2,
+            "projected_total": 50.1,
             "yet_to_play": 3,
             "played": 8,
-            "win_pct": 75.5
+            "win_pct": 74.9
           },
           "b": {
             "name": "Chris Miller",
@@ -86212,7 +86212,7 @@
             "projected_total": 45.0,
             "yet_to_play": 1,
             "played": 10,
-            "win_pct": 24.5
+            "win_pct": 25.1
           },
           "live": true,
           "winner": "b",
@@ -86231,7 +86231,7 @@
             "projected_total": 34.0,
             "yet_to_play": 0,
             "played": 11,
-            "win_pct": 22.0
+            "win_pct": 24.3
           },
           "b": {
             "name": "Kirk Baxter",
@@ -86242,10 +86242,10 @@
               "l": 9
             },
             "score": 21,
-            "projected_total": 41.1,
+            "projected_total": 40.6,
             "yet_to_play": 5,
             "played": 6,
-            "win_pct": 78.0
+            "win_pct": 75.7
           },
           "live": true,
           "winner": "a",
@@ -98828,64 +98828,52 @@
   },
   "price_movers": {
     "available": true,
-    "latest_date": "2026-11-22",
-    "previous_date": "2026-11-21",
+    "latest_date": "2026-11-23",
+    "previous_date": "2026-11-22",
     "risers": [
       {
-        "name": "Evanilson",
-        "club": "BOU",
+        "name": "N.Jackson",
+        "club": "AVL",
         "delta_tenths": 1,
-        "price_tenths": 66
+        "price_tenths": 73
       },
       {
-        "name": "Rogers",
-        "club": "CHE",
+        "name": "Wirtz",
+        "club": "LIV",
         "delta_tenths": 1,
-        "price_tenths": 83
-      },
-      {
-        "name": "Trafford",
-        "club": "LEE",
-        "delta_tenths": 1,
-        "price_tenths": 51
-      },
-      {
-        "name": "Van Hecke",
-        "club": "TOT",
-        "delta_tenths": 1,
-        "price_tenths": 52
+        "price_tenths": 74
       }
     ],
     "fallers": [
       {
-        "name": "Semenyo",
+        "name": "N.Williams",
+        "club": "NFO",
+        "delta_tenths": -1,
+        "price_tenths": 48
+      },
+      {
+        "name": "Heaven",
+        "club": "MUN",
+        "delta_tenths": -1,
+        "price_tenths": 42
+      },
+      {
+        "name": "Maguire",
+        "club": "MUN",
+        "delta_tenths": -1,
+        "price_tenths": 45
+      },
+      {
+        "name": "Cherki",
         "club": "MCI",
         "delta_tenths": -1,
-        "price_tenths": 81
+        "price_tenths": 78
       },
       {
-        "name": "Ndiaye",
+        "name": "Gvardiol",
         "club": "MCI",
         "delta_tenths": -1,
-        "price_tenths": 57
-      },
-      {
-        "name": "Kerkez",
-        "club": "LIV",
-        "delta_tenths": -1,
-        "price_tenths": 52
-      },
-      {
-        "name": "Nmecha",
-        "club": "LEE",
-        "delta_tenths": -1,
-        "price_tenths": 52
-      },
-      {
-        "name": "N\u00fa\u00f1ez",
-        "club": "IPS",
-        "delta_tenths": -1,
-        "price_tenths": 47
+        "price_tenths": 55
       }
     ]
   },
